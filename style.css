@@ -1,624 +1,610 @@
-/*======================================================
-JUMPSHOT COFFEE APP
-Developed by TaDasha Jones
-======================================================*/
+/*==================================================
+ JUMPSHOT COFFEE
+ Official App Stylesheet
+ Designed by TaDasha Jones
+==================================================*/
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/*======================================================
-RESET
-======================================================*/
+/*==================================================
+ RESET
+==================================================*/
 
 *{
 
-    margin:0;
+margin:0;
 
-    padding:0;
+padding:0;
 
-    box-sizing:border-box;
+box-sizing:border-box;
 
 }
 
 html{
 
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 
 }
 
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
+font-family:'Poppins',sans-serif;
 
-    background:#F7F9FB;
+background:#F7F8FA;
 
-    color:#222;
+color:#1B1B1B;
 
-    line-height:1.6;
+overflow-x:hidden;
 
-    overflow-x:hidden;
+line-height:1.6;
 
 }
 
-
-/*======================================================
-COLORS
-======================================================*/
+/*==================================================
+ BRAND COLORS
+==================================================*/
 
 :root{
 
-    --primary:#8ED8F8;
+--primary:#72DCE8;
 
-    --secondary:#58B947;
+--secondary:#3CB371;
 
-    --gold:#FFD54A;
+--brown:#B88A52;
 
-    --black:#171717;
+--gold:#FFD54F;
 
-    --white:#FFFFFF;
+--black:#161616;
 
-    --gray:#F5F5F5;
+--white:#FFFFFF;
 
-    --light:#FAFAFA;
+--gray:#F5F6F8;
 
-    --shadow:0 10px 30px rgba(0,0,0,.12);
+--shadow:0 15px 40px rgba(0,0,0,.15);
 
-    --radius:20px;
+--radius:24px;
 
-    --speed:.35s;
-
-}
-
-
-/*======================================================
-GENERAL
-======================================================*/
-
-img{
-
-    max-width:100%;
-
-    display:block;
+--speed:.35s;
 
 }
 
-a{
+/*==================================================
+ NAVIGATION
+==================================================*/
 
-    text-decoration:none;
+.navbar{
 
-}
+position:sticky;
 
-button{
+top:0;
 
-    font-family:inherit;
+z-index:9999;
 
-    cursor:pointer;
+background:rgba(255,255,255,.97);
 
-}
+backdrop-filter:blur(10px);
 
-/*======================================================
-JUMPSHOT COFFEE APP
-Developed by TaDasha Jones
-======================================================*/
+display:flex;
 
+justify-content:space-between;
 
-/*======================================================
-RESET
-======================================================*/
+align-items:center;
 
-*{
+padding:18px 40px;
 
-    margin:0;
-
-    padding:0;
-
-    box-sizing:border-box;
+box-shadow:var(--shadow);
 
 }
 
-html{
+.logo img{
 
-    scroll-behavior:smooth;
-
-}
-
-body{
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:#F7F9FB;
-
-    color:#222;
-
-    line-height:1.6;
-
-    overflow-x:hidden;
+height:75px;
 
 }
 
+.navbar ul{
 
-/*======================================================
-COLORS
-======================================================*/
+display:flex;
 
-:root{
+gap:28px;
 
-    --primary:#8ED8F8;
+list-style:none;
 
-    --secondary:#58B947;
-
-    --gold:#FFD54A;
-
-    --black:#171717;
-
-    --white:#FFFFFF;
-
-    --gray:#F5F5F5;
-
-    --light:#FAFAFA;
-
-    --shadow:0 10px 30px rgba(0,0,0,.12);
-
-    --radius:20px;
-
-    --speed:.35s;
+align-items:center;
 
 }
 
+.navbar a{
 
-/*======================================================
-GENERAL
-======================================================*/
+color:var(--black);
 
-img{
+font-weight:600;
 
-    max-width:100%;
+text-decoration:none;
 
-    display:block;
-
-}
-
-a{
-
-    text-decoration:none;
+transition:var(--speed);
 
 }
 
-button{
+.navbar a:hover{
 
-    font-family:inherit;
-
-    cursor:pointer;
+color:var(--primary);
 
 }
 
-/*======================================================
-HERO
-======================================================*/
+/*==================================================
+ HERO
+==================================================*/
 
 .coffee-hero{
 
-    min-height:420px;
+min-height:600px;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    text-align:center;
+text-align:center;
 
-    background:
+padding:40px;
 
-    linear-gradient(rgba(0,0,0,.45),
+background:
 
-    rgba(0,0,0,.45)),
+linear-gradient(
 
-    url("images/hero.jpg");
+rgba(0,0,0,.45),
 
-    background-size:cover;
+rgba(0,0,0,.45)
 
-    background-position:center;
+),
 
-    padding:60px 20px;
+url("images/IMG_8.PNG");
+
+background-size:cover;
+
+background-position:center;
 
 }
 
 .coffee-overlay{
 
-    max-width:900px;
+max-width:900px;
+
+}
+
+.coffee-overlay img{
+
+width:260px;
+
+margin:auto;
+
+margin-bottom:30px;
 
 }
 
 .coffee-overlay h1{
 
-    color:white;
+font-size:58px;
 
-    font-size:58px;
+color:white;
 
-    margin-bottom:20px;
+margin-bottom:20px;
+
+font-weight:800;
 
 }
 
 .coffee-overlay p{
 
-    color:white;
+font-size:22px;
 
-    font-size:22px;
+color:white;
 
-}
-
-/*======================================================
-CATEGORY CARDS
-======================================================*/
-
-.category-grid{
-
-    width:100%;
-
-    max-width:1300px;
-
-    margin:70px auto;
-
-    padding:20px;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
+margin-bottom:35px;
 
 }
 
-.category-card{
+/*==================================================
+ SEARCH BAR
+==================================================*/
 
-    background:var(--white);
+.search-container{
 
-    border-radius:var(--radius);
+max-width:700px;
 
-    padding:30px;
+margin:40px auto;
 
-    text-align:center;
+display:flex;
 
-    box-shadow:var(--shadow);
+background:white;
 
-    transition:var(--speed);
+border-radius:50px;
 
-}
+overflow:hidden;
 
-.category-card:hover{
-
-    transform:translateY(-10px);
-
-}
-
-.category-card img{
-
-    width:95px;
-
-    height:95px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    margin:auto;
-
-    margin-bottom:20px;
+box-shadow:var(--shadow);
 
 }
 
-.category-card h2{
+.search-container input{
 
-    margin-bottom:12px;
+flex:1;
 
-    font-size:24px;
+border:none;
+
+padding:18px 25px;
+
+font-size:17px;
+
+outline:none;
+
+font-family:'Poppins',sans-serif;
 
 }
 
-.category-card p{
+.search-container button{
 
-    color:#666;
+width:70px;
+
+border:none;
+
+background:var(--primary);
+
+font-size:24px;
+
+cursor:pointer;
+
+transition:.3s;
 
 }
 
-/*======================================================
-FEATURED SECTION
-======================================================*/
+.search-container button:hover{
+
+background:var(--secondary);
+
+color:white;
+
+}
+
+/*==================================================
+ FEATURED DRINK
+==================================================*/
 
 .feature-section{
 
-    max-width:1300px;
+max-width:1400px;
 
-    margin:auto;
+margin:auto;
 
-    padding:70px 20px;
-
-}
-
-.feature-title{
-
-    text-align:center;
-
-    font-size:42px;
-
-    margin-bottom:15px;
-
-    color:var(--black);
-
-}
-
-.feature-subtitle{
-
-    text-align:center;
-
-    color:#666;
-
-    margin-bottom:50px;
-
-    font-size:20px;
+padding:80px 20px;
 
 }
 
 .feature-card{
 
-    background:var(--white);
+display:grid;
 
-    border-radius:var(--radius);
+grid-template-columns:1fr 1fr;
 
-    overflow:hidden;
+background:white;
 
-    box-shadow:var(--shadow);
+border-radius:30px;
 
-    transition:var(--speed);
+overflow:hidden;
 
-}
-
-.feature-card:hover{
-
-    transform:scale(1.02);
+box-shadow:var(--shadow);
 
 }
 
 .feature-card img{
 
-    width:100%;
+width:100%;
 
-    height:320px;
+height:100%;
 
-    object-fit:cover;
-
-}
-
-.feature-card-content{
-
-    padding:30px;
+object-fit:cover;
 
 }
 
-.feature-card-content h3{
+.feature-content{
 
-    font-size:28px;
+padding:45px;
 
-    margin-bottom:15px;
+display:flex;
 
-}
+flex-direction:column;
 
-.feature-card-content p{
-
-    color:#666;
-
-    margin-bottom:25px;
+justify-content:center;
 
 }
 
-/*======================================================
-MENU CARDS
-======================================================*/
+.feature-content h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+.feature-content p{
+
+font-size:18px;
+
+color:#666;
+
+margin-bottom:30px;
+
+}
+
+/*==================================================
+ CATEGORY CARDS
+==================================================*/
+
+.category-grid{
+
+max-width:1400px;
+
+margin:auto;
+
+padding:80px 20px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.category-card{
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.category-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.category-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+.category-card h3{
+
+padding:20px;
+
+font-size:24px;
+
+}
+
+.category-card p{
+
+padding:0 20px 25px;
+
+color:#666;
+
+}
+
+/*==================================================
+ BUTTONS
+==================================================*/
+
+.menu-btn,
+
+.drink-button{
+
+display:inline-block;
+
+padding:16px 35px;
+
+background:var(--primary);
+
+color:var(--black);
+
+font-weight:700;
+
+font-size:17px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.menu-btn:hover,
+
+.drink-button:hover{
+
+background:var(--secondary);
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+.featured-badge{
+
+display:inline-block;
+
+background:var(--gold);
+
+padding:8px 18px;
+
+border-radius:40px;
+
+font-size:14px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+/*==================================================
+ MENU CARDS
+==================================================*/
 
 .menu-section{
 
-    max-width:1300px;
+max-width:1400px;
 
-    margin:auto;
+margin:auto;
 
-    padding:70px 20px;
+padding:80px 20px;
 
 }
 
 .drink-card{
 
-    display:flex;
+display:grid;
 
-    align-items:center;
+grid-template-columns:350px 1fr;
 
-    gap:40px;
+background:var(--white);
 
-    background:var(--white);
+border-radius:30px;
 
-    border-radius:var(--radius);
+overflow:hidden;
 
-    padding:30px;
+margin-bottom:45px;
 
-    margin-bottom:40px;
+box-shadow:var(--shadow);
 
-    box-shadow:var(--shadow);
-
-    transition:var(--speed);
+transition:var(--speed);
 
 }
 
 .drink-card:hover{
 
-    transform:translateY(-8px);
+transform:translateY(-8px);
 
 }
 
 .drink-image{
 
-    flex:1;
+overflow:hidden;
 
 }
 
 .drink-image img{
 
-    width:100%;
+width:100%;
 
-    max-width:320px;
+height:100%;
 
-    border-radius:18px;
+object-fit:cover;
+
+transition:.4s;
+
+}
+
+.drink-card:hover img{
+
+transform:scale(1.08);
 
 }
 
 .drink-details{
 
-    flex:2;
+padding:40px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
 
 }
 
 .drink-details h2{
 
-    font-size:34px;
+font-size:36px;
 
-    margin-bottom:15px;
-
-    color:var(--black);
+margin-bottom:18px;
 
 }
 
-.drink-description{
+.drink-details p{
 
-    color:#666;
+color:#666;
 
-    font-size:18px;
+margin-bottom:20px;
 
-    margin-bottom:25px;
-
-}
-
-/*======================================================
-BADGES & SIZE BOXES
-======================================================*/
-
-.featured-badge{
-
-    display:inline-block;
-
-    background:var(--primary);
-
-    color:var(--black);
-
-    padding:8px 18px;
-
-    border-radius:50px;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    margin-bottom:18px;
+font-size:17px;
 
 }
+
+/*==================================================
+ SIZES & FORMS
+==================================================*/
 
 .drink-sizes{
 
-    display:flex;
+display:flex;
 
-    flex-wrap:wrap;
+flex-wrap:wrap;
 
-    gap:18px;
+gap:18px;
 
-    margin-bottom:30px;
+margin:25px 0;
 
 }
 
 .size-box{
 
-    min-width:140px;
+flex:1;
 
-    background:var(--gray);
+min-width:120px;
 
-    padding:18px;
+padding:18px;
 
-    border-radius:16px;
+background:var(--gray);
 
-    text-align:center;
+border-radius:18px;
 
-    transition:var(--speed);
+text-align:center;
+
+cursor:pointer;
+
+transition:.35s;
 
 }
 
 .size-box:hover{
 
-    background:var(--secondary);
+background:var(--primary);
 
-    color:white;
-
-}
-
-.size-box h3{
-
-    margin-bottom:10px;
+transform:translateY(-5px);
 
 }
-
-.size-box span{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-}
-
-/*======================================================
-BUTTONS
-======================================================*/
-
-.drink-button,
-.menu-btn{
-
-    display:inline-block;
-
-    background:var(--secondary);
-
-    color:white;
-
-    padding:16px 35px;
-
-    border:none;
-
-    border-radius:50px;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-    transition:var(--speed);
-
-}
-
-.drink-button:hover,
-.menu-btn:hover{
-
-    background:#46963A;
-
-    transform:translateY(-3px);
-
-}
-
-.menu-buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-/*======================================================
-FORMS
-======================================================*/
 
 .login-input,
 
@@ -626,21 +612,23 @@ textarea,
 
 select{
 
-    width:100%;
+width:100%;
 
-    padding:16px;
+padding:18px;
 
-    border:2px solid #DDDDDD;
+margin-bottom:18px;
 
-    border-radius:15px;
+border:2px solid #E2E2E2;
 
-    font-size:16px;
+border-radius:18px;
 
-    outline:none;
+font-size:16px;
 
-    transition:var(--speed);
+font-family:'Poppins',sans-serif;
 
-    background:white;
+outline:none;
+
+transition:.3s;
 
 }
 
@@ -650,209 +638,179 @@ textarea:focus,
 
 select:focus{
 
-    border-color:var(--primary);
+border-color:var(--primary);
+
+box-shadow:0 0 12px rgba(114,220,232,.4);
 
 }
 
-label{
+/*==================================================
+ CART
+==================================================*/
 
-    font-weight:bold;
+.cart-page{
 
-}
+max-width:1200px;
 
-/*======================================================
-DASHBOARD CARDS
-======================================================*/
+margin:auto;
 
-.cart-page,
-
-.profile-page,
-
-.rewards-page{
-
-    max-width:1300px;
-
-    margin:auto;
-
-    padding:70px 20px;
+padding:80px 20px;
 
 }
 
 .summary-card{
 
-    background:white;
+background:white;
 
-    border-radius:var(--radius);
+padding:35px;
 
-    padding:35px;
+border-radius:25px;
 
-    box-shadow:var(--shadow);
+box-shadow:var(--shadow);
 
-    margin-bottom:30px;
+margin-bottom:30px;
 
 }
 
 .summary-card h2{
 
-    margin-bottom:20px;
+margin-bottom:20px;
 
 }
 
-progress{
+.cart-total{
 
-    width:100%;
+font-size:30px;
 
-    height:30px;
+font-weight:700;
 
-    margin:20px 0;
+color:var(--secondary);
 
-}
-
-/*======================================================
-FOOTER
-======================================================*/
-
-.menu-footer{
-
-    background:var(--black);
-
-    color:var(--white);
-
-    text-align:center;
-
-    padding:60px 20px;
-
-    margin-top:60px;
+margin-top:20px;
 
 }
 
-.menu-footer h3{
+/*==================================================
+ REWARDS
+==================================================*/
 
-    font-size:34px;
+.reward-card{
 
-    margin-bottom:20px;
+background:linear-gradient(135deg,#FFD54F,#F4B400);
 
-}
+padding:35px;
 
-.menu-footer p{
+border-radius:25px;
 
-    margin:10px 0;
+color:#222;
 
-    color:#DDDDDD;
+box-shadow:var(--shadow);
 
-}
-
-.back-menu{
-
-    text-align:center;
-
-    padding:70px 20px;
-
-    background:var(--gray);
+margin-bottom:30px;
 
 }
 
-.back-menu h2{
+.reward-card h2{
 
-    font-size:42px;
+font-size:32px;
 
-    margin-bottom:20px;
-
-}
-
-.back-menu p{
-
-    color:#666;
-
-    margin-bottom:30px;
+margin-bottom:15px;
 
 }
 
-/*======================================================
-MOBILE
-======================================================*/
+.reward-points{
 
-@media(max-width:900px){
+font-size:58px;
 
-.navbar{
-
-flex-direction:column;
-
-padding:20px;
+font-weight:800;
 
 }
 
-.navbar nav ul{
+.profile-card{
 
-flex-wrap:wrap;
+background:white;
 
-justify-content:center;
+padding:35px;
 
-gap:18px;
+border-radius:25px;
 
-margin-top:15px;
-
-}
-
-.drink-card{
-
-flex-direction:column;
+box-shadow:var(--shadow);
 
 text-align:center;
 
 }
 
-.drink-image img{
+.profile-card img{
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
 
 margin:auto;
 
-max-width:280px;
+margin-bottom:20px;
 
 }
 
-.drink-sizes{
+/*==================================================
+ BOTTOM NAVIGATION
+==================================================*/
 
-justify-content:center;
+.bottom-nav{
 
-}
+position:fixed;
 
-}
+bottom:0;
 
-@media(max-width:600px){
-
-.coffee-overlay h1{
-
-font-size:36px;
-
-}
-
-.coffee-overlay p{
-
-font-size:18px;
-
-}
-
-.drink-details h2{
-
-font-size:28px;
-
-}
-
-.drink-button,
-
-.menu-btn{
+left:0;
 
 width:100%;
 
-text-align:center;
+background:#111;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:15px 0;
+
+box-shadow:0 -6px 20px rgba(0,0,0,.25);
+
+z-index:9999;
 
 }
 
+.bottom-nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:14px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+transition:.3s;
+
 }
 
-/*======================================================
-ANIMATIONS
-======================================================*/
+.bottom-nav a:hover{
+
+color:var(--primary);
+
+}
+
+/*==================================================
+ ANIMATIONS
+==================================================*/
 
 @keyframes fadeUp{
 
@@ -874,71 +832,21 @@ transform:translateY(0);
 
 }
 
-.drink-card{
+.drink-card,
 
-animation:fadeUp .6s ease;
+.category-card,
 
-}
-
-.category-card{
+.feature-card{
 
 animation:fadeUp .8s ease;
 
 }
 
-.feature-card{
+img{
 
-animation:fadeUp 1s ease;
+max-width:100%;
 
-}
-
-.drink-image img{
-
-transition:.35s;
-
-}
-
-.drink-image img:hover{
-
-transform:scale(1.05);
-
-}
-
-/*======================================================
-UTILITIES
-======================================================*/
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#EEEEEE;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--secondary);
-
-border-radius:30px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#46963A;
-
-}
-
-::selection{
-
-background:var(--primary);
-
-color:var(--black);
+display:block;
 
 }
 
@@ -948,82 +856,90 @@ text-align:center;
 
 }
 
-.mt-20{
-
-margin-top:20px;
-
-}
-
-.mb-20{
-
-margin-bottom:20px;
-
-}
-
 .hidden{
 
 display:none;
 
 }
 
-/*======================================================
-FINAL POLISH
-======================================================*/
+/*==================================================
+ MOBILE
+==================================================*/
 
-.card{
+@media(max-width:900px){
 
-background:var(--white);
+.navbar{
 
-border-radius:var(--radius);
+flex-direction:column;
 
-box-shadow:var(--shadow);
-
-padding:30px;
+padding:20px;
 
 }
 
-section{
+.navbar ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:15px;
+
+}
+
+.feature-card{
+
+grid-template-columns:1fr;
+
+}
+
+.drink-card{
+
+grid-template-columns:1fr;
+
+}
+
+.category-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.bottom-nav{
+
+padding:12px 0;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.coffee-overlay h1{
+
+font-size:38px;
+
+}
+
+.coffee-overlay p{
+
+font-size:18px;
+
+}
+
+.feature-content h2{
+
+font-size:30px;
+
+}
+
+.menu-btn,
+
+.drink-button{
 
 width:100%;
 
-}
-
-input,
-
-textarea,
-
-button{
-
-transition:var(--speed);
+text-align:center;
 
 }
-
-button:active{
-
-transform:scale(.97);
-
-}
-
-.drink-card,
-
-.category-card,
-
-.feature-card,
-
-.summary-card{
-
-border:1px solid rgba(0,0,0,.05);
-
-}
-
-hr{
-
-border:none;
-
-height:1px;
-
-background:#E5E5E5;
-
-margin:30px 0;
 
 }
