@@ -7,55 +7,65 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shopping Cart | JumpShot Coffee</title>
+<title>My Cart | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#8ED8F8">
+<meta name="theme-color" content="#72DCE8">
+
+<link rel="icon" href="images/IMG_logo.PNG">
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="header">
 
 <div class="logo">
 
 <a href="index.html">
 
-<img src="images/logo.png" alt="JumpShot Coffee Logo">
+<img src="images/IMG_logo.PNG" alt="JumpShot Coffee Logo">
 
 </a>
 
 </div>
 
-<nav>
+<nav class="header-icons">
 
-<ul>
+<button class="icon-btn">☰</button>
 
-<li><a href="index.html">Home</a></li>
+<a href="rewards.html">
 
-<li><a href="traditional.html">Menu</a></li>
+<button class="icon-btn">🏀</button>
 
-<li><a href="rewards.html">Rewards</a></li>
-
-<li><a href="profile.html">Profile</a></li>
-
-</ul>
+</a>
 
 </nav>
 
 </header>
 
-<section class="coffee-hero">
+<section class="page-hero">
 
-<div class="coffee-overlay">
+<img src="images/IMG_1.PNG"
 
-<h1>🛒 Your Cart</h1>
+class="page-banner"
+
+alt="Shopping Cart">
+
+<div class="page-overlay">
+
+<h1>My Cart</h1>
 
 <p>
 
-Review your order before checking out.
+Review your order before checkout.
 
 </p>
 
@@ -63,107 +73,39 @@ Review your order before checking out.
 
 </section>
 
-<section class="menu-section">
+<section class="cart-section">
 
-  <!-- ==========================
-YOUR ORDER
-========================== -->
-
-<div class="drink-card">
-
-<div class="drink-details">
+<div class="section-title">
 
 <h2>Your Order</h2>
 
 <p>
 
-Your selected drinks and food items will appear here.
+Items added to your cart will appear below.
 
 </p>
 
-<div id="cartItems">
-
-<p>Your cart is currently empty.</p>
-
 </div>
 
-</div>
+<div id="cartItems" class="cart-items">
 
-</div>
+<div class="empty-cart">
 
-  <!-- ==========================
-ORDER SUMMARY
-========================== -->
+<h3>Your cart is empty.</h3>
 
-<div class="drink-card">
+<p>
 
-<div class="drink-details">
+Browse the menu and add your favorite drinks and food.
 
-<h2>Order Summary</h2>
+</p>
 
-<p><strong>Subtotal:</strong> $0.00</p>
+<a href="traditional.html">
 
-<p><strong>Tax:</strong> $0.00</p>
+<button class="order-btn">
 
-<p><strong>Total:</strong> $0.00</p>
-
-<button class="drink-button">
-
-Update Cart
+☕ Browse Menu
 
 </button>
-
-</div>
-
-</div>
-
-<!-- ==========================
-REWARDS
-========================== -->
-
-<div class="drink-card">
-
-<div class="drink-details">
-
-<h2>⭐ JumpShot Rewards</h2>
-
-<p>
-
-You'll earn rewards points on every purchase.
-
-</p>
-
-<p>
-
-Current Reward Points:
-
-<strong>0</strong>
-
-</p>
-
-</div>
-
-</div>
-
-  <!-- ==========================
-CHECKOUT
-========================== -->
-
-<div class="drink-card">
-
-<div class="drink-details">
-
-<h2>Ready to Checkout?</h2>
-
-<p>
-
-Proceed securely to checkout when you're ready.
-
-</p>
-
-<a href="checkout.html" class="menu-btn">
-
-Proceed to Checkout →
 
 </a>
 
@@ -171,23 +113,97 @@ Proceed to Checkout →
 
 </div>
 
-  </section>
+</section>
 
-<section class="back-menu">
+  <section class="cart-summary">
 
-<h2>Need Anything Else?</h2>
+<div class="summary-card">
+
+<h2>Order Summary</h2>
+
+<div class="summary-row">
+
+<span>Items</span>
+
+<span id="cartCount">0</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>Subtotal</span>
+
+<span id="subtotal">$0.00</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>Estimated Shots</span>
+
+<span id="estimatedShots">0</span>
+
+</div>
+
+<div class="summary-total">
+
+<span>Total</span>
+
+<span id="cartTotal">$0.00</span>
+
+</div>
+
+<button class="checkout-btn">
+
+Proceed to Checkout
+
+</button>
+
+</div>
+
+</section>
+
+<section class="cart-rewards">
+
+<div class="reward-card">
+
+<img src="images/IMG_rewards.PNG"
+
+class="reward-logo"
+
+alt="JumpShot Rewards">
+
+<h2>
+
+Earn More Shots
+
+</h2>
 
 <p>
 
-Browse our menu and add more of your favorite drinks.
+Every purchase adds Shots to your JumpShot Rewards account.
 
 </p>
 
-<div class="menu-buttons">
+<div class="progress-bar">
 
-<a href="traditional.html" class="menu-btn">
+<div id="progressFill"></div>
 
-☕ Continue Shopping
+</div>
+
+<p>
+
+Keep ordering to unlock your next reward.
+
+</p>
+
+<a href="rewards.html">
+
+<button class="rewards-btn">
+
+View Rewards
+
+</button>
 
 </a>
 
@@ -195,23 +211,139 @@ Browse our menu and add more of your favorite drinks.
 
 </section>
 
-<footer class="menu-footer">
+<section class="visit">
+
+<div class="section-title">
+
+<h2>Need Help?</h2>
+
+<p>
+
+We're here to help with your order.
+
+</p>
+
+</div>
+
+<div class="visit-card">
+
+<img src="images/IMG_8.PNG"
+
+class="store-photo"
+
+alt="JumpShot Coffee">
 
 <h3>JumpShot Coffee</h3>
 
-<p>Where exceptional coffee meets exceptional service.</p>
+<p>
 
-<p>Crafting only the highest quality coffee.</p>
+📍 734 S Fleishel Ave
 
-<p>📍 734 S Fleishel Ave, Tyler, TX 75701</p>
+<br>
 
-<p>📞 (903) 352-3443</p>
+Tyler, TX 75701
 
-<p>🕖 Open Daily • 7:00 AM – 4:00 PM</p>
+</p>
+
+<p>
+
+📞 (903) 352-3443
+
+</p>
+
+<p>
+
+🕖 Monday – Sunday
+
+<br>
+
+7:00 AM – 4:00 PM
+
+</p>
+
+<a href="contact.html">
+
+<button class="call-btn">
+
+Contact Us
+
+</button>
+
+</a>
+
+</div>
+
+</section>  
+
+  <!--=====================================
+FOOTER
+======================================-->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-logo">
+
+<img src="images/IMG_logo.PNG"
+
+alt="JumpShot Coffee Logo">
+
+<p>
+
+Where exceptional coffee meets exceptional service.
+
+</p>
+
+<p>
+
+Crafting only the highest quality coffee.
+
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+
+<a href="traditional.html">Menu</a>
+
+<a href="rewards.html">Rewards</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div class="footer-contact">
+
+<h3>Contact</h3>
+
+<p>734 S Fleishel Ave</p>
+
+<p>Tyler, TX 75701</p>
+
+<p>(903) 352-3443</p>
+
+<p>Monday –Sunday</p>
+
+<p>7:00 AM – 4:00 PM</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 JumpShot Coffee • All Rights Reserved.
+
+</div>
 
 </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
