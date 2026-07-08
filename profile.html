@@ -9,183 +9,247 @@
 
 <title>My Profile | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#8ED8F8">
+<meta name="theme-color" content="#72DCE8">
+
+<link rel="icon" href="images/IMG_logo.PNG">
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="header">
 
 <div class="logo">
 
 <a href="index.html">
 
-<img src="images/logo.png" alt="JumpShot Coffee">
+<img src="images/IMG_logo.PNG" alt="JumpShot Coffee Logo">
 
 </a>
 
 </div>
 
-<nav>
+<nav class="header-icons">
 
-<ul>
+<button class="icon-btn">☰</button>
 
-<li><a href="index.html">Home</a></li>
+<a href="cart.html">
 
-<li><a href="rewards.html">Rewards</a></li>
+<button class="icon-btn">🛒</button>
 
-<li><a href="cart.html">Cart</a></li>
-
-<li><a href="favorites.html">Favorites</a></li>
-
-</ul>
+</a>
 
 </nav>
 
 </header>
 
-<section class="coffee-hero">
+<section class="page-hero">
 
-<div class="coffee-overlay">
+<img src="images/IMG_8.PNG"
 
-<h1>👤 My Profile</h1>
+class="page-banner"
+
+alt="Profile">
+
+<div class="page-overlay">
+
+<h1>My Profile</h1>
 
 <p>
 
-Manage your account, rewards, favorites, and recent orders all in one place.
+Manage your JumpShot Rewards account.
 
 </p>
 
 </div>
 
-<!-- ==========================
-     CUSTOMER PROFILE
-========================== -->
+</section>
 
-<div class="drink-card">
+ <section class="profile-section">
 
-<div class="drink-details">
+<div class="profile-card">
 
-<h2>Customer Information</h2>
+<img src="images/IMG_rewards.PNG"
 
-<p><strong>Name:</strong> Guest User</p>
+class="reward-logo"
 
-<p><strong>Email:</strong> guest@email.com</p>
+alt="Profile">
 
-<p><strong>Phone:</strong> (000) 000-0000</p>
+<h2>
 
-<p><strong>Member Since:</strong> 2026</p>
+Welcome!
 
-<button class="drink-button">
+</h2>
 
-Edit Profile
+<p>
+
+Your JumpShot Rewards information will appear here.
+
+</p>
+
+</div>
+
+<div class="profile-card">
+
+<h3>Name</h3>
+
+<p id="customerName">
+
+Guest
+
+</p>
+
+<h3>Email</h3>
+
+<p id="customerEmail">
+
+Not Available
+
+</p>
+
+</div>
+
+</section>
+
+   <section class="profile-stats">
+
+<div class="stat-card">
+
+<h2>Current Shots</h2>
+
+<h1 id="shotCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Reward Level</h2>
+
+<h3>
+
+Rookie Shooter
+
+</h3>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Favorite Items</h2>
+
+<h3 id="favoriteCount">
+
+0
+
+</h3>
+
+</div>
+
+</section>
+
+<section class="profile-actions">
+
+<a href="rewards.html">
+
+<button class="rewards-btn">
+
+🏀 View Rewards
 
 </button>
 
-</div>
+</a>
 
-</div>
+<a href="cart.html">
 
-<!-- ==========================
-     REWARDS SUMMARY
-========================== -->
+<button class="order-btn">
 
-<div class="drink-card">
-
-<div class="drink-details">
-
-<h2>🏀 JumpShot Rewards</h2>
-
-<h1>0 Points</h1>
-
-<p>
-
-Earn points with every purchase and redeem them for free drinks.
-
-</p>
-
-<button class="drink-button">
-
-View Rewards
+🛒 View Cart
 
 </button>
 
-</div>
+</a>
 
-</div>
+<a href="traditional.html">
 
-<!-- ==========================
-     FAVORITE DRINKS
-========================== -->
-
-<div class="drink-card">
-
-<div class="drink-details">
-
-<h2>❤️ Favorite Drinks</h2>
-
-<p>
-
-You haven't saved any favorite drinks yet.
-
-</p>
-
-<button class="drink-button">
-
-Browse Menu
-
-</button>
-
-</div>
-
-</div>
-
- <!-- ==========================
-     RECENT ORDERS
-========================== -->
-
-<div class="drink-card">
-
-<div class="drink-details">
-
-<h2>🛒 Recent Orders</h2>
-
-<p>
-
-No recent orders found.
-
-</p>
-
-<button class="drink-button">
-
-Order Now
-
-</button>
-
-</div>
-
-</div>
-
-  </section>
-
-<section class="back-menu">
-
-<h2>Ready for Your Next Coffee?</h2>
-
-<p>
-
-Visit the menu and order your JumpShot favorites.
-
-</p>
-
-<div class="menu-buttons">
-
-<a href="traditional.html" class="menu-btn">
+<button class="secondary-btn">
 
 ☕ Browse Menu
+
+</button>
+
+</a>
+
+</section>
+
+<section class="visit">
+
+<div class="section-title">
+
+<h2>Need Assistance?</h2>
+
+<p>
+
+We're always happy to help.
+
+</p>
+
+</div>
+
+<div class="visit-card">
+
+<img src="images/IMG_8.PNG"
+
+class="store-photo"
+
+alt="JumpShot Coffee">
+
+<h3>JumpShot Coffee</h3>
+
+<p>
+
+📍 734 S Fleishel Ave
+
+<br>
+
+Tyler, TX 75701
+
+</p>
+
+<p>
+
+📞 (903) 352-3443
+
+</p>
+
+<p>
+
+🕖 Monday – Sunday
+
+<br>
+
+7:00 AM – 4:00 PM
+
+</p>
+
+<a href="contact.html">
+
+<button class="call-btn">
+
+Contact Us
+
+</button>
 
 </a>
 
@@ -193,15 +257,23 @@ Visit the menu and order your JumpShot favorites.
 
 </section>
 
-<footer class="menu-footer">
+<!--=====================================
+FOOTER
+======================================-->
 
-<h3>JumpShot Coffee</h3>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-logo">
+
+<img src="images/IMG_logo.PNG"
+
+alt="JumpShot Coffee Logo">
 
 <p>
 
-Where exceptional coffee meets exceptional service.
-
-</p>
+Where exceptional coffee meets exceptional service.</p>
 
 <p>
 
@@ -209,14 +281,72 @@ Crafting only the highest quality coffee.
 
 </p>
 
+</div>
+
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+
+<a href="traditional.html">Menu</a>
+
+<a href="rewards.html">Rewards</a>
+
+<a href="cart.html">Cart</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div class="footer-contact">
+
+<h3>Visit Us</h3>
+
+<p>
+
+734 S Fleishel Ave
+
+</p>
+
+<p>
+
+Tyler, TX 75701
+
+</p>
+
+<p>
+
+(903) 352-3443
+
+</p>
+
+<p>
+
+Monday – Sunday
+
+</p>
+
+<p>
+
+7:00 AM – 4:00 PM
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 JumpShot Coffee • All Rights Reserved.
+
+</div>
+
 </footer>
 
-<script src="script.js"></script>
+ <script src="script.js"></script>
 
 </body>
 
-</html>
-
-</section>
-
-<section class="menu-section">
+</html>    
