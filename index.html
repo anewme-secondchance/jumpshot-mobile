@@ -29,29 +29,65 @@
 
 <div class="logo">
 
-<img src="images/IMG_logo.PNG" alt="JumpShot Coffee">
+<a href="index.html">
+
+<img src="images/IMG_logo.PNG" alt="JumpShot Coffee Logo">
+
+</a>
 
 </div>
 
 <nav class="header-icons">
 
-<button class="icon-btn">☰</button>
+<button class="icon-btn" id="menuBtn">☰</button>
 
-<button class="icon-btn">🛒</button>
+<a href="cart.html">
+
+<button class="icon-btn">
+
+🛒
+
+</button>
+
+</a>
 
 </nav>
 
 </header>
 
+ <!--=====================================
+HERO
+======================================-->
+
 <section class="hero">
+
+<div class="hero-slider">
+
+<img src="images/IMG_1.PNG" class="slide active">
+
+<img src="images/IMG_5.PNG" class="slide">
+
+<img src="images/IMG_7.PNG" class="slide">
+
+<img src="images/IMG_8.PNG" class="slide">
+
+<img src="images/IMG_10.PNG" class="slide">
+
+<img src="images/IMG_15.PNG" class="slide">
+
+</div>
 
 <div class="hero-overlay">
 
 <img src="images/IMG_logo.PNG"
 class="hero-logo"
-alt="JumpShot Coffee Logo">
+alt="JumpShot Coffee">
 
-<h1>Welcome to JumpShot Coffee</h1>
+<h1>
+
+Welcome to JumpShot Coffee
+
+</h1>
 
 <p class="hero-slogan">
 
@@ -65,174 +101,230 @@ Crafting only the highest quality coffee.
 
 </p>
 
+<div class="hero-buttons">
+
+<a href="traditional.html">
+
 <button class="order-btn">
 
-Start Your Order
+Order Now
 
 </button>
+
+</a>
+
+<a href="rewards.html">
+
+<button class="secondary-btn">
+
+🏀 Rewards
+
+</button>
+
+</a>
+
+</div>
 
 </div>
 
 </section>
 
+<!--=====================================
+ROAD TO THE NEXT SHOT
+======================================-->
+
+<section class="next-shot">
+
+<div class="next-shot-card">
+
+<img src="images/IMG_rewards.PNG"
+class="reward-logo"
+alt="Rewards">
+
+<div class="reward-info">
+
+<h2>
+
+🏀 Road to the Next Shot
+
+</h2>
+
+<p>
+
+Current Shots
+
+</p>
+
+<h1 id="shotCount">
+
+0
+
+</h1>
+
+<div class="progress-bar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<p>
+
+500 Shots earns your first FREE Coffee!
+
+</p>
+
+<a href="rewards.html">
+
+<button class="rewards-btn">
+
+Keep Shooting
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+MENU
+======================================-->
+
 <section class="categories">
 
 <div class="section-title">
 
-<h2>What Are You Craving?</h2>
+<h2>Explore Our Menu</h2>
 
-<p>Freshly crafted drinks and food made just for you.</p>
+<p>
+
+Freshly crafted drinks and food made just for you.
+
+</p>
 
 </div>
 
 <div class="category-grid">
 
 <a href="traditional.html" class="category-card">
-
-<img src="images/IMG_15.PNG" alt="Traditional Coffee">
-
+☕
 <h3>Traditional Coffee</h3>
-
-<p>Fresh brewed favorites.</p>
-
 </a>
 
 <a href="house-specialties.html" class="category-card">
+🏀
+<h3>House Specialties</h3>
+</a>
+
+<a href="matcha.html" class="category-card">
+🍵
+<h3>Matcha</h3>
+</a>
+
+<a href="frappes.html" class="category-card">
+🥤
+<h3>Frappes</h3>
+</a>
+
+<a href="smoothies.html" class="category-card">
+🍓
+<h3>Smoothies</h3>
+</a>
+
+<a href="tea.html" class="category-card">
+🍋
+<h3>Tea</h3>
+</a>
+
+<a href="lotus.html" class="category-card">
+⚡
+<h3>Lotus Energizers</h3>
+</a>
+
+<a href="hot-teas.html" class="category-card">
+🍃
+<h3>Hot Teas</h3>
+</a>
+
+<a href="food.html" class="category-card">
+🥐
+<h3>Food</h3>
+</a>
+
+<a href="bagged-coffee.html" class="category-card">
+☕
+<h3>Bagged Coffee</h3>
+</a>
+
+<a href="july-specials.html" class="category-card">
+⭐
+<h3>July Specials</h3>
+</a>
+
+</div>
+
+</section>
+
+<!--=====================================
+FEATURED DRINKS
+======================================-->
+
+<section class="featured">
+
+<div class="section-title">
+
+<h2>Customer Favorites</h2>
+
+<p>
+
+Freshly handcrafted favorites our customers love.
+
+</p>
+
+</div>
+
+<div class="featured-grid">
+
+<div class="featured-card">
 
 <img src="images/IMG_5.PNG" alt="House Specialties">
 
 <h3>House Specialties</h3>
 
-<p>JumpShot signature drinks.</p>
+<p>
+
+Discover JumpShot's signature handcrafted drinks.
+
+</p>
+
+<a href="house-specialties.html">
+
+<button class="order-btn-small">
+
+🏀 Take the Shot
+
+</button>
 
 </a>
 
-<a href="matcha-specialties.html" class="category-card">
+</div>
 
-<img src="images/IMG_3.PNG" alt="Matcha">
-
-<h3>Matcha</h3>
-
-<p>Premium Matcha creations.</p>
-
-</a>
-
-<a href="frappes.html" class="category-card">
+<div class="featured-card">
 
 <img src="images/IMG_10.PNG" alt="Frappes">
 
 <h3>Frappes</h3>
 
-<p>Cold blended favorites.</p>
-
-</a>
-
-<a href="smoothies.html" class="category-card">
-
-<img src="images/IMG_2.PNG" alt="Smoothies">
-
-<h3>Smoothies</h3>
-
-<p>Fruit smoothies made fresh.</p>
-
-</a>
-
-<a href="lotus-energizers.html" class="category-card">
-
-<img src="images/IMG_16.PNG" alt="Lotus">
-
-<h3>Lotus Energizers</h3>
-
-<p>Plant-based energy drinks.</p>
-
-</a>
-
-<a href="tea.html" class="category-card">
-
-<img src="images/IMG_13.PNG" alt="Tea">
-
-<h3>Tea</h3>
-
-<p>Refreshing iced teas.</p>
-
-</a>
-
-<a href="hot-teas.html" class="category-card">
-
-<img src="images/IMG_3.PNG" alt="Hot Tea">
-
-<h3>Hot Teas</h3>
-
-<p>Warm premium tea selections.</p>
-
-</a>
-
-<a href="food.html" class="category-card">
-
-<img src="images/IMG_4.PNG" alt="Food">
-
-<h3>Food</h3>
-
-<p>Breakfast and bakery favorites.</p>
-
-</a>
-
-<a href="bagged-coffee.html" class="category-card">
-
-<img src="images/IMG_14.PNG" alt="Bagged Coffee">
-
-<h3>Bagged Coffee</h3>
-
-<p>Take JumpShot Coffee home.</p>
-
-</a>
-
-</div>
-
-</section>
-
-<section class="featured-drinks">
-
-<div class="section-title">
-
-<h2>Featured Drink</h2>
-
-<p>Customer Favorite</p>
-
-</div>
-
-<div class="featured-container">
-
-<div class="drink-card">
-
-<div class="drink-image">
-
-<img src="images/IMG_5.PNG" alt="ICU Cold Brew">
-
-</div>
-
-<div class="drink-info">
-
-<span class="featured-badge">
-
-⭐ Featured Drink
-
-</span>
-
-<h3>ICU Cold Brew</h3>
-
 <p>
 
-Sweetened condensed milk, brown sugar cinnamon,
-smooth half & half, and our signature cold brew.
+Creamy blended favorites topped with whipped cream.
 
 </p>
 
-<span class="price">
-
-$5.92+
-
-</span>
+<a href="frappes.html">
 
 <button class="order-btn-small">
 
@@ -240,356 +332,47 @@ $5.92+
 
 </button>
 
-</div>
+</a>
 
 </div>
 
-</div>
+<div class="featured-card">
 
-</section>
+<img src="images/IMG_4.PNG" alt="Fresh Food">
 
-<section class="rewards-home">
-
-<div class="rewards-home-card">
-
-<img src="images/IMG_18.PNG"
-alt="Road to the Next Shot">
-
-<h2>
-
-🏀 Road to the Next Shot
-
-</h2>
-
-<h3>
-
-Current Shots
-
-</h3>
-
-<div class="points">
-
-4,650
-
-</div>
-
-<div class="progress">
-
-<div class="progress-fill"></div>
-
-</div>
-
-<h3>
-
-🥐 Next Reward
-
-</h3>
+<h3>Fresh Food</h3>
 
 <p>
 
-350 Shots until your FREE Pastry
+Fresh pastries and bakery treats made daily.
 
 </p>
 
-<button class="rewards-btn">
-
-🏀 Keep Shooting
-
-</button>
-
-</div>
-
-</section>
-
-   <section class="featured-drinks">
-
-<div class="section-title">
-
-<h2>Featured Drink</h2>
-
-<p>Customer Favorite</p>
-
-</div>
-
-<div class="featured-container">
-
-<div class="drink-card">
-
-<div class="drink-image">
-
-<img src="images/IMG_5.PNG" alt="ICU Cold Brew">
-
-</div>
-
-<div class="drink-info">
-
-<span class="featured-badge">
-
-⭐ Featured Drink
-
-</span>
-
-<h3>ICU Cold Brew</h3>
-
-<p>
-
-Sweetened condensed milk, brown sugar cinnamon,
-smooth half & half, and our signature cold brew.
-
-</p>
-
-<span class="price">
-
-$5.92+
-
-</span>
+<a href="food.html">
 
 <button class="order-btn-small">
 
-🏀 Take the Shot
+🛒 Add to Cart
 
 </button>
 
-</div>
+</a>
 
 </div>
 
 </div>
 
-</section>
-
-<section class="rewards-home">
-
-<div class="rewards-home-card">
-
-<img src="images/IMG_18.PNG"
-alt="Road to the Next Shot">
-
-<h2>
-
-🏀 Road to the Next Shot
-
-</h2>
-
-<h3>
-
-Current Shots
-
-</h3>
-
-<div class="points">
-
-4,650
-
-</div>
-
-<div class="progress">
-
-<div class="progress-fill"></div>
-
-</div>
-
-<h3>
-
-🥐 Next Reward
-
-</h3>
-
-<p>
-
-350 Shots until your FREE Pastry
-
-</p>
-
-<button class="rewards-btn">
-
-🏀 Keep Shooting
-
-</button>
-
-</div>
-
-</section>
-
- <!--=====================================
-WAYS TO EARN SHOTS
-======================================-->
-
-<section class="earn-shots">
-
-<div class="section-title">
-
-<h2>🏀 Ways to Earn Shots</h2>
-
-<p>
-
-The more you visit, the more rewards you earn.
-
-</p>
-
-</div>
-
-<div class="earn-grid">
-
-<div class="earn-card">
-
-<h3>💵 Spend Money</h3>
-
-<p>
-
-Every $1 spent = 25 Shots
-
-</p>
-
-</div>
-
-<div class="earn-card">
-
-<h3>⭐ Featured Drink</h3>
-
-<p>
-
-100 Bonus Shots
-
-</p>
-
-</div>
-
-<div class="earn-card">
-
-<h3>🎂 Birthday</h3>
-
-<p>
-
-1,000 Bonus Shots
-
-</p>
-
-</div>
-
-<div class="earn-card">
-
-<h3>👥 Refer a Friend</h3>
-
-<p>
-
-2,500 Bonus Shots
-
-</p>
-
-</div>
-
-<div class="earn-card">
-
-<h3>📅 Visit 5 Days</h3>
-
-<p>
-
-500 Bonus Shots
-
-</p>
-
-</div>
-
-</div>
-
-</section>
+</section>   
 
 <!--=====================================
-CUSTOMER FAVORITES
-======================================-->
-
-<section class="favorites">
-
-<div class="section-title">
-
-<h2>
-
-Customer Favorites
-
-</h2>
-
-<p>
-
-Our guests love these drinks.
-
-</p>
-
-</div>
-
-<div class="favorite-grid">
-
-<div class="favorite-card">
-
-<img src="images/IMG_5.PNG">
-
-<h3>
-
-ICU Cold Brew
-
-</h3>
-
-<button class="order-btn-small">
-
-🏀 Take the Shot
-
-</button>
-
-</div>
-
-<div class="favorite-card">
-
-<img src="images/IMG_10.PNG">
-
-<h3>
-
-Frappe
-
-</h3>
-
-<button class="order-btn-small">
-
-🏀 Take the Shot
-
-</button>
-
-</div>
-
-<div class="favorite-card">
-
-<img src="images/IMG_16.PNG">
-
-<h3>
-
-Lotus Energizer
-
-</h3>
-
-<button class="order-btn-small">
-
-🏀 Take the Shot
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-  <!--=====================================
-VISIT US
+VISIT JUMPSHOT
 ======================================-->
 
 <section class="visit">
 
 <div class="section-title">
 
-<h2>
-
-Visit JumpShot Coffee
-
-</h2>
+<h2>Come Visit Us</h2>
 
 <p>
 
@@ -599,16 +382,17 @@ We can't wait to serve you.
 
 </div>
 
-<div class="visit-container">
-
 <div class="visit-card">
 
 <img src="images/IMG_8.PNG"
-alt="Store">
+
+class="store-photo"
+
+alt="JumpShot Coffee">
 
 <h3>
 
-📍 Location
+📍 JumpShot Coffee
 
 </h3>
 
@@ -622,293 +406,83 @@ Tyler, Texas 75701
 
 </p>
 
-</div>
-
-<div class="visit-card">
-
-<h3>
-
-🕖 Hours
-
-</h3>
-
 <p>
 
-Monday–Sunday
+🕖 Monday - Sunday
 
 <br>
 
-7:00 AM–4:00 PM
+7:00 AM - 4:00 PM
 
 </p>
-
-</div>
-
-<div class="visit-card">
-
-<h3>
-
-📞 Contact
-
-</h3>
 
 <p>
 
-(903) 352-3443
+📞 (903) 352-3443
 
 </p>
+
+<a href="contact.html">
 
 <button class="call-btn">
 
-Call JumpShot
+Get Directions
 
 </button>
 
-</div>
-
-</div>
-
-</section>
-
-  <!--=====================================
-VISIT US
-======================================-->
-
-<section class="visit">
-
-<div class="section-title">
-
-<h2>
-
-Visit JumpShot Coffee
-
-</h2>
-
-<p>
-
-We can't wait to serve you.
-
-</p>
-
-</div>
-
-<div class="visit-container">
-
-<div class="visit-card">
-
-<img src="images/IMG_8.PNG"
-alt="Store">
-
-<h3>
-
-📍 Location
-
-</h3>
-
-<p>
-
-734 S Fleishel Ave
-
-<br>
-
-Tyler, Texas 75701
-
-</p>
-
-</div>
-
-<div class="visit-card">
-
-<h3>
-
-🕖 Hours
-
-</h3>
-
-<p>
-
-Monday–Sunday
-
-<br>
-
-7:00 AM–4:00 PM
-
-</p>
-
-</div>
-
-<div class="visit-card">
-
-<h3>
-
-📞 Contact
-
-</h3>
-
-<p>
-
-(903) 352-3443
-
-</p>
-
-<button class="call-btn">
-
-Call JumpShot
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-   <!--=====================================
-CURRENT PLAYER
-======================================-->
-
-<section class="player-level">
-
-<div class="section-title">
-
-<h2>🏀 Current Player</h2>
-
-<p>
-
-Keep earning Shots to level up.
-
-</p>
-
-</div>
-
-<div class="player-card">
-
-<img src="images/IMG_18.PNG"
-alt="Coffee Bean Basketball">
-
-<h2>
-
-🥉 Rookie
-
-</h2>
-
-<p>
-
-Current Shots
-
-</p>
-
-<div class="points">
-
-4,650
-
-</div>
-
-<p>
-
-Next Level
-
-</p>
-
-<h3>
-
-🥈 Starter
-
-</h3>
-
-<p>
-
-350 more Shots to your next reward.
-
-</p>
+</a>
 
 </div>
 
 </section>
 
 <!--=====================================
-REVIEWS
+REWARDS PREVIEW
 ======================================-->
 
-<section class="testimonials">
+<section class="reward-preview">
 
-<div class="section-title">
+<div class="reward-preview-card">
+
+<img src="images/IMG_rewards.PNG"
+
+class="reward-logo"
+
+alt="JumpShot Rewards">
 
 <h2>
 
-What Our Customers Say
+JumpShot Rewards
 
 </h2>
 
 <p>
 
-Real reviews from JumpShot Coffee guests.
+Every purchase earns Shots.
+
+Unlock free drinks, pastries,
+
+exclusive rewards,
+
+and level up with every visit.
 
 </p>
 
-</div>
+<a href="rewards.html">
 
-<div class="testimonial-grid">
+<button class="rewards-btn">
 
-<div class="testimonial-card">
+🏀 View Rewards
 
-★★★★★
+</button>
 
-<p>
-
-Great coffee, friendly staff and amazing service!
-
-</p>
-
-<h4>
-
-— Jeremiah H.
-
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-★★★★★
-
-<p>
-
-The Frosty Vanilla Latte is incredible.
-
-</p>
-
-<h4>
-
-— Catherine S.
-
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-★★★★★
-
-<p>
-
-My favorite coffee shop in Tyler!
-
-</p>
-
-<h4>
-
-— Brianna E.
-
-</h4>
-
-</div>
+</a>
 
 </div>
 
 </section>
 
- <!--=====================================
+  <!--=====================================
 FOOTER
 ======================================-->
 
@@ -919,7 +493,8 @@ FOOTER
 <div class="footer-logo">
 
 <img src="images/IMG_logo.PNG"
-alt="JumpShot Coffee Logo">
+
+alt="JumpShot Coffee">
 
 <p>
 
@@ -935,35 +510,29 @@ Crafting only the highest quality coffee.
 
 </div>
 
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+
+<a href="menu.html">Menu</a>
+
+<a href="rewards.html">Rewards</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
 <div class="footer-contact">
 
 <h3>Visit Us</h3>
 
-<p>
+<p>734 S Fleishel Ave</p>
 
-📍 734 S Fleishel Ave
+<p>Tyler, TX 75701</p>
 
-</p>
-
-<p>
-
-Tyler, Texas 75701
-
-</p>
-
-<p>
-
-📞 (903) 352-3443
-
-</p>
-
-<p>
-
-🕖 Daily
-
-7:00 AM–4:00 PM
-
-</p>
+<p>(903) 352-3443</p>
 
 </div>
 
@@ -971,7 +540,7 @@ Tyler, Texas 75701
 
 <div class="copyright">
 
-© 2026 JumpShot Coffee
+© 2026 JumpShot Coffee • All Rights Reserved
 
 </div>
 
@@ -981,4 +550,4 @@ Tyler, Texas 75701
 
 </body>
 
-</html>   
+</html> 
