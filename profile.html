@@ -1,71 +1,92 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>My Profile | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#72DCE8">
+<meta name="theme-color"
+content="#72DCE8">
 
-<link rel="icon" href="images/IMG_logo.PNG">
+<link rel="icon"
+href="images/IMG_logo.PNG">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="header">
+<!--=====================================
+HEADER
+======================================-->
 
-<div class="logo">
+<header class="page-header">
 
-<a href="index.html">
+<a href="index.html"
 
-<img src="images/IMG_logo.PNG" alt="JumpShot Coffee Logo">
+class="back-btn">
 
-</a>
-
-</div>
-
-<nav class="header-icons">
-
-<button class="icon-btn">☰</button>
-
-<a href="cart.html">
-
-<button class="icon-btn">🛒</button>
+Back
 
 </a>
 
-</nav>
+<img src="images/IMG_logo.PNG"
+
+class="page-logo"
+
+alt="JumpShot Coffee">
+
+<a href="cart.html"
+
+class="cart-btn">
+
+Cart
+
+</a>
 
 </header>
 
+<!--=====================================
+PROFILE HERO
+======================================-->
+
 <section class="page-hero">
 
-<img src="images/IMG_8.PNG"
+<img src="images/IMG_logo.PNG"
 
 class="page-banner"
 
-alt="Profile">
+alt="JumpShot Coffee">
 
 <div class="page-overlay">
 
-<h1>My Profile</h1>
+<h1>
+
+My Profile
+
+</h1>
 
 <p>
 
-Manage your JumpShot Rewards account.
+Manage your JumpShot Coffee account and rewards.
 
 </p>
 
@@ -73,41 +94,25 @@ Manage your JumpShot Rewards account.
 
 </section>
 
- <section class="profile-section">
+<!--=====================================
+PROFILE CARD
+======================================-->
+
+<section class="profile-section">
 
 <div class="profile-card">
 
-<img src="images/IMG_rewards.PNG"
+<img src="images/IMG_logo.PNG"
 
-class="reward-logo"
+class="profile-logo"
 
-alt="Profile">
+alt="JumpShot Coffee">
 
-<h2>
-
-Welcome!
-
-</h2>
-
-<p>
-
-Your JumpShot Rewards information will appear here.
-
-</p>
-
-</div>
-
-<div class="profile-card">
-
-<h3>Name</h3>
-
-<p id="customerName">
+<h2 id="customerName">
 
 Guest
 
-</p>
-
-<h3>Email</h3>
+</h2>
 
 <p id="customerEmail">
 
@@ -115,15 +120,29 @@ Not Available
 
 </p>
 
+<p>
+
+Welcome back to JumpShot Coffee!
+
+</p>
+
 </div>
 
 </section>
 
-   <section class="profile-stats">
+<!--=====================================
+ACCOUNT STATS
+======================================-->
+
+<section class="stats-section">
 
 <div class="stat-card">
 
-<h2>Current Shots</h2>
+<h3>
+
+Current Shots
+
+</h3>
 
 <h1 id="shotCount">
 
@@ -135,37 +154,141 @@ Not Available
 
 <div class="stat-card">
 
-<h2>Reward Level</h2>
-
 <h3>
 
-Rookie Shooter
+Favorite Drinks
 
 </h3>
 
-</div>
-
-<div class="stat-card">
-
-<h2>Favorite Items</h2>
-
-<h3 id="favoriteCount">
+<h1 id="favoriteCount">
 
 0
 
-</h3>
+</h1>
 
 </div>
 
 </section>
 
-<section class="profile-actions">
+<!--=====================================
+MY FAVORITES
+======================================-->
+
+<section class="favorites-section">
+
+<div class="section-title">
+
+<h2>
+
+My Favorites
+
+</h2>
+
+<p>
+
+Your saved favorite JumpShot Coffee drinks.
+
+</p>
+
+</div>
+
+<div id="favoriteList">
+
+<p>
+
+Favorite drinks will appear here.
+
+</p>
+
+</div>
+
+</section>
+
+ <!--=====================================
+REWARDS STATUS
+======================================-->
+
+<section class="reward-status">
+
+<div class="section-title">
+
+<h2>
+
+Rewards Status
+
+</h2>
+
+<p>
+
+You're always one shot closer to your next reward.
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+<h3>
+
+Road to the Next Shot
+
+</h3>
+
+<div class="progress-bar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<p>
+
+500 Shots earns your first FREE Coffee!
+
+</p>
 
 <a href="rewards.html">
 
-<button class="rewards-btn">
+<button class="reward-btn">
 
-🏀 View Rewards
+View Rewards
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACCOUNT SETTINGS
+======================================-->
+
+<section class="settings-section">
+
+<div class="section-title">
+
+<h2>
+
+Account Settings
+
+</h2>
+
+<p>
+
+Manage your JumpShot Coffee account.
+
+</p>
+
+</div>
+
+<div class="settings-grid">
+
+<a href="contact.html">
+
+<button class="settings-btn">
+
+Contact Us
 
 </button>
 
@@ -173,35 +296,55 @@ Rookie Shooter
 
 <a href="cart.html">
 
-<button class="order-btn">
+<button class="settings-btn">
 
-🛒 View Cart
+View Cart
+
+</button>
+
+</a>
+
+<a href="rewards.html">
+
+<button class="settings-btn">
+
+Rewards
 
 </button>
 
 </a>
 
-<a href="traditional.html">
+<a href="index.html">
 
-<button class="secondary-btn">
+<button class="settings-btn">
 
-☕ Browse Menu
+Continue Shopping
 
 </button>
 
 </a>
+
+</div>
 
 </section>
 
-<section class="visit">
+<!--=====================================
+VISIT JUMPSHOT COFFEE
+======================================-->
+
+<section class="visit-home">
 
 <div class="section-title">
 
-<h2>Need Assistance?</h2>
+<h2>
+
+Visit JumpShot Coffee
+
+</h2>
 
 <p>
 
-We're always happy to help.
+Where exceptional coffee meets exceptional service.
 
 </p>
 
@@ -211,31 +354,29 @@ We're always happy to help.
 
 <img src="images/IMG_8.PNG"
 
-class="store-photo"
+class="visit-photo"
 
 alt="JumpShot Coffee">
 
-<h3>JumpShot Coffee</h3>
+<h3>
+
+JumpShot Coffee
+
+</h3>
 
 <p>
 
-📍 734 S Fleishel Ave
+734 S Fleishel Ave
 
 <br>
 
-Tyler, TX 75701
+Tyler, Texas 75701
 
 </p>
 
 <p>
 
-📞 (903) 352-3443
-
-</p>
-
-<p>
-
-🕖 Monday – Sunday
+Open Daily
 
 <br>
 
@@ -243,15 +384,37 @@ Tyler, TX 75701
 
 </p>
 
-<a href="contact.html">
+<p>
 
-<button class="call-btn">
+Phone: (903) 352-3443
 
-Contact Us
+</p>
+
+<div class="hero-buttons">
+
+<a href="tel:+19033523443">
+
+<button class="order-btn">
+
+Call Now
 
 </button>
 
 </a>
+
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
 
 </div>
 
@@ -263,17 +426,23 @@ FOOTER
 
 <footer class="footer">
 
-<div class="footer-container">
-
-<div class="footer-logo">
-
 <img src="images/IMG_logo.PNG"
 
-alt="JumpShot Coffee Logo">
+class="footer-logo"
+
+alt="JumpShot Coffee">
+
+<h3>
+
+JumpShot Coffee
+
+</h3>
 
 <p>
 
-Where exceptional coffee meets exceptional service.</p>
+Where exceptional coffee meets exceptional service.
+
+</p>
 
 <p>
 
@@ -281,72 +450,50 @@ Crafting only the highest quality coffee.
 
 </p>
 
-</div>
-
 <div class="footer-links">
 
-<h3>Quick Links</h3>
+<a href="index.html">
 
-<a href="index.html">Home</a>
+Home
 
-<a href="traditional.html">Menu</a>
+</a>
 
-<a href="rewards.html">Rewards</a>
+<a href="traditional.html">
 
-<a href="cart.html">Cart</a>
+Coffee
 
-<a href="contact.html">Contact</a>
+</a>
 
-</div>
+<a href="rewards.html">
 
-<div class="footer-contact">
+Rewards
 
-<h3>Visit Us</h3>
+</a>
 
-<p>
+<a href="cart.html">
 
-734 S Fleishel Ave
+Cart
 
-</p>
+</a>
 
-<p>
+<a href="contact.html">
 
-Tyler, TX 75701
+Contact
 
-</p>
-
-<p>
-
-(903) 352-3443
-
-</p>
-
-<p>
-
-Monday – Sunday
-
-</p>
-
-<p>
-
-7:00 AM – 4:00 PM
-
-</p>
+</a>
 
 </div>
 
-</div>
+<p class="copyright">
 
-<div class="copyright">
+© 2026 JumpShot Coffee • All Rights Reserved
 
-© 2026 JumpShot Coffee • All Rights Reserved.
-
-</div>
+</p>
 
 </footer>
 
- <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
-</html>    
+</html>
