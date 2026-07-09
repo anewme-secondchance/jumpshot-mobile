@@ -3,29 +3,23 @@ JUMPSHOT COFFEE
 STYLE.CSS
 ========================================*/
 
+/*=============
+RESET
+=============*/
+
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 }
 
 html{
+
 scroll-behavior:smooth;
-}
-
-:root{
-
---primary:#2D2118;
---secondary:#5B3A29;
---accent:#E67E22;
---background:#F7F4EF;
---white:#FFFFFF;
---text:#222222;
---gray:#777777;
-
---shadow:0 10px 30px rgba(0,0,0,.10);
-
---radius:22px;
 
 }
 
@@ -33,9 +27,9 @@ body{
 
 font-family:'Poppins',sans-serif;
 
-background:var(--background);
+background:#F8F6F2;
 
-color:var(--text);
+color:#2F2118;
 
 overflow-x:hidden;
 
@@ -45,9 +39,9 @@ line-height:1.6;
 
 img{
 
-max-width:100%;
-
 display:block;
+
+max-width:100%;
 
 }
 
@@ -61,35 +55,55 @@ color:inherit;
 
 button{
 
-cursor:pointer;
-
 font-family:'Poppins',sans-serif;
+
+cursor:pointer;
 
 border:none;
 
-transition:.30s ease;
+transition:.30s;
 
 }
 
 section{
 
- /*========================================
+padding:70px 20px;
+
+}
+
+/*=============
+COLORS
+=============*/
+
+:root{
+
+--background:#F8F6F2;
+
+--card:#FFFFFF;
+
+--brown:#2F2118;
+
+--lightBrown:#5E5248;
+
+--accent:#72DCE8;
+
+--orange:#F59E0B;
+
+--white:#FFFFFF;
+
+--shadow:0 15px 35px rgba(0,0,0,.10);
+
+--radius:28px;
+
+}
+
+/*=============
 HEADER
-========================================*/
+=============*/
 
-.header{
+.home-header{
 
-position:sticky;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-background:var(--white);
-
-padding:18px 8%;
+padding:40px 20px;
 
 display:flex;
 
@@ -97,161 +111,315 @@ justify-content:center;
 
 align-items:center;
 
-box-shadow:var(--shadow);
-
-z-index:999;
+background:white;
 
 }
 
-.logo{
+.main-logo{
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-width:100%;
-
-}
-
-.logo img{
-
-width:190px;
+width:220px;
 
 height:auto;
 
-}
-
-/*========================================
-PAGE HERO
-========================================*/
-
-.page-hero{
-
-position:relative;
-
-width:100%;
-
-height:340px;
-
-overflow:hidden;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-border-radius:0 0 30px 30px;
-
-}
-
-.page-banner{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-filter:brightness(.45);
-
-}
-
-.page-overlay{
-
-position:absolute;
-
-text-align:center;
-
-color:white;
-
-width:90%;
-
-max-width:900px;
-
-}
-
-.page-overlay h1{
-
-font-size:52px;
-
-font-weight:800;
-
-margin-bottom:15px;
-
-}
-
-.page-overlay p{
-
-font-size:22px;
-
-font-weight:400;
-
-}
-
-/*========================================
-SECTION TITLES
-========================================*/
-
-.section-title{
-
-text-align:center;
-
-margin-bottom:40px;
-
-}
-
-.section-title h2{
-
-font-size:42px;
-
-color:var(--primary);
-
-margin-bottom:10px;
-
-font-weight:700;
-
-}
-
-.section-title p{
-
-font-size:18px;
-
-color:var(--gray);
-
-max-width:650px;
-
 margin:auto;
 
 }
 
-/*========================================
-MENU CARDS
-========================================*/
+/*=============
+HOME HERO
+=============*/
 
-.menu-section{
+.hero{
 
-max-width:1100px;
+max-width:1200px;
 
-margin:auto;
+margin:40px auto;
 
 display:flex;
 
 flex-direction:column;
 
-gap:22px;
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
 
 }
 
-.drink-card{
+.hero-content{
 
-background:var(--white);
+max-width:800px;
+
+}
+
+.hero h1{
+
+font-size:52px;
+
+font-weight:800;
+
+margin-bottom:20px;
+
+color:var(--brown);
+
+}
+
+.hero p{
+
+font-size:22px;
+
+margin-bottom:10px;
+
+color:var(--lightBrown);
+
+}
+
+.hero-image{
+
+margin-top:40px;
+
+width:100%;
 
 border-radius:var(--radius);
 
-padding:28px;
+box-shadow:var(--shadow);
+
+}
+
+/*=============
+BUTTONS
+=============*/
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:20px;
+
+margin-top:35px;
+
+flex-wrap:wrap;
+
+}
+
+.order-btn,
+
+.reward-btn,
+
+.take-shot,
+
+.call-btn{
+
+background:var(--brown);
+
+color:white;
+
+padding:16px 38px;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:700;
+
+box-shadow:var(--shadow);
+
+}
+
+.order-btn:hover,
+
+.reward-btn:hover,
+
+.take-shot:hover,
+
+.call-btn:hover{
+
+background:#463326;
+
+transform:translateY(-3px);
+
+}
+
+/*========================================
+HOME MENU CARDS
+========================================*/
+
+.menu-home{
+
+max-width:1300px;
+
+margin:70px auto;
+
+text-align:center;
+
+}
+
+.menu-home h2{
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:10px;
+
+color:var(--brown);
+
+}
+
+.menu-home p{
+
+font-size:20px;
+
+color:var(--lightBrown);
+
+margin-bottom:45px;
+
+}
+
+.menu-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:35px;
+
+}
+
+.menu-card{
+
+background:var(--card);
+
+border-radius:var(--radius);
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+transition:.30s;
+
+}
+
+.menu-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.menu-card img{
+
+width:100%;
+
+height:240px;
+
+object-fit:cover;
+
+}
+
+.menu-card h3{
+
+padding:25px;
+
+font-size:26px;
+
+font-weight:700;
+
+color:var(--brown);
+
+}
+
+/*========================================
+FEATURED DRINK
+========================================*/
+
+.featured{
+
+max-width:900px;
+
+margin:70px auto;
+
+text-align:center;
+
+}
+
+.featured h2{
+
+font-size:42px;
+
+margin-bottom:35px;
+
+color:var(--brown);
+
+}
+
+.featured-card{
+
+background:var(--card);
+
+border-radius:var(--radius);
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+}
+
+.featured-card img{
+
+width:100%;
+
+height:420px;
+
+object-fit:cover;
+
+}
+
+.featured-card h3{
+
+font-size:32px;
+
+margin:30px 0 15px;
+
+}
+
+.featured-card p{
+
+font-size:19px;
+
+padding:0 30px;
+
+margin-bottom:30px;
+
+color:var(--lightBrown);
+
+}
+
+.featured-card button{
+
+margin-bottom:35px;
+
+}
+
+/*========================================
+HOME REWARDS
+========================================*/
+
+.home-rewards{
+
+max-width:900px;
+
+margin:70px auto;
+
+background:var(--card);
+
+padding:45px;
+
+border-radius:var(--radius);
 
 box-shadow:var(--shadow);
 
@@ -259,7 +427,291 @@ text-align:center;
 
 }
 
-/* Hide repeated menu pictures */
+.reward-home{
+
+width:240px;
+
+margin:25px auto;
+
+}
+
+.home-rewards h2{
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+.home-rewards h3{
+
+font-size:22px;
+
+margin-top:20px;
+
+}
+
+.home-rewards h1{
+
+font-size:72px;
+
+color:var(--orange);
+
+margin:15px 0;
+
+}
+
+.progress-bar{
+
+width:100%;
+
+height:20px;
+
+background:#E5E5E5;
+
+border-radius:50px;
+
+overflow:hidden;
+
+margin:30px auto;
+
+}
+
+#progressFill{
+
+width:0%;
+
+height:100%;
+
+background:var(--orange);
+
+transition:.4s;
+
+}
+
+/*========================================
+VISIT US
+========================================*/
+
+.visit-home{
+
+max-width:900px;
+
+margin:70px auto;
+
+text-align:center;
+
+background:var(--card);
+
+padding:40px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
+
+}
+
+.visit-home h2{
+
+font-size:40px;
+
+margin-bottom:30px;
+
+}
+
+.visit-photo{
+
+width:100%;
+
+height:450px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+margin-bottom:30px;
+
+}
+
+.visit-home h3{
+
+font-size:28px;
+
+margin-bottom:12px;
+
+}
+
+.visit-home p{
+
+font-size:18px;
+
+margin-bottom:12px;
+
+color:var(--lightBrown);
+
+}
+
+/*========================================
+FOOTER
+========================================*/
+
+.footer{
+
+margin-top:80px;
+
+background:var(--brown);
+
+color:white;
+
+text-align:center;
+
+padding:60px 20px;
+
+}
+
+.footer-logo{
+
+width:180px;
+
+margin:0 auto 25px;
+
+}
+
+.footer p{
+
+font-size:17px;
+
+margin-bottom:12px;
+
+}
+
+.footer a{
+
+color:white;
+
+}
+
+/*========================================
+PAGE HEADER
+========================================*/
+
+.page-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 30px;
+
+background:var(--card);
+
+box-shadow:var(--shadow);
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+}
+
+.back-btn{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:var(--brown);
+
+background:none;
+
+}
+
+.back-btn:hover{
+
+color:var(--accent);
+
+}
+
+.page-logo{
+
+width:170px;
+
+height:auto;
+
+}
+
+.cart-btn{
+
+background:var(--brown);
+
+color:white;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+}
+
+/*========================================
+MENU PAGE
+========================================*/
+
+.page-banner{
+
+width:100%;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:0 0 30px 30px;
+
+margin-bottom:40px;
+
+}
+
+.menu-section{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.drink-card{
+
+background:var(--card);
+
+padding:30px;
+
+margin-bottom:25px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+}
 
 .drink-card img{
 
@@ -271,53 +723,55 @@ display:none;
 
 font-size:30px;
 
-color:var(--primary);
+margin-bottom:15px;
 
-margin-bottom:12px;
-
-font-weight:700;
+color:var(--brown);
 
 }
 
 .drink-info p{
 
-font-size:17px;
+font-size:18px;
 
-color:var(--gray);
+margin-bottom:12px;
 
-margin-bottom:10px;
+color:var(--lightBrown);
 
 }
 
 .drink-info h3{
 
-font-size:34px;
+font-size:28px;
 
-color:var(--secondary);
+margin:18px 0;
 
-margin:15px 0;
-
-font-weight:700;
-
-}
-
-.earn-shots{
-
-font-size:20px;
-
-font-weight:700;
-
-color:var(--accent);
-
-margin-top:12px;
+color:var(--brown);
 
 }
 
 /*========================================
-BUTTONS
+CARDS
 ========================================*/
 
-.drink-buttons{
+.cart-item,
+.profile-card,
+.contact-card{
+
+background:var(--card);
+
+padding:30px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
+
+margin-bottom:25px;
+
+text-align:center;
+
+}
+
+.quantity-controls{
 
 display:flex;
 
@@ -325,307 +779,97 @@ justify-content:center;
 
 align-items:center;
 
-gap:15px;
+gap:20px;
 
-margin-top:20px;
-
-flex-wrap:wrap;
+margin:20px 0;
 
 }
 
-.favorite-btn{
+.quantity-controls button{
 
-background:#FFFFFF;
+width:45px;
 
-color:var(--primary);
+height:45px;
 
-border:2px solid var(--primary);
+border-radius:50%;
 
-padding:12px 24px;
+background:var(--brown);
 
-border-radius:50px;
+color:white;
 
-font-size:16px;
-
-font-weight:600;
-
-min-width:160px;
+font-size:22px;
 
 }
 
-.favorite-btn:hover{
-
-background:var(--primary);
-
-color:#FFFFFF;
-
-}
-
-.order-btn-small{
-
-background:var(--primary);
-
-color:#FFFFFF;
-
-padding:12px 28px;
-
-border-radius:50px;
-
-font-size:16px;
-
-font-weight:600;
-
-min-width:190px;
-
-}
-
-.order-btn-small:hover{
-
-background:var(--secondary);
-
-}
-
-.order-btn,
-.rewards-btn,
-.call-btn,
-.checkout-btn{
-
-background:var(--primary);
-
-color:#FFFFFF;
-
-padding:16px 34px;
-
-border-radius:50px;
-
-font-size:18px;
-
-font-weight:700;
-
-}
-
-.order-btn:hover,
-.rewards-btn:hover,
-.call-btn:hover,
-.checkout-btn:hover{
-
-background:var(--secondary);
-
-}
-
-/*========================================
-REWARDS
-========================================*/
-
-.next-shot{
-
-text-align:center;
-
-}
-
-.next-shot-card{
-
-background:#FFFFFF;
-
-padding:40px;
-
-border-radius:var(--radius);
-
-box-shadow:var(--shadow);
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.reward-logo{
-
-width:180px;
-
-margin:0 auto 25px;
-
-}
-
-.reward-info h2{
-
-font-size:34px;
-
-color:var(--primary);
-
-margin-bottom:15px;
-
-}
-
-.reward-info h1{
-
-font-size:72px;
-
-color:var(--accent);
-
-margin:15px 0;
-
-font-weight:700;
-
-}
-
-.progress-bar{
+input,
+textarea{
 
 width:100%;
 
-height:18px;
+padding:16px;
 
-background:#E5E5E5;
+border:1px solid #ddd;
 
-border-radius:30px;
+border-radius:14px;
 
-overflow:hidden;
-
-margin:25px 0;
-
-}
-
-#progressFill{
-
-width:0%;
-
-height:100%;
-
-background:var(--accent);
-
-transition:.5s;
-
-}
-
-/*========================================
-VISIT CARD
-========================================*/
-
-.visit{
-
-text-align:center;
-
-}
-
-.visit-card{
-
-background:#FFFFFF;
-
-padding:35px;
-
-border-radius:var(--radius);
-
-box-shadow:var(--shadow);
-
-max-width:850px;
-
-margin:auto;
-
-}
-
-.store-photo{
-
-width:100%;
-
-height:320px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-margin-bottom:25px;
-
-}
-
-.visit-card h3{
-
-font-size:28px;
+font-size:17px;
 
 margin-bottom:18px;
 
-color:var(--primary);
+font-family:'Poppins',sans-serif;
 
 }
-
-.visit-card p{
-
-font-size:18px;
-
-margin-bottom:12px;
-
-color:var(--gray);
-
-} 
 
 /*========================================
-FOOTER
+REWARDS PAGE
 ========================================*/
 
-.footer{
-
-background:var(--primary);
-
-color:#FFFFFF;
-
-margin-top:70px;
-
-padding:60px 8% 30px;
-
-}
-
-.footer-container{
+.reward-levels,
+.badges{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 
-gap:40px;
+gap:25px;
 
-}
-
-.footer-logo img{
-
-width:170px;
-
-margin-bottom:20px;
+margin-top:35px;
 
 }
 
-.footer h3{
+.level-card,
+.badge-card{
 
-margin-bottom:18px;
+background:var(--card);
 
-font-size:24px;
-
-}
-
-.footer a{
-
-display:block;
-
-margin-bottom:12px;
-
-color:#FFFFFF;
-
-transition:.30s;
-
-}
-
-.footer a:hover{
-
-padding-left:6px;
-
-}
-
-.copyright{
-
-margin-top:40px;
+padding:30px;
 
 text-align:center;
 
-font-size:15px;
+border-radius:var(--radius);
 
-opacity:.8;
+box-shadow:var(--shadow);
+
+}
+
+.level-card h3,
+.badge-card h3{
+
+margin:15px 0;
+
+color:var(--brown);
+
+}
+
+.level-card{
+
+border-top:6px solid var(--orange);
+
+}
+
+.badge-card{
+
+border-top:6px solid var(--accent);
 
 }
 
@@ -635,84 +879,78 @@ RESPONSIVE
 
 @media (max-width:768px){
 
-.header{
+.home-header{
 
-padding:18px;
-
-}
-
-.logo img{
-
-width:150px;
+padding:25px;
 
 }
 
-.page-hero{
+.main-logo{
 
-height:240px;
+width:170px;
 
 }
 
-.page-overlay h1{
+.hero h1{
 
 font-size:36px;
 
 }
 
-.page-overlay p{
+.hero p{
 
-font-size:17px;
-
-}
-
-section{
-
-padding:45px 20px;
+font-size:18px;
 
 }
 
-.drink-info h2{
-
-font-size:24px;
-
-}
-
-.drink-info h3{
-
-font-size:28px;
-
-}
-
-.drink-buttons{
+.hero-buttons{
 
 flex-direction:column;
 
 }
 
-.favorite-btn,
-.order-btn-small{
+.hero-image{
 
-width:100%;
-
-max-width:300px;
+margin-top:30px;
 
 }
 
-.reward-info h1{
-
-font-size:52px;
-
-}
-
-.store-photo{
+.page-banner{
 
 height:220px;
 
 }
 
+.menu-grid{
+
+grid-template-columns:1fr;
+
 }
 
- 
-padding:70px 8%;
+.featured-card img,
+.visit-photo{
+
+height:260px;
 
 }
+
+.page-header{
+
+padding:15px;
+
+}
+
+.page-logo{
+
+width:130px;
+
+}
+
+.back-btn{
+
+font-size:16px;
+
+}
+
+}
+
