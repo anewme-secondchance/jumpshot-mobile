@@ -1,526 +1,508 @@
-/*==========================================
-JumpShot Coffee
-Main JavaScript
-Designed by TaDasha Jones
-==========================================*/
+/*========================================
+JUMPSHOT COFFEE
+SCRIPT.JS
+========================================*/
 
-"use strict";
+document.addEventListener("DOMContentLoaded", initializeApp);
 
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+function initializeApp() {
 
-const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-let rewardPoints = Number(localStorage.getItem("rewardPoints")) || 845;
-
-const searchInput = document.querySelector(".search-input");
-
-const searchButton = document.querySelector(".search-btn");
-
-const cartButtons = document.querySelectorAll(".order-btn,.order-btn-small");
-
-const rewardDisplay = document.querySelector(".points");
-
-if(rewardDisplay){
-
-rewardDisplay.textContent = rewardPoints;
+    loadShots();
+    loadFavorites();
+    displayCart();
+    updateProgress();
+    updateFavoriteCount();
+    loadProfile();
+    setupContactForm();
 
 }
 
-saveData();
+/*========================================
+REWARDS
+========================================*/
 
-function saveData(){
+function loadShots() {
 
-localStorage.setItem("cart",JSON.stringify(cart));
+    const shots = Number(localStorage.getItem("shots")) || 0;
 
-localStorage.setItem("favorites",JSON.stringify(favorites));
+    document.querySelectorAll("#shotCount").forEach(counter => {
 
-localStorage.setItem("rewardPoints",rewardPoints);
+        counter.textContent = shots;
+
+    });
 
 }
 
-/*==========================================
-Shopping Cart
-==========================================*/
+function addShots(points) {
 
-cartButtons.forEach(button=>{
+    let shots = Number(localStorage.getItem("shots")) || 0;
 
-button.addEventListener("click",()=>{
+    shots += points;
 
-const card = button.closest(".drink-card");
+    localStorage.setItem("shots", shots);
 
-if(!card) return;
+    loadShots();
 
-const name = card.querySelector("h3").textContent;
+    updateProgress();
 
-const price = card.querySelector(".price").textContent;
+}
 
-const image = card.querySelector("img").src;
+function updateProgress() {
 
-cart.push({
+    const shots = Number(localStorage.getItem("shots")) || 0;
 
-name,
+    const percent = Math.min((shots / 500) * 100, 100);
 
-price,
+    document.querySelectorAll("#progressFill").forEach(bar => {
 
-image,
+        bar.style.width = percent + "%";
 
-qty:1
+    });
+
+}
+
+/*========================================
+FAVORITES
+========================================*/
+
+function loadFavorites() {
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    document.querySelectorAll(".favorite-btn").forEach(button => {
+
+        const card = button.closest(".drink-card");
+
+        if (!card) return;
+
+        const item = card.querySelector("h2").textContent;
+
+        if (favorites.includes(item)) {
+
+            button.textContent = "❤️ Favorited";
+
+        }
+
+        button.addEventListener("click", () => {
+
+            if (!favorites.includes(item)) {
+
+                favorites.push(item);
+
+                localStorage.setItem("favorites", JSON.stringify(favorites));
+
+                button.textContent = "❤️ Favorited";
+
+                updateFavoriteCount();
+
+            }
+
+        });
+
+    });
+
+}
+
+function updateFavoriteCount() {
+
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const counter = document.getElementById("favoriteCount");
+
+    if (counter) {
+
+        counter.textContent = favorites.length;
+
+    }
+
+}
+
+/*========================================
+CART
+========================================*/
+
+function getCart() {
+
+    return JSON.parse(localStorage.getItem("cart")) || [];
+
+}
+
+function saveCart(cart) {
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+}
+
+function setupCartButtons() {
+
+    document.querySelectorAll(".order-btn-small").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const card = button.closest(".drink-card");
+
+            const name = card.querySelector("h2").textContent;
+
+            const price = card.querySelector("h3").textContent;
+
+            let cart = getCart();
+
+            const existing = cart.find(item => item.name === name);
+
+            if (existing) {
+
+                existing.quantity++;
+
+            } else {
+
+                cart.push({
+
+                    name: name,
+                    price: price,
+                    quantity: 1
+
+                });
+
+            }
+
+            saveCart(cart);
+
+            displayCart();
+
+        });
+
+    });
+
+}
+
+
+/*========================================
+DISPLAY CART
+========================================*/
+
+function displayCart() {
+
+    const container = document.getElementById("cartItems");
+
+    if (!container) return;
+
+    const cart = getCart();
+
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+
+        <div class="empty-cart">
+
+            <h3>Your cart is empty.</h3>
+
+            <p>Browse the menu to start your order.</p>
+
+        </div>
+
+        `;
+
+        updateTotals();
+
+        return;
+
+    }
+
+    cart.forEach((item, index) => {
+
+        container.innerHTML += `
+
+        <div class="cart-item">
+
+            <h2>${item.name}</h2>
+
+            <p>${item.price}</p>
+
+            <div class="quantity-controls">
+
+                <button onclick="decreaseQuantity(${index})">−</button>
+
+                <span>${item.quantity}</span>
+
+                <button onclick="increaseQuantity(${index})">+</button>
+
+            </div>
+
+            <button onclick="removeCartItem(${index})">
+
+                🗑 Remove
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    updateTotals();
+
+}
+
+/*========================================
+REMOVE CART ITEM
+========================================*/
+
+function removeCartItem(index){
+
+    let cart = getCart();
+
+    cart.splice(index,1);
+
+    saveCart(cart);
+
+    displayCart();
+
+}
+
+/*========================================
+QUANTITY
+========================================*/
+
+function increaseQuantity(index){
+
+    let cart = getCart();
+
+    cart[index].quantity++;
+
+    saveCart(cart);
+
+    displayCart();
+
+}
+
+function decreaseQuantity(index){
+
+    let cart = getCart();
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }else{
+
+        cart.splice(index,1);
+
+    }
+
+    saveCart(cart);
+
+    displayCart();
+
+}
+
+/*========================================
+CART TOTALS
+========================================*/
+
+function updateTotals(){
+
+    const cart = getCart();
+
+    let total = 0;
+
+    let items = 0;
+
+    cart.forEach(item=>{
+
+        const price = parseFloat(item.price.replace(/[^0-9.]/g,""));
+
+        if(!isNaN(price)){
+
+            total += price * item.quantity;
+
+        }
+
+        items += item.quantity;
+
+    });
+
+    const cartCount = document.getElementById("cartCount");
+    const subtotal = document.getElementById("subtotal");
+    const cartTotal = document.getElementById("cartTotal");
+    const estimatedShots = document.getElementById("estimatedShots");
+
+    if(cartCount){
+
+        cartCount.textContent = items;
+
+    }
+
+    if(subtotal){
+
+        subtotal.textContent = "$" + total.toFixed(2);
+
+    }
+
+    if(cartTotal){
+
+        cartTotal.textContent = "$" + total.toFixed(2);
+
+    }
+
+    if(estimatedShots){
+
+        estimatedShots.textContent = Math.round(total * 25);
+
+    }
+
+}
+
+/*========================================
+CHECKOUT
+========================================*/
+
+function checkout(){
+
+    const cart = getCart();
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    let total = 0;
+
+    cart.forEach(item=>{
+
+        const price = parseFloat(item.price.replace(/[^0-9.]/g,""));
+
+        if(!isNaN(price)){
+
+            total += price * item.quantity;
+
+        }
+
+    });
+
+    addShots(Math.round(total * 25));
+
+    localStorage.removeItem("cart");
+
+    displayCart();
+
+    alert("Thank you for visiting JumpShot Coffee!");
+
+}
+
+/*========================================
+CHECKOUT BUTTON
+========================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    setupCartButtons();
+
+    const checkoutButton = document.querySelector(".checkout-btn");
+
+    if(checkoutButton){
+
+        checkoutButton.addEventListener("click",checkout);
+
+    }
 
 });
 
-rewardPoints += 10;
+/*========================================
+PROFILE
+========================================*/
 
-saveData();
+function loadProfile(){
 
-if(rewardDisplay){
+    const customerName = document.getElementById("customerName");
 
-rewardDisplay.textContent = rewardPoints;
+    const customerEmail = document.getElementById("customerEmail");
 
-}
+    if(customerName){
 
-alert(name + " added to your cart!");
+        customerName.textContent =
 
-});
+        localStorage.getItem("customerName") || "Guest";
 
-});
+    }
 
-/*==========================================
-Search Menu
-==========================================*/
+    if(customerEmail){
 
-if(searchButton && searchInput){
+        customerEmail.textContent =
 
-searchButton.addEventListener("click",searchMenu);
+        localStorage.getItem("customerEmail") || "Not Available";
 
-searchInput.addEventListener("keyup",(e)=>{
-
-if(e.key==="Enter"){
-
-searchMenu();
+    }
 
 }
 
-});
+/*========================================
+CONTACT FORM
+========================================*/
+
+function setupContactForm(){
+
+    const form = document.getElementById("contactForm");
+
+    if(!form) return;
+
+    form.addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        alert("Thank you for contacting JumpShot Coffee!");
+
+        form.reset();
+
+    });
 
 }
 
-function searchMenu(){
+/*========================================
+SAVE PROFILE
+========================================*/
 
-const value = searchInput.value.toLowerCase();
+function saveProfile(name,email){
 
-const cards = document.querySelectorAll(".category-card,.drink-card");
+    localStorage.setItem("customerName",name);
 
-cards.forEach(card=>{
+    localStorage.setItem("customerEmail",email);
 
-const text = card.textContent.toLowerCase();
-
-if(text.includes(value)){
-
-card.style.display="";
-
-}else{
-
-card.style.display="none";
+    loadProfile();
 
 }
 
-});
+/*========================================
+CLEAR CART
+========================================*/
+
+function clearCart(){
+
+    localStorage.removeItem("cart");
+
+    displayCart();
 
 }
 
-/*==========================================
-Favorites
-==========================================*/
+/*========================================
+UTILITY FUNCTIONS
+========================================*/
 
-const favoriteButtons = document.querySelectorAll(".favorite-btn");
+function formatMoney(amount){
 
-favoriteButtons.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-const card = button.closest(".drink-card");
-
-if(!card) return;
-
-const drinkName = card.querySelector("h3").textContent;
-
-const exists = favorites.find(item=>item===drinkName);
-
-if(exists){
-
-alert(drinkName + " is already in your favorites!");
-
-return;
+    return "$" + amount.toFixed(2);
 
 }
 
-favorites.push(drinkName);
+function getShotsEarned(total){
 
-saveData();
-
-button.innerHTML="❤️";
-
-alert(drinkName + " added to Favorites!");
-
-});
-
-});
-
-/*==========================================
-Dark Mode
-==========================================*/
-
-const darkButton=document.querySelector(".dark-mode-btn");
-
-if(localStorage.getItem("theme")==="dark"){
-
-document.body.classList.add("dark-mode");
+    return Math.round(total * 25);
 
 }
 
-if(darkButton){
-
-darkButton.addEventListener("click",()=>{
-
-document.body.classList.toggle("dark-mode");
-
-if(document.body.classList.contains("dark-mode")){
-
-localStorage.setItem("theme","dark");
-
-}else{
-
-localStorage.setItem("theme","light");
-
-}
-
-});
-
-}
-
-/*==========================================
-Mobile Menu
-==========================================*/
-
-const menuButton=document.querySelector(".icon-btn");
-
-const navigation=document.querySelector(".bottom-nav");
-
-if(menuButton){
-
-menuButton.addEventListener("click",()=>{
-
-navigation.classList.toggle("show-menu");
-
-});
-
-}
-
-/*==========================================
-Cart Counter
-==========================================*/
-
-const cartCount=document.querySelector(".cart-count");
-
-function updateCartCounter(){
-
-if(cartCount){
-
-cartCount.textContent=cart.length;
-
-}
-
-}
-
-updateCartCounter();
-
-saveData();
-
-/*==========================================
-Checkout
-==========================================*/
-
-const checkoutButton=document.querySelector(".checkout-btn");
-
-if(checkoutButton){
-
-checkoutButton.addEventListener("click",()=>{
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-alert("Thank you for choosing JumpShot Coffee!");
-
-cart.length=0;
-
-rewardPoints+=50;
-
-saveData();
-
-updateCartCounter();
-
-});
-
-}
-
-/*==========================================
-Notifications
-==========================================*/
-
-function showNotification(message){
-
-const notice=document.createElement("div");
-
-notice.className="notification";
-
-notice.innerHTML=message;
-
-document.body.appendChild(notice);
-
-setTimeout(()=>{
-
-notice.classList.add("show");
-
-},100);
-
-setTimeout(()=>{
-
-notice.classList.remove("show");
-
-setTimeout(()=>{
-
-notice.remove();
-
-},400);
-
-},3000);
-
-}
-
-/*==========================================
-Order History
-==========================================*/
-
-let history=JSON.parse(localStorage.getItem("history"))||[];
-
-function saveOrder(order){
-
-history.push(order);
-
-localStorage.setItem(
-
-"history",
-
-JSON.stringify(history)
-
-);
-
-}
-
-if(checkoutButton){
-
-checkoutButton.addEventListener("click",()=>{
-
-saveOrder({
-
-date:new Date().toLocaleString(),
-
-items:cart,
-
-points:rewardPoints
-
-});
-
-});
-
-}
-
-/*==========================================
-Welcome Message
-==========================================*/
-
-window.addEventListener("load",()=>{
-
-showNotification(
-
-"☕ Welcome to JumpShot Coffee!"
-
-);
-
-updateCartCounter();
-
-});
-
-/*==========================================
-Reward Levels
-==========================================*/
-
-function updateRewardLevel(){
-
-const level=document.querySelector(".reward-level");
-
-if(!level) return;
-
-if(rewardPoints>=2500){
-
-level.textContent="🏆 MVP";
-
-}
-
-else if(rewardPoints>=1500){
-
-level.textContent="🥇 All-Star";
-
-}
-
-else if(rewardPoints>=750){
-
-level.textContent="🥈 Starter";
-
-}
-
-else{
-
-level.textContent="☕ Rookie";
-
-}
-
-}
-
-updateRewardLevel();
-
-/*==========================================
-Live Search
-==========================================*/
-
-if(searchInput){
-
-searchInput.addEventListener("input",()=>{
-
-const value=searchInput.value.toLowerCase();
-
-const cards=document.querySelectorAll(".category-card");
-
-cards.forEach(card=>{
-
-const text=card.innerText.toLowerCase();
-
-card.style.display=text.includes(value)?"":"none";
-
-});
-
-});
-
-}
-
-/*==========================================
-Back To Top
-==========================================*/
-
-const topButton=document.querySelector(".top-btn");
-
-if(topButton){
-
-window.addEventListener("scroll",()=>{
-
-topButton.style.display=
-
-window.scrollY>500
-
-?
-
-"block"
-
-:
-
-"none";
-
-});
-
-topButton.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-});
-
-}
-
-/*==========================================
-Loading Screen
-==========================================*/
-
-window.addEventListener("load",()=>{
-
-const loader=document.querySelector(".loader");
-
-if(loader){
-
-setTimeout(()=>{
-
-loader.style.opacity="0";
-
-setTimeout(()=>{
-
-loader.style.display="none";
-
-},500);
-
-},1200);
-
-}
-
-});
-
-/*==========================================
-Today's Greeting
-==========================================*/
-
-const greeting=document.querySelector(".greeting");
-
-if(greeting){
-
-const hour=new Date().getHours();
-
-if(hour<12){
-
-greeting.textContent="☀️ Good Morning";
-
-}
-
-else if(hour<18){
-
-greeting.textContent="🌤 Good Afternoon";
-
-}
-
-else{
-
-greeting.textContent="🌙 Good Evening";
-
-}
-
-}
-
-/*==========================================
-App Ready
-==========================================*/
-
-console.log("JumpShot Coffee App Loaded Successfully");
-
-updateCartCounter();
-
-updateRewardLevel();
-
-saveData();
 
