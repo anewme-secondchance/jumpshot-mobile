@@ -247,15 +247,13 @@ LOGO
 .main-logo,
 .page-logo{
 
-width:170px;
+width:220px;
 
 height:auto;
 
 display:block;
 
 margin:auto;
-
-transition:.35s;
 
 }
 
