@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cart | JumpShot Coffee</title>
 
-<meta name="theme-color"
-content="#72DCE8">
+<meta name="theme-color" content="#72DCE8">
 
-<link rel="icon"
-href="images/IMG_logo.PNG">
+<link rel="icon" href="images/IMG_23_header_logo.PNG">
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -38,35 +29,23 @@ rel="stylesheet">
 HEADER
 ======================================-->
 
-<header class="page-header">
-
-<a href="index.html" class="back-btn">
-Back
-</a>
+<header class="home-header">
 
 <img src="images/IMG_23_header_logo.PNG"
-     class="main-logo"
-     alt="JumpShot Coffee Logo">
 
-<a href="cart.html" class="cart-btn">
-Cart
-</a>
+class="main-logo"
+
+alt="JumpShot Coffee Logo">
 
 </header>
-  
+
 <!--=====================================
 HERO
 ======================================-->
 
-<section class="page-hero">
+<section class="hero">
 
-<img src="images/IMG_logo.PNG"
-
-class="page-banner"
-
-alt="Shopping Cart">
-
-<div class="page-overlay">
+<div class="hero-content">
 
 <h1>
 
@@ -80,7 +59,37 @@ Review your order before checking out.
 
 </p>
 
+<div class="hero-buttons">
+
+<a href="traditional.html">
+
+<button class="order-btn">
+
+Continue Shopping
+
+</button>
+
+</a>
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+Road to the Next Shot
+
+</button>
+
+</a>
+
 </div>
+
+</div>
+
+<img src="images/IMG_20_iced.PNG"
+
+class="hero-image"
+
+alt="Shopping Cart">
 
 </section>
 
@@ -92,7 +101,7 @@ SHOPPING CART
 
 <div id="cartItems">
 
-<!-- JavaScript loads cart items here -->
+<!-- JavaScript Loads Cart Here -->
 
 </div>
 
@@ -112,11 +121,7 @@ Order Summary
 
 <div class="summary-row">
 
-<span>
-
-Items
-
-</span>
+<span>Items</span>
 
 <span id="cartCount">
 
@@ -128,11 +133,7 @@ Items
 
 <div class="summary-row">
 
-<span>
-
-Subtotal
-
-</span>
+<span>Subtotal</span>
 
 <span id="subtotal">
 
@@ -144,11 +145,7 @@ $0.00
 
 <div class="summary-row">
 
-<span>
-
-Estimated Shots
-
-</span>
+<span>Estimated Shots</span>
 
 <span id="estimatedShots">
 
@@ -160,11 +157,7 @@ Estimated Shots
 
 <div class="summary-row total">
 
-<span>
-
-Total
-
-</span>
+<span>Total</span>
 
 <span id="cartTotal">
 
@@ -180,19 +173,9 @@ Checkout
 
 </button>
 
-<a href="index.html">
-
-<button class="reward-btn">
-
-Continue Shopping
-
-</button>
-
-</a>
-
 </section>
 
-  <!--=====================================
+<!--=====================================
 ROAD TO THE NEXT SHOT
 ======================================-->
 
@@ -208,7 +191,7 @@ Road to the Next Shot
 
 <p>
 
-Every purchase earns Shots toward free drinks and exclusive rewards.
+Earn Shots with every purchase.
 
 </p>
 
@@ -244,15 +227,19 @@ Current Shots
 
 </p>
 
+<div class="hero-buttons">
+
 <a href="rewards.html">
 
 <button class="reward-btn">
 
-Keep Shooting
+View Rewards
 
 </button>
 
 </a>
+
+</div>
 
 </section>
 
@@ -314,7 +301,7 @@ Open Daily
 
 <p>
 
-Phone: (903) 352-3443
+(903) 352-3443
 
 </p>
 
@@ -330,35 +317,23 @@ Contact Us
 
 </a>
 
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
-
-<button class="reward-btn">
-
-Get Directions
-
-</button>
-
-</a>
-
 </div>
 
 </div>
 
 </section>
 
-<!--=====================================
+  <!--=====================================
 FOOTER
 ======================================-->
 
 <footer class="footer">
 
-<img src="images/IMG_logo.PNG"
+<img src="images/IMG_23_header_logo.PNG"
 
 class="footer-logo"
 
-alt="JumpShot Coffee">
+alt="JumpShot Coffee Logo">
 
 <h3>
 
@@ -398,6 +373,12 @@ Rewards
 
 </a>
 
+<a href="cart.html">
+
+Cart
+
+</a>
+
 <a href="profile.html">
 
 Profile
@@ -420,8 +401,56 @@ Contact
 
 </footer>
 
+<!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
+<nav class="bottom-nav">
+
+<a href="index.html" class="nav-item">
+
+🏠
+
+<span>Home</span>
+
+</a>
+
+<a href="traditional.html" class="nav-item">
+
+☕
+
+<span>Menu</span>
+
+</a>
+
+<a href="rewards.html" class="nav-item">
+
+🏀
+
+<span>Rewards</span>
+
+</a>
+
+<a href="cart.html" class="nav-item active">
+
+🛒
+
+<span>Cart</span>
+
+</a>
+
+<a href="profile.html" class="nav-item">
+
+👤
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
 <script src="script.js"></script>
 
 </body>
 
-</html>
+</html>   
