@@ -5,83 +5,50 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>JumpShot Coffee</title>
 
-<meta name="theme-color" content="#72DCE8">
+<meta name="theme-color"
+content="#72DCE8">
 
-<link rel="icon" href="images/IMG_logo.PNG">
+<link rel="icon"
+href="images/IMG_logo.PNG">
 
-<link rel="stylesheet" href="style.css">
+<link rel="manifest"
+href="manifest.json">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet"
+href="style.css">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="header">
+<header class="home-header">
 
-<div class="logo">
+<img src="images/IMG_logo.PNG"
 
-<a href="index.html">
+class="main-logo"
 
-<img src="images/IMG_logo.PNG" alt="JumpShot Coffee Logo">
-
-</a>
-
-</div>
-
-<nav class="header-icons">
-
-<button class="icon-btn" id="menuBtn">☰</button>
-
-<a href="cart.html">
-
-<button class="icon-btn">
-
-🛒
-
-</button>
-
-</a>
-
-</nav>
+alt="JumpShot Coffee">
 
 </header>
 
- <!--=====================================
-HERO
-======================================-->
+ <section class="hero">
 
-<section class="hero">
-
-<div class="hero-slider">
-
-<img src="images/IMG_1.PNG" class="slide active">
-
-<img src="images/IMG_5.PNG" class="slide">
-
-<img src="images/IMG_7.PNG" class="slide">
-
-<img src="images/IMG_8.PNG" class="slide">
-
-<img src="images/IMG_10.PNG" class="slide">
-
-<img src="images/IMG_15.PNG" class="slide">
-
-</div>
-
-<div class="hero-overlay">
-
-<img src="images/IMG_logo.PNG"
-class="hero-logo"
-alt="JumpShot Coffee">
+<div class="hero-content">
 
 <h1>
 
@@ -89,13 +56,13 @@ Welcome to JumpShot Coffee
 
 </h1>
 
-<p class="hero-slogan">
+<p>
 
 Where exceptional coffee meets exceptional service.
 
 </p>
 
-<p class="hero-subtitle">
+<p>
 
 Crafting only the highest quality coffee.
 
@@ -103,7 +70,7 @@ Crafting only the highest quality coffee.
 
 <div class="hero-buttons">
 
-<a href="traditional.html">
+<a href="#menu">
 
 <button class="order-btn">
 
@@ -115,9 +82,9 @@ Order Now
 
 <a href="rewards.html">
 
-<button class="secondary-btn">
+<button class="reward-btn">
 
-🏀 Rewards
+Road to the Next Shot
 
 </button>
 
@@ -127,33 +94,234 @@ Order Now
 
 </div>
 
+<img src="images/IMG_21_welcome.PNG"
+
+class="hero-image"
+
+alt="Welcome to JumpShot Coffee">
+
 </section>
 
-<!--=====================================
-ROAD TO THE NEXT SHOT
-======================================-->
-
-<section class="next-shot">
-
-<div class="next-shot-card">
-
-<img src="images/IMG_rewards.PNG"
-class="reward-logo"
-alt="Rewards">
-
-<div class="reward-info">
+ <section class="featured">
 
 <h2>
 
-🏀 Road to the Next Shot
+Featured Drink
+
+</h2>
+
+<div class="featured-card">
+
+<img src="images/IMG_20_iced.PNG"
+
+alt="Featured Coffee">
+
+<h3>
+
+Signature Iced Coffee
+
+</h3>
+
+<p>
+
+Handcrafted espresso layered with rich flavors,
+fresh ingredients, and made with care.
+
+</p>
+
+<a href="traditional.html">
+
+<button class="take-shot">
+
+Take the Shot
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+ <section
+class="menu-home"
+
+id="menu">
+
+<h2>
+
+Explore Our Menu
 
 </h2>
 
 <p>
 
-Current Shots
+Freshly crafted drinks and food made just for you.
 
 </p>
+
+<div class="menu-grid">
+
+<a href="traditional.html"
+class="menu-card">
+
+<img src="images/IMG_20_iced.PNG">
+
+<h3>
+
+Traditional Coffee
+
+</h3>
+
+</a>
+
+<a href="house-specialties.html"
+class="menu-card">
+
+<img src="images/IMG_11.PNG">
+
+<h3>
+
+House Specialties
+
+</h3>
+
+</a>
+
+<a href="matcha-specialties.html"
+class="menu-card">
+
+<img src="images/IMG_6.PNG">
+
+<h3>
+
+Matcha
+
+</h3>
+
+</a>
+
+<a href="frappes.html"
+class="menu-card">
+
+<img src="images/IMG_10.PNG"
+alt="Frappes">
+
+<h3>
+
+Frappes
+
+</h3>
+
+</a>
+
+<a href="smoothies.html"
+class="menu-card">
+
+<img src="images/IMG_1.PNG"
+alt="Smoothies">
+
+<h3>
+
+Smoothies
+
+</h3>
+
+</a>
+
+<a href="tea.html"
+class="menu-card">
+
+<img src="images/IMG_18_Tea.PNG"
+alt="Tea">
+
+<h3>
+
+Tea
+
+</h3>
+
+</a>
+
+<a href="lotus-energizers.html"
+class="menu-card">
+
+<img src="images/IMG_17.PNG"
+alt="Lotus Energizers">
+
+<h3>
+
+Lotus Energizers
+
+</h3>
+
+</a>
+
+<a href="hot-teas.html"
+class="menu-card">
+
+<img src="images/IMG_12.PNG"
+alt="Hot Teas">
+
+<h3>
+
+Hot Teas
+
+</h3>
+
+</a>
+
+<a href="food.html"
+class="menu-card">
+
+<img src="images/IMG_19_toast.PNG"
+alt="Food">
+
+<h3>
+
+Food
+
+</h3>
+
+</a>
+
+<a href="bagged-coffee.html"
+class="menu-card">
+
+<img src="images/IMG_14.PNG"
+alt="Bagged Coffee">
+
+<h3>
+
+Bagged Coffee
+
+</h3>
+
+</a>
+
+</div>
+
+</section>
+
+<section class="home-rewards">
+
+<h2>
+
+Road to the Next Shot
+
+</h2>
+
+<img src="images/IMG_rewards.PNG"
+
+class="reward-home"
+
+alt="Rewards">
+
+<h3>
+
+Current Shots
+
+</h3>
 
 <h1 id="shotCount">
 
@@ -175,232 +343,37 @@ Current Shots
 
 <a href="rewards.html">
 
-<button class="rewards-btn">
+<button class="reward-btn">
 
-Keep Shooting
+View Rewards
 
 </button>
 
 </a>
-
-</div>
-
-</div>
 
 </section>
 
-<!--=====================================
-MENU
-======================================-->
+ <section class="visit-home">
 
-<section class="categories">
+<h2>
 
-<div class="section-title">
+Visit JumpShot Coffee
 
-<h2>Explore Our Menu</h2>
+</h2>
 
-<p>
+<img src="images/IMG_21_welcome.PNG"
 
-Freshly crafted drinks and food made just for you.
-
-</p>
-
-</div>
-
-<div class="category-grid">
-
-<a href="traditional.html" class="category-card">
-☕
-<h3>Traditional Coffee</h3>
-</a>
-
-<a href="house-specialties.html" class="category-card">
-🏀
-<h3>House Specialties</h3>
-</a>
-
-<a href="matcha.html" class="category-card">
-🍵
-<h3>Matcha</h3>
-</a>
-
-<a href="frappes.html" class="category-card">
-🥤
-<h3>Frappes</h3>
-</a>
-
-<a href="smoothies.html" class="category-card">
-🍓
-<h3>Smoothies</h3>
-</a>
-
-<a href="tea.html" class="category-card">
-🍋
-<h3>Tea</h3>
-</a>
-
-<a href="lotus.html" class="category-card">
-⚡
-<h3>Lotus Energizers</h3>
-</a>
-
-<a href="hot-teas.html" class="category-card">
-🍃
-<h3>Hot Teas</h3>
-</a>
-
-<a href="food.html" class="category-card">
-🥐
-<h3>Food</h3>
-</a>
-
-<a href="bagged-coffee.html" class="category-card">
-☕
-<h3>Bagged Coffee</h3>
-</a>
-
-<a href="july-specials.html" class="category-card">
-⭐
-<h3>July Specials</h3>
-</a>
-
-</div>
-
-</section>
-
-<!--=====================================
-FEATURED DRINKS
-======================================-->
-
-<section class="featured">
-
-<div class="section-title">
-
-<h2>Customer Favorites</h2>
-
-<p>
-
-Freshly handcrafted favorites our customers love.
-
-</p>
-
-</div>
-
-<div class="featured-grid">
-
-<div class="featured-card">
-
-<img src="images/IMG_5.PNG" alt="House Specialties">
-
-<h3>House Specialties</h3>
-
-<p>
-
-Discover JumpShot's signature handcrafted drinks.
-
-</p>
-
-<a href="house-specialties.html">
-
-<button class="order-btn-small">
-
-🏀 Take the Shot
-
-</button>
-
-</a>
-
-</div>
-
-<div class="featured-card">
-
-<img src="images/IMG_10.PNG" alt="Frappes">
-
-<h3>Frappes</h3>
-
-<p>
-
-Creamy blended favorites topped with whipped cream.
-
-</p>
-
-<a href="frappes.html">
-
-<button class="order-btn-small">
-
-🏀 Take the Shot
-
-</button>
-
-</a>
-
-</div>
-
-<div class="featured-card">
-
-<img src="images/IMG_4.PNG" alt="Fresh Food">
-
-<h3>Fresh Food</h3>
-
-<p>
-
-Fresh pastries and bakery treats made daily.
-
-</p>
-
-<a href="food.html">
-
-<button class="order-btn-small">
-
-🛒 Add to Cart
-
-</button>
-
-</a>
-
-</div>
-
-</div>
-
-</section>   
-
-<!--=====================================
-VISIT JUMPSHOT
-======================================-->
-
-<section class="visit">
-
-<div class="section-title">
-
-<h2>Come Visit Us</h2>
-
-<p>
-
-We can't wait to serve you.
-
-</p>
-
-</div>
-
-<div class="visit-card">
-
-<img src="images/IMG_8.PNG"
-
-class="store-photo"
+class="visit-photo"
 
 alt="JumpShot Coffee">
 
 <h3>
 
-📍 JumpShot Coffee
+734 S Fleishel Ave
 
 </h3>
 
 <p>
-
-734 S Fleishel Ave
-
-<br>
 
 Tyler, Texas 75701
 
@@ -408,91 +381,35 @@ Tyler, Texas 75701
 
 <p>
 
-🕖 Monday - Sunday
+Open Daily
 
-<br>
-
-7:00 AM - 4:00 PM
+7:00 AM – 4:00 PM
 
 </p>
 
 <p>
 
-📞 (903) 352-3443
+(903) 352-3443
 
 </p>
 
 <a href="contact.html">
 
-<button class="call-btn">
+<button class="order-btn">
 
-Get Directions
-
-</button>
-
-</a>
-
-</div>
-
-</section>
-
-<!--=====================================
-REWARDS PREVIEW
-======================================-->
-
-<section class="reward-preview">
-
-<div class="reward-preview-card">
-
-<img src="images/IMG_rewards.PNG"
-
-class="reward-logo"
-
-alt="JumpShot Rewards">
-
-<h2>
-
-JumpShot Rewards
-
-</h2>
-
-<p>
-
-Every purchase earns Shots.
-
-Unlock free drinks, pastries,
-
-exclusive rewards,
-
-and level up with every visit.
-
-</p>
-
-<a href="rewards.html">
-
-<button class="rewards-btn">
-
-🏀 View Rewards
+Contact Us
 
 </button>
 
 </a>
 
-</div>
-
 </section>
-
-  <!--=====================================
-FOOTER
-======================================-->
 
 <footer class="footer">
 
-<div class="footer-container">
-
-<div class="footer-logo">
-
 <img src="images/IMG_logo.PNG"
+
+class="footer-logo"
 
 alt="JumpShot Coffee">
 
@@ -508,41 +425,11 @@ Crafting only the highest quality coffee.
 
 </p>
 
-</div>
+<p>
 
-<div class="footer-links">
+© 2026 JumpShot Coffee
 
-<h3>Quick Links</h3>
-
-<a href="index.html">Home</a>
-
-<a href="menu.html">Menu</a>
-
-<a href="rewards.html">Rewards</a>
-
-<a href="contact.html">Contact</a>
-
-</div>
-
-<div class="footer-contact">
-
-<h3>Visit Us</h3>
-
-<p>734 S Fleishel Ave</p>
-
-<p>Tyler, TX 75701</p>
-
-<p>(903) 352-3443</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 JumpShot Coffee • All Rights Reserved
-
-</div>
+</p>
 
 </footer>
 
@@ -550,4 +437,5 @@ Crafting only the highest quality coffee.
 
 </body>
 
-</html> 
+</html>
+
