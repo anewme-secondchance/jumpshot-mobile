@@ -1,72 +1,43 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Profile | JumpShot Coffee</title>
 
-<meta name="theme-color"
-content="#72DCE8">
+<meta name="theme-color" content="#72DCE8">
 
-<link rel="icon"
-href="images/IMG_logo.PNG">
+<link rel="icon" href="images/IMG_23_header_logo.PNG">
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!--=====================================
-HEADER
-======================================-->
-
-<header class="page-header">
-
-<a href="index.html" class="back-btn">
-Back
-</a>
+<header class="home-header">
 
 <img src="images/IMG_23_header_logo.PNG"
-     class="main-logo"
-     alt="JumpShot Coffee Logo">
 
-<a href="cart.html" class="cart-btn">
-Cart
-</a>
-
-</header>
-
-<!--=====================================
-PROFILE HERO
-======================================-->
-
-<section class="page-hero">
-
-<img src="images/IMG_logo.PNG"
-
-class="page-banner"
+class="main-logo"
 
 alt="JumpShot Coffee">
 
-<div class="page-overlay">
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
 
 <h1>
 
@@ -76,63 +47,163 @@ My Profile
 
 <p>
 
-Manage your JumpShot Coffee account and rewards.
+Track your rewards, favorite drinks and account information.
 
 </p>
 
+<div class="hero-buttons">
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+Road to the Next Shot
+
+</button>
+
+</a>
+
+<a href="traditional.html">
+
+<button class="order-btn">
+
+Order Coffee
+
+</button>
+
+</a>
+
 </div>
 
-</section>
+</div>
 
-<!--=====================================
-PROFILE CARD
-======================================-->
+<img src="images/IMG_23_header_logo.PNG"
 
-<section class="profile-section">
-
-<div class="profile-card">
-
-<img src="images/IMG_logo.PNG"
-
-class="profile-logo"
+class="hero-image"
 
 alt="JumpShot Coffee">
 
-<h2 id="customerName">
+</section>
 
-Guest
+<section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+My Rewards
 
 </h2>
 
-<p id="customerEmail">
+<p>
 
-Not Available
+Current Shots
 
 </p>
 
+<h3 id="shotCount">
+
+0
+
+</h3>
+
 <p>
 
-Welcome back to JumpShot Coffee!
+500 Shots earns your first FREE Coffee.
 
 </p>
 
 </div>
 
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Favorite Drink
+
+</h2>
+
+<p>
+
+No favorites selected yet.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Account Information
+
+</h2>
+
+<p>
+
+Name
+
+</p>
+
+<input
+type="text"
+placeholder="Your Name">
+
+<p>
+
+Email
+
+</p>
+
+<input
+type="email"
+placeholder="Email Address">
+
+<button class="checkout-btn">
+
+Save Profile
+
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!--=====================================
-ACCOUNT STATS
-======================================-->
+<section class="home-rewards">
 
-<section class="stats-section">
+<div class="section-title">
 
-<div class="stat-card">
+<h2>
 
-<h3>
+Road to the Next Shot
 
-Current Shots
+</h2>
 
-</h3>
+<p>
+
+Keep earning rewards every visit.
+
+</p>
+
+</div>
+
+<img src="images/IMG_rewards.PNG"
+
+class="reward-home"
+
+alt="Rewards">
 
 <h1 id="shotCount">
 
@@ -140,205 +211,15 @@ Current Shots
 
 </h1>
 
-</div>
-
-<div class="stat-card">
-
-<h3>
-
-Favorite Drinks
-
-</h3>
-
-<h1 id="favoriteCount">
-
-0
-
-</h1>
-
-</div>
-
-</section>
-
-<!--=====================================
-MY FAVORITES
-======================================-->
-
-<section class="favorites-section">
-
-<div class="section-title">
-
-<h2>
-
-My Favorites
-
-</h2>
-
-<p>
-
-Your saved favorite JumpShot Coffee drinks.
-
-</p>
-
-</div>
-
-<div id="favoriteList">
-
-<p>
-
-Favorite drinks will appear here.
-
-</p>
-
-</div>
-
-</section>
-
- <!--=====================================
-REWARDS STATUS
-======================================-->
-
-<section class="reward-status">
-
-<div class="section-title">
-
-<h2>
-
-Rewards Status
-
-</h2>
-
-<p>
-
-You're always one shot closer to your next reward.
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-<h3>
-
-Road to the Next Shot
-
-</h3>
-
 <div class="progress-bar">
 
 <div id="progressFill"></div>
 
 </div>
 
-<p>
-
-500 Shots earns your first FREE Coffee!
-
-</p>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-View Rewards
-
-</button>
-
-</a>
-
-</div>
-
 </section>
-
-<!--=====================================
-ACCOUNT SETTINGS
-======================================-->
-
-<section class="settings-section">
-
-<div class="section-title">
-
-<h2>
-
-Account Settings
-
-</h2>
-
-<p>
-
-Manage your JumpShot Coffee account.
-
-</p>
-
-</div>
-
-<div class="settings-grid">
-
-<a href="contact.html">
-
-<button class="settings-btn">
-
-Contact Us
-
-</button>
-
-</a>
-
-<a href="cart.html">
-
-<button class="settings-btn">
-
-View Cart
-
-</button>
-
-</a>
-
-<a href="rewards.html">
-
-<button class="settings-btn">
-
-Rewards
-
-</button>
-
-</a>
-
-<a href="index.html">
-
-<button class="settings-btn">
-
-Continue Shopping
-
-</button>
-
-</a>
-
-</div>
-
-</section>
-
-<!--=====================================
-VISIT JUMPSHOT COFFEE
-======================================-->
 
 <section class="visit-home">
-
-<div class="section-title">
-
-<h2>
-
-Visit JumpShot Coffee
-
-</h2>
-
-<p>
-
-Where exceptional coffee meets exceptional service.
-
-</p>
-
-</div>
 
 <div class="visit-card">
 
@@ -376,114 +257,10 @@ Open Daily
 
 <p>
 
-Phone: (903) 352-3443
+(903) 352-3443
 
 </p>
-
-<div class="hero-buttons">
-
-<a href="tel:+19033523443">
-
-<button class="order-btn">
-
-Call Now
-
-</button>
-
-</a>
-
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
-
-<button class="reward-btn">
-
-Get Directions
-
-</button>
-
-</a>
-
-</div>
 
 </div>
 
 </section>
-
-<!--=====================================
-FOOTER
-======================================-->
-
-<footer class="footer">
-
-<img src="images/IMG_logo.PNG"
-
-class="footer-logo"
-
-alt="JumpShot Coffee">
-
-<h3>
-
-JumpShot Coffee
-
-</h3>
-
-<p>
-
-Where exceptional coffee meets exceptional service.
-
-</p>
-
-<p>
-
-Crafting only the highest quality coffee.
-
-</p>
-
-<div class="footer-links">
-
-<a href="index.html">
-
-Home
-
-</a>
-
-<a href="traditional.html">
-
-Coffee
-
-</a>
-
-<a href="rewards.html">
-
-Rewards
-
-</a>
-
-<a href="cart.html">
-
-Cart
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 JumpShot Coffee • All Rights Reserved
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
