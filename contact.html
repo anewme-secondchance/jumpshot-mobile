@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact | JumpShot Coffee</title>
+<title>Contact Us | JumpShot Coffee</title>
 
 <meta name="theme-color" content="#72DCE8">
 
@@ -25,11 +25,13 @@
 
 <body>
 
-<!--=====================================
-HEADER
-======================================-->
+<header class="page-header">
 
-<header class="home-header">
+<a href="index.html" class="back-btn">
+
+Back
+
+</a>
 
 <img src="images/IMG_23_header_logo.PNG"
 
@@ -37,15 +39,17 @@ class="main-logo"
 
 alt="JumpShot Coffee Logo">
 
+<a href="cart.html" class="cart-btn">
+
+Cart
+
+</a>
+
 </header>
 
-<!--=====================================
-HERO
-======================================-->
+<section class="page-hero">
 
-<section class="hero">
-
-<div class="hero-content">
+<div class="page-overlay">
 
 <h1>
 
@@ -55,55 +59,13 @@ Contact JumpShot Coffee
 
 <p>
 
-We'd love to hear from you.
+We're here to help. We'd love to hear from you.
 
 </p>
 
-<p>
-
-Questions, comments, catering requests, or just want to say hello? We're here to help.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="https://www.jumpshotcoffee.com/order"
-
-target="_blank">
-
-<button class="order-btn">
-
-Order Online
-
-</button>
-
-</a>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-Road to the Next Shot
-
-</button>
-
-</a>
-
 </div>
-
-</div>
-
-<img src="images/IMG_8.PNG"
-
-class="hero-image"
-
-alt="JumpShot Coffee">
 
 </section>
-
-<!--=====================================
-CONTACT INFORMATION
-======================================-->
 
 <section class="menu-section">
 
@@ -113,13 +75,13 @@ CONTACT INFORMATION
 
 <h2>
 
-JumpShot Coffee
+Store Information
 
 </h2>
 
 <p>
 
-734 S Fleishel Ave
+📍 734 S Fleishel Ave
 
 <br>
 
@@ -129,17 +91,15 @@ Tyler, Texas 75701
 
 <p>
 
-Phone:
-
-(903) 352-3443
+📞 (903) 352-3443
 
 </p>
 
 <p>
 
-Hours:
+🕖 Open Daily
 
-Monday – Sunday
+<br>
 
 7:00 AM – 4:00 PM
 
@@ -149,128 +109,43 @@ Monday – Sunday
 
 </div>
 
-</section>
-
-<!--=====================================
-FOLLOW JUMPSHOT
-======================================-->
-
-<section class="menu-section">
-
 <div class="drink-card">
 
 <div class="drink-info">
 
 <h2>
 
-Follow JumpShot Coffee
+Send Us a Message
 
 </h2>
 
-<div class="hero-buttons">
+<input type="text"
 
-<a href="https://www.instagram.com/jumpshot.coffee"
+placeholder="Your Name">
 
-target="_blank">
+<input type="email"
 
-<button class="order-btn">
-
-Instagram
-
-</button>
-
-</a>
-
-<a href="https://www.facebook.com/jumpshot.coffee"
-
-target="_blank">
-
-<button class="order-btn">
-
-Facebook
-
-</button>
-
-</a>
-
-<a href="https://www.tiktok.com/@jumpshot.tyler?_r=1&_t=ZT-97tmMkCnkxJ"
-
-target="_blank">
-
-<button class="order-btn">
-
-TikTok
-
-</button>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!--=====================================
-CONTACT FORM
-======================================-->
-
-<section class="contact-form-section">
-
-<div class="section-title">
-
-<h2>
-
-Send Us A Message
-
-</h2>
-
-<p>
-
-We look forward to hearing from you.
-
-</p>
-
-</div>
-
-<form id="contactForm">
-
-<input
-type="text"
-placeholder="Your Name"
-required>
-
-<input
-type="email"
-placeholder="Email Address"
-required>
-
-<input
-type="tel"
-placeholder="Phone Number">
+placeholder="Email Address">
 
 <textarea
-rows="6"
-placeholder="Type your message..."
-required>
+
+placeholder="How can we help?">
 
 </textarea>
 
-<button
-type="submit"
-class="checkout-btn">
+<button class="checkout-btn">
 
 Send Message
 
 </button>
 
-</form>
+</div>
+
+</div>
 
 </section>
 
-<!--=====================================
+ <!--=====================================
 ROAD TO THE NEXT SHOT
 ======================================-->
 
@@ -286,17 +161,21 @@ Road to the Next Shot
 
 <p>
 
-Earn Shots every time you visit JumpShot Coffee.
+Earn Shots every time you order.
 
 </p>
 
 </div>
+
+<a href="rewards.html">
 
 <img src="images/IMG_rewards.PNG"
 
 class="reward-home"
 
 alt="Road to the Next Shot">
+
+</a>
 
 <h3>
 
@@ -321,6 +200,16 @@ Current Shots
 500 Shots earns your first FREE Coffee!
 
 </p>
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+View Rewards
+
+</button>
+
+</a>
 
 </section>
 
@@ -366,15 +255,31 @@ Open Daily
 
 <p>
 
-(903) 352-3443
+Phone: (903) 352-3443
 
 </p>
+
+<div class="hero-buttons">
+
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
 
 </div>
 
 </section>
 
-<!--=====================================
+  <!--=====================================
 FOOTER
 ======================================-->
 
@@ -406,41 +311,17 @@ Crafting only the highest quality coffee.
 
 <div class="footer-links">
 
-<a href="index.html">
+<a href="index.html">Home</a>
 
-Home
+<a href="traditional.html">Coffee</a>
 
-</a>
+<a href="rewards.html">Rewards</a>
 
-<a href="traditional.html">
+<a href="cart.html">Cart</a>
 
-Coffee
+<a href="profile.html">Profile</a>
 
-</a>
-
-<a href="rewards.html">
-
-Rewards
-
-</a>
-
-<a href="cart.html">
-
-Cart
-
-</a>
-
-<a href="profile.html">
-
-Profile
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
+<a href="contact.html">Contact</a>
 
 </div>
 
@@ -452,7 +333,7 @@ Contact
 
 </footer>
 
-<!--=====================================
+  <!--=====================================
 BOTTOM NAVIGATION
 ======================================-->
 
@@ -510,8 +391,8 @@ class="nav-item">
 
 </nav>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
-</html>  
+</html>
