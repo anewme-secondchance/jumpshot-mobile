@@ -5,25 +5,43 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>My Profile | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#72DCE8">
+<meta name="theme-color"
+content="#72DCE8">
 
-<link rel="icon" href="images/IMG_23_header_logo.PNG">
+<link rel="icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="stylesheet" href="style.css">
+<link rel="apple-touch-icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="manifest"
+href="manifest.json">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
+
+  <!--=====================================
+HEADER
+======================================-->
 
 <header class="page-header">
 
@@ -31,7 +49,7 @@
 
 class="back-btn">
 
-Back
+← Back
 
 </a>
 
@@ -39,21 +57,29 @@ Back
 
 class="main-logo"
 
-alt="JumpShot Coffee Logo">
+alt="JumpShot Coffee">
 
 <a href="cart.html"
 
 class="cart-btn">
 
-Cart
+🛒 Cart
 
 </a>
 
 </header>
 
-<section class="hero">
+ <!--=====================================
+WELCOME
+======================================-->
 
-<div class="hero-content">
+<section class="welcome">
+
+<img src="images/IMG_21_welcome.PNG"
+
+class="profile-banner"
+
+alt="Welcome">
 
 <h1>
 
@@ -67,55 +93,37 @@ We're glad you're here.
 
 </p>
 
+<img src="images/IMG_23_header_logo.PNG"
+
+class="page-logo"
+
+alt="JumpShot Coffee Logo">
+
 <p>
 
 Where exceptional coffee meets exceptional service.
 
 </p>
 
-</div>
-
-<img src="images/IMG_23_header_logo.PNG"
-
-class="hero-image"
-
-alt="JumpShot Coffee">
-
-</section>
-
-<section class="menu-section">
-
-<div class="drink-card">
-
-<div class="drink-info">
-
-<h2>
-
-👋 My Account
-
-</h2>
-
 <p>
 
-Welcome back to JumpShot Coffee.
-
-Manage your account and rewards here.
+Crafting only the highest quality coffee.
 
 </p>
 
-</div>
+</section>
 
-</div>
+<!--=====================================
+PROFILE DASHBOARD
+======================================-->
 
-<!--=====================================-->
+<section class="profile-grid">
 
-<div class="drink-card">
-
-<div class="drink-info">
+<div class="profile-card">
 
 <h2>
 
-🏀 Current Shots
+Current Shots
 
 </h2>
 
@@ -125,75 +133,55 @@ Manage your account and rewards here.
 
 </h1>
 
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
 <p>
 
-500 Shots earns your first FREE Coffee.
+Keep taking your shot to unlock rewards!
 
 </p>
 
 </div>
 
-</div>
-
-<!--=====================================-->
-
-<div class="drink-card">
-
-<div class="drink-info">
+<div class="profile-card">
 
 <h2>
 
-❤️ Favorite Drinks
+Favorite Drinks
 
 </h2>
 
-<p>
+<p id="favoriteList">
 
-Your saved favorites will appear here.
+No favorites yet.
 
 </p>
 
 </div>
 
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
+ <div class="profile-card">
 
 <h2>
 
-Personal Information
+Account Information
 
 </h2>
-
-<label>
-
-Name
-
-</label>
 
 <input
+
 type="text"
-placeholder="Enter your name">
 
-<label>
-
-Email
-
-</label>
+placeholder="Your Name">
 
 <input
-type="email"
-placeholder="Enter your email">
 
-<button class="checkout-btn">
+type="email"
+
+placeholder="Email Address">
+
+<button
+
+class="order-btn"
+
+onclick="saveProfile()">
 
 Save Profile
 
@@ -201,187 +189,7 @@ Save Profile
 
 </div>
 
-</div>
-
-</section>
-
-<!--=====================================
-ROAD TO THE NEXT SHOT
-======================================-->
-
-<section class="home-rewards">
-
-<div class="section-title">
-
-<h2>
-
-Road to the Next Shot
-
-</h2>
-
-<p>
-
-Every purchase gets you closer to FREE drinks.
-
-</p>
-
-</div>
-
-<a href="rewards.html">
-
-<img src="images/IMG_rewards.PNG"
-
-class="reward-home"
-
-alt="Road to the Next Shot">
-
-</a>
-
-<h3>
-
-Current Shots
-
-</h3>
-
-<h1 id="shotCount">
-
-0
-
-</h1>
-
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
-<p>
-
-500 Shots earns your first FREE Coffee!
-
-</p>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-View Rewards
-
-</button>
-
-</a>
-
-</section>
-
-  <!--=====================================
-QUICK ACTIONS
-======================================-->
-
-<section class="profile-actions">
-
-<div class="section-title">
-
-<h2>
-
-Quick Actions
-
-</h2>
-
-<p>
-
-Everything you need in one place.
-
-</p>
-
-</div>
-
-<div class="profile-grid">
-
-<a href="traditional.html" class="profile-card">
-
-<h3>
-
-☕
-
-Order Coffee
-
-</h3>
-
-<p>
-
-Browse the full menu.
-
-</p>
-
-</a>
-
-<a href="rewards.html" class="profile-card">
-
-<h3>
-
-🏀
-
-My Rewards
-
-</h3>
-
-<p>
-
-Check your Road to the Next Shot.
-
-</p>
-
-</a>
-
-<a href="favorites.html" class="profile-card">
-
-<h3>
-
-❤️
-
-Favorites
-
-</h3>
-
-<p>
-
-View your favorite drinks.
-
-</p>
-
-</a>
-
-<a href="contact.html" class="profile-card">
-
-<h3>
-
-📍
-
-Our Location
-
-</h3>
-
-<p>
-
-Find JumpShot Coffee.
-
-</p>
-
-</a>
-
-</div>
-
-</section>
-
-  <!--=====================================
-RECENT ORDERS
-======================================-->
-
-<section class="menu-section">
-
-<div class="drink-card">
-
-<div class="drink-info">
+<div class="profile-card">
 
 <h2>
 
@@ -389,71 +197,71 @@ Recent Orders
 
 </h2>
 
-<p>
+<p id="recentOrders">
 
-No recent orders yet.
-
-</p>
-
-<button class="order-btn-small">
-
-Start Your First Order
-
-</button>
-
-</div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
-
-<h2>
-
-Favorite Drink
-
-</h2>
-
-<p>
-
-No favorites selected.
+No recent orders.
 
 </p>
-
-<button class="favorite-btn">
-
-Browse Menu
-
-</button>
-
-</div>
 
 </div>
 
 </section>
 
-<!--=====================================
-VISIT JUMPSHOT
-======================================-->
-
-<section class="visit-home">
-
-<div class="section-title">
+  <div class="profile-card">
 
 <h2>
 
-Visit JumpShot Coffee
+Account Information
 
 </h2>
 
-<p>
+<input
 
-Where exceptional coffee meets exceptional service.
+type="text"
+
+placeholder="Your Name">
+
+<input
+
+type="email"
+
+placeholder="Email Address">
+
+<button
+
+class="order-btn"
+
+onclick="saveProfile()">
+
+Save Profile
+
+</button>
+
+</div>
+
+<div class="profile-card">
+
+<h2>
+
+Recent Orders
+
+</h2>
+
+<p id="recentOrders">
+
+No recent orders.
 
 </p>
 
 </div>
+
+</section>
+
+  <!--=====================================
+VISIT JUMPSHOT COFFEE
+======================================-->
+
+<section class="visit-home">
 
 <div class="visit-card">
 
@@ -495,11 +303,41 @@ Phone: (903) 352-3443
 
 </p>
 
+<div class="hero-buttons">
+
+<a href="tel:+19033523443">
+
+<button class="order-btn">
+
+Call Us
+
+</button>
+
+</a>
+
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
+
 </div>
 
 </section>
 
- <footer class="footer">
+<!--=====================================
+FOOTER
+======================================-->
+
+<footer class="footer">
 
 <img src="images/IMG_23_header_logo.PNG"
 
@@ -529,11 +367,9 @@ Crafting only the highest quality coffee.
 
 <a href="index.html">Home</a>
 
-<a href="traditional.html">Coffee</a>
-
 <a href="rewards.html">Rewards</a>
 
-<a href="cart.html">Cart</a>
+<a href="profile.html">Profile</a>
 
 <a href="contact.html">Contact</a>
 
@@ -547,9 +383,15 @@ Crafting only the highest quality coffee.
 
 </footer>
 
+  <!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
 <nav class="bottom-nav">
 
-<a href="index.html" class="nav-item">
+<a href="index.html"
+
+class="nav-item">
 
 🏠
 
@@ -557,7 +399,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="traditional.html" class="nav-item">
+<a href="traditional.html"
+
+class="nav-item">
 
 ☕
 
@@ -565,7 +409,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="rewards.html" class="nav-item">
+<a href="rewards.html"
+
+class="nav-item">
 
 🏀
 
@@ -573,7 +419,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="cart.html" class="nav-item">
+<a href="cart.html"
+
+class="nav-item">
 
 🛒
 
@@ -581,7 +429,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="profile.html" class="nav-item active">
+<a href="profile.html"
+
+class="nav-item active">
 
 👤
 
@@ -591,9 +441,8 @@ Crafting only the highest quality coffee.
 
 </nav>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
 </html>
-
