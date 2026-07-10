@@ -15,23 +15,49 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<header class="home-header">
+<!--=====================================
+HEADER
+======================================-->
+
+<header class="page-header">
+
+<a href="index.html" class="back-btn">
+
+Back
+
+</a>
 
 <img src="images/IMG_23_header_logo.PNG"
 
 class="main-logo"
 
-alt="JumpShot Coffee">
+alt="JumpShot Coffee Logo">
+
+<a href="cart.html" class="cart-btn">
+
+Cart
+
+</a>
 
 </header>
 
-<section class="hero">
+<!--=====================================
+HERO
+======================================-->
 
-<div class="hero-content">
+<section class="page-hero">
+
+<div class="page-overlay">
 
 <h1>
 
@@ -41,43 +67,31 @@ Frappes
 
 <p>
 
-Blended favorites made fresh to order.
+Creamy blended coffee favorites handcrafted to perfection.
 
 </p>
 
-<div class="hero-buttons">
-
-<a href="#menu">
-
-<button class="order-btn">
-
-Order Frappes
-
-</button>
-
-</a>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-Road to the Next Shot
-
-</button>
-
-</a>
-
 </div>
 
-</div>
+</section>
+
+<!--=====================================
+CATEGORY IMAGE
+======================================-->
+
+<section class="category-image">
 
 <img src="images/IMG_10.PNG"
 
-class="hero-image"
+class="category-photo"
 
 alt="Frappes">
 
 </section>
+
+<!--=====================================
+MENU
+======================================-->
 
 <section class="menu-section" id="menu">
 
@@ -87,7 +101,11 @@ alt="Frappes">
 
 <h2>Caramel Frappe</h2>
 
-<p>A chilled blend of coffee, caramel and ice topped with whipped cream and caramel drizzle.</p>
+<p>
+
+A chilled blend of coffee, caramel and ice topped with whipped cream and caramel drizzle.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -104,6 +122,8 @@ alt="Frappes">
 </div>
 
 </div>
+
+<!--=====================================-->
 
 <div class="drink-card">
 
@@ -111,7 +131,11 @@ alt="Frappes">
 
 <h2>Mocha Frappe</h2>
 
-<p>Coffee and chocolate blended with ice, whipped cream and chocolate drizzle.</p>
+<p>
+
+A frosty mix of coffee and chocolate blended with ice, finished with whipped cream and chocolate drizzle.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -128,6 +152,8 @@ alt="Frappes">
 </div>
 
 </div>
+
+<!--=====================================-->
 
 <div class="drink-card">
 
@@ -135,7 +161,11 @@ alt="Frappes">
 
 <h2>White Mocha Frappe</h2>
 
-<p>Sweet white chocolate blended into a creamy iced coffee.</p>
+<p>
+
+Smooth coffee and sweet white chocolate blended into a creamy frozen favorite.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -153,13 +183,19 @@ alt="Frappes">
 
 </div>
 
+<!--=====================================-->
+
 <div class="drink-card">
 
 <div class="drink-info">
 
 <h2>Cookies N Cream Frappe</h2>
 
-<p>Vanilla, chocolate cookie crumbs and ice topped with whipped cream.</p>
+<p>
+
+Vanilla, chocolate cookie crumbs and ice blended with whipped cream.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -183,7 +219,11 @@ alt="Frappes">
 
 <h2>Vanilla Bean Frappe</h2>
 
-<p>A creamy vanilla bean frappe that's cool and simply sweet.</p>
+<p>
+
+A classic creamy vanilla bean frappe blended with ice.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -200,6 +240,8 @@ alt="Frappes">
 </div>
 
 </div>
+
+<!--=====================================-->
 
 <div class="drink-card">
 
@@ -207,7 +249,11 @@ alt="Frappes">
 
 <h2>Matcha Frappe</h2>
 
-<p>Premium matcha blended with vanilla and ice.</p>
+<p>
+
+Premium matcha blended with vanilla and ice for a refreshing frozen treat.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -224,6 +270,8 @@ alt="Frappes">
 </div>
 
 </div>
+
+<!--=====================================-->
 
 <div class="drink-card">
 
@@ -231,7 +279,11 @@ alt="Frappes">
 
 <h2>Chai Frappe</h2>
 
-<p>Creamy spiced chai blended with ice and vanilla.</p>
+<p>
+
+Creamy spiced chai blended with ice and a hint of vanilla.
+
+</p>
 
 <h3>$5.99+</h3>
 
@@ -248,24 +300,52 @@ alt="Frappes">
 </div>
 
 </div>
-  
+
+</section>
+
+<!--=====================================
+ROAD TO THE NEXT SHOT
+======================================-->
+
 <section class="home-rewards">
 
 <div class="section-title">
 
-<h2>Road to the Next Shot</h2>
+<h2>
 
-<p>Earn rewards every visit.</p>
+Road to the Next Shot
+
+</h2>
+
+<p>
+
+Earn Shots with every purchase and unlock exclusive JumpShot Coffee rewards.
+
+</p>
 
 </div>
+
+<a href="rewards.html">
 
 <img src="images/IMG_rewards.PNG"
 
 class="reward-home"
 
-alt="Rewards">
+alt="Road to the Next Shot">
 
-<h1 id="shotCount">0</h1>
+</a>
+
+<h3>
+
+Current Shots
+
+</h3>
+
+<h1 id="shotCount">
+
+0
+
+</h1>
 
 <div class="progress-bar">
 
@@ -273,9 +353,45 @@ alt="Rewards">
 
 </div>
 
-</section>
+<p>
+
+500 Shots earns your first FREE Coffee!
+
+</p>
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+View Rewards
+
+</button>
+
+</a>
+
+</section>  
+
+  <!--=====================================
+VISIT JUMPSHOT COFFEE
+======================================-->
 
 <section class="visit-home">
+
+<div class="section-title">
+
+<h2>
+
+Visit JumpShot Coffee
+
+</h2>
+
+<p>
+
+Where exceptional coffee meets exceptional service.
+
+</p>
+
+</div>
 
 <div class="visit-card">
 
@@ -283,17 +399,71 @@ alt="Rewards">
 
 class="visit-photo"
 
-alt="JumpShot">
+alt="JumpShot Coffee">
 
-<h3>JumpShot Coffee</h3>
+<h3>
 
-<p>734 S Fleishel Ave<br>Tyler, TX</p>
+JumpShot Coffee
+
+</h3>
+
+<p>
+
+734 S Fleishel Ave
+
+<br>
+
+Tyler, Texas 75701
+
+</p>
+
+<p>
+
+Open Daily
+
+<br>
+
+7:00 AM – 4:00 PM
+
+</p>
+
+<p>
+
+Phone: (903) 352-3443
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="contact.html">
+
+<button class="order-btn">
+
+Contact Us
+
+</button>
+
+</a>
+
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
 
 </div>
 
 </section>
 
-  <!--=====================================
+<!--=====================================
 FOOTER
 ======================================-->
 
@@ -345,9 +515,9 @@ Crafting only the highest quality coffee.
 
 </p>
 
-</footer>
+</footer>  
 
-<!--=====================================
+  <!--=====================================
 BOTTOM NAVIGATION
 ======================================-->
 
@@ -405,7 +575,7 @@ class="nav-item">
 
 </nav>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
