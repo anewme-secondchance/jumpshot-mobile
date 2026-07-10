@@ -5,31 +5,51 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Road to the Next Shot | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#72DCE8">
+<meta name="theme-color"
+content="#72DCE8">
 
-<link rel="icon" href="images/IMG_23_header_logo.PNG">
+<link rel="icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="stylesheet" href="style.css">
+<link rel="apple-touch-icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="manifest"
+href="manifest.json">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
+ <!--=====================================
+HEADER
+======================================-->
+
 <header class="page-header">
 
-<a href="index.html" class="back-btn">
+<a href="index.html"
 
-Back
+class="back-btn">
+
+← Back
 
 </a>
 
@@ -39,13 +59,19 @@ class="main-logo"
 
 alt="JumpShot Coffee">
 
-<a href="cart.html" class="cart-btn">
+<a href="cart.html"
 
-Cart
+class="cart-btn">
+
+🛒 Cart
 
 </a>
 
 </header>
+
+ <!--=====================================
+REWARD HERO
+======================================-->
 
 <section class="reward-hero">
 
@@ -63,11 +89,21 @@ Road to the Next Shot
 
 <p>
 
-Order • Earn Shots • Unlock Rewards
+Take your shot.
+
+Earn rewards.
+
+Unlock free drinks.
+
+Every purchase gets you closer to your next reward.
 
 </p>
 
 </section>
+
+ <!--=====================================
+CURRENT SHOTS
+======================================-->
 
 <section class="shot-dashboard">
 
@@ -97,17 +133,23 @@ Current Shots
 
 </section>
 
- <section class="basketball-game">
+ <!--=====================================
+BASKETBALL GAME
+======================================-->
+
+<section class="basketball-game">
 
 <h2>
 
-Shoot Your Coffee Bean
+Take Your Shot!
 
 </h2>
 
 <p>
 
-Every purchase launches another coffee bean toward the hoop.
+Every purchase launches a coffee bean toward the hoop.
+
+Make the shot and watch your rewards grow!
 
 </p>
 
@@ -129,144 +171,20 @@ class="coffee-bean">
 
 </div>
 
-<button class="reward-btn"
+<button
+
+class="order-btn"
 
 onclick="shootBean()">
 
-Take the Shot
+🏀 Take Your Shot
 
 </button>
 
 </section>
 
-  <section class="reward-levels">
-
-<h2>
-
-Reward Levels
-
-</h2>
-
-<div class="reward-card">
-
-🏀 500 Shots
-
-<p>
-
-FREE Coffee
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-🥤 1000 Shots
-
-<p>
-
-FREE Specialty Drink
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-🍩 1500 Shots
-
-<p>
-
-FREE Bakery Item
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-⭐ 2500 Shots
-
-<p>
-
-JumpShot VIP Member
-
-</p>
-
-</div>
-
-</section>
-
  <!--=====================================
-HOW IT WORKS
-======================================-->
-
-<section class="reward-levels">
-
-<h2>
-
-How It Works
-
-</h2>
-
-<div class="reward-card">
-
-<h3>
-
-☕
-
-Order Your Favorites
-
-</h3>
-
-<p>
-
-Every purchase automatically earns Shots.
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-<h3>
-
-🏀
-
-Make Every Shot Count
-
-</h3>
-
-<p>
-
-Watch your coffee bean score through the hoop after every order.
-
-</p>
-
-</div>
-
-<div class="reward-card">
-
-<h3>
-
-🎁
-
-Unlock Rewards
-
-</h3>
-
-<p>
-
-The more Shots you earn, the more free rewards you unlock.
-
-</p>
-
-</div>
-
-</section>
-
- <!--=====================================
-REWARD HISTORY
+REWARD LEVELS
 ======================================-->
 
 <section class="menu-section">
@@ -277,15 +195,21 @@ REWARD HISTORY
 
 <h2>
 
-Recent Rewards
+🏆 Reward Levels
 
 </h2>
 
 <p>
 
-No rewards redeemed yet.
+☕ 500 Shots
 
 </p>
+
+<h3>
+
+FREE Coffee
+
+</h3>
 
 </div>
 
@@ -295,21 +219,57 @@ No rewards redeemed yet.
 
 <div class="drink-info">
 
-<h2>
+<p>
 
-Next Reward
+🥤 1000 Shots
 
-</h2>
+</p>
+
+<h3>
+
+FREE Specialty Drink
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
 
 <p>
 
-Only <span id="shotsRemaining">
-
-500
-
-</span> more Shots until your FREE Coffee.
+🥐 1500 Shots
 
 </p>
+
+<h3>
+
+FREE Bakery Item
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<p>
+
+👑 2500 Shots
+
+</p>
+
+<h3>
+
+JumpShot VIP Status
+
+</h3>
 
 </div>
 
@@ -318,26 +278,38 @@ Only <span id="shotsRemaining">
 </section>
 
  <!--=====================================
-VISIT JUMPSHOT
+NEXT REWARD
 ======================================-->
 
-<section class="visit-home">
-
-<div class="section-title">
+<section class="rewards-preview">
 
 <h2>
 
-Visit JumpShot Coffee
+Your Next Reward
 
 </h2>
 
 <p>
 
-Where exceptional coffee meets exceptional service.
+Keep taking your shot!
+
+Every purchase earns more Shots and moves you closer to your next FREE reward.
 
 </p>
 
-</div>
+<img src="images/IMG_rewards.PNG"
+
+class="rewards-icon"
+
+alt="Road to the Next Shot">
+
+</section>
+
+ <!--=====================================
+VISIT JUMPSHOT COFFEE
+======================================-->
+
+<section class="visit-home">
 
 <div class="visit-card">
 
@@ -379,11 +351,37 @@ Phone: (903) 352-3443
 
 </p>
 
+<div class="hero-buttons">
+
+<a href="tel:+19033523443">
+
+<button class="order-btn">
+
+Call Us
+
+</button>
+
+</a>
+
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
+
 </div>
 
 </section>
 
-    <!--=====================================
+ <!--=====================================
 FOOTER
 ======================================-->
 
@@ -417,11 +415,7 @@ Crafting only the highest quality coffee.
 
 <a href="index.html">Home</a>
 
-<a href="traditional.html">Coffee</a>
-
 <a href="rewards.html">Rewards</a>
-
-<a href="cart.html">Cart</a>
 
 <a href="profile.html">Profile</a>
 
@@ -437,9 +431,15 @@ Crafting only the highest quality coffee.
 
 </footer>
 
+ <!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
 <nav class="bottom-nav">
 
-<a href="index.html" class="nav-item">
+<a href="index.html"
+
+class="nav-item">
 
 🏠
 
@@ -447,7 +447,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="traditional.html" class="nav-item">
+<a href="traditional.html"
+
+class="nav-item">
 
 ☕
 
@@ -455,7 +457,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="rewards.html" class="nav-item active">
+<a href="rewards.html"
+
+class="nav-item active">
 
 🏀
 
@@ -463,7 +467,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="cart.html" class="nav-item">
+<a href="cart.html"
+
+class="nav-item">
 
 🛒
 
@@ -471,7 +477,9 @@ Crafting only the highest quality coffee.
 
 </a>
 
-<a href="profile.html" class="nav-item">
+<a href="profile.html"
+
+class="nav-item">
 
 👤
 
@@ -485,4 +493,4 @@ Crafting only the highest quality coffee.
 
 </body>
 
-</html> 
+</html>
