@@ -1,28 +1,23 @@
 /*=====================================
-GOOGLE FONT
+GLOBAL
 =====================================*/
 
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 font-family:'Poppins',sans-serif;
-
 }
 
-/*=====================================
-BODY
-=====================================*/
+html{
+scroll-behavior:smooth;
+}
 
 body{
 
-background:#F7F9FA;
+background:#F5F7F8;
 
-color:#333;
+color:#222;
 
 line-height:1.6;
 
@@ -30,9 +25,11 @@ padding-bottom:90px;
 
 }
 
-html{
+img{
 
-scroll-behavior:smooth;
+display:block;
+
+max-width:100%;
 
 }
 
@@ -44,31 +41,15 @@ color:inherit;
 
 }
 
-img{
-
-max-width:100%;
-
-display:block;
-
-}
-
 button{
 
 cursor:pointer;
 
-transition:.3s;
-
 border:none;
 
-outline:none;
+transition:.3s;
 
 font-family:'Poppins',sans-serif;
-
-}
-
-button:hover{
-
-transform:translateY(-2px);
 
 }
 
@@ -78,9 +59,7 @@ HEADER
 
 .page-header{
 
-background:#fff;
-
-padding:18px 20px;
+background:#FFFFFF;
 
 display:flex;
 
@@ -88,7 +67,7 @@ justify-content:space-between;
 
 align-items:center;
 
-box-shadow:0 2px 10px rgba(0,0,0,.08);
+padding:18px;
 
 position:sticky;
 
@@ -96,15 +75,17 @@ top:0;
 
 z-index:999;
 
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+
 }
 
 .home-header{
 
-background:#fff;
-
-padding:20px;
+background:#FFFFFF;
 
 text-align:center;
+
+padding:20px;
 
 box-shadow:0 2px 10px rgba(0,0,0,.08);
 
@@ -112,287 +93,194 @@ box-shadow:0 2px 10px rgba(0,0,0,.08);
 
 .main-logo{
 
-width:140px;
+width:170px;
 
 margin:auto;
 
 }
 
 .back-btn,
-
 .cart-btn{
 
 background:#72DCE8;
 
-color:#fff;
+color:white;
 
-padding:10px 18px;
+padding:12px 20px;
 
 border-radius:30px;
 
 font-weight:600;
 
-font-size:.9rem;
-
-}
-
-.back-btn:hover,
-
-.cart-btn:hover{
-
-background:#53c9d7;
-
 }
 
 /*=====================================
-HERO
+WELCOME
 =====================================*/
 
-.hero,
-
-.page-hero{
-
-padding:45px 20px;
+.welcome{
 
 text-align:center;
 
-background:#fff;
+padding:30px 20px 10px;
+
+background:#FFFFFF;
 
 }
 
-.hero-content h1,
-
-.page-overlay h1{
-
-font-size:2.2rem;
-
-font-weight:700;
-
-margin-bottom:15px;
-
-color:#222;
-
-}
-
-.hero-content p,
-
-.page-overlay p{
-
-font-size:1rem;
-
-color:#666;
-
-margin-bottom:10px;
-
-max-width:650px;
-
-margin-left:auto;
-
-margin-right:auto;
-
-}
-
-.hero-image{
-
-width:260px;
-
-margin:35px auto;
-
-border-radius:22px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.12);
-
-}
-
-.category-image{
-
-padding:30px 20px;
-
-background:#fff;
-
-}
-
-.category-photo{
-
-width:100%;
-
-max-width:520px;
-
-margin:auto;
-
-border-radius:22px;
-
-box-shadow:0 8px 25px rgba(0,0,0,.12);
-
-}
-
-/*=====================================
-BUTTONS
-=====================================*/
-
-.hero-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-margin-top:25px;
-
-}
-
-.order-btn,
-
-.reward-btn,
-
-.checkout-btn,
-
-.menu-btn,
-
-.order-btn-small{
-
-background:#72DCE8;
-
-color:#fff;
-
-padding:14px 28px;
-
-border-radius:35px;
-
-font-weight:600;
-
-font-size:1rem;
-
-}
-
-.favorite-btn{
-
-background:#fff;
-
-border:2px solid #72DCE8;
-
-color:#333;
-
-padding:12px 24px;
-
-border-radius:35px;
-
-font-weight:600;
-
-}
-
-.order-btn:hover,
-
-.reward-btn:hover,
-
-.checkout-btn:hover,
-
-.menu-btn:hover,
-
-.order-btn-small:hover{
-
-background:#53c9d7;
-
-}
-
-.favorite-btn:hover{
-
-background:#72DCE8;
-
-color:#fff;
-
-}
-
-/*=====================================
-SECTION TITLES
-=====================================*/
-
-.section-title{
-
-text-align:center;
-
-padding:20px;
-
-}
-
-.section-title h2{
+.welcome h1{
 
 font-size:2rem;
 
 font-weight:700;
 
-color:#222;
+margin-bottom:10px;
+
+}
+
+.welcome p{
+
+color:#666;
+
+}
+
+.page-logo{
+
+width:180px;
+
+margin:30px auto;
+
+}
+
+/*=====================================
+PAGE TITLE
+=====================================*/
+
+.page-title{
+
+text-align:center;
+
+padding-bottom:25px;
+
+background:#FFFFFF;
+
+}
+
+.page-title h2{
+
+font-size:2rem;
 
 margin-bottom:10px;
 
 }
 
-.section-title p{
+.page-title p{
 
 color:#666;
 
-font-size:1rem;
-
-max-width:700px;
+max-width:650px;
 
 margin:auto;
 
 }
 
 /*=====================================
-MENU SECTION
+HOME CATEGORY CARDS
+=====================================*/
+
+.category-grid{
+
+width:95%;
+
+max-width:900px;
+
+margin:35px auto;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.category-card{
+
+background:#FFFFFF;
+
+border-radius:22px;
+
+overflow:hidden;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.category-card:hover{
+
+transform:translateY(-6px);
+
+}
+
+.category-card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+}
+
+.category-card h3{
+
+padding:18px;
+
+text-align:center;
+
+font-size:1.1rem;
+
+font-weight:700;
+
+}
+
+/*=====================================
+MENU CARDS
 =====================================*/
 
 .menu-section{
 
 width:95%;
 
-max-width:900px;
+max-width:800px;
 
-margin:40px auto;
-
-display:grid;
-
-gap:25px;
+margin:35px auto;
 
 }
-
-/*=====================================
-DRINK CARDS
-=====================================*/
 
 .drink-card{
 
-background:#fff;
+background:#FFFFFF;
+
+padding:28px;
 
 border-radius:20px;
 
-padding:25px;
+margin-bottom:20px;
 
 box-shadow:0 8px 20px rgba(0,0,0,.08);
 
-transition:.3s;
-
-border:1px solid #EAEAEA;
-
-}
-
-.drink-card:hover{
-
-transform:translateY(-5px);
+text-align:center;
 
 }
 
 .drink-info h2{
 
-font-size:1.4rem;
+font-size:1.5rem;
 
 margin-bottom:10px;
-
-color:#222;
 
 }
 
@@ -408,7 +296,7 @@ margin-bottom:12px;
 
 color:#72DCE8;
 
-font-size:1.35rem;
+font-size:1.4rem;
 
 margin-bottom:15px;
 
@@ -416,17 +304,13 @@ margin-bottom:15px;
 
 .earn-shots{
 
-font-weight:600;
+font-weight:700;
 
-color:#53BFCF;
+color:#00A9C5;
 
 margin-bottom:18px;
 
 }
-
-/*=====================================
-CARD BUTTONS
-=====================================*/
 
 .drink-buttons{
 
@@ -438,13 +322,80 @@ gap:15px;
 
 flex-wrap:wrap;
 
+}
+
+/*=====================================
+BUTTONS
+=====================================*/
+
+.hero-buttons,
+.drink-buttons{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
 margin-top:20px;
 
 }
 
-.drink-buttons button{
+.order-btn,
+.reward-btn,
+.checkout-btn,
+.order-btn-small{
 
-min-width:170px;
+background:#72DCE8;
+
+color:#FFFFFF;
+
+padding:14px 28px;
+
+border-radius:35px;
+
+font-size:1rem;
+
+font-weight:600;
+
+}
+
+.favorite-btn{
+
+background:#FFFFFF;
+
+color:#333;
+
+border:2px solid #72DCE8;
+
+padding:14px 28px;
+
+border-radius:35px;
+
+font-size:1rem;
+
+font-weight:600;
+
+}
+
+.order-btn:hover,
+.reward-btn:hover,
+.checkout-btn:hover,
+.order-btn-small:hover{
+
+background:#53C8D6;
+
+}
+
+.favorite-btn:hover{
+
+background:#72DCE8;
+
+color:#FFFFFF;
 
 }
 
@@ -454,13 +405,21 @@ ROAD TO THE NEXT SHOT
 
 .home-rewards{
 
-background:#fff;
+background:#FFFFFF;
+
+margin:40px auto;
 
 padding:50px 20px;
 
 text-align:center;
 
-margin-top:40px;
+border-radius:20px;
+
+width:95%;
+
+max-width:850px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 }
 
@@ -468,21 +427,29 @@ margin-top:40px;
 
 width:320px;
 
-max-width:90%;
-
 margin:30px auto;
 
 border-radius:20px;
 
-box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+#shotCount{
+
+font-size:3rem;
+
+font-weight:700;
+
+color:#72DCE8;
+
+margin:15px 0;
 
 }
 
 .progress-bar{
 
-width:90%;
+width:100%;
 
-max-width:450px;
+max-width:420px;
 
 height:18px;
 
@@ -504,21 +471,7 @@ width:0%;
 
 background:#72DCE8;
 
-transition:width .5s ease;
-
-border-radius:30px;
-
-}
-
-#shotCount{
-
-font-size:3rem;
-
-font-weight:700;
-
-color:#72DCE8;
-
-margin:15px 0;
+transition:.5s;
 
 }
 
@@ -528,11 +481,11 @@ VISIT JUMPSHOT
 
 .visit-home{
 
-padding:60px 20px;
+width:95%;
 
-background:#F7F9FA;
+max-width:850px;
 
-text-align:center;
+margin:40px auto;
 
 }
 
@@ -540,13 +493,11 @@ text-align:center;
 
 background:#FFFFFF;
 
-max-width:700px;
-
-margin:auto;
-
 padding:30px;
 
 border-radius:20px;
+
+text-align:center;
 
 box-shadow:0 8px 20px rgba(0,0,0,.08);
 
@@ -556,7 +507,7 @@ box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 width:100%;
 
-max-width:500px;
+max-width:450px;
 
 margin:0 auto 25px;
 
@@ -570,203 +521,13 @@ font-size:1.8rem;
 
 margin-bottom:15px;
 
-color:#222;
-
 }
 
 .visit-card p{
 
-margin-bottom:12px;
-
 color:#666;
 
-}
-
-/*=====================================
-PROFILE
-=====================================*/
-
-.profile-actions{
-
-padding:50px 20px;
-
-}
-
-.profile-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.profile-card{
-
-background:#fff;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.profile-card:hover{
-
-transform:translateY(-5px);
-
-}
-
-.profile-card h3{
-
 margin-bottom:12px;
-
-color:#222;
-
-}
-
-.profile-card p{
-
-color:#666;
-
-}
-
-/*=====================================
-REWARDS GAME
-=====================================*/
-
-.reward-hero{
-
-padding:50px 20px;
-
-text-align:center;
-
-background:#FFFFFF;
-
-}
-
-.reward-hero-image{
-
-width:320px;
-
-max-width:90%;
-
-margin:20px auto;
-
-}
-
-.shot-dashboard{
-
-padding:40px 20px;
-
-text-align:center;
-
-background:#FFFFFF;
-
-}
-
-.basketball-game{
-
-padding:50px 20px;
-
-text-align:center;
-
-}
-
-.game-container{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:60px;
-
-margin:35px 0;
-
-font-size:4rem;
-
-}
-
-.reward-levels{
-
-padding:50px 20px;
-
-display:grid;
-
-gap:20px;
-
-max-width:800px;
-
-margin:auto;
-
-}
-
-.reward-card{
-
-background:#FFFFFF;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-text-align:center;
-
-}
-
-/*=====================================
-FORMS
-=====================================*/
-
-input,
-
-textarea{
-
-width:100%;
-
-padding:14px;
-
-margin:12px 0;
-
-border:1px solid #DDD;
-
-border-radius:12px;
-
-font-size:1rem;
-
-font-family:'Poppins',sans-serif;
-
-}
-
-textarea{
-
-min-height:140px;
-
-resize:vertical;
-
-}
-
-input:focus,
-
-textarea:focus{
-
-outline:none;
-
-border-color:#72DCE8;
 
 }
 
@@ -782,29 +543,17 @@ color:#FFFFFF;
 
 text-align:center;
 
-padding:50px 20px;
+padding:45px 20px;
+
+margin-top:50px;
 
 }
 
 .footer-logo{
 
-width:120px;
+width:130px;
 
 margin:0 auto 20px;
-
-}
-
-.footer h3{
-
-margin-bottom:10px;
-
-}
-
-.footer p{
-
-color:#DDDDDD;
-
-margin-bottom:10px;
 
 }
 
@@ -814,9 +563,9 @@ display:flex;
 
 justify-content:center;
 
-flex-wrap:wrap;
-
 gap:20px;
+
+flex-wrap:wrap;
 
 margin:25px 0;
 
@@ -832,11 +581,9 @@ font-weight:600;
 
 .copyright{
 
-margin-top:20px;
+color:#BBBBBB;
 
 font-size:.9rem;
-
-color:#AAAAAA;
 
 }
 
@@ -876,11 +623,11 @@ flex-direction:column;
 
 align-items:center;
 
+color:#666;
+
 font-size:.85rem;
 
 font-weight:600;
-
-color:#666;
 
 }
 
@@ -891,30 +638,226 @@ color:#72DCE8;
 }
 
 /*=====================================
-RESPONSIVE
+PROFILE PAGE
+=====================================*/
+
+.profile-banner{
+
+width:100%;
+
+max-width:650px;
+
+margin:25px auto;
+
+border-radius:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+}
+
+.profile-grid{
+
+width:95%;
+
+max-width:900px;
+
+margin:35px auto;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.profile-card{
+
+background:#FFFFFF;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.profile-card h2{
+
+margin-bottom:15px;
+
+font-size:1.4rem;
+
+}
+
+.profile-card p{
+
+color:#666;
+
+margin-bottom:10px;
+
+}
+
+/*=====================================
+REWARDS GAME
+=====================================*/
+
+.reward-hero{
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+.reward-hero-image{
+
+width:100%;
+
+max-width:450px;
+
+margin:20px auto;
+
+}
+
+.game-container{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:70px;
+
+margin:40px auto;
+
+font-size:4rem;
+
+}
+
+.coffee-bean{
+
+transition:1s ease;
+
+}
+
+.coffee-bean.shoot{
+
+transform:translate(170px,-120px) rotate(360deg);
+
+}
+
+.basketball-hoop{
+
+font-size:4.5rem;
+
+}
+
+/*=====================================
+CONFETTI
+=====================================*/
+
+.confetti{
+
+position:fixed;
+
+top:-20px;
+
+width:12px;
+
+height:12px;
+
+background:#72DCE8;
+
+border-radius:50%;
+
+animation:fall 3s linear forwards;
+
+z-index:9999;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/*=====================================
+INPUTS
+=====================================*/
+
+input,
+
+textarea{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+border:1px solid #DDD;
+
+font-size:1rem;
+
+}
+
+textarea{
+
+min-height:150px;
+
+resize:vertical;
+
+}
+
+input:focus,
+
+textarea:focus{
+
+outline:none;
+
+border-color:#72DCE8;
+
+box-shadow:0 0 8px rgba(114,220,232,.35);
+
+}
+
+/*=====================================
+MOBILE
 =====================================*/
 
 @media(max-width:768px){
 
-.hero-content h1,
+.category-grid{
 
-.page-overlay h1{
-
-font-size:1.8rem;
+grid-template-columns:repeat(2,1fr);
 
 }
 
-.main-logo{
+.profile-grid{
 
-width:110px;
-
-}
-
-.hero-buttons{
-
-flex-direction:column;
-
-align-items:center;
+grid-template-columns:1fr;
 
 }
 
@@ -924,27 +867,63 @@ flex-direction:column;
 
 }
 
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.main-logo{
+
+width:140px;
+
+}
+
 .reward-home,
 
-.category-photo{
+.profile-banner,
+
+.category-card img{
 
 width:100%;
 
 }
 
-.game-container{
+}
 
-font-size:3rem;
+/*=====================================
+FINISHING TOUCHES
+=====================================*/
 
-gap:30px;
+.category-card,
+.drink-card,
+.profile-card,
+.visit-card{
+
+transition:.3s;
 
 }
 
-.profile-grid{
+.category-card:hover,
+.drink-card:hover,
+.profile-card:hover,
+.visit-card:hover{
 
-grid-template-columns:1fr;
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.12);
 
 }
+
+button:hover{
+
+transform:scale(1.03);
+
+}
+
+button:active{
+
+transform:scale(.98);
 
 }
 
