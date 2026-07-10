@@ -5,72 +5,47 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Road to the Next Shot | JumpShot Coffee</title>
 
-<meta name="theme-color"
-content="#72DCE8">
+<meta name="theme-color" content="#72DCE8">
 
-<!DOCTYPE html>
-<html lang="en">
+<link rel="icon" href="images/IMG_23_header_logo.PNG">
 
-<head>
+<link rel="stylesheet" href="style.css">
 
-<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Road to the Next Shot | JumpShot Coffee</title>
-
-<meta name="theme-color"
-content="#72DCE8">
-
-<link rel="icon"
-href="images/IMG_23_header_logo.PNG">
-
-<link rel="stylesheet"
-href="style.css">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!--=====================================
-HEADER
-======================================-->
-
 <header class="page-header">
 
 <a href="index.html" class="back-btn">
+
 Back
+
 </a>
 
 <img src="images/IMG_23_header_logo.PNG"
-     class="main-logo"
-     alt="JumpShot Coffee Logo">
+
+class="main-logo"
+
+alt="JumpShot Coffee">
 
 <a href="cart.html" class="cart-btn">
+
 Cart
+
 </a>
 
 </header>
-
- <!--=====================================
-HERO
-======================================-->
 
 <section class="reward-hero">
 
@@ -88,21 +63,11 @@ Road to the Next Shot
 
 <p>
 
-Earn Shots every time you order.
-
-Score rewards.
-
-Unlock exclusive perks.
-
-Keep Shooting!
+Order • Earn Shots • Unlock Rewards
 
 </p>
 
 </section>
-
-<!--=====================================
-CURRENT SHOTS
-======================================-->
 
 <section class="shot-dashboard">
 
@@ -132,11 +97,7 @@ Current Shots
 
 </section>
 
-  <!--=====================================
-COFFEE BEAN GAME
-======================================-->
-
-<section class="basketball-game">
+ <section class="basketball-game">
 
 <h2>
 
@@ -146,13 +107,15 @@ Shoot Your Coffee Bean
 
 <p>
 
-Every purchase sends another coffee bean through the hoop.
+Every purchase launches another coffee bean toward the hoop.
 
 </p>
 
 <div class="game-container">
 
-<div class="coffee-bean">
+<div id="coffeeBean"
+
+class="coffee-bean">
 
 ☕
 
@@ -166,10 +129,196 @@ Every purchase sends another coffee bean through the hoop.
 
 </div>
 
+<button class="reward-btn"
+
+onclick="shootBean()">
+
+Take the Shot
+
+</button>
+
 </section>
 
-  <!--=====================================
-VISIT JUMPSHOT COFFEE
+  <section class="reward-levels">
+
+<h2>
+
+Reward Levels
+
+</h2>
+
+<div class="reward-card">
+
+🏀 500 Shots
+
+<p>
+
+FREE Coffee
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+🥤 1000 Shots
+
+<p>
+
+FREE Specialty Drink
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+🍩 1500 Shots
+
+<p>
+
+FREE Bakery Item
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+⭐ 2500 Shots
+
+<p>
+
+JumpShot VIP Member
+
+</p>
+
+</div>
+
+</section>
+
+ <!--=====================================
+HOW IT WORKS
+======================================-->
+
+<section class="reward-levels">
+
+<h2>
+
+How It Works
+
+</h2>
+
+<div class="reward-card">
+
+<h3>
+
+☕
+
+Order Your Favorites
+
+</h3>
+
+<p>
+
+Every purchase automatically earns Shots.
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+<h3>
+
+🏀
+
+Make Every Shot Count
+
+</h3>
+
+<p>
+
+Watch your coffee bean score through the hoop after every order.
+
+</p>
+
+</div>
+
+<div class="reward-card">
+
+<h3>
+
+🎁
+
+Unlock Rewards
+
+</h3>
+
+<p>
+
+The more Shots you earn, the more free rewards you unlock.
+
+</p>
+
+</div>
+
+</section>
+
+ <!--=====================================
+REWARD HISTORY
+======================================-->
+
+<section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Recent Rewards
+
+</h2>
+
+<p>
+
+No rewards redeemed yet.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Next Reward
+
+</h2>
+
+<p>
+
+Only <span id="shotsRemaining">
+
+500
+
+</span> more Shots until your FREE Coffee.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+ <!--=====================================
+VISIT JUMPSHOT
 ======================================-->
 
 <section class="visit-home">
@@ -230,44 +379,20 @@ Phone: (903) 352-3443
 
 </p>
 
-<div class="hero-buttons">
-
-<a href="contact.html">
-
-<button class="order-btn">
-
-Contact Us
-
-</button>
-
-</a>
-
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
-
-<button class="reward-btn">
-
-Get Directions
-
-</button>
-
-</a>
-
-</div>
-
 </div>
 
 </section>
 
-<!--=====================================
+    <!--=====================================
 FOOTER
 ======================================-->
 
 <footer class="footer">
 
 <img src="images/IMG_23_header_logo.PNG"
+
 class="footer-logo"
+
 alt="JumpShot Coffee Logo">
 
 <h3>
@@ -290,41 +415,17 @@ Crafting only the highest quality coffee.
 
 <div class="footer-links">
 
-<a href="index.html">
+<a href="index.html">Home</a>
 
-Home
+<a href="traditional.html">Coffee</a>
 
-</a>
+<a href="rewards.html">Rewards</a>
 
-<a href="traditional.html">
+<a href="cart.html">Cart</a>
 
-Coffee
+<a href="profile.html">Profile</a>
 
-</a>
-
-<a href="rewards.html">
-
-Rewards
-
-</a>
-
-<a href="cart.html">
-
-Cart
-
-</a>
-
-<a href="profile.html">
-
-Profile
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
+<a href="contact.html">Contact</a>
 
 </div>
 
@@ -335,325 +436,6 @@ Contact
 </p>
 
 </footer>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
-
-<link rel="stylesheet"
-href="style.css">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-</head>
-
-<body>
-
-<!--=====================================
-HEADER
-======================================-->
-
-<header class="page-header">
-
-<a href="index.html" class="back-btn">
-Back
-</a>
-
-<img src="images/IMG_23_header_logo.PNG"
-     class="main-logo"
-     alt="JumpShot Coffee Logo">
-
-<a href="cart.html" class="cart-btn">
-Cart
-</a>
-
-</header>
-
- <!--=====================================
-HERO
-======================================-->
-
-<section class="reward-hero">
-
-<img src="images/IMG_rewards.PNG"
-
-class="reward-hero-image"
-
-alt="Road to the Next Shot">
-
-<h1>
-
-Road to the Next Shot
-
-</h1>
-
-<p>
-
-Earn Shots every time you order.
-
-Score rewards.
-
-Unlock exclusive perks.
-
-Keep Shooting!
-
-</p>
-
-</section>
-
-<!--=====================================
-CURRENT SHOTS
-======================================-->
-
-<section class="shot-dashboard">
-
-<h2>
-
-Current Shots
-
-</h2>
-
-<h1 id="shotCount">
-
-0
-
-</h1>
-
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
-<p>
-
-0 / 500 Shots
-
-</p>
-
-</section>
-
-  <!--=====================================
-COFFEE BEAN GAME
-======================================-->
-
-<section class="basketball-game">
-
-<h2>
-
-Shoot Your Coffee Bean
-
-</h2>
-
-<p>
-
-Every purchase sends another coffee bean through the hoop.
-
-</p>
-
-<div class="game-container">
-
-<div class="coffee-bean">
-
-☕
-
-</div>
-
-<div class="basketball-hoop">
-
-🏀
-
-</div>
-
-</div>
-
-</section>
-
-  <!--=====================================
-VISIT JUMPSHOT COFFEE
-======================================-->
-
-<section class="visit-home">
-
-<div class="section-title">
-
-<h2>
-
-Visit JumpShot Coffee
-
-</h2>
-
-<p>
-
-Where exceptional coffee meets exceptional service.
-
-</p>
-
-</div>
-
-<div class="visit-card">
-
-<img src="images/IMG_8.PNG"
-
-class="visit-photo"
-
-alt="JumpShot Coffee">
-
-<h3>
-
-JumpShot Coffee
-
-</h3>
-
-<p>
-
-734 S Fleishel Ave
-
-<br>
-
-Tyler, Texas 75701
-
-</p>
-
-<p>
-
-Open Daily
-
-<br>
-
-7:00 AM – 4:00 PM
-
-</p>
-
-<p>
-
-Phone: (903) 352-3443
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="contact.html">
-
-<button class="order-btn">
-
-Contact Us
-
-</button>
-
-</a>
-
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
-
-<button class="reward-btn">
-
-Get Directions
-
-</button>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!--=====================================
-FOOTER
-======================================-->
-
-<footer class="footer">
-
-<img src="images/IMG_logo.PNG"
-
-class="footer-logo"
-
-alt="JumpShot Coffee">
-
-<h3>
-
-JumpShot Coffee
-
-</h3>
-
-<p>
-
-Where exceptional coffee meets exceptional service.
-
-</p>
-
-<p>
-
-Crafting only the highest quality coffee.
-
-</p>
-
-<div class="footer-links">
-
-<a href="index.html">
-
-Home
-
-</a>
-
-<a href="traditional.html">
-
-Coffee
-
-</a>
-
-<a href="rewards.html">
-
-Rewards
-
-</a>
-
-<a href="cart.html">
-
-Cart
-
-</a>
-
-<a href="profile.html">
-
-Profile
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 JumpShot Coffee • All Rights Reserved
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
-<!--=====================================
-BOTTOM NAVIGATION
-======================================-->
 
 <nav class="bottom-nav">
 
@@ -698,7 +480,9 @@ BOTTOM NAVIGATION
 </a>
 
 </nav>
-     
+
+<script src="script.js"></script>
+
 </body>
 
-</html>
+</html> 
