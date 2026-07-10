@@ -1,152 +1,100 @@
 /*=====================================
-JUMPSHOT COFFEE
-GLOBAL VARIABLES
+JUMPSHOT COFFEE APP
 =====================================*/
-
-let shots = Number(localStorage.getItem("shots")) || 0;
-
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-updateShots();
-updateCart();
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+let shots = Number(localStorage.getItem("shots")) || 0;
+
+let profile = JSON.parse(localStorage.getItem("profile")) || {};
+
+updateShotDisplays();
 
 /*=====================================
-REWARDS
+SAVE DATA
 =====================================*/
 
-function updateShots(){
-
-const shotCount=document.getElementById("shotCount");
-
-const progressFill=document.getElementById("progressFill");
-
-if(shotCount){
-
-shotCount.textContent=shots;
-
-}
-
-if(progressFill){
-
-let percent=(shots/500)*100;
-
-if(percent>100){
-
-percent=100;
-
-}
-
-progressFill.style.width=percent+"%";
-
-}
-
-localStorage.setItem("shots",shots);
-
-}
-
-/*=====================================
-EARN SHOTS
-=====================================*/
-
-function earnShots(amount){
-
-shots+=amount;
-
-updateShots();
-
-checkRewards();
-
-}
-
-function checkRewards(){
-
-if(shots>=500){
-
-launchConfetti();
-
-alert("🏀 Congratulations! You earned a FREE Coffee!");
-
-}
-
-}
-
-/*=====================================
-COFFEE BEAN GAME
-=====================================*/
-
-function shootBean(){
-
-const bean=document.getElementById("coffeeBean");
-
-if(!bean){
-
-return;
-
-}
-
-bean.classList.add("shoot");
-
-setTimeout(()=>{
-
-bean.classList.remove("shoot");
-
-earnShots(25);
-
-},900);
-
-}
-
-/*=====================================
-SHOPPING CART
-=====================================*/
-
-function addToCart(name,price,shotsEarned){
-
-cart.push({
-
-name:name,
-
-price:price,
-
-shots:shotsEarned
-
-});
+function saveCart(){
 
 localStorage.setItem("cart",JSON.stringify(cart));
 
-updateCart();
+}
 
-earnShots(shotsEarned);
+function saveFavorites(){
 
-alert(name+" added to your cart!");
+localStorage.setItem("favorites",JSON.stringify(favorites));
 
 }
 
-function updateCart(){
+function saveShots(){
 
-const subtotal=document.getElementById("cartSubtotal");
+localStorage.setItem("shots",shots);
 
-const total=document.getElementById("cartTotal");
-
-if(!subtotal||!total){
-
-return;
+updateShotDisplays();
 
 }
 
-let amount=0;
+function saveProfileData(){
 
-cart.forEach(item=>{
+localStorage.setItem("profile",
 
-amount+=item.price;
+JSON.stringify(profile));
 
-});
+}
 
-subtotal.textContent="$"+amount.toFixed(2);
+/*=====================================
+SHOTS
+=====================================*/
 
-total.textContent="$"+amount.toFixed(2);
+function addShots(amount){
+
+shots += amount;
+
+saveShots();
+
+showConfetti();
+
+}
+
+function updateShotDisplays(){
+
+const big=document.getElementById("shotCount");
+
+const small=document.getElementById("shotCountSmall");
+
+if(big){
+
+big.textContent=shots;
+
+}
+
+if(small){
+
+small.textContent=shots;
+
+}
+
+updateProgress();
+
+}
+
+/*=====================================
+PROGRESS BAR
+=====================================*/
+
+function updateProgress(){
+
+const progress=
+
+document.getElementById("progressFill");
+
+if(!progress) return;
+
+let percent=(shots%500)/500*100;
+
+progress.style.width=percent+"%";
 
 }
 
@@ -154,203 +102,129 @@ total.textContent="$"+amount.toFixed(2);
 FAVORITES
 =====================================*/
 
-function addFavorite(drink){
+function addFavorite(item){
 
-if(!favorites.includes(drink)){
+if(!favorites.includes(item)){
 
-favorites.push(drink);
+favorites.push(item);
 
-localStorage.setItem(
+saveFavorites();
 
-"favorites",
-
-JSON.stringify(favorites)
-
-);
-
-alert(drink+" added to Favorites ❤️");
-
-}else{
-
-alert("Already in Favorites ❤️");
+alert(item+" added to Favorites ❤️");
 
 }
 
 }
 
 /*=====================================
-PROFILE
+ADD TO CART
 =====================================*/
 
-function saveProfile(){
+function addToCart(name,price,shotValue){
 
-const name=document.querySelector("input[type='text']");
+cart.push({
 
-const email=document.querySelector("input[type='email']");
+name:name,
 
-if(name){
+price:price,
 
-localStorage.setItem("customerName",name.value);
+shots:shotValue
 
-}
+});
 
-if(email){
+saveCart();
 
-localStorage.setItem("customerEmail",email.value);
-
-}
-
-alert("Profile Saved!");
-
-}
-
-window.onload=function(){
-
-const name=document.querySelector("input[type='text']");
-
-const email=document.querySelector("input[type='email']");
-
-if(name){
-
-name.value=
-
-localStorage.getItem("customerName")||"";
-
-}
-
-if(email){
-
-email.value=
-
-localStorage.getItem("customerEmail")||"";
-
-}
-
-updateShots();
+addShots(shotValue);
 
 updateCart();
 
-};
+showConfetti();
+
+alert(name+" added to your cart!");
+
+}
 
 /*=====================================
-ORDER BUTTONS
+UPDATE CART
 =====================================*/
 
-document.querySelectorAll(".order-btn-small")
+function updateCart(){
 
-.forEach(button=>{
+const cartContainer=document.getElementById("cartItems");
 
-button.addEventListener("click",function(){
+const subtotal=document.getElementById("cartSubtotal");
 
-const card=
+const total=document.getElementById("cartTotal");
 
-this.closest(".drink-card");
+if(!cartContainer) return;
 
-const name=
+cartContainer.innerHTML="";
 
-card.querySelector("h2").innerText;
+let totalPrice=0;
 
-const priceText=
+cart.forEach((item,index)=>{
 
-card.querySelector("h3").innerText
+totalPrice+=item.price;
 
-.replace("$","")
+cartContainer.innerHTML+=`
 
-.replace("+","");
+<div class="drink-card">
 
-const price=parseFloat(priceText);
+<div class="drink-info">
 
-const shotText=
+<h2>${item.name}</h2>
 
-card.querySelector(".earn-shots")
+<h3>$${item.price.toFixed(2)}</h3>
 
-.innerText
+<p>Earned ${item.shots} Shots</p>
 
-.replace("Earn ","")
+<div class="drink-buttons">
 
-.replace(" Shots","");
+<button
 
-const earned=parseInt(shotText);
+class="favorite-btn"
 
-addToCart(
+onclick="removeItem(${index})">
 
-name,
+🗑 Remove
 
-price,
+</button>
 
-earned
+</div>
 
-);
+</div>
+
+</div>
+
+`;
 
 });
 
-});
+if(subtotal){
 
-/*=====================================
-CONFETTI
-=====================================*/
+subtotal.textContent="$"+totalPrice.toFixed(2);
 
-function launchConfetti(){
+}
 
-for(let i=0;i<100;i++){
+if(total){
 
-const confetti=document.createElement("div");
-
-confetti.className="confetti";
-
-confetti.style.left=Math.random()*100+"vw";
-
-confetti.style.animationDelay=Math.random()+"s";
-
-document.body.appendChild(confetti);
-
-setTimeout(()=>{
-
-confetti.remove();
-
-},3000);
+total.textContent="$"+totalPrice.toFixed(2);
 
 }
 
 }
 
 /*=====================================
-REWARD LEVELS
+REMOVE ITEM
 =====================================*/
 
-function checkRewards(){
+function removeItem(index){
 
-if(shots>=2500){
+cart.splice(index,1);
 
-alert("🏆 Congratulations!\nYou are now a JumpShot VIP Member!");
+saveCart();
 
-launchConfetti();
-
-}
-
-else if(shots>=1500){
-
-alert("🍩 Congratulations!\nYou earned a FREE Bakery Item!");
-
-launchConfetti();
-
-}
-
-else if(shots>=1000){
-
-alert("🥤 Congratulations!\nYou earned a FREE Specialty Drink!");
-
-launchConfetti();
-
-}
-
-else if(shots>=500){
-
-alert("☕ Congratulations!\nYou earned a FREE Coffee!");
-
-launchConfetti();
-
-}
+updateCart();
 
 }
 
@@ -362,17 +236,9 @@ function clearCart(){
 
 cart=[];
 
-localStorage.setItem(
-
-"cart",
-
-JSON.stringify(cart)
-
-);
+saveCart();
 
 updateCart();
-
-alert("Cart Cleared!");
 
 }
 
@@ -390,56 +256,28 @@ return;
 
 }
 
-launchConfetti();
+alert(
 
-alert("🏀 Thank you for your order!");
+"Thank you for choosing JumpShot Coffee!\n\nYour order has been received."
+
+);
 
 cart=[];
 
-localStorage.setItem(
-
-"cart",
-
-JSON.stringify(cart)
-
-);
+saveCart();
 
 updateCart();
 
 }
 
 /*=====================================
-FAVORITE BUTTONS
-=====================================*/
-
-document.querySelectorAll(".favorite-btn")
-
-.forEach(button=>{
-
-button.addEventListener("click",function(){
-
-const card=this.closest(".drink-card");
-
-const drink=
-
-card.querySelector("h2").innerText;
-
-addFavorite(drink);
-
-});
-
-});
-
-/*=====================================
-INITIALIZE APP
+LOAD APP
 =====================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-updateShots();
-
 updateCart();
 
-console.log("JumpShot Coffee Loaded Successfully");
+updateShotDisplays();
 
 });
