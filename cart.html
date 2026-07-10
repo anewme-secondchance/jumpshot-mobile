@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cart | JumpShot Coffee</title>
+<title>My Cart | JumpShot Coffee</title>
 
 <meta name="theme-color" content="#72DCE8">
 
@@ -25,11 +25,13 @@
 
 <body>
 
-<!--=====================================
-HEADER
-======================================-->
+<header class="page-header">
 
-<header class="home-header">
+<a href="index.html" class="back-btn">
+
+Back
+
+</a>
 
 <img src="images/IMG_23_header_logo.PNG"
 
@@ -37,145 +39,111 @@ class="main-logo"
 
 alt="JumpShot Coffee Logo">
 
+<a href="profile.html" class="cart-btn">
+
+Profile
+
+</a>
+
 </header>
 
-<!--=====================================
-HERO
-======================================-->
+<section class="page-hero">
 
-<section class="hero">
-
-<div class="hero-content">
+<div class="page-overlay">
 
 <h1>
 
-Your Cart
+My Cart
 
 </h1>
 
 <p>
 
-Review your order before checking out.
+Review your order before checkout.
 
 </p>
 
-<div class="hero-buttons">
+</div>
 
-<a href="traditional.html">
+</section>
 
-<button class="order-btn">
+<section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Your Order
+
+</h2>
+
+<p>
+
+No items have been added yet.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Subtotal
+
+</h2>
+
+<h3 id="cartSubtotal">
+
+$0.00
+
+</h3>
+
+</div>
+
+</div>
+
+  <div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Estimated Total
+
+</h2>
+
+<h3 id="cartTotal">
+
+$0.00
+
+</h3>
+
+<button class="checkout-btn">
+
+Proceed to Checkout
+
+</button>
+
+<button class="favorite-btn">
 
 Continue Shopping
 
 </button>
 
-</a>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-Road to the Next Shot
-
-</button>
-
-</a>
-
 </div>
-
-</div>
-
-<img src="images/IMG_20_iced.PNG"
-
-class="hero-image"
-
-alt="Shopping Cart">
-
-</section>
-
-<!--=====================================
-SHOPPING CART
-======================================-->
-
-<section class="cart-page">
-
-<div id="cartItems">
-
-<!-- JavaScript Loads Cart Here -->
 
 </div>
 
 </section>
 
-<!--=====================================
-ORDER SUMMARY
-======================================-->
-
-<section class="summary-card">
-
-<h2>
-
-Order Summary
-
-</h2>
-
-<div class="summary-row">
-
-<span>Items</span>
-
-<span id="cartCount">
-
-0
-
-</span>
-
-</div>
-
-<div class="summary-row">
-
-<span>Subtotal</span>
-
-<span id="subtotal">
-
-$0.00
-
-</span>
-
-</div>
-
-<div class="summary-row">
-
-<span>Estimated Shots</span>
-
-<span id="estimatedShots">
-
-0
-
-</span>
-
-</div>
-
-<div class="summary-row total">
-
-<span>Total</span>
-
-<span id="cartTotal">
-
-$0.00
-
-</span>
-
-</div>
-
-<button class="checkout-btn">
-
-Checkout
-
-</button>
-
-</section>
-
-<!--=====================================
+  <!--=====================================
 ROAD TO THE NEXT SHOT
 ======================================-->
 
@@ -191,17 +159,21 @@ Road to the Next Shot
 
 <p>
 
-Earn Shots with every purchase.
+Every purchase earns Shots toward FREE rewards.
 
 </p>
 
 </div>
+
+<a href="rewards.html">
 
 <img src="images/IMG_rewards.PNG"
 
 class="reward-home"
 
 alt="Road to the Next Shot">
+
+</a>
 
 <h3>
 
@@ -227,8 +199,6 @@ Current Shots
 
 </p>
 
-<div class="hero-buttons">
-
 <a href="rewards.html">
 
 <button class="reward-btn">
@@ -239,11 +209,9 @@ View Rewards
 
 </a>
 
-</div>
-
 </section>
 
-<!--=====================================
+  <!--=====================================
 VISIT JUMPSHOT COFFEE
 ======================================-->
 
@@ -301,7 +269,7 @@ Open Daily
 
 <p>
 
-(903) 352-3443
+Phone: (903) 352-3443
 
 </p>
 
@@ -317,13 +285,25 @@ Contact Us
 
 </a>
 
+<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
 </div>
 
 </div>
 
 </section>
 
-  <!--=====================================
+<!--=====================================
 FOOTER
 ======================================-->
 
@@ -355,41 +335,17 @@ Crafting only the highest quality coffee.
 
 <div class="footer-links">
 
-<a href="index.html">
+<a href="index.html">Home</a>
 
-Home
+<a href="traditional.html">Coffee</a>
 
-</a>
+<a href="rewards.html">Rewards</a>
 
-<a href="traditional.html">
+<a href="cart.html">Cart</a>
 
-Coffee
+<a href="profile.html">Profile</a>
 
-</a>
-
-<a href="rewards.html">
-
-Rewards
-
-</a>
-
-<a href="cart.html">
-
-Cart
-
-</a>
-
-<a href="profile.html">
-
-Profile
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
+<a href="contact.html">Contact</a>
 
 </div>
 
@@ -407,7 +363,9 @@ BOTTOM NAVIGATION
 
 <nav class="bottom-nav">
 
-<a href="index.html" class="nav-item">
+<a href="index.html"
+
+class="nav-item">
 
 🏠
 
@@ -415,7 +373,9 @@ BOTTOM NAVIGATION
 
 </a>
 
-<a href="traditional.html" class="nav-item">
+<a href="traditional.html"
+
+class="nav-item">
 
 ☕
 
@@ -423,7 +383,9 @@ BOTTOM NAVIGATION
 
 </a>
 
-<a href="rewards.html" class="nav-item">
+<a href="rewards.html"
+
+class="nav-item">
 
 🏀
 
@@ -431,7 +393,9 @@ BOTTOM NAVIGATION
 
 </a>
 
-<a href="cart.html" class="nav-item active">
+<a href="cart.html"
+
+class="nav-item active">
 
 🛒
 
@@ -439,7 +403,9 @@ BOTTOM NAVIGATION
 
 </a>
 
-<a href="profile.html" class="nav-item">
+<a href="profile.html"
+
+class="nav-item">
 
 👤
 
@@ -449,8 +415,8 @@ BOTTOM NAVIGATION
 
 </nav>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
-</html>   
+</html>
