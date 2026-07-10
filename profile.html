@@ -25,13 +25,29 @@
 
 <body>
 
-<header class="home-header">
+<header class="page-header">
+
+<a href="index.html"
+
+class="back-btn">
+
+Back
+
+</a>
 
 <img src="images/IMG_23_header_logo.PNG"
 
 class="main-logo"
 
-alt="JumpShot Coffee">
+alt="JumpShot Coffee Logo">
+
+<a href="cart.html"
+
+class="cart-btn">
+
+Cart
+
+</a>
 
 </header>
 
@@ -41,48 +57,30 @@ alt="JumpShot Coffee">
 
 <h1>
 
-My Profile
+Welcome Back!
 
 </h1>
 
 <p>
 
-Track your rewards, favorite drinks and account information.
+We're glad you're here.
 
 </p>
 
-<div class="hero-buttons">
+<p>
 
-<a href="rewards.html">
+Where exceptional coffee meets exceptional service.
 
-<button class="reward-btn">
-
-Road to the Next Shot
-
-</button>
-
-</a>
-
-<a href="traditional.html">
-
-<button class="order-btn">
-
-Order Coffee
-
-</button>
-
-</a>
+</p>
 
 </div>
 
-</div>
-
-<img src="images/IMG_21_welcome.PNG"
+<img src="images/IMG_23_header_logo.PNG"
 
 class="hero-image"
 
 alt="JumpShot Coffee">
-  
+
 </section>
 
 <section class="menu-section">
@@ -93,29 +91,315 @@ alt="JumpShot Coffee">
 
 <h2>
 
-My Rewards
+👋 My Account
 
 </h2>
 
 <p>
 
-Current Shots
+Welcome back to JumpShot Coffee.
+
+Manage your account and rewards here.
 
 </p>
 
-<h3 id="shotCount">
+</div>
+
+</div>
+
+<!--=====================================-->
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+🏀 Current Shots
+
+</h2>
+
+<h1 id="shotCount">
 
 0
+
+</h1>
+
+<div class="progress-bar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<p>
+
+500 Shots earns your first FREE Coffee.
+
+</p>
+
+</div>
+
+</div>
+
+<!--=====================================-->
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+❤️ Favorite Drinks
+
+</h2>
+
+<p>
+
+Your saved favorites will appear here.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Personal Information
+
+</h2>
+
+<label>
+
+Name
+
+</label>
+
+<input
+type="text"
+placeholder="Enter your name">
+
+<label>
+
+Email
+
+</label>
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button class="checkout-btn">
+
+Save Profile
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+ROAD TO THE NEXT SHOT
+======================================-->
+
+<section class="home-rewards">
+
+<div class="section-title">
+
+<h2>
+
+Road to the Next Shot
+
+</h2>
+
+<p>
+
+Every purchase gets you closer to FREE drinks.
+
+</p>
+
+</div>
+
+<a href="rewards.html">
+
+<img src="images/IMG_rewards.PNG"
+
+class="reward-home"
+
+alt="Road to the Next Shot">
+
+</a>
+
+<h3>
+
+Current Shots
+
+</h3>
+
+<h1 id="shotCount">
+
+0
+
+</h1>
+
+<div class="progress-bar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<p>
+
+500 Shots earns your first FREE Coffee!
+
+</p>
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+View Rewards
+
+</button>
+
+</a>
+
+</section>
+
+  <!--=====================================
+QUICK ACTIONS
+======================================-->
+
+<section class="profile-actions">
+
+<div class="section-title">
+
+<h2>
+
+Quick Actions
+
+</h2>
+
+<p>
+
+Everything you need in one place.
+
+</p>
+
+</div>
+
+<div class="profile-grid">
+
+<a href="traditional.html" class="profile-card">
+
+<h3>
+
+☕
+
+Order Coffee
 
 </h3>
 
 <p>
 
-500 Shots unlocks your first FREE drink!
-
-Keep shooting to earn exclusive JumpShot rewards.
+Browse the full menu.
 
 </p>
+
+</a>
+
+<a href="rewards.html" class="profile-card">
+
+<h3>
+
+🏀
+
+My Rewards
+
+</h3>
+
+<p>
+
+Check your Road to the Next Shot.
+
+</p>
+
+</a>
+
+<a href="favorites.html" class="profile-card">
+
+<h3>
+
+❤️
+
+Favorites
+
+</h3>
+
+<p>
+
+View your favorite drinks.
+
+</p>
+
+</a>
+
+<a href="contact.html" class="profile-card">
+
+<h3>
+
+📍
+
+Our Location
+
+</h3>
+
+<p>
+
+Find JumpShot Coffee.
+
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+  <!--=====================================
+RECENT ORDERS
+======================================-->
+
+<section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+Recent Orders
+
+</h2>
+
+<p>
+
+No recent orders yet.
+
+</p>
+
+<button class="order-btn-small">
+
+Start Your First Order
+
+</button>
 
 </div>
 
@@ -133,59 +417,13 @@ Favorite Drink
 
 <p>
 
-❤️ No favorite drinks yet.
-
-Tap the ❤️ Favorite button on any menu item to save it here.
-  
-</p>
-
-</div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
-
-<h2>
-
-Account Information
-
-</h2>
-
-<p>
-
-Name
+No favorites selected.
 
 </p>
 
-<input
-type="text"
-placeholder="Your Name">
+<button class="favorite-btn">
 
-<p>
-
-Email
-
-</p>
-
-<input
-type="email"
-placeholder="Email Address">
-
-<button class="checkout-btn">
-
- <p>
-
-Phone
-
-</p>
-
-<input
-type="tel"
-placeholder="Phone Number"> 
-
-Save Profile
+Browse Menu
 
 </button>
 
@@ -193,72 +431,29 @@ Save Profile
 
 </div>
 
-
-  <div class="hero-buttons">
-
-<a href="traditional.html">
-
-<button class="order-btn">
-
-Coffee Menu
-
-</button>
-
-</a>
-
-<a href="cart.html">
-
-<button class="reward-btn">
-
-My Cart
-
-</button>
-
-</a>
-
-</div>
-  
 </section>
 
-<section class="home-rewards">
+<!--=====================================
+VISIT JUMPSHOT
+======================================-->
+
+<section class="visit-home">
 
 <div class="section-title">
 
 <h2>
 
-Road to the Next Shot
+Visit JumpShot Coffee
 
 </h2>
 
 <p>
 
-Keep earning rewards every visit.
+Where exceptional coffee meets exceptional service.
 
 </p>
 
 </div>
-
-<img src="images/IMG_rewards.PNG"
-
-class="reward-home"
-
-alt="Rewards">
-
-<h1 id="shotCount">
-
-0
-
-</h1>
-
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
-</section>
-
-<section class="visit-home">
 
 <div class="visit-card">
 
@@ -296,10 +491,109 @@ Open Daily
 
 <p>
 
-(903) 352-3443
+Phone: (903) 352-3443
 
 </p>
 
 </div>
 
 </section>
+
+ <footer class="footer">
+
+<img src="images/IMG_23_header_logo.PNG"
+
+class="footer-logo"
+
+alt="JumpShot Coffee Logo">
+
+<h3>
+
+JumpShot Coffee
+
+</h3>
+
+<p>
+
+Where exceptional coffee meets exceptional service.
+
+</p>
+
+<p>
+
+Crafting only the highest quality coffee.
+
+</p>
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="traditional.html">Coffee</a>
+
+<a href="rewards.html">Rewards</a>
+
+<a href="cart.html">Cart</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+<p class="copyright">
+
+© 2026 JumpShot Coffee • All Rights Reserved
+
+</p>
+
+</footer>
+
+<nav class="bottom-nav">
+
+<a href="index.html" class="nav-item">
+
+🏠
+
+<span>Home</span>
+
+</a>
+
+<a href="traditional.html" class="nav-item">
+
+☕
+
+<span>Menu</span>
+
+</a>
+
+<a href="rewards.html" class="nav-item">
+
+🏀
+
+<span>Rewards</span>
+
+</a>
+
+<a href="cart.html" class="nav-item">
+
+🛒
+
+<span>Cart</span>
+
+</a>
+
+<a href="profile.html" class="nav-item active">
+
+👤
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
