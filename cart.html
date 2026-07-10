@@ -5,31 +5,51 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>My Cart | JumpShot Coffee</title>
 
-<meta name="theme-color" content="#72DCE8">
+<meta name="theme-color"
+content="#72DCE8">
 
-<link rel="icon" href="images/IMG_23_header_logo.PNG">
+<link rel="icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="stylesheet" href="style.css">
+<link rel="apple-touch-icon"
+href="images/IMG_23_header_logo.PNG">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="manifest"
+href="manifest.json">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
+  <!--=====================================
+HEADER
+======================================-->
+
 <header class="page-header">
 
-<a href="index.html" class="back-btn">
+<a href="index.html"
 
-Back
+class="back-btn">
+
+← Back
 
 </a>
 
@@ -37,23 +57,27 @@ Back
 
 class="main-logo"
 
-alt="JumpShot Coffee Logo">
+alt="JumpShot Coffee">
 
-<a href="profile.html" class="cart-btn">
+<a href="profile.html"
 
-Profile
+class="cart-btn">
+
+👤 Profile
 
 </a>
 
 </header>
 
-<section class="page-hero">
+<!--=====================================
+WELCOME
+======================================-->
 
-<div class="page-overlay">
+<section class="welcome">
 
 <h1>
 
-My Cart
+Your Cart
 
 </h1>
 
@@ -63,11 +87,33 @@ Review your order before checkout.
 
 </p>
 
-</div>
+<img src="images/IMG_23_header_logo.PNG"
+
+class="page-logo"
+
+alt="JumpShot Coffee">
+
+<p>
+
+Where exceptional coffee meets exceptional service.
+
+</p>
+
+<p>
+
+Crafting only the highest quality coffee.
+
+</p>
 
 </section>
 
+ <!--=====================================
+SHOPPING CART
+======================================-->
+
 <section class="menu-section">
+
+<div id="cartItems">
 
 <div class="drink-card">
 
@@ -75,35 +121,17 @@ Review your order before checkout.
 
 <h2>
 
-Your Order
+Your cart is empty.
 
 </h2>
 
 <p>
 
-No items have been added yet.
+Add your favorite drinks and food to get started.
 
 </p>
 
 </div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
-
-<h2>
-
-Subtotal
-
-</h2>
-
-<h3 id="cartSubtotal">
-
-$0.00
-
-</h3>
 
 </div>
 
@@ -115,9 +143,39 @@ $0.00
 
 <h2>
 
-Estimated Total
+Order Summary
 
 </h2>
+
+<p>
+
+Subtotal
+
+</p>
+
+<h3 id="cartSubtotal">
+
+$0.00
+
+</h3>
+
+<p>
+
+Tax
+
+</p>
+
+<h3>
+
+Calculated at Checkout
+
+</h3>
+
+<p>
+
+Estimated Total
+
+</p>
 
 <h3 id="cartTotal">
 
@@ -125,17 +183,25 @@ $0.00
 
 </h3>
 
-<button class="checkout-btn">
+<div class="drink-buttons">
 
-Proceed to Checkout
+<button
+class="favorite-btn"
+onclick="clearCart()">
+
+🗑 Clear Cart
+
+</button>
+
+<button
+class="order-btn-small"
+onclick="checkout()">
+
+🏀 Checkout
 
 </button>
 
-<button class="favorite-btn">
-
-Continue Shopping
-
-</button>
+</div>
 
 </div>
 
@@ -147,29 +213,13 @@ Continue Shopping
 ROAD TO THE NEXT SHOT
 ======================================-->
 
-<section class="home-rewards">
-
-<div class="section-title">
-
-<h2>
-
-Road to the Next Shot
-
-</h2>
-
-<p>
-
-Every purchase earns Shots toward FREE rewards.
-
-</p>
-
-</div>
+<section class="rewards-preview">
 
 <a href="rewards.html">
 
 <img src="images/IMG_rewards.PNG"
 
-class="reward-home"
+class="rewards-icon"
 
 alt="Road to the Next Shot">
 
@@ -177,37 +227,15 @@ alt="Road to the Next Shot">
 
 <h3>
 
-Current Shots
+Road to the Next Shot
 
 </h3>
 
-<h1 id="shotCount">
-
-0
-
-</h1>
-
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
 <p>
 
-500 Shots earns your first FREE Coffee!
+Play the Rewards Game and earn FREE drinks!
 
 </p>
-
-<a href="rewards.html">
-
-<button class="reward-btn">
-
-View Rewards
-
-</button>
-
-</a>
 
 </section>
 
@@ -216,22 +244,6 @@ VISIT JUMPSHOT COFFEE
 ======================================-->
 
 <section class="visit-home">
-
-<div class="section-title">
-
-<h2>
-
-Visit JumpShot Coffee
-
-</h2>
-
-<p>
-
-Where exceptional coffee meets exceptional service.
-
-</p>
-
-</div>
 
 <div class="visit-card">
 
@@ -303,7 +315,7 @@ Get Directions
 
 </section>
 
-<!--=====================================
+ <!--=====================================
 FOOTER
 ======================================-->
 
@@ -337,11 +349,7 @@ Crafting only the highest quality coffee.
 
 <a href="index.html">Home</a>
 
-<a href="traditional.html">Coffee</a>
-
 <a href="rewards.html">Rewards</a>
-
-<a href="cart.html">Cart</a>
 
 <a href="profile.html">Profile</a>
 
@@ -357,7 +365,7 @@ Crafting only the highest quality coffee.
 
 </footer>
 
-<!--=====================================
+  <!--=====================================
 BOTTOM NAVIGATION
 ======================================-->
 
@@ -415,8 +423,8 @@ class="nav-item">
 
 </nav>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
-</html>
+</html>  
