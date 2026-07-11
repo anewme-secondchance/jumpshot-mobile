@@ -727,21 +727,23 @@ FEATURED BANNER
 
 width:100%;
 
+max-width:100%;
+
 height:auto;
 
 display:block;
 
+object-fit:contain;
+
 border-radius:22px;
 
-object-fit:cover;
+margin:0 auto 20px;
 
 box-shadow:
 
-0 0 15px #72DCE8,
+0 0 18px #72DCE8,
 
 0 0 35px rgba(114,220,232,.45);
-
-margin-bottom:20px;
 
 }
 
