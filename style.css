@@ -1,78 +1,179 @@
-/*=====================================
-APP CONTAINER
-=====================================*/
+/*=========================================
+JUMPSHOT COFFEE
+STYLE.CSS
+=========================================*/
 
-body{
+/*=========================================
+RESET
+=========================================*/
+
+*{
 
 margin:0;
 
 padding:0;
 
-background:#edf9fb;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:#050505;
+
+color:#ffffff;
 
 font-family:'Poppins',sans-serif;
 
-color:#333;
-
-max-width:480px;
-
-margin:auto;
-
-min-height:100vh;
-
 overflow-x:hidden;
 
-padding-bottom:90px;
+text-align:center;
 
 }
 
-/*=====================================
-PAGE WIDTH
-=====================================*/
+/*=========================================
+ROOT COLORS
+=========================================*/
 
-.page-wrapper{
+:root{
 
-width:100%;
+--primary:#72DCE8;
 
-max-width:480px;
+--dark:#050505;
 
-margin:auto;
+--card:#111111;
 
-background:#ffffff;
+--white:#ffffff;
 
-min-height:100vh;
+--gray:#cfcfcf;
 
-box-shadow:0 0 25px rgba(0,0,0,.12);
+--shadow:0 8px 25px rgba(114,220,232,.30);
+
+--radius:22px;
 
 }
 
-/*=====================================
-ALL IMAGES
-=====================================*/
+/*=========================================
+LINKS
+=========================================*/
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/*=========================================
+IMAGES
+=========================================*/
 
 img{
 
 display:block;
 
-width:100%;
+max-width:100%;
 
 }
 
-/*=====================================
-SECTION
-=====================================*/
+/*=========================================
+SECTIONS
+=========================================*/
 
 section{
 
-padding:18px;
+width:100%;
+
+padding:45px 20px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
 
 }
 
-/*=====================================
+/*=========================================
+HEADINGS
+=========================================*/
+
+h1{
+
+font-size:2.3rem;
+
+font-weight:800;
+
+margin-bottom:15px;
+
+letter-spacing:1px;
+
+}
+
+h2{
+
+font-size:1.8rem;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+h3{
+
+font-size:1.2rem;
+
+font-weight:600;
+
+margin-bottom:10px;
+
+}
+
+p{
+
+font-size:1rem;
+
+line-height:1.8;
+
+color:var(--gray);
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+/*=========================================
 HEADER
-=====================================*/
+=========================================*/
+
+.home-header,
 
 .page-header{
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 24px;
+
+background:#0d0d0d;
+
+border-bottom:2px solid var(--primary);
 
 position:sticky;
 
@@ -80,385 +181,295 @@ top:0;
 
 z-index:999;
 
-height:75px;
+}
 
-background:#ffffff;
+.header-logo{
 
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
 
-padding:0 18px;
+justify-content:center;
 
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+flex:1;
 
 }
 
 .main-logo{
 
-width:95px;
+width:72px;
 
-height:auto;
+height:72px;
 
-margin:auto;
+object-fit:contain;
 
 }
 
-.back-btn,
+/*=========================================
+BUTTONS
+=========================================*/
 
-.cart-btn{
+button{
 
-background:#72DCE8;
+cursor:pointer;
 
-color:#fff;
+font-family:inherit;
 
-padding:11px 18px;
+border:none;
+
+transition:.30s;
+
+}
+
+.order-btn,
+
+.reward-btn,
+
+.favorite-btn,
+
+.order-btn-small{
 
 border-radius:50px;
 
-font-weight:700;
-
-text-decoration:none;
-
-}
-
-/*=====================================
-WELCOME
-=====================================*/
-
-.welcome{
-
-text-align:center;
-
-padding:20px;
-
-}
-
-.welcome-image{
-
-width:100%;
-
-height:220px;
-
-border-radius:25px;
-
-object-fit:cover;
-
-margin-bottom:20px;
-
-box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-}
-
-.page-logo{
-
-width:120px;
-
-margin:18px auto;
-
-}
-
-.company-slogan{
-
-font-size:18px;
+padding:14px 28px;
 
 font-weight:700;
 
-color:#4a3527;
+font-size:1rem;
 
-margin-bottom:5px;
-
-}
-
-.company-slogan2{
-
-font-size:15px;
-
-color:#777;
-
-margin-bottom:18px;
+margin:8px;
 
 }
 
-.welcome h2{
+.order-btn{
 
-color:#4a3527;
+background:var(--primary);
 
-margin-bottom:10px;
-
-}
-
-/*=====================================
-HOME CARDS
-=====================================*/
-
-.category-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
-
-padding:18px;
+color:#050505;
 
 }
 
-.category-card{
-
-background:#fff;
-
-border-radius:24px;
-
-overflow:hidden;
-
-box-shadow:0 8px 18px rgba(0,0,0,.10);
-
-transition:.3s;
-
-}
-
-.category-card:hover{
-
-transform:translateY(-4px);
-
-}
-
-.category-card img{
-
-width:100%;
-
-height:165px;
-
-object-fit:cover;
-
-}
-
-.category-card h3{
-
-margin:12px;
-
-text-align:center;
-
-color:#4a3527;
-
-font-size:18px;
-
-font-weight:700;
-
-}
-
-/*=====================================
-MENU GRID
-=====================================*/
-
-.menu-section{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
-
-padding:18px;
-
-align-items:start;
-
-}
-
-.drink-card{
+.reward-btn{
 
 background:#ffffff;
 
-border-radius:22px;
-
-overflow:hidden;
-
-box-shadow:0 8px 18px rgba(0,0,0,.10);
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:space-between;
-
-transition:.3s;
-
-height:100%;
-
-}
-
-.drink-card:hover{
-
-transform:translateY(-4px);
-
-}
-
-.drink-info{
-
-padding:18px;
-
-text-align:center;
-
-display:flex;
-
-flex-direction:column;
-
-height:100%;
-
-}
-
-.drink-info h2{
-
-font-size:19px;
-
-font-weight:700;
-
-color:#4a3527;
-
-margin-bottom:10px;
-
-}
-
-.drink-info p{
-
-font-size:14px;
-
-line-height:1.5;
-
-color:#666;
-
-margin-bottom:12px;
-
-flex-grow:1;
-
-}
-
-.drink-info h3{
-
-font-size:20px;
-
-color:#57cddd;
-
-font-weight:700;
-
-margin-bottom:8px;
-
-}
-
-.earn-shots{
-
-font-size:14px;
-
-font-weight:700;
-
-color:#ff9800;
-
-margin-bottom:15px;
-
-}
-
-/*=====================================
-BUTTONS
-=====================================*/
-
-.drink-buttons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:10px;
-
-margin-top:auto;
+color:#050505;
 
 }
 
 .favorite-btn{
 
-width:100%;
-
-padding:12px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ffffff;
-
-border:2px solid #72DCE8;
-
-color:#4a3527;
-
-font-size:15px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.favorite-btn:hover{
-
-background:#72DCE8;
+background:#202020;
 
 color:#ffffff;
+
+border:2px solid var(--primary);
 
 }
 
 .order-btn-small{
 
-width:100%;
+background:var(--primary);
 
-padding:12px;
+color:#050505;
 
-border:none;
+}
 
-border-radius:50px;
+button:hover{
 
-background:#72DCE8;
+transform:translateY(-4px);
+
+box-shadow:var(--shadow);
+
+}
+
+/*=========================================
+LOGO SECTION
+=========================================*/
+
+.logo-section{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+padding:35px 20px;
+
+}
+
+.page-logo,
+
+.hero-logo{
+
+width:180px;
+
+max-width:90%;
+
+object-fit:contain;
+
+margin-bottom:20px;
+
+filter:
+
+drop-shadow(0 0 10px rgba(114,220,232,.45))
+
+drop-shadow(0 0 25px rgba(114,220,232,.25));
+
+}
+
+.company-slogan{
+
+font-size:1.1rem;
+
+font-weight:600;
 
 color:#ffffff;
 
-font-size:15px;
+margin-bottom:8px;
 
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
+letter-spacing:.5px;
 
 }
 
-.order-btn-small:hover{
+.company-slogan2{
 
-background:#43bfd0;
+font-size:.95rem;
 
-transform:translateY(-2px);
+color:#bfbfbf;
+
+margin-bottom:15px;
 
 }
 
-/*=====================================
-MENU PAGE HERO
-=====================================*/
+/*=========================================
+PAGE TITLE
+=========================================*/
 
-.menu-hero{
+.page-title-section{
 
-margin:18px;
+padding:20px;
 
-border-radius:25px;
+}
+
+.page-title-section h1{
+
+color:var(--primary);
+
+text-shadow:
+
+0 0 12px rgba(114,220,232,.45);
+
+margin-bottom:12px;
+
+}
+
+.page-title-section p{
+
+max-width:750px;
+
+}
+
+/*=========================================
+WELCOME IMAGE
+=========================================*/
+
+.welcome-image{
+
+width:100%;
+
+max-width:900px;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:24px;
+
+border:3px solid var(--primary);
+
+box-shadow:
+
+0 0 25px rgba(114,220,232,.30);
+
+margin-top:25px;
+
+}
+
+/*=========================================
+HOME GRID
+=========================================*/
+
+.home-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+gap:22px;
+
+width:100%;
+
+max-width:1200px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+/*=========================================
+HOME CARDS
+=========================================*/
+
+.home-card{
+
+background:#111111;
+
+border-radius:22px;
 
 overflow:hidden;
 
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+border:2px solid rgba(114,220,232,.15);
+
+transition:.35s;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+box-shadow:
+
+0 10px 22px rgba(0,0,0,.45);
 
 }
 
-.menu-hero img{
+.home-card:hover{
+
+transform:
+
+translateY(-8px);
+
+border-color:var(--primary);
+
+box-shadow:
+
+0 0 20px rgba(114,220,232,.35);
+
+}
+
+.home-card img{
 
 width:100%;
 
@@ -466,273 +477,690 @@ height:230px;
 
 object-fit:cover;
 
-display:block;
+}
+
+.home-card h3{
+
+padding:18px;
+
+color:#ffffff;
+
+font-size:1.15rem;
 
 }
 
-.menu-title{
+/*=========================================
+MENU SECTION
+=========================================*/
 
-text-align:center;
+.menu-section{
 
-padding:20px;
+display:grid;
 
-background:#ffffff;
+grid-template-columns:
 
-}
+repeat(2,1fr);
 
-.menu-title h1{
-
-font-size:30px;
-
-color:#4a3527;
-
-margin-bottom:10px;
-
-}
-
-.menu-title p{
-
-font-size:15px;
-
-color:#666;
-
-line-height:1.6;
-
-}
-
-/*=====================================
-CATEGORY IMAGES
-=====================================*/
-
-.category-card img,
-
-.visit-photo,
-
-.welcome-image,
-
-.menu-hero img{
+gap:22px;
 
 width:100%;
 
-height:220px;
+max-width:1200px;
 
-object-fit:cover;
+margin:auto;
 
-object-position:center;
-
-display:block;
-
-border-radius:22px 22px 0 0;
+padding:25px;
 
 }
 
-/*=====================================
-VISIT JUMPSHOT
-=====================================*/
+/*=========================================
+DRINK CARDS
+=========================================*/
 
-.visit-home{
+.drink-card{
 
-padding:20px;
+background:#111111;
 
-}
+border-radius:22px;
 
-.visit-card{
+border:2px solid rgba(114,220,232,.18);
 
-background:#ffffff;
+padding:24px;
 
-border-radius:25px;
+display:flex;
 
-overflow:hidden;
+flex-direction:column;
 
-box-shadow:0 10px 25px rgba(0,0,0,.12);
+justify-content:space-between;
 
 text-align:center;
 
+transition:.35s;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.40);
+
 }
 
+.drink-card:hover{
+
+transform:
+
+translateY(-8px);
+
+border-color:var(--primary);
+
+box-shadow:
+
+0 0 20px rgba(114,220,232,.35);
+
+}
+
+.drink-info h2{
+
+color:#72DCE8;
+
+margin-bottom:15px;
+
+}
+
+.drink-info p{
+
+margin-bottom:18px;
+
+}
+
+.drink-info h3{
+
+font-size:1.4rem;
+
+color:#ffffff;
+
+margin-bottom:12px;
+
+}
+
+.earn-shots{
+
+font-weight:700;
+
+color:#72DCE8;
+
+margin-bottom:20px;
+
+}
+
+/*=========================================
+BUTTON GROUP
+=========================================*/
+
+.drink-buttons{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:12px;
+
+margin-top:auto;
+
+}
+
+/*=========================================
+FEATURED / VISIT / REWARDS
+=========================================*/
+
+.featured-drink,
+.visit-home,
+.rewards-preview,
+.social-section,
+.profile-section{
+
+width:100%;
+
+max-width:1200px;
+
+margin:50px auto;
+
+padding:0 20px;
+
+}
+
+.featured-card,
+.visit-card,
+.profile-card,
+.reward-stat-card,
+.next-reward-card{
+
+background:#111111;
+
+border:2px solid rgba(114,220,232,.20);
+
+border-radius:24px;
+
+padding:30px;
+
+text-align:center;
+
+box-shadow:
+
+0 12px 30px rgba(0,0,0,.40);
+
+transition:.35s;
+
+}
+
+.featured-card:hover,
+.visit-card:hover,
+.profile-card:hover,
+.reward-stat-card:hover,
+.next-reward-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#72DCE8;
+
+box-shadow:
+
+0 0 25px rgba(114,220,232,.35);
+
+}
+
+.featured-image,
 .visit-photo{
 
 width:100%;
 
-height:240px;
+height:300px;
 
 object-fit:cover;
 
-}
+border-radius:20px;
 
-.visit-card h3{
-
-font-size:28px;
-
-color:#4a3527;
-
-margin:20px 0 10px;
+margin-bottom:20px;
 
 }
 
-.visit-card p{
+.featured-price{
 
-font-size:15px;
+font-size:1.5rem;
 
-line-height:1.7;
+font-weight:700;
 
-color:#666;
+color:#72DCE8;
 
-padding:0 20px;
-
-margin-bottom:10px;
+margin:15px 0;
 
 }
 
-/*=====================================
-BUTTON ROW
-=====================================*/
+/*=========================================
+PROFILE
+=========================================*/
 
-.hero-buttons{
+.profile-avatar{
 
-display:flex;
+width:140px;
 
-justify-content:center;
+height:140px;
 
-gap:15px;
+border-radius:50%;
 
-padding:25px;
+object-fit:cover;
 
-flex-wrap:wrap;
+border:4px solid #72DCE8;
+
+margin:0 auto 20px;
+
+box-shadow:
+
+0 0 20px rgba(114,220,232,.40);
 
 }
 
-.order-btn,
+.member-level{
 
-.reward-btn{
+color:#72DCE8;
 
-padding:14px 28px;
+font-weight:700;
+
+font-size:1.1rem;
+
+margin-top:10px;
+
+}
+
+/*=========================================
+REWARDS PAGE
+=========================================*/
+
+.rewards-dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+width:100%;
+
+max-width:1100px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+.reward-stat-card h1{
+
+font-size:3rem;
+
+color:#72DCE8;
+
+text-shadow:
+
+0 0 15px rgba(114,220,232,.45);
+
+}
+
+/*=========================================
+BASKETBALL COURT
+=========================================*/
+
+.basketball-game{
+
+width:100%;
+
+max-width:1100px;
+
+margin:40px auto;
+
+padding:20px;
+
+}
+
+.court-container{
+
+position:relative;
+
+width:100%;
+
+height:180px;
+
+background:#0d0d0d;
+
+border-radius:22px;
+
+border:2px solid #72DCE8;
+
+overflow:hidden;
+
+box-shadow:
+
+0 0 25px rgba(114,220,232,.25);
+
+}
+
+.basketball{
+
+position:absolute;
+
+left:0;
+
+bottom:25px;
+
+font-size:42px;
+
+transition:left 1s ease;
+
+}
+
+.basketball-hoop{
+
+position:absolute;
+
+right:25px;
+
+top:35px;
+
+font-size:52px;
+
+}
+
+/*=========================================
+PROGRESS BAR
+=========================================*/
+
+.progress-bar{
+
+width:100%;
+
+height:18px;
+
+background:#222;
 
 border-radius:50px;
 
-font-size:16px;
+overflow:hidden;
 
-font-weight:700;
-
-cursor:pointer;
-
-border:none;
-
-transition:.3s;
+margin-top:20px;
 
 }
 
-.order-btn{
+.progress-fill{
+
+height:100%;
+
+width:0%;
 
 background:#72DCE8;
 
-color:#ffffff;
+transition:width .8s;
+
+box-shadow:
+
+0 0 18px rgba(114,220,232,.55);
 
 }
 
-.reward-btn{
+/*=========================================
+LEVELS
+=========================================*/
 
-background:#4a3527;
+.reward-levels{
 
-color:#ffffff;
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+width:100%;
+
+max-width:1100px;
+
+margin:35px auto;
 
 }
 
-.order-btn:hover,
+.level-card{
 
-.reward-btn:hover{
+background:#111111;
 
-transform:translateY(-3px);
+border-radius:20px;
+
+padding:25px;
+
+border:2px solid rgba(114,220,232,.20);
+
+transition:.30s;
 
 }
 
-/*=====================================
-FOOTER
-=====================================*/
+.level-card:hover{
 
-.footer{
+border-color:#72DCE8;
 
-background:#ffffff;
+transform:translateY(-6px);
 
-padding:35px 20px;
+}
+
+/*=========================================
+REWARD BOXES
+=========================================*/
+
+.reward-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+.reward-box{
+
+background:#111111;
+
+padding:25px;
+
+border-radius:20px;
+
+border:2px solid rgba(114,220,232,.20);
+
+font-size:1.1rem;
+
+transition:.30s;
+
+}
+
+.reward-box:hover{
+
+border-color:#72DCE8;
+
+box-shadow:
+
+0 0 18px rgba(114,220,232,.30);
+
+}
+
+/*=========================================
+CART
+=========================================*/
+
+.cart-card{
+
+background:#111111;
+
+border:2px solid rgba(114,220,232,.20);
+
+border-radius:22px;
+
+padding:25px;
+
+margin-bottom:20px;
 
 text-align:center;
 
-margin-top:30px;
+box-shadow:0 10px 20px rgba(0,0,0,.35);
 
 }
 
-.footer-logo{
-
-width:95px;
-
-margin:0 auto 15px;
-
-}
-
-.footer h3{
-
-font-size:24px;
-
-color:#4a3527;
-
-margin-bottom:10px;
-
-}
-
-.footer-links{
+.qty-controls{
 
 display:flex;
 
 justify-content:center;
 
-gap:18px;
+align-items:center;
 
-flex-wrap:wrap;
+gap:15px;
 
-margin:20px 0;
+margin:18px 0;
 
 }
 
-.footer-links a{
+.qty-controls button{
+
+width:42px;
+
+height:42px;
+
+border-radius:50%;
+
+background:#72DCE8;
+
+color:#050505;
+
+font-size:1.2rem;
 
 font-weight:700;
 
-color:#4a3527;
+}
+
+.empty-cart{
+
+padding:50px 20px;
+
+text-align:center;
 
 }
 
-.copyright{
+/*=========================================
+TOAST
+=========================================*/
 
-font-size:13px;
-
-color:#888;
-
-margin-top:15px;
-
-}
-
-/*=====================================
-BOTTOM NAVIGATION
-=====================================*/
-
-.bottom-nav{
+.toast{
 
 position:fixed;
 
-bottom:0;
+bottom:100px;
 
 left:50%;
 
 transform:translateX(-50%);
 
+background:#72DCE8;
+
+color:#050505;
+
+padding:15px 28px;
+
+border-radius:50px;
+
+font-weight:700;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.35s;
+
+z-index:99999;
+
+box-shadow:0 0 20px rgba(114,220,232,.45);
+
+}
+
+.toast.show{
+
+opacity:1;
+
+}
+
+/*=========================================
+INSTALL POPUP
+=========================================*/
+
+.install-popup{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.82);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+padding:25px;
+
+z-index:9999;
+
+}
+
+.install-logo{
+
+width:130px;
+
+margin-bottom:20px;
+
+filter:drop-shadow(0 0 15px rgba(114,220,232,.50));
+
+}
+
+.install-popup h2{
+
+color:#72DCE8;
+
+margin-bottom:15px;
+
+}
+
+.install-popup p{
+
+margin-bottom:25px;
+
+max-width:420px;
+
+}
+
+/*=========================================
+BACK TO TOP
+=========================================*/
+
+.back-to-top{
+
+position:fixed;
+
+bottom:95px;
+
+right:20px;
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+background:#72DCE8;
+
+color:#050505;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:1.5rem;
+
+font-weight:700;
+
+box-shadow:0 0 20px rgba(114,220,232,.45);
+
+z-index:999;
+
+}
+
+/*=========================================
+BOTTOM NAVIGATION
+=========================================*/
+
+.bottom-nav{
+
+position:fixed;
+
+left:0;
+
+bottom:0;
+
 width:100%;
 
-max-width:480px;
+background:#111111;
 
-height:74px;
-
-background:#ffffff;
+border-top:2px solid #72DCE8;
 
 display:flex;
 
@@ -740,7 +1168,7 @@ justify-content:space-around;
 
 align-items:center;
 
-box-shadow:0 -5px 20px rgba(0,0,0,.10);
+padding:12px 0;
 
 z-index:999;
 
@@ -754,240 +1182,191 @@ flex-direction:column;
 
 align-items:center;
 
-justify-content:center;
+gap:5px;
 
-font-size:13px;
+font-size:.9rem;
 
-font-weight:700;
+color:#ffffff;
 
-color:#4a3527;
-
-text-decoration:none;
-
-transition:.3s;
+transition:.30s;
 
 }
 
-.nav-item span{
-
-margin-top:4px;
-
-}
+.nav-item.active,
 
 .nav-item:hover{
 
 color:#72DCE8;
 
-transform:translateY(-2px);
+text-shadow:0 0 10px rgba(114,220,232,.45);
 
 }
 
-/*=====================================
-REWARDS PAGE
-=====================================*/
+/*=========================================
+FOOTER
+=========================================*/
 
-.rewards-preview{
+.footer{
 
-margin:20px;
+background:#0d0d0d;
 
-background:#111111;
-
-border-radius:25px;
-
-padding:30px 20px;
+padding:60px 20px 120px;
 
 text-align:center;
 
-box-shadow:0 10px 25px rgba(0,0,0,.20);
+margin-top:60px;
+
+border-top:2px solid rgba(114,220,232,.20);
 
 }
 
-.rewards-icon{
+.footer-logo{
 
-width:180px;
+width:120px;
 
 margin:0 auto 20px;
 
-transition:.3s;
+filter:drop-shadow(0 0 12px rgba(114,220,232,.40));
 
 }
 
-.rewards-icon:hover{
+.footer-links{
 
-transform:scale(1.05);
+display:flex;
 
-}
+justify-content:center;
 
-.rewards-preview h3{
+flex-wrap:wrap;
 
-color:#72DCE8;
+gap:20px;
 
-font-size:28px;
-
-margin-bottom:15px;
+margin:25px 0;
 
 }
 
-.rewards-preview p{
+.footer-links a{
 
 color:#ffffff;
 
-font-size:15px;
-
-line-height:1.7;
+transition:.30s;
 
 }
 
-/*=====================================
-PROFILE • CART • CONTACT
-=====================================*/
+.footer-links a:hover{
 
-.profile-card,
-.cart-summary,
-.contact-card{
-
-background:#ffffff;
-
-border-radius:25px;
-
-padding:25px;
-
-margin:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.10);
+color:#72DCE8;
 
 }
 
-.profile-card input,
-.contact-card input,
-.contact-card textarea{
+/*=========================================
+LOADING SCREEN
+=========================================*/
 
-width:100%;
+.loading-screen{
 
-padding:15px;
+position:fixed;
 
-margin-top:12px;
+inset:0;
 
-border-radius:15px;
+background:#050505;
 
-border:2px solid #e6e6e6;
-
-font-size:15px;
-
-font-family:'Poppins',sans-serif;
-
-}
-
-.contact-card textarea{
-
-height:180px;
-
-resize:none;
-
-}
-
-.profile-card button,
-.contact-card button{
-
-margin-top:18px;
-
-width:100%;
-
-}
-
-/*=====================================
-RESPONSIVE
-=====================================*/
-
-@media screen and (max-width:768px){
-
-.menu-section{
-
-grid-template-columns:repeat(2,1fr);
-
-gap:15px;
-
-}
-
-.category-grid{
-
-grid-template-columns:repeat(2,1fr);
-
-gap:15px;
-
-}
-
-.hero-buttons{
+display:flex;
 
 flex-direction:column;
 
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+transition:.50s;
+
+}
+
+.loading-logo{
+
+width:150px;
+
+margin-bottom:25px;
+
+filter:drop-shadow(0 0 20px rgba(114,220,232,.50));
+
+}
+
+/*=========================================
+CONFETTI
+=========================================*/
+
+.confetti-canvas{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:9998;
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+.menu-section,
+
+.home-grid,
+
+.reward-levels,
+
+.reward-grid,
+
+.rewards-dashboard{
+
+grid-template-columns:repeat(2,1fr);
+
 }
 
 }
 
-@media screen and (max-width:480px){
+@media(max-width:768px){
 
-.page-header{
+h1{
 
-padding:0 12px;
-
-}
-
-.main-logo{
-
-width:80px;
+font-size:2rem;
 
 }
 
-.menu-section{
+h2{
 
-padding:15px;
-
-gap:12px;
+font-size:1.5rem;
 
 }
 
-.drink-card{
+.page-logo,
 
-border-radius:18px;
+.hero-logo{
 
-}
-
-.drink-info{
-
-padding:14px;
+width:150px;
 
 }
 
-.drink-info h2{
+.welcome-image{
 
-font-size:17px;
-
-}
-
-.drink-info p{
-
-font-size:13px;
+height:250px;
 
 }
 
-.drink-info h3{
+.home-card img{
 
-font-size:18px;
-
-}
-
-.category-card img{
-
-height:150px;
+height:180px;
 
 }
 
-.menu-hero img{
-
-height:200px;
-
-}
+.featured-image,
 
 .visit-photo{
 
@@ -997,55 +1376,68 @@ height:220px;
 
 }
 
-/*=====================================
-ANIMATIONS
-=====================================*/
+@media(max-width:600px){
 
-.drink-card,
-.category-card,
-.visit-card,
-.rewards-preview,
-.profile-card{
+.menu-section,
 
-animation:fadeUp .5s ease;
+.home-grid,
 
-}
+.reward-grid,
 
-@keyframes fadeUp{
+.reward-levels,
 
-0%{
+.rewards-dashboard{
 
-opacity:0;
-
-transform:translateY(20px);
+grid-template-columns:1fr;
 
 }
 
-100%{
+.drink-buttons{
 
-opacity:1;
+flex-direction:column;
 
-transform:translateY(0);
+}
+
+.order-btn,
+
+.reward-btn,
+
+.favorite-btn,
+
+.order-btn-small{
+
+width:100%;
+
+max-width:300px;
+
+margin:auto;
+
+}
+
+.footer-links{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.page-header,
+
+.home-header{
+
+padding:15px;
+
+}
+
+.main-logo{
+
+width:60px;
 
 }
 
 }
 
-.favorite-btn:hover,
-.order-btn-small:hover,
-.order-btn:hover,
-.reward-btn:hover{
-
-transition:.25s;
-
-box-shadow:0 8px 18px rgba(0,0,0,.15);
-
-}
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
+/*=========================================
+END OF STYLE.CSS
+=========================================*/
