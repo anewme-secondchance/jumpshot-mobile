@@ -191,32 +191,35 @@ box-shadow:var(--glow);
 /*=========================================
 HEADER LOGO
 =========================================*/
-
 .header-logo{
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
 
-flex:1;
+gap:18px;
 
 }
 
-.main-logo{
+.header-title{
 
-width:72px;
+font-size:2rem;
 
-height:72px;
+font-weight:300;
 
-object-fit:contain;
+letter-spacing:3px;
 
-filter:
+color:#72DCE8;
 
-drop-shadow(0 0 8px #72DCE8)
+text-shadow:
 
-drop-shadow(0 0 20px rgba(114,220,232,.70));
+0 0 8px #72DCE8,
+
+0 0 18px rgba(114,220,232,.60),
+
+0 0 35px rgba(114,220,232,.35);
+
+margin:0;
 
 }
 
