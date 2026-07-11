@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -8,16 +9,16 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Road to the Next Shot | JumpShot Coffee</title>
+<title>Road To The Next Shot | JumpShot Coffee</title>
 
 <meta name="theme-color"
-content="#72DCE8">
+content="#050505">
 
 <link rel="icon"
-href="images/IMG_23_header_logo.PNG">
+href="images/IMG_23_header_logo.png">
 
 <link rel="apple-touch-icon"
-href="images/IMG_23_header_logo.PNG">
+href="images/IMG_23_header_logo.png">
 
 <link rel="manifest"
 href="manifest.json">
@@ -37,9 +38,9 @@ rel="stylesheet">
 
 </head>
 
-<body>
+<body class="rewards-page">
 
- <!--=====================================
+<!--=====================================
 HEADER
 ======================================-->
 
@@ -53,12 +54,6 @@ class="back-btn">
 
 </a>
 
-<img src="images/IMG_23_header_logo.PNG"
-
-class="main-logo"
-
-alt="JumpShot Coffee">
-
 <a href="cart.html"
 
 class="cart-btn">
@@ -69,49 +64,67 @@ class="cart-btn">
 
 </header>
 
- <!--=====================================
-REWARD HERO
+<!--=====================================
+LOGO
 ======================================-->
 
-<section class="reward-hero">
+<section class="logo-section">
 
-<img src="images/IMG_rewards.PNG"
+<img
 
-class="reward-hero-image"
+src="images/IMG_23_header_logo.png"
 
-alt="Road to the Next Shot">
+class="page-logo"
 
-<h1>
+alt="JumpShot Coffee">
 
-Road to the Next Shot
+<p class="company-slogan">
 
-</h1>
+Where Exceptional Coffee Meets Exceptional Service
 
-<p>
+</p>
 
-Take your shot.
+<p class="company-slogan2">
 
-Earn rewards.
-
-Unlock free drinks.
-
-Every purchase gets you closer to your next reward.
+Crafting Only The Highest Quality Coffee
 
 </p>
 
 </section>
 
- <!--=====================================
-CURRENT SHOTS
+<!--=====================================
+TITLE
 ======================================-->
 
-<section class="shot-dashboard">
+<section class="page-title-section">
 
-<h2>
+<h1>
 
-Current Shots
+🏀 Road To The Next Shot
 
-</h2>
+</h1>
+
+<p>
+
+Every purchase earns Shots. Score baskets, unlock rewards, and work your way to FREE drinks and exclusive JumpShot Coffee perks.
+
+</p>
+
+</section>
+
+<!--=====================================
+PLAYER STATS
+======================================-->
+
+<section class="rewards-dashboard">
+
+<div class="reward-stat-card">
+
+<h3>
+
+🏀 Current Shots
+
+</h3>
 
 <h1 id="shotCount">
 
@@ -119,21 +132,39 @@ Current Shots
 
 </h1>
 
-<div class="progress-bar">
-
-<div id="progressFill"></div>
-
-</div>
-
 <p>
 
-0 / 500 Shots
+Keep ordering to earn more Shots.
 
 </p>
 
+</div>
+
+<div class="reward-stat-card">
+
+<h3>
+
+Current Rank
+
+</h3>
+
+<h2 id="playerRank">
+
+Rookie
+
+</h2>
+
+<p>
+
+Every Shot moves you closer to the next reward.
+
+</p>
+
+</div>
+
 </section>
 
- <!--=====================================
+<!--=====================================
 BASKETBALL GAME
 ======================================-->
 
@@ -141,29 +172,27 @@ BASKETBALL GAME
 
 <h2>
 
-Take Your Shot!
+Road To The Next Shot
 
 </h2>
 
 <p>
 
-Every purchase launches a coffee bean toward the hoop.
-
-Make the shot and watch your rewards grow!
+Watch your basketball move closer to the hoop every time you earn Shots.
 
 </p>
 
-<div class="game-container">
+<div class="court-container">
 
-<div id="coffeeBean"
+<div class="basketball-hoop">
 
-class="coffee-bean">
-
-☕
+🏀🗑️
 
 </div>
 
-<div class="basketball-hoop">
+<div id="basketball"
+
+class="basketball">
 
 🏀
 
@@ -171,107 +200,243 @@ class="coffee-bean">
 
 </div>
 
-<button
-
-class="order-btn"
-
-onclick="shootBean()">
-
-🏀 Take Your Shot
-
-</button>
-
 </section>
 
- <!--=====================================
-REWARD LEVELS
+<!--=====================================
+PROGRESS BAR
 ======================================-->
 
-<section class="menu-section">
-
-<div class="drink-card">
-
-<div class="drink-info">
+<section class="progress-section">
 
 <h2>
 
-🏆 Reward Levels
+Season Progress
 
 </h2>
 
-<p>
+<div class="progress-bar">
 
-☕ 500 Shots
+<div
+
+id="progressFill"
+
+class="progress-fill">
+
+</div>
+
+</div>
+
+<p id="progressText">
+
+0 / 500 Shots
 
 </p>
 
+</section>
+
+<!--=====================================
+REWARD LEVELS
+======================================-->
+
+<section class="reward-levels">
+
+<div class="level-card">
+
 <h3>
 
-FREE Coffee
+🥉 Rookie
 
 </h3>
-
-</div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
 
 <p>
 
-🥤 1000 Shots
+0 Shots
 
 </p>
 
+</div>
+
+<div class="level-card">
+
 <h3>
 
-FREE Specialty Drink
+🥈 Starter
 
 </h3>
-
-</div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
 
 <p>
 
-🥐 1500 Shots
+250 Shots
 
 </p>
 
+</div>
+
+<div class="level-card">
+
 <h3>
 
-FREE Bakery Item
+🥇 Shooter
 
 </h3>
-
-</div>
-
-</div>
-
-<div class="drink-card">
-
-<div class="drink-info">
 
 <p>
 
-👑 2500 Shots
+500 Shots
 
 </p>
 
+</div>
+
+<div class="level-card">
+
 <h3>
 
-JumpShot VIP Status
+⭐ All-Star
 
 </h3>
 
+<p>
+
+1,000 Shots
+
+</p>
+
 </div>
+
+<div class="level-card">
+
+<h3>
+
+🏆 MVP
+
+</h3>
+
+<p>
+
+2,000 Shots
+
+</p>
+
+</div>
+
+<div class="level-card">
+
+<h3>
+
+👑 Champion
+
+</h3>
+
+<p>
+
+5,000 Shots
+
+</p>
+
+</div>
+
+</section>
+
+<!--=====================================
+AVAILABLE REWARDS
+======================================-->
+
+<section class="reward-prizes">
+
+<h2>
+
+Available Rewards
+
+</h2>
+
+<div class="reward-grid">
+
+<div class="reward-box">
+
+☕
+
+<h3>
+
+Free Coffee
+
+</h3>
+
+<p>
+
+500 Shots
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+🥐
+
+<h3>
+
+Free Pastry
+
+</h3>
+
+<p>
+
+750 Shots
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+⭐
+
+<h3>
+
+Double Shot Day
+
+</h3>
+
+<p>
+
+1,500 Shots
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+🎁
+
+<h3>
+
+VIP Surprise
+
+</h3>
+
+<p>
+
+5,000 Shots
+
+</p>
+
+</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<button
+
+class="reward-btn"
+
+onclick="claimReward()">
+
+🎉 Claim Rewards
+
+</button>
 
 </div>
 
@@ -281,95 +446,181 @@ JumpShot VIP Status
 NEXT REWARD
 ======================================-->
 
-<section class="rewards-preview">
+<section class="next-reward">
 
 <h2>
 
-Your Next Reward
+🎯 Next Reward
 
 </h2>
 
-<p>
+<div class="next-reward-card">
 
-Keep taking your shot!
+<h3 id="nextRewardTitle">
 
-Every purchase earns more Shots and moves you closer to your next FREE reward.
+FREE Coffee
+
+</h3>
+
+<p id="nextRewardText">
+
+Only <span id="shotsRemaining">500</span> more Shots until your next reward.
 
 </p>
 
-<img src="images/IMG_rewards.PNG"
+<div class="progress-bar">
 
-class="rewards-icon"
+<div
 
-alt="Road to the Next Shot">
+id="rewardProgress"
+
+class="progress-fill">
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
- <!--=====================================
-VISIT JUMPSHOT COFFEE
+<!--=====================================
+ACHIEVEMENTS
+======================================-->
+
+<section class="achievement-section">
+
+<h2>
+
+🏅 Achievements
+
+</h2>
+
+<div class="reward-grid">
+
+<div class="reward-box">
+
+🔥
+
+<h3>
+
+First Shot
+
+</h3>
+
+<p>
+
+Complete your first purchase.
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+☕
+
+<h3>
+
+Coffee Lover
+
+</h3>
+
+<p>
+
+Order 10 drinks.
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+🏀
+
+<h3>
+
+Sharpshooter
+
+</h3>
+
+<p>
+
+Reach 1,000 Shots.
+
+</p>
+
+</div>
+
+<div class="reward-box">
+
+👑
+
+<h3>
+
+JumpShot MVP
+
+</h3>
+
+<p>
+
+Reach 5,000 Shots.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+ROAD TO THE NEXT SHOT
 ======================================-->
 
 <section class="visit-home">
 
 <div class="visit-card">
 
-<img src="images/IMG_8.PNG"
+<img
+
+src="images/IMG_rewards.png"
 
 class="visit-photo"
 
-alt="JumpShot Coffee">
+alt="Road To The Next Shot">
 
 <h3>
 
-JumpShot Coffee
+Keep Shooting!
 
 </h3>
 
 <p>
 
-734 S Fleishel Ave
+Every purchase earns more Shots.
 
-<br>
-
-Tyler, Texas 75701
-
-</p>
-
-<p>
-
-Open Daily
-
-<br>
-
-7:00 AM – 4:00 PM
-
-</p>
-
-<p>
-
-Phone: (903) 352-3443
+Keep climbing the leaderboard and unlock bigger rewards every visit.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="tel:+19033523443">
+<a href="traditional.html">
 
 <button class="order-btn">
 
-Call Us
+Order Coffee
 
 </button>
 
 </a>
 
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
+<a href="cart.html">
 
 <button class="reward-btn">
 
-Get Directions
+View Cart
 
 </button>
 
@@ -381,13 +632,15 @@ Get Directions
 
 </section>
 
- <!--=====================================
+<!--=====================================
 FOOTER
 ======================================-->
 
 <footer class="footer">
 
-<img src="images/IMG_23_header_logo.PNG"
+<img
+
+src="images/IMG_23_header_logo.png"
 
 class="footer-logo"
 
@@ -401,25 +654,47 @@ JumpShot Coffee
 
 <p>
 
-Where exceptional coffee meets exceptional service.
+Where Exceptional Coffee Meets Exceptional Service
 
 </p>
 
 <p>
 
-Crafting only the highest quality coffee.
+Crafting Only The Highest Quality Coffee
 
 </p>
 
 <div class="footer-links">
 
-<a href="index.html">Home</a>
+<a href="index.html">
 
-<a href="rewards.html">Rewards</a>
+Home
 
-<a href="profile.html">Profile</a>
+</a>
 
-<a href="contact.html">Contact</a>
+<a href="traditional.html">
+
+Menu
+
+</a>
+
+<a href="rewards.html">
+
+Rewards
+
+</a>
+
+<a href="profile.html">
+
+Profile
+
+</a>
+
+<a href="contact.html">
+
+Contact
+
+</a>
 
 </div>
 
@@ -488,6 +763,148 @@ class="nav-item">
 </a>
 
 </nav>
+
+<!--=====================================
+BACK TO TOP
+======================================-->
+
+<button
+
+id="backToTop"
+
+class="back-to-top"
+
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+<!--=====================================
+LOADING SCREEN
+======================================-->
+
+<div
+
+id="loadingScreen"
+
+class="loading-screen">
+
+<img
+
+src="images/IMG_23_header_logo.png"
+
+class="loading-logo"
+
+alt="JumpShot Coffee Logo">
+
+<p>
+
+Loading Your Rewards...
+
+</p>
+
+</div>
+
+<!--=====================================
+CONFETTI CANVAS
+======================================-->
+
+<canvas
+
+id="confettiCanvas"
+
+class="confetti-canvas">
+
+</canvas>
+
+<!--=====================================
+BASKETBALL ANIMATION
+======================================-->
+
+<div
+
+id="basketballCelebration"
+
+class="basketball-celebration">
+
+🏀
+
+</div>
+
+<!--=====================================
+REWARD POPUP
+======================================-->
+
+<div
+
+id="rewardPopup"
+
+class="reward-popup">
+
+<div class="reward-popup-card">
+
+<h2>
+
+🏆 Congratulations!
+
+</h2>
+
+<p id="rewardMessage">
+
+You unlocked a new reward!
+
+</p>
+
+<button
+
+class="reward-btn"
+
+onclick="closeRewardPopup()">
+
+Awesome!
+
+</button>
+
+</div>
+
+</div>
+
+<!--=====================================
+AUDIO
+======================================-->
+
+<audio
+
+id="swishSound"
+
+preload="auto">
+
+<source
+
+src="sounds/swish.mp3"
+
+type="audio/mpeg">
+
+</audio>
+
+<audio
+
+id="cheerSound"
+
+preload="auto">
+
+<source
+
+src="sounds/cheer.mp3"
+
+type="audio/mpeg">
+
+</audio>
+
+<!--=====================================
+JAVASCRIPT
+======================================-->
 
 <script src="script.js"></script>
 
