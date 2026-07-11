@@ -9,7 +9,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Contact Us | JumpShot Coffee</title>
+<title>Shopping Cart | JumpShot Coffee</title>
 
 <meta name="theme-color"
 content="#72DCE8">
@@ -98,219 +98,115 @@ PAGE TITLE
 
 <h1>
 
-Contact Us
+Shopping Cart
 
 </h1>
 
 <p>
 
-Have a question, feedback, or just want to say hello? We'd love to hear from you! Stop by, give us a call, or send us a message anytime.
+Review your order, adjust quantities, and get ready to enjoy your favorite JumpShot Coffee drinks and treats.
 
 </p>
 
 </section>
 
-  <!--=====================================
-STORE INFORMATION
+ <!--=====================================
+SHOPPING CART
 ======================================-->
 
-<section class="visit-home">
-
-<div class="visit-card">
-
-<img src="images/IMG_8.PNG"
-
-class="visit-photo"
-
-alt="JumpShot Coffee Store">
+<section class="cart-summary">
 
 <h2>
 
-Visit JumpShot Coffee
+Your Order
 
 </h2>
 
-<p>
+<div id="cartItems">
 
-734 S Fleishel Ave
+<p class="empty-cart">
 
-<br>
-
-Tyler, Texas 75701
+🛒 Your cart is empty.
 
 </p>
 
-<p>
+</div>
 
-<b>Hours</b>
+<div class="cart-totals">
 
-<br>
+<div class="cart-row">
 
-Monday - Sunday
+<span>
 
-<br>
+Subtotal
 
-7:00 AM – 4:00 PM
+</span>
 
-</p>
+<span id="subtotal">
 
-<p>
+$0.00
 
-<b>Phone</b>
+</span>
 
-<br>
+</div>
 
-(903) 352-3443
+<div class="cart-row">
 
-</p>
+<span>
+
+Tax
+
+</span>
+
+<span id="tax">
+
+$0.00
+
+</span>
+
+</div>
+
+<div class="cart-row total-row">
+
+<strong>
+
+Total
+
+</strong>
+
+<strong id="total">
+
+$0.00
+
+</strong>
+
+</div>
+
+</div>
 
 <div class="hero-buttons">
-
-<a href="tel:+19033523443">
-
-<button class="order-btn">
-
-📞 Call Now
-
-</button>
-
-</a>
-
-<a href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
-
-target="_blank">
-
-<button class="reward-btn">
-
-📍 Directions
-
-</button>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!--=====================================
-FOLLOW US
-======================================-->
-
-<section class="contact-social">
-
-<h2>
-
-Follow JumpShot Coffee
-
-</h2>
-
-<p>
-
-Follow us on social media for new drinks, seasonal specials, giveaways, community events, and everything happening at JumpShot Coffee.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="https://www.facebook.com/jumpshot.coffee"
-
-target="_blank"
-
-rel="noopener noreferrer">
-
-<button class="order-btn">
-
-📘 Facebook
-
-</button>
-
-</a>
-
-<a href="https://www.instagram.com/jumpshot.coffee"
-
-target="_blank"
-
-rel="noopener noreferrer">
-
-<button class="reward-btn">
-
-📸 Instagram
-
-</button>
-
-</a>
-
-<a href="https://www.tiktok.com/@jumpshot.tyler"
-
-target="_blank"
-
-rel="noopener noreferrer">
-
-<button class="order-btn">
-
-🎵 TikTok
-
-</button>
-
-</a>
-
-</div>
-
-</section>
-
-<!--=====================================
-CONTACT FORM
-======================================-->
-
-<section class="contact-card">
-
-<h2>
-
-Send Us a Message
-
-</h2>
-
-<p>
-
-Questions, feedback, catering inquiries, or just want to say hello? We'd love to hear from you.
-
-</p>
-
-<form id="contactForm">
-
-<input
-type="text"
-id="name"
-placeholder="Your Name"
-required>
-
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required>
-
-<input
-type="tel"
-id="phone"
-placeholder="Phone Number (Optional)">
-
-<textarea
-id="message"
-placeholder="How can we help you?"
-required></textarea>
 
 <button
-type="submit"
-class="order-btn">
 
-Send Message
+class="order-btn"
+
+onclick="checkout()">
+
+💳 Checkout
 
 </button>
 
-</form>
+<a href="traditional.html">
+
+<button class="reward-btn">
+
+☕ Continue Shopping
+
+</button>
+
+</a>
+
+</div>
 
 </section>
 
@@ -338,7 +234,7 @@ alt="Road To The Next Shot">
 
 <p>
 
-Earn <strong>Shots</strong> every time you order. Unlock FREE drinks, exclusive rewards, and special surprises as you level up!
+Every purchase earns <strong>Shots</strong> toward FREE drinks, exclusive rewards, and special surprises.
 
 </p>
 
@@ -426,7 +322,7 @@ Contact
 
 </footer>
 
-<!--=====================================
+  <!--=====================================
 BOTTOM NAVIGATION
 ======================================-->
 
@@ -456,7 +352,7 @@ BOTTOM NAVIGATION
 
 </a>
 
-<a href="cart.html" class="nav-item">
+<a href="cart.html" class="nav-item active">
 
 🛒
 
