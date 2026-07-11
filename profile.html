@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -14,10 +15,10 @@ content="width=device-width, initial-scale=1.0">
 content="#72DCE8">
 
 <link rel="icon"
-href="images/IMG_23_header_logo.PNG">
+href="images/IMG_23_header_logo.png">
 
 <link rel="apple-touch-icon"
-href="images/IMG_23_header_logo.PNG">
+href="images/IMG_23_header_logo.png">
 
 <link rel="manifest"
 href="manifest.json">
@@ -39,7 +40,7 @@ rel="stylesheet">
 
 <body>
 
-  <!--=====================================
+<!--=====================================
 HEADER
 ======================================-->
 
@@ -53,12 +54,6 @@ class="back-btn">
 
 </a>
 
-<img src="images/IMG_23_header_logo.PNG"
-
-class="main-logo"
-
-alt="JumpShot Coffee">
-
 <a href="cart.html"
 
 class="cart-btn">
@@ -69,31 +64,13 @@ class="cart-btn">
 
 </header>
 
- <!--=====================================
-WELCOME
+<!--=====================================
+LOGO
 ======================================-->
 
-<section class="welcome">
+<section class="logo-section">
 
-<img src="images/IMG_21_welcome.PNG"
-
-class="profile-banner"
-
-alt="Welcome">
-
-<h1>
-
-Welcome Back!
-
-</h1>
-
-<p>
-
-We're glad you're here.
-
-</p>
-
-<img src="images/IMG_23_header_logo.PNG"
+<img src="images/IMG_23_header_logo.png"
 
 class="page-logo"
 
@@ -101,105 +78,67 @@ alt="JumpShot Coffee Logo">
 
 <p class="company-slogan">
 
-Where exceptional coffee meets exceptional service.
+Where Exceptional Coffee Meets Exceptional Service
 
 </p>
 
 <p class="company-slogan2">
 
-Crafting only the highest quality coffee.
+Crafting Only The Highest Quality Coffee
 
 </p>
 
 </section>
 
 <!--=====================================
-PROFILE DASHBOARD
+PAGE TITLE
 ======================================-->
 
-<section class="profile-grid">
+<section class="page-title-section">
 
-<div class="profile-card">
+<h1>
 
-<h2>
-
-Current Shots
-
-</h2>
-
-<h1 id="shotCount">
-
-0
+My Profile
 
 </h1>
 
 <p>
 
-Keep taking your shot to unlock rewards!
+Manage your JumpShot Coffee rewards, favorite drinks, account information, and order history all in one place.
 
 </p>
 
-</div>
+</section>
+
+ <!--=====================================
+PROFILE CARD
+======================================-->
+
+<section class="profile-section">
 
 <div class="profile-card">
 
-<h2>
+<img src="images/IMG_23_header_logo.png"
 
-Favorite Drinks
+class="profile-avatar"
+
+alt="JumpShot Coffee">
+
+<h2 id="profileName">
+
+Coffee Fan
 
 </h2>
 
-<p id="favoriteList">
+<p id="profileEmail">
 
-No favorites yet.
+guest@jumpshotcoffee.com
 
 </p>
 
-</div>
+<p class="member-level">
 
- <div class="profile-card">
-
-<h2>
-
-Account Information
-
-</h2>
-
-<input
-
-type="text"
-
-placeholder="Your Name">
-
-<input
-
-type="email"
-
-placeholder="Email Address">
-
-<button
-
-class="order-btn"
-
-onclick="saveProfile()">
-
-Save Profile
-
-</button>
-
-</div>
-
-<div class="profile-card">
-
-<h2>
-
-Recent Orders
-
-</h2>
-
-<p id="recentOrders">
-
-No recent orders.
+🏀 Rookie Shooter
 
 </p>
 
@@ -207,57 +146,191 @@ No recent orders.
 
 </section>
 
-  <div class="profile-card">
+<!--=====================================
+PROFILE MENU
+======================================-->
+
+<section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
 
 <h2>
 
-Account Information
+❤️ Favorite Drinks
 
 </h2>
 
-<input
+<p>
 
-type="text"
+View all of your saved favorite drinks.
 
-placeholder="Your Name">
+</p>
 
-<input
-
-type="email"
-
-placeholder="Email Address">
+<div class="drink-buttons">
 
 <button
 
-class="order-btn"
+class="order-btn-small"
 
-onclick="saveProfile()">
+onclick="location.href='favorites.html'">
 
-Save Profile
+Open
 
 </button>
 
 </div>
 
-<div class="profile-card">
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
 
 <h2>
 
-Recent Orders
+🏀 Rewards
 
 </h2>
 
-<p id="recentOrders">
+<p>
 
-No recent orders.
+Check your Shots and reward progress.
 
 </p>
+
+<div class="drink-buttons">
+
+<button
+
+class="order-btn-small"
+
+onclick="location.href='rewards.html'">
+
+View Rewards
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+🛒 Order History
+
+</h2>
+
+<p>
+
+See your previous JumpShot Coffee orders.
+
+</p>
+
+<div class="drink-buttons">
+
+<button
+
+class="order-btn-small"
+
+onclick="viewOrders()">
+
+View Orders
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+⚙️ Settings
+
+</h2>
+
+<p>
+
+Manage your profile information and preferences.
+
+</p>
+
+<div class="drink-buttons">
+
+<button
+
+class="order-btn-small"
+
+onclick="openSettings()">
+
+Settings
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
   <!--=====================================
+ROAD TO THE NEXT SHOT
+======================================-->
+
+<section class="rewards-preview">
+
+<a href="rewards.html">
+
+<img src="images/IMG_rewards.png"
+
+class="rewards-icon"
+
+alt="Road To The Next Shot">
+
+</a>
+
+<h3>
+
+🏀 Road To The Next Shot
+
+</h3>
+
+<p>
+
+Every purchase earns <strong>Shots</strong> toward FREE drinks, exclusive rewards, birthday surprises, and members-only offers. Keep shooting and keep earning!
+
+</p>
+
+<a href="rewards.html">
+
+<button class="reward-btn">
+
+View Rewards
+
+</button>
+
+</a>
+
+</section>
+
+<!--=====================================
 VISIT JUMPSHOT COFFEE
 ======================================-->
 
@@ -273,7 +346,7 @@ alt="JumpShot Coffee">
 
 <h3>
 
-JumpShot Coffee
+Visit JumpShot Coffee
 
 </h3>
 
@@ -305,11 +378,11 @@ Phone: (903) 352-3443
 
 <div class="hero-buttons">
 
-<a href="tel:+19033523443">
+<a href="contact.html">
 
 <button class="order-btn">
 
-Call Us
+Contact Us
 
 </button>
 
@@ -339,7 +412,7 @@ FOOTER
 
 <footer class="footer">
 
-<img src="images/IMG_23_header_logo.PNG"
+<img src="images/IMG_23_header_logo.png"
 
 class="footer-logo"
 
@@ -353,25 +426,47 @@ JumpShot Coffee
 
 <p>
 
-Where exceptional coffee meets exceptional service.
+Where Exceptional Coffee Meets Exceptional Service
 
 </p>
 
 <p>
 
-Crafting only the highest quality coffee.
+Crafting Only The Highest Quality Coffee
 
 </p>
 
 <div class="footer-links">
 
-<a href="index.html">Home</a>
+<a href="index.html">
 
-<a href="rewards.html">Rewards</a>
+Home
 
-<a href="profile.html">Profile</a>
+</a>
 
-<a href="contact.html">Contact</a>
+<a href="traditional.html">
+
+Menu
+
+</a>
+
+<a href="rewards.html">
+
+Rewards
+
+</a>
+
+<a href="profile.html">
+
+Profile
+
+</a>
+
+<a href="contact.html">
+
+Contact
+
+</a>
 
 </div>
 
@@ -383,7 +478,7 @@ Crafting only the highest quality coffee.
 
 </footer>
 
-  <!--=====================================
+ <!--=====================================
 BOTTOM NAVIGATION
 ======================================-->
 
@@ -441,8 +536,60 @@ class="nav-item active">
 
 </nav>
 
-  <script src="script.js"></script>
+<!--=====================================
+BACK TO TOP
+======================================-->
+
+<button
+
+id="backToTop"
+
+class="back-to-top"
+
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+<!--=====================================
+LOADING SCREEN
+======================================-->
+
+<div
+
+id="loadingScreen"
+
+class="loading-screen">
+
+<img
+
+src="images/IMG_23_header_logo.png"
+
+class="loading-logo"
+
+alt="JumpShot Coffee">
+
+<p>
+
+Brewing Your Experience...
+
+</p>
+
+</div>
+
+<!--=====================================
+CONFETTI
+======================================-->
+
+<canvas id="confettiCanvas"></canvas>
+
+<!--=====================================
+JAVASCRIPT
+======================================-->
+
+<script src="script.js"></script>
 
 </body>
 
-</html>
+</html> 
