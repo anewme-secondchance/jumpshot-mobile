@@ -46,16 +46,16 @@ HEADER
 
 <header class="page-header">
 
-<a href="index.html"
-
+<a
+href="index.html"
 class="back-btn">
 
 ← Back
 
 </a>
 
-<a href="cart.html"
-
+<a
+href="cart.html"
 class="cart-btn">
 
 🛒 Cart
@@ -71,11 +71,12 @@ LOGO
 <section class="logo-section">
 
 <img
+
 src="images/IMG_23_header_logo.png"
 
 class="page-logo"
 
-alt="JumpShot Coffee">
+alt="JumpShot Coffee Logo">
 
 <p class="company-slogan">
 
@@ -105,7 +106,7 @@ PAGE TITLE
 
 <p>
 
-Earn Shots with every purchase, unlock rewards, and level up from Rookie to Legend.
+Earn Shots with every purchase, level up your player, unlock free drinks, and become a JumpShot Coffee Legend.
 
 </p>
 
@@ -118,81 +119,103 @@ PART 1
 
 <main class="rewards-page">
 
-<div class="dashboard-container">
+<section class="reward-dashboard">
 
-<!--=====================================
-BACKGROUND DASHBOARD
-======================================-->
+<div class="court-wrapper">
 
 <img
 
 src="images/IMG_bbcourt.png"
 
-alt="Rewards Dashboard"
+class="court-image"
 
-class="dashboard-background">
+alt="Basketball Court">
 
-<!--=====================================
-LIVE SCOREBOARD
-======================================-->
+<div class="court-overlay">
 
-<div class="dashboard-overlay">
+<div class="scoreboard">
 
-<div class="shots-value">
+<div class="score-card">
 
-<span id="currentShots">
+<h3>
 
-350
+Current Shots
 
-</span>
+</h3>
 
-</div>
+<h1 id="currentShots">
 
-<div class="next-reward">
+0
 
-<span id="nextReward">
-
-50 SHOTS TO ALL-STAR
-
-</span>
+</h1>
 
 </div>
 
-<div class="progress-container">
+<div class="score-card">
 
-<div class="progress-fill"
+<h3>
+
+Next Reward
+
+</h3>
+
+<p id="nextReward">
+
+400 Shots To All-Star
+
+</p>
+
+<div class="progress-bar">
+
+<div
 
 id="rewardProgress"
 
-style="width:88%;">
+class="progress-fill">
 
 </div>
 
 </div>
 
-<div class="progress-text">
+<p id="progressText">
 
-<span id="progressText">
+0 / 400
 
-350 / 400
-
-</span>
+</p>
 
 </div>
 
-<div class="lifetime-value">
+<div class="score-card">
 
-<span id="lifetimeShots">
+<h3>
 
-1250
+Lifetime Shots
 
-</span>
+</h3>
+
+<h1 id="lifetimeShots">
+
+0
+
+</h1>
 
 </div>
 
-<!--=====================================
-ANIMATED BALL
+</div>
+
+ <!--=====================================
+COURT GAME AREA
 ======================================-->
+
+<div class="court-game">
+
+<img
+
+src="images/IMG_goal.png"
+
+class="basket-goal"
+
+alt="Basketball Goal">
 
 <img
 
@@ -204,138 +227,31 @@ class="game-ball"
 
 alt="Basketball">
 
- <!--=====================================
-CLICKABLE HOTSPOTS
-======================================-->
-
-<button
-
-id="rewardsButton"
-
-class="hotspot rewards-hotspot"
-
-onclick="openRewards()"
-
-aria-label="Rewards">
-
-</button>
-
-<button
-
-id="historyButton"
-
-class="hotspot history-hotspot"
-
-onclick="openHistory()"
-
-aria-label="History">
-
-</button>
-
- 
-<!--=====================================
-LEVELS
-======================================-->
-
-<div class="level-overlay">
-
-<button
-
-class="level-btn active"
-
-id="rookieLevel">
-
-Rookie
-
-</button>
-
-<button
-
-class="level-btn"
-
-id="allStarLevel">
-
-All-Star
-
-</button>
-
-<button
-
-class="level-btn"
-
-id="mvpLevel">
-
-MVP
-
-</button>
-
-<button
-
-class="level-btn"
-
-id="legendLevel">
-
-Legend
-
-</button>
-
 </div>
 
 <!--=====================================
-EARN SHOTS HOTSPOTS
+PLAYER LEVEL
 ======================================-->
 
-<div class="earn-overlay">
+<div class="level-card">
 
-<button
+<h2>
 
-class="earn-btn"
+🏆 Your Level
 
-onclick="earnCoffeeShots()">
+</h2>
 
-Coffee
+<h1 id="playerLevel">
 
-</button>
+Rookie
 
-<button
+</h1>
 
-class="earn-btn"
+<p id="levelMessage">
 
-onclick="earnDrinkShots()">
+Keep shooting! Your next reward is closer than you think.
 
-New Drink
-
-</button>
-
-<button
-
-class="earn-btn"
-
-onclick="dailyCheckIn()">
-
-Check-In
-
-</button>
-
-<button
-
-class="earn-btn"
-
-onclick="referFriend()">
-
-Refer
-
-</button>
-
-<button
-
-class="earn-btn"
-
-onclick="birthdayReward()">
-
-Birthday
-
-</button>
+</p>
 
 </div>
 
@@ -343,21 +259,139 @@ Birthday
 SHOT METER
 ======================================-->
 
-<div class="meter-overlay">
+<div class="meter-card">
+
+<h2>
+
+🔥 Shot Meter
+
+</h2>
 
 <div class="meter-circle">
 
-<div class="meter-inner">
-
 <h1 id="meterValue">
 
-350
+0
 
 </h1>
 
-<p>
+<span>
 
 Shots
+
+</span>
+
+</div>
+
+</div>
+
+<!--=====================================
+ACTION BUTTONS
+======================================-->
+
+<div class="reward-buttons">
+
+<button
+
+class="order-btn"
+
+onclick="openRewards()">
+
+🎁 Available Rewards
+
+</button>
+
+<button
+
+class="reward-btn"
+
+onclick="openHistory()">
+
+📋 Shot History
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+LEVELS
+======================================-->
+
+<section class="levels-section">
+
+<h2>
+
+⭐ JumpShot Levels
+
+</h2>
+
+<div class="levels-grid">
+
+<div class="level-box rookie">
+
+<h3>
+
+🏀 Rookie
+
+</h3>
+
+<p>
+
+0 - 399 Shots
+
+</p>
+
+</div>
+
+<div class="level-box allstar">
+
+<h3>
+
+⭐ All-Star
+
+</h3>
+
+<p>
+
+400 - 799 Shots
+
+</p>
+
+</div>
+
+<div class="level-box mvp">
+
+<h3>
+
+🏆 MVP
+
+</h3>
+
+<p>
+
+800 - 1499 Shots
+
+</p>
+
+</div>
+
+<div class="level-box legend">
+
+<h3>
+
+🔥 Legend
+
+</h3>
+
+<p>
+
+1500+ Shots
 
 </p>
 
@@ -365,15 +399,138 @@ Shots
 
 </div>
 
-</div>
+</section>
 
-</div>
-
-</div>
-
-</main>
  <!--=====================================
-REWARDS POPUP
+HOW TO EARN SHOTS
+======================================-->
+
+<section class="earn-section">
+
+<h2>
+
+☕ How To Earn Shots
+
+</h2>
+
+<div class="earn-grid">
+
+<div class="earn-card">
+
+<h1>
+
+☕
+
+</h1>
+
+<h3>
+
+Coffee Purchase
+
+</h3>
+
+<p>
+
+Earn 10 Shots for every $1 spent.
+
+</p>
+
+</div>
+
+<div class="earn-card">
+
+<h1>
+
+🥤
+
+</h1>
+
+<h3>
+
+Try A New Drink
+
+</h3>
+
+<p>
+
+Receive a 50 Shot bonus.
+
+</p>
+
+</div>
+
+<div class="earn-card">
+
+<h1>
+
+📅
+
+</h1>
+
+<h3>
+
+Daily Check-In
+
+</h3>
+
+<p>
+
+Earn 25 Shots every day.
+
+</p>
+
+</div>
+
+<div class="earn-card">
+
+<h1>
+
+👥
+
+</h1>
+
+<h3>
+
+Refer A Friend
+
+</h3>
+
+<p>
+
+Receive 100 Shots when they make their first purchase.
+
+</p>
+
+</div>
+
+<div class="earn-card">
+
+<h1>
+
+🎂
+
+</h1>
+
+<h3>
+
+Birthday Reward
+
+</h3>
+
+<p>
+
+Celebrate with 250 FREE Birthday Shots.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+AVAILABLE REWARDS POPUP
 ======================================-->
 
 <div
@@ -494,11 +651,11 @@ Mystery Reward
 
 <div class="popup-reward">
 
-🏀
+👑
 
 <h3>
 
-VIP Member
+Legend Status
 
 </h3>
 
@@ -517,7 +674,7 @@ VIP Member
 </div>
 
 <!--=====================================
-HISTORY POPUP
+SHOT HISTORY POPUP
 ======================================-->
 
 <div
@@ -563,7 +720,7 @@ No activity yet.
 </div>
 
 <!--=====================================
-LEVEL UNLOCK
+LEVEL UP NOTIFICATION
 ======================================-->
 
 <div
@@ -607,6 +764,89 @@ id="confettiCanvas"
 class="confetti-canvas">
 
 </canvas>
+
+ <!--=====================================
+VISIT JUMPSHOT COFFEE
+======================================-->
+
+<section class="visit-home">
+
+<div class="visit-card">
+
+<img
+
+src="images/IMG_8.PNG"
+
+class="visit-photo"
+
+alt="JumpShot Coffee">
+
+<h3>
+
+Visit JumpShot Coffee
+
+</h3>
+
+<p>
+
+734 S Fleishel Ave
+
+<br>
+
+Tyler, Texas 75701
+
+</p>
+
+<p>
+
+Open Daily
+
+<br>
+
+7:00 AM – 4:00 PM
+
+</p>
+
+<p>
+
+Phone: (903) 352-3443
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="contact.html">
+
+<button class="order-btn">
+
+Contact Us
+
+</button>
+
+</a>
+
+<a
+
+href="https://maps.google.com/?q=734+S+Fleishel+Ave+Tyler+TX+75701"
+
+target="_blank">
+
+<button class="reward-btn">
+
+Get Directions
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
 <!--=====================================
 BACK TO TOP
 ======================================-->
@@ -624,7 +864,7 @@ onclick="scrollToTop()">
 </button>
 
 <!--=====================================
-INSTALL POPUP
+INSTALL APP
 ======================================-->
 
 <div
@@ -635,7 +875,7 @@ class="install-popup">
 
 <img
 
-src="images/IMG_newlogo.png"
+src="images/IMG_23_header_logo.png"
 
 class="install-logo"
 
@@ -649,7 +889,7 @@ Install JumpShot Coffee
 
 <p>
 
-Add JumpShot Coffee to your Home Screen for quick access and rewards.
+Add JumpShot Coffee to your Home Screen for faster ordering and rewards.
 
 </p>
 
@@ -691,7 +931,7 @@ class="loading-screen">
 
 <img
 
-src="images/IMG_newlogo.png"
+src="images/IMG_23_header_logo.png"
 
 class="loading-logo"
 
@@ -699,13 +939,13 @@ alt="JumpShot Coffee">
 
 <h2>
 
-Road To The Next Shot
+Loading Rewards...
 
 </h2>
 
 <p>
 
-Loading Rewards...
+Preparing your Road To The Next Shot.
 
 </p>
 
@@ -798,6 +1038,10 @@ Profile
 </a>
 
 </nav>
+
+<!--=====================================
+JAVASCRIPT
+======================================-->
 
 <script src="script.js"></script>
 
