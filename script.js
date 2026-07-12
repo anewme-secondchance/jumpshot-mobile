@@ -1657,6 +1657,691 @@ card.style.display="none";
 }
 
 /*=========================================
+PROFILE EDITOR
+=========================================*/
+
+function openProfileEditor(){
+
+const editor=
+
+document.getElementById(
+
+"profileEditor"
+
+);
+
+if(editor){
+
+editor.style.display="flex";
+
+loadProfileForm();
+
+}
+
+}
+
+function closeProfileEditor(){
+
+const editor=
+
+document.getElementById(
+
+"profileEditor"
+
+);
+
+if(editor){
+
+editor.style.display="none";
+
+}
+
+}
+
+/*=========================================
+LOAD PROFILE FORM
+=========================================*/
+
+function loadProfileForm(){
+
+const first=
+
+document.getElementById(
+
+"editFirstName"
+
+);
+
+const last=
+
+document.getElementById(
+
+"editLastName"
+
+);
+
+const email=
+
+document.getElementById(
+
+"editEmail"
+
+);
+
+const phone=
+
+document.getElementById(
+
+"editPhone"
+
+);
+
+const birthday=
+
+document.getElementById(
+
+"editBirthday"
+
+);
+
+if(first){
+
+first.value=
+
+profile.firstName || "";
+
+}
+
+if(last){
+
+last.value=
+
+profile.lastName || "";
+
+}
+
+if(email){
+
+email.value=
+
+profile.email || "";
+
+}
+
+if(phone){
+
+phone.value=
+
+profile.phone || "";
+
+}
+
+if(birthday){
+
+birthday.value=
+
+profile.birthday || "";
+
+}
+
+}
+
+/*=========================================
+SAVE PROFILE
+=========================================*/
+
+function saveProfileInfo(){
+
+profile.firstName=
+
+document.getElementById(
+
+"editFirstName"
+
+).value;
+
+profile.lastName=
+
+document.getElementById(
+
+"editLastName"
+
+).value;
+
+profile.email=
+
+document.getElementById(
+
+"editEmail"
+
+).value;
+
+profile.phone=
+
+document.getElementById(
+
+"editPhone"
+
+).value;
+
+profile.birthday=
+
+document.getElementById(
+
+"editBirthday"
+
+).value;
+
+profile.name=
+
+(profile.firstName+" "+profile.lastName).trim();
+
+saveProfile();
+
+loadProfile();
+
+closeProfileEditor();
+
+showToast(
+
+"Profile Saved ✅"
+
+);
+
+}
+
+/*=========================================
+PROFILE PICTURE
+=========================================*/
+
+const profileUpload=
+
+document.getElementById(
+
+"profileUpload"
+
+);
+
+if(profileUpload){
+
+profileUpload.addEventListener(
+
+"change",
+
+function(event){
+
+const file=
+
+event.target.files[0];
+
+if(!file) return;
+
+const reader=
+
+new FileReader();
+
+reader.onload=
+
+function(e){
+
+profile.photo=
+
+e.target.result;
+
+saveProfile();
+
+loadProfile();
+
+showToast(
+
+"Profile Picture Updated 📷"
+
+);
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+/*=========================================
+LOAD PROFILE IMAGE
+=========================================*/
+
+function loadProfile(){
+
+const avatar=
+
+document.getElementById(
+
+"profileAvatar"
+
+);
+
+const name=
+
+document.getElementById(
+
+"profileName"
+
+);
+
+const email=
+
+document.getElementById(
+
+"profileEmail"
+
+);
+
+const level=
+
+document.getElementById(
+
+"playerRank"
+
+);
+
+if(avatar){
+
+avatar.src=
+
+profile.photo ||
+
+"images/IMG_23_header_logo.png";
+
+}
+
+if(name){
+
+name.textContent=
+
+profile.name ||
+
+"Coffee Fan";
+
+}
+
+if(email){
+
+email.textContent=
+
+profile.email ||
+
+"guest@jumpshotcoffee.com";
+
+}
+
+if(level){
+
+level.textContent=
+
+profile.level ||
+
+"Rookie";
+
+}
+
+}
+
+/*=========================================
+PROFILE DASHBOARD
+=========================================*/
+
+function updateProfileDashboard(){
+
+const shotsCard=
+
+document.getElementById(
+
+"profileShots"
+
+);
+
+const dashShots=
+
+document.getElementById(
+
+"dashboardShots"
+
+);
+
+const dashLevel=
+
+document.getElementById(
+
+"dashboardLevel"
+
+);
+
+const favoriteCount=
+
+document.getElementById(
+
+"favoriteCount"
+
+);
+
+const dashboardFavorites=
+
+document.getElementById(
+
+"dashboardFavorites"
+
+);
+
+const orderCount=
+
+document.getElementById(
+
+"orderCount"
+
+);
+
+const dashboardOrders=
+
+document.getElementById(
+
+"dashboardOrders"
+
+);
+
+const totalSpent=
+
+document.getElementById(
+
+"totalSpent"
+
+);
+
+const birthday=
+
+document.getElementById(
+
+"birthdayDisplay"
+
+);
+
+const memberSince=
+
+document.getElementById(
+
+"memberSince"
+
+);
+
+const lastVisit=
+
+document.getElementById(
+
+"lastVisit"
+
+);
+
+/*=========================================
+SHOTS
+=========================================*/
+
+if(shotsCard){
+
+shotsCard.textContent=shots;
+
+}
+
+if(dashShots){
+
+dashShots.textContent=shots;
+
+}
+
+/*=========================================
+LEVEL
+=========================================*/
+
+if(dashLevel){
+
+dashLevel.textContent=
+
+profile.level;
+
+}
+
+/*=========================================
+FAVORITES
+=========================================*/
+
+if(favoriteCount){
+
+favoriteCount.textContent=
+
+favorites.length;
+
+}
+
+if(dashboardFavorites){
+
+dashboardFavorites.textContent=
+
+favorites.length;
+
+}
+
+/*=========================================
+ORDERS
+=========================================*/
+
+const orders=
+
+JSON.parse(
+
+localStorage.getItem(
+
+"orderHistory"
+
+)
+
+)||[];
+
+if(orderCount){
+
+orderCount.textContent=
+
+orders.length;
+
+}
+
+if(dashboardOrders){
+
+dashboardOrders.textContent=
+
+orders.length;
+
+}
+
+/*=========================================
+TOTAL SPENT
+=========================================*/
+
+let total=0;
+
+orders.forEach(order=>{
+
+total+=
+
+Number(order.total);
+
+});
+
+if(totalSpent){
+
+totalSpent.textContent=
+
+"$"+
+
+total.toFixed(2);
+
+}
+
+/*=========================================
+LAST VISIT
+=========================================*/
+
+if(lastVisit){
+
+if(orders.length){
+
+lastVisit.textContent=
+
+orders[orders.length-1].date;
+
+}else{
+
+lastVisit.textContent=
+
+"Never";
+
+}
+
+}
+
+/*=========================================
+BIRTHDAY
+=========================================*/
+
+if(birthday){
+
+birthday.textContent=
+
+profile.birthday ||
+
+"Not Set";
+
+}
+
+/*=========================================
+MEMBER SINCE
+=========================================*/
+
+if(memberSince){
+
+memberSince.textContent=
+
+"2026";
+
+}
+
+}
+
+/*=========================================
+PROFILE STARTUP
+=========================================*/
+
+function initializeProfile(){
+
+loadProfile();
+
+updateProfileDashboard();
+
+updateProfileLevel();
+
+}
+
+/*=========================================
+PROFILE REFRESH
+=========================================*/
+
+function refreshProfile(){
+
+loadProfile();
+
+updateProfileDashboard();
+
+}
+
+/*=========================================
+SAVE EVERYTHING
+=========================================*/
+
+function saveEverything(){
+
+saveProfile();
+
+saveShots();
+
+saveCart();
+
+saveFavorites();
+
+refreshProfile();
+
+}
+
+/*=========================================
+PROFILE POPUP
+=========================================*/
+
+document.addEventListener(
+
+"click",
+
+(event)=>{
+
+const editor=
+
+document.getElementById(
+
+"profileEditor"
+
+);
+
+if(
+
+editor &&
+
+event.target===editor
+
+){
+
+closeProfileEditor();
+
+}
+
+});
+
+/*=========================================
+PROFILE SHORTCUTS
+=========================================*/
+
+document.addEventListener(
+
+"keydown",
+
+(event)=>{
+
+if(event.key==="Escape"){
+
+closeProfileEditor();
+
+}
+
+});
+
+/*=========================================
+PROFILE INITIALIZATION
+=========================================*/
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+initializeProfile();
+
+});
+/*=========================================
 PAGE INITIALIZATION
 =========================================*/
 
