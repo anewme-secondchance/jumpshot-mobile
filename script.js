@@ -1747,28 +1747,6 @@ showToast(
 });
 
 /*=========================================
-WELCOME MESSAGE
-=========================================*/
-
-window.addEventListener(
-
-"load",
-
-()=>{
-
-setTimeout(()=>{
-
-showToast(
-
-"Welcome to JumpShot Coffee ☕"
-
-);
-
-},1500);
-
-});
-
-/*=========================================
 KEYBOARD SHORTCUTS
 =========================================*/
 
