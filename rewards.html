@@ -9,7 +9,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Road To The Next Shot | JumpShot Coffee</title>
+<title>Road To The Next JumpShot | JumpShot Coffee</title>
 
 <meta name="theme-color"
 content="#72DCE8">
@@ -76,7 +76,7 @@ src="images/IMG_23_header_logo.png"
 
 class="page-logo"
 
-alt="JumpShot Coffee Logo">
+alt="JumpShot Coffee">
 
 <p class="company-slogan">
 
@@ -100,46 +100,31 @@ PAGE TITLE
 
 <h1>
 
-🏀 Road To The Next Shot
+🏀 Road To The Next JumpShot
 
 </h1>
 
 <p>
 
-Earn Shots with every purchase, level up your player, unlock free drinks, and become a JumpShot Coffee Legend.
+Earn JumpShots every time you order. Level up, unlock rewards, and become a JumpShot Coffee Legend.
 
 </p>
 
 </section>
 
 <!--=====================================
-REWARDS DASHBOARD
-PART 1
+REWARDS SCOREBOARD
 ======================================-->
 
 <main class="rewards-page">
 
-<section class="reward-dashboard">
+<section class="reward-scoreboard">
 
-<div class="court-wrapper">
-
-<img
-
-src="images/IMG_bbcourt.png"
-
-class="court-image"
-
-alt="Basketball Court">
-
-<div class="court-overlay">
-
-<div class="scoreboard">
-
-<div class="score-card">
+<div class="reward-card">
 
 <h3>
 
-Current Shots
+Current JumpShots
 
 </h3>
 
@@ -151,7 +136,7 @@ Current Shots
 
 </div>
 
-<div class="score-card">
+<div class="reward-card">
 
 <h3>
 
@@ -161,16 +146,14 @@ Next Reward
 
 <p id="nextReward">
 
-400 Shots To All-Star
+1,000 JumpShots
 
 </p>
 
 <div class="progress-bar">
 
 <div
-
 id="rewardProgress"
-
 class="progress-fill">
 
 </div>
@@ -179,17 +162,17 @@ class="progress-fill">
 
 <p id="progressText">
 
-0 / 400
+0 / 1000
 
 </p>
 
 </div>
 
-<div class="score-card">
+<div class="reward-card">
 
 <h3>
 
-Lifetime Shots
+Lifetime JumpShots
 
 </h3>
 
@@ -201,21 +184,15 @@ Lifetime Shots
 
 </div>
 
-</div>
+</section>
 
- <!--=====================================
-COURT GAME AREA
+<!--=====================================
+BASKETBALL ANIMATION
 ======================================-->
 
-<div class="court-game">
+<section class="basketball-section">
 
-<img
-
-src="images/IMG_goal.png"
-
-class="basket-goal"
-
-alt="Basketball Goal">
+<div class="basketball-area">
 
 <img
 
@@ -223,104 +200,24 @@ src="images/IMG_bball.png"
 
 id="gameBall"
 
-class="game-ball"
+class="reward-ball"
 
 alt="Basketball">
 
-</div>
+<img
 
-<!--=====================================
-PLAYER LEVEL
-======================================-->
+src="images/IMG_goal.png"
 
-<div class="level-card">
+class="reward-hoop"
 
-<h2>
-
-🏆 Your Level
-
-</h2>
-
-<h1 id="playerLevel">
-
-Rookie
-
-</h1>
-
-<p id="levelMessage">
-
-Keep shooting! Your next reward is closer than you think.
-
-</p>
-
-</div>
-
-<!--=====================================
-SHOT METER
-======================================-->
-
-<div class="meter-card">
-
-<h2>
-
-🔥 Shot Meter
-
-</h2>
-
-<div class="meter-circle">
-
-<h1 id="meterValue">
-
-0
-
-</h1>
-
-<span>
-
-Shots
-
-</span>
-
-</div>
-
-</div>
-
-<!--=====================================
-ACTION BUTTONS
-======================================-->
-
-<div class="reward-buttons">
-
-<button
-
-class="order-btn"
-
-onclick="openRewards()">
-
-🎁 Available Rewards
-
-</button>
-
-<button
-
-class="reward-btn"
-
-onclick="openHistory()">
-
-📋 Shot History
-
-</button>
-
-</div>
-
-</div>
+alt="Basketball Hoop">
 
 </div>
 
 </section>
 
-<!--=====================================
-LEVELS
+ <!--=====================================
+PLAYER LEVELS
 ======================================-->
 
 <section class="levels-section">
@@ -333,7 +230,7 @@ LEVELS
 
 <div class="levels-grid">
 
-<div class="level-box rookie">
+<div class="level-box">
 
 <h3>
 
@@ -343,13 +240,13 @@ LEVELS
 
 <p>
 
-0 - 399 Shots
+0 - 999 JumpShots
 
 </p>
 
 </div>
 
-<div class="level-box allstar">
+<div class="level-box">
 
 <h3>
 
@@ -359,13 +256,13 @@ LEVELS
 
 <p>
 
-400 - 799 Shots
+1,000 - 2,999 JumpShots
 
 </p>
 
 </div>
 
-<div class="level-box mvp">
+<div class="level-box">
 
 <h3>
 
@@ -375,23 +272,149 @@ LEVELS
 
 <p>
 
-800 - 1499 Shots
+3,000 - 5,999 JumpShots
 
 </p>
 
 </div>
 
-<div class="level-box legend">
+<div class="level-box">
 
 <h3>
 
-🔥 Legend
+👑 Legend
 
 </h3>
 
 <p>
 
-1500+ Shots
+6,000+ JumpShots
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+AVAILABLE REWARDS
+======================================-->
+
+<section class="rewards-section">
+
+<h2>
+
+🎁 Available Rewards
+
+</h2>
+
+<div class="reward-grid">
+
+<div class="reward-item">
+
+☕
+
+<h3>
+
+FREE Brewed Coffee
+
+</h3>
+
+<p>
+
+1,000 JumpShots
+
+</p>
+
+</div>
+
+<div class="reward-item">
+
+🥤
+
+<h3>
+
+FREE Specialty Drink
+
+</h3>
+
+<p>
+
+2,000 JumpShots
+
+</p>
+
+</div>
+
+<div class="reward-item">
+
+🍰
+
+<h3>
+
+FREE Pastry
+
+</h3>
+
+<p>
+
+3,000 JumpShots
+
+</p>
+
+</div>
+
+<div class="reward-item">
+
+☕
+
+<h3>
+
+Buy One Get One Drink
+
+</h3>
+
+<p>
+
+4,000 JumpShots
+
+</p>
+
+</div>
+
+<div class="reward-item">
+
+🎁
+
+<h3>
+
+Mystery Reward
+
+</h3>
+
+<p>
+
+6,000 JumpShots
+
+</p>
+
+</div>
+
+<div class="reward-item">
+
+👑
+
+<h3>
+
+VIP Status
+
+</h3>
+
+<p>
+
+10,000 JumpShots
 
 </p>
 
@@ -402,14 +425,14 @@ LEVELS
 </section>
 
  <!--=====================================
-HOW TO EARN SHOTS
+HOW TO EARN JUMPSHOTS
 ======================================-->
 
 <section class="earn-section">
 
 <h2>
 
-☕ How To Earn Shots
+🏀 How To Earn JumpShots
 
 </h2>
 
@@ -431,7 +454,7 @@ Coffee Purchase
 
 <p>
 
-Earn 10 Shots for every $1 spent.
+Earn <strong>10 JumpShots</strong> for every <strong>$1 spent</strong>.
 
 </p>
 
@@ -453,7 +476,7 @@ Try A New Drink
 
 <p>
 
-Receive a 50 Shot bonus.
+Receive a <strong>100 JumpShot Bonus</strong>.
 
 </p>
 
@@ -475,7 +498,7 @@ Daily Check-In
 
 <p>
 
-Earn 25 Shots every day.
+Receive <strong>50 JumpShots</strong> once every day.
 
 </p>
 
@@ -497,7 +520,7 @@ Refer A Friend
 
 <p>
 
-Receive 100 Shots when they make their first purchase.
+Earn <strong>500 JumpShots</strong> when your friend makes their first purchase.
 
 </p>
 
@@ -513,13 +536,13 @@ Receive 100 Shots when they make their first purchase.
 
 <h3>
 
-Birthday Reward
+Birthday Bonus
 
 </h3>
 
 <p>
 
-Celebrate with 250 FREE Birthday Shots.
+Receive <strong>1,000 JumpShots</strong> on your birthday.
 
 </p>
 
@@ -530,7 +553,61 @@ Celebrate with 250 FREE Birthday Shots.
 </section>
 
 <!--=====================================
-AVAILABLE REWARDS POPUP
+SHOT HISTORY
+======================================-->
+
+<section class="history-section">
+
+<h2>
+
+📋 JumpShot History
+
+</h2>
+
+<div
+id="historyList"
+class="history-list">
+
+<p>
+
+No JumpShots earned yet.
+
+</p>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACTION BUTTONS
+======================================-->
+
+<section class="reward-actions">
+
+<button
+
+class="order-btn"
+
+onclick="openRewards()">
+
+🎁 View Rewards
+
+</button>
+
+<button
+
+class="reward-btn"
+
+onclick="openHistory()">
+
+📋 View History
+
+</button>
+
+</section>
+
+<!--=====================================
+REWARD POPUP
 ======================================-->
 
 <div
@@ -553,7 +630,7 @@ onclick="closeRewards()">
 
 <h2>
 
-🏀 Available Rewards
+🏆 JumpShot Rewards
 
 </h2>
 
@@ -565,13 +642,13 @@ onclick="closeRewards()">
 
 <h3>
 
-Free Coffee
+FREE Brewed Coffee
 
 </h3>
 
 <p>
 
-250 Shots
+1,000 JumpShots
 
 </p>
 
@@ -583,13 +660,13 @@ Free Coffee
 
 <h3>
 
-Free Specialty Drink
+FREE Specialty Drink
 
 </h3>
 
 <p>
 
-500 Shots
+2,000 JumpShots
 
 </p>
 
@@ -601,13 +678,13 @@ Free Specialty Drink
 
 <h3>
 
-Free Pastry
+FREE Pastry
 
 </h3>
 
 <p>
 
-750 Shots
+3,000 JumpShots
 
 </p>
 
@@ -615,17 +692,17 @@ Free Pastry
 
 <div class="popup-reward">
 
-👕
+☕
 
 <h3>
 
-JumpShot T-Shirt
+Buy One Get One Drink
 
 </h3>
 
 <p>
 
-1000 Shots
+4,000 JumpShots
 
 </p>
 
@@ -643,7 +720,7 @@ Mystery Reward
 
 <p>
 
-1500 Shots
+6,000 JumpShots
 
 </p>
 
@@ -655,63 +732,17 @@ Mystery Reward
 
 <h3>
 
-Legend Status
+VIP Status
 
 </h3>
 
 <p>
 
-2500 Shots
+10,000 JumpShots
 
 </p>
 
 </div>
-
-</div>
-
-</div>
-
-</div>
-
-<!--=====================================
-SHOT HISTORY POPUP
-======================================-->
-
-<div
-
-id="historyPopup"
-
-class="popup-overlay">
-
-<div class="popup-card">
-
-<button
-
-class="close-popup"
-
-onclick="closeHistory()">
-
-✕
-
-</button>
-
-<h2>
-
-📋 Shot History
-
-</h2>
-
-<div
-
-id="historyList"
-
-class="history-list">
-
-<p>
-
-No activity yet.
-
-</p>
 
 </div>
 
@@ -740,7 +771,7 @@ Level Unlocked!
 </div>
 
 <!--=====================================
-SHOT NOTIFICATION
+JUMPSHOT NOTIFICATION
 ======================================-->
 
 <div
@@ -749,7 +780,7 @@ id="shotNotification"
 
 class="shot-notification">
 
-+10 SHOTS
++100 JumpShots
 
 </div>
 
@@ -765,7 +796,7 @@ class="confetti-canvas">
 
 </canvas>
 
- <!--=====================================
+<!--=====================================
 VISIT JUMPSHOT COFFEE
 ======================================-->
 
@@ -889,7 +920,7 @@ Install JumpShot Coffee
 
 <p>
 
-Add JumpShot Coffee to your Home Screen for faster ordering and rewards.
+Add JumpShot Coffee to your Home Screen for quick ordering, rewards, and exclusive offers.
 
 </p>
 
@@ -945,7 +976,7 @@ Loading Rewards...
 
 <p>
 
-Preparing your Road To The Next Shot.
+Preparing your Road To The Next JumpShot.
 
 </p>
 
@@ -1047,4 +1078,4 @@ JAVASCRIPT
 
 </body>
 
-</html>
+</html> 
