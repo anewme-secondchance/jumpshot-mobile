@@ -5,49 +5,27 @@ PART 1
 
 <main class="rewards-page">
 
-<div class="rewards-dashboard">
+<div class="dashboard-container">
 
 <!--=====================================
-TITLE
+BACKGROUND DASHBOARD
 ======================================-->
 
-<section class="rewards-title">
+<img
 
-<div class="title-line"></div>
+src="images/IMG_bbcourt.png"
 
-<h1>
+alt="Rewards Dashboard"
 
-ROAD TO THE NEXT SHOT
-
-</h1>
-
-<div class="title-line"></div>
-
-<p>
-
-EARN SHOTS. HIT REWARDS. LEVEL UP.
-
-</p>
-
-</section>
+class="dashboard-background">
 
 <!--=====================================
-SCOREBOARD
+LIVE SCOREBOARD
 ======================================-->
 
-<section class="scoreboard">
+<div class="dashboard-overlay">
 
-<div class="score-box">
-
-<h3>
-
-YOUR SHOTS
-
-</h3>
-
-<div class="score-value">
-
-🏀
+<div class="shots-value">
 
 <span id="currentShots">
 
@@ -57,29 +35,21 @@ YOUR SHOTS
 
 </div>
 
-</div>
+<div class="next-reward">
 
-<div class="score-box center-box">
-
-<h3>
-
-NEXT REWARD
-
-</h3>
-
-<h2>
+<span id="nextReward">
 
 50 SHOTS TO ALL-STAR
 
-</h2>
+</span>
 
-<div class="progress-bar">
+</div>
 
-<div
+<div class="progress-container">
+
+<div class="progress-fill"
 
 id="rewardProgress"
-
-class="progress-fill"
 
 style="width:88%;">
 
@@ -87,67 +57,185 @@ style="width:88%;">
 
 </div>
 
-<p>
+<div class="progress-text">
+
+<span id="progressText">
 
 350 / 400
 
-</p>
+</span>
 
 </div>
 
-<div class="score-box">
+<div class="lifetime-value">
 
-<h3>
-
-LIFETIME SHOTS
-
-</h3>
-
-<div
-
-class="lifetime-score"
-
-id="lifetimeShots">
+<span id="lifetimeShots">
 
 1250
 
-</div>
-
-<div class="mini-hoop">
-
-🏀
+</span>
 
 </div>
-
-</div>
-
-</section>
 
 <!--=====================================
-CENTER GRID
+ANIMATED BALL
 ======================================-->
 
-<section class="center-grid">
+<img
+
+src="images/IMG_bball.png"
+
+id="gameBall"
+
+class="game-ball"
+
+alt="Basketball">
+
+ <!--=====================================
+CLICKABLE HOTSPOTS
+======================================-->
+
+<button
+
+id="rewardsButton"
+
+class="hotspot rewards-hotspot"
+
+onclick="openRewards()"
+
+aria-label="Rewards">
+
+</button>
+
+<button
+
+id="historyButton"
+
+class="hotspot history-hotspot"
+
+onclick="openHistory()"
+
+aria-label="History">
+
+</button>
+
+<!--=====================================
+LEVELS
+======================================-->
+
+<div class="level-overlay">
+
+<button
+
+class="level-btn active"
+
+id="rookieLevel">
+
+Rookie
+
+</button>
+
+<button
+
+class="level-btn"
+
+id="allStarLevel">
+
+All-Star
+
+</button>
+
+<button
+
+class="level-btn"
+
+id="mvpLevel">
+
+MVP
+
+</button>
+
+<button
+
+class="level-btn"
+
+id="legendLevel">
+
+Legend
+
+</button>
+
+</div>
+
+<!--=====================================
+EARN SHOTS HOTSPOTS
+======================================-->
+
+<div class="earn-overlay">
+
+<button
+
+class="earn-btn"
+
+onclick="earnCoffeeShots()">
+
+Coffee
+
+</button>
+
+<button
+
+class="earn-btn"
+
+onclick="earnDrinkShots()">
+
+New Drink
+
+</button>
+
+<button
+
+class="earn-btn"
+
+onclick="dailyCheckIn()">
+
+Check-In
+
+</button>
+
+<button
+
+class="earn-btn"
+
+onclick="referFriend()">
+
+Refer
+
+</button>
+
+<button
+
+class="earn-btn"
+
+onclick="birthdayReward()">
+
+Birthday
+
+</button>
+
+</div>
 
 <!--=====================================
 SHOT METER
 ======================================-->
 
-<div class="shot-meter-card">
-
-<h2>
-
-🏀 SHOT METER
-
-</h2>
+<div class="meter-overlay">
 
 <div class="meter-circle">
 
-<div class="meter-ring">
+<div class="meter-inner">
 
-<div class="meter-center">
-
-<h1 id="meterShots">
+<h1 id="meterValue">
 
 350
 
@@ -155,7 +243,7 @@ SHOT METER
 
 <p>
 
-SHOTS
+Shots
 
 </p>
 
@@ -164,76 +252,140 @@ SHOTS
 </div>
 
 </div>
+
+ <!--=====================================
+REWARDS POPUP
+======================================-->
+
+<div
+
+id="rewardsPopup"
+
+class="popup-overlay">
+
+<div class="popup-card">
+
+<button
+
+class="close-popup"
+
+onclick="closeRewards()">
+
+✕
+
+</button>
+
+<h2>
+
+🏀 Available Rewards
+
+</h2>
+
+<div class="popup-grid">
+
+<div class="popup-reward">
+
+☕
 
 <h3>
 
-KEEP SHOOTING!
+Free Coffee
 
 </h3>
 
-</div>
+<p>
 
-<!--=====================================
-BASKETBALL COURT
-======================================-->
+250 Shots
 
-<div class="court-card">
-
-<img
-
-src="images/IMG_bbcourt.png"
-
-class="court-image"
-
-alt="Basketball Court">
-
-<img
-
-src="images/IMG_ball.png"
-
-id="basketball"
-
-class="basketball"
-
-alt="Basketball">
-
-<div id="basketballHoop"
-
-class="basketball-hoop">
-
-🏀
+</p>
 
 </div>
 
+<div class="popup-reward">
+
+🥤
+
+<h3>
+
+Free Specialty Drink
+
+</h3>
+
+<p>
+
+500 Shots
+
+</p>
+
 </div>
 
-<!--=====================================
-RIGHT PANEL
-======================================-->
+<div class="popup-reward">
 
-<div class="right-panel">
+🍰
 
-<div class="action-card">
+<h3>
 
-<div class="action-left">
+Free Pastry
 
-<div class="action-icon">
+</h3>
+
+<p>
+
+750 Shots
+
+</p>
+
+</div>
+
+<div class="popup-reward">
+
+👕
+
+<h3>
+
+JumpShot T-Shirt
+
+</h3>
+
+<p>
+
+1000 Shots
+
+</p>
+
+</div>
+
+<div class="popup-reward">
 
 🎁
 
-</div>
+<h3>
 
-<div>
+Mystery Reward
 
-<h2>
-
-REWARDS
-
-</h2>
+</h3>
 
 <p>
 
-View all rewards
+1500 Shots
+
+</p>
+
+</div>
+
+<div class="popup-reward">
+
+🏀
+
+<h3>
+
+VIP Member
+
+</h3>
+
+<p>
+
+2500 Shots
 
 </p>
 
@@ -241,35 +393,47 @@ View all rewards
 
 </div>
 
-<div class="action-arrow">
-
-➜
-
 </div>
 
 </div>
 
-<div class="action-card">
+<!--=====================================
+HISTORY POPUP
+======================================-->
 
-<div class="action-left">
+<div
 
-<div class="action-icon">
+id="historyPopup"
 
-🕒
+class="popup-overlay">
 
-</div>
+<div class="popup-card">
 
-<div>
+<button
+
+class="close-popup"
+
+onclick="closeHistory()">
+
+✕
+
+</button>
 
 <h2>
 
-HISTORY
+📋 Shot History
 
 </h2>
 
+<div
+
+id="historyList"
+
+class="history-list">
+
 <p>
 
-View your activity
+No activity yet.
 
 </p>
 
@@ -277,16 +441,258 @@ View your activity
 
 </div>
 
-<div class="action-arrow">
+</div>
 
-➜
+<!--=====================================
+LEVEL UNLOCK
+======================================-->
+
+<div
+
+id="levelUnlocked"
+
+class="level-unlock">
+
+🏆
+
+<span id="levelText">
+
+Level Unlocked!
+
+</span>
+
+</div>
+
+<!--=====================================
+SHOT NOTIFICATION
+======================================-->
+
+<div
+
+id="shotNotification"
+
+class="shot-notification">
+
++10 SHOTS
+
+</div>
+
+<!--=====================================
+CONFETTI
+======================================-->
+
+<canvas
+
+id="confettiCanvas"
+
+class="confetti-canvas">
+
+</canvas>
+
+ <!--=====================================
+END DASHBOARD
+======================================-->
 
 </div>
 
 </div>
 
+</main>
+
+<!--=====================================
+BACK TO TOP
+======================================-->
+
+<button
+
+id="backToTop"
+
+class="back-to-top"
+
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+<!--=====================================
+INSTALL POPUP
+======================================-->
+
+<div
+
+id="installPrompt"
+
+class="install-popup">
+
+<img
+
+src="images/IMG_newlogo.png"
+
+class="install-logo"
+
+alt="JumpShot Coffee">
+
+<h2>
+
+Install JumpShot Coffee
+
+</h2>
+
+<p>
+
+Add JumpShot Coffee to your Home Screen for quick access and rewards.
+
+</p>
+
+<div class="hero-buttons">
+
+<button
+
+id="installBtn"
+
+class="order-btn">
+
+📲 Install
+
+</button>
+
+<button
+
+id="closeInstall"
+
+class="reward-btn">
+
+Maybe Later
+
+</button>
+
 </div>
 
-</section>
+</div>
 
- 
+<!--=====================================
+LOADING SCREEN
+======================================-->
+
+<div
+
+id="loadingScreen"
+
+class="loading-screen">
+
+<img
+
+src="images/IMG_newlogo.png"
+
+class="loading-logo"
+
+alt="JumpShot Coffee">
+
+<h2>
+
+Road To The Next Shot
+
+</h2>
+
+<p>
+
+Loading Rewards...
+
+</p>
+
+</div>
+
+<!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
+<nav class="bottom-nav">
+
+<a
+
+href="index.html"
+
+class="nav-item">
+
+🏠
+
+<span>
+
+Home
+
+</span>
+
+</a>
+
+<a
+
+href="traditional.html"
+
+class="nav-item">
+
+☕
+
+<span>
+
+Menu
+
+</span>
+
+</a>
+
+<a
+
+href="rewards.html"
+
+class="nav-item active">
+
+🏀
+
+<span>
+
+Rewards
+
+</span>
+
+</a>
+
+<a
+
+href="cart.html"
+
+class="nav-item">
+
+🛒
+
+<span>
+
+Cart
+
+</span>
+
+</a>
+
+<a
+
+href="profile.html"
+
+class="nav-item">
+
+👤
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</nav>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
