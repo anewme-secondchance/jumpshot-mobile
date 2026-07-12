@@ -607,6 +607,8 @@ nextReward.textContent=
 
 updateProfileLevel();
 
+moveBasketball();
+
 }
 
 /*=========================================
@@ -1082,6 +1084,8 @@ document.addEventListener(
 updateRewardDisplay();
 
 checkLevelUnlock();
+
+moveBasketball();
 
 });
 
@@ -2443,7 +2447,11 @@ document.addEventListener(
 
 if(event.key==="Escape"){
 
-closeRewardPopup();
+closeRewards();
+
+closeHistory();
+
+closeProfileEditor();
 
 }
 
