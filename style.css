@@ -224,6 +224,57 @@ margin:0;
 }
 
 /*=========================================
+HEADER LOGO
+=========================================*/
+.header-logo{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+/*=========================================
+HEADER IMAGE
+=========================================*/
+
+.main-logo{
+
+width:75px;
+
+height:auto;
+
+border-radius:16px;
+
+filter:
+
+drop-shadow(0 0 12px #72DCE8)
+
+drop-shadow(0 0 28px #72DCE8)
+
+drop-shadow(0 0 55px rgba(114,220,232,.85));
+
+transition:.35s;
+
+}
+
+.main-logo:hover{
+
+transform:scale(1.05);
+
+filter:
+
+drop-shadow(0 0 18px #72DCE8)
+
+drop-shadow(0 0 35px #72DCE8)
+
+drop-shadow(0 0 70px rgba(114,220,232,.95));
+
+}
+
+/*=========================================
 HERO
 =========================================*/
 
@@ -255,13 +306,31 @@ margin:auto;
 
 display:block;
 
+border-radius:18px;
+
 filter:
 
-drop-shadow(0 0 10px #72DCE8)
+drop-shadow(0 0 12px #72DCE8)
 
-drop-shadow(0 0 25px #72DCE8)
+drop-shadow(0 0 28px #72DCE8)
 
-drop-shadow(0 0 45px rgba(114,220,232,.70));
+drop-shadow(0 0 55px rgba(114,220,232,.85));
+
+transition:.35s;
+
+}
+
+.hero-logo:hover{
+
+transform:scale(1.03);
+
+filter:
+
+drop-shadow(0 0 18px #72DCE8)
+
+drop-shadow(0 0 35px #72DCE8)
+
+drop-shadow(0 0 70px rgba(114,220,232,.95));
 
 }
 
