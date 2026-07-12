@@ -110,7 +110,7 @@ Manage your JumpShot Coffee rewards, favorite drinks, account information, and o
 
 </section>
 
- <!--=====================================
+<!--=====================================
 PROFILE CARD
 ======================================-->
 
@@ -118,11 +118,21 @@ PROFILE CARD
 
 <div class="profile-card">
 
-<img src="images/IMG_23_header_logo.png"
+<label for="profileUpload">
 
+<img
+id="profileAvatar"
+src="images/IMG_23_header_logo.png"
 class="profile-avatar"
+alt="Profile Picture">
 
-alt="JumpShot Coffee">
+</label>
+
+<input
+type="file"
+id="profileUpload"
+accept="image/*"
+hidden>
 
 <h2 id="profileName">
 
@@ -136,11 +146,59 @@ guest@jumpshotcoffee.com
 
 </p>
 
-<p class="member-level">
+<p id="playerRank" class="member-level">
 
 🏀 Rookie Shooter
 
 </p>
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<h3 id="profileShots">
+
+0
+
+</h3>
+
+<span>Shots</span>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="favoriteCount">
+
+0
+
+</h3>
+
+<span>Favorites</span>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="orderCount">
+
+0
+
+</h3>
+
+<span>Orders</span>
+
+</div>
+
+</div>
+
+<button
+class="reward-btn"
+onclick="openProfileEditor()">
+
+Edit Profile
+
+</button>
 
 </div>
 
@@ -151,6 +209,38 @@ PROFILE MENU
 ======================================-->
 
 <section class="menu-section">
+
+<div class="drink-card">
+
+<div class="drink-info">
+
+<h2>
+
+👤 Personal Information
+
+</h2>
+
+<p>
+
+Update your name, email, phone number, birthday, and profile picture.
+
+</p>
+
+<div class="drink-buttons">
+
+<button
+class="order-btn-small"
+onclick="openProfileEditor()">
+
+Edit Profile
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="drink-card">
 
@@ -171,9 +261,7 @@ View all of your saved favorite drinks.
 <div class="drink-buttons">
 
 <button
-
 class="order-btn-small"
-
 onclick="location.href='favorites.html'">
 
 Open
@@ -198,16 +286,14 @@ Open
 
 <p>
 
-Check your Shots and reward progress.
+View your Shots, current level, and reward progress.
 
 </p>
 
 <div class="drink-buttons">
 
 <button
-
 class="order-btn-small"
-
 onclick="location.href='rewards.html'">
 
 View Rewards
@@ -232,16 +318,14 @@ View Rewards
 
 <p>
 
-See your previous JumpShot Coffee orders.
+See all of your previous JumpShot Coffee orders.
 
 </p>
 
 <div class="drink-buttons">
 
 <button
-
 class="order-btn-small"
-
 onclick="viewOrders()">
 
 View Orders
@@ -266,16 +350,14 @@ View Orders
 
 <p>
 
-Manage your profile information and preferences.
+Manage notifications, preferences, and your account.
 
 </p>
 
 <div class="drink-buttons">
 
 <button
-
 class="order-btn-small"
-
 onclick="openSettings()">
 
 Settings
@@ -290,6 +372,415 @@ Settings
 
 </section>
 
+ <!--=====================================
+EDIT PROFILE POPUP
+======================================-->
+
+<div
+
+id="profileEditor"
+
+class="popup-overlay">
+
+<div class="popup-card">
+
+<button
+
+class="close-popup"
+
+onclick="closeProfileEditor()">
+
+✕
+
+</button>
+
+<h2>
+
+👤 Edit My Profile
+
+</h2>
+
+<div class="profile-form">
+
+<label>
+
+First Name
+
+</label>
+
+<input
+
+type="text"
+
+id="editFirstName"
+
+placeholder="First Name">
+
+<label>
+
+Last Name
+
+</label>
+
+<input
+
+type="text"
+
+id="editLastName"
+
+placeholder="Last Name">
+
+<label>
+
+Email
+
+</label>
+
+<input
+
+type="email"
+
+id="editEmail"
+
+placeholder="Email Address">
+
+<label>
+
+Phone Number
+
+</label>
+
+<input
+
+type="tel"
+
+id="editPhone"
+
+placeholder="Phone Number">
+
+<label>
+
+Birthday
+
+</label>
+
+<input
+
+type="date"
+
+id="editBirthday">
+
+<div class="hero-buttons">
+
+<button
+
+class="order-btn"
+
+onclick="saveProfileInfo()">
+
+💾 Save Profile
+
+</button>
+
+<button
+
+class="reward-btn"
+
+onclick="closeProfileEditor()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+ <!--=====================================
+PROFILE DASHBOARD
+======================================-->
+
+<section class="profile-section">
+
+<div class="profile-card">
+
+<h2>
+
+🏀 My JumpShot Stats
+
+</h2>
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<h3 id="dashboardShots">
+
+0
+
+</h3>
+
+<p>
+
+Current Shots
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="dashboardLevel">
+
+Rookie
+
+</h3>
+
+<p>
+
+Current Level
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="dashboardFavorites">
+
+0
+
+</h3>
+
+<p>
+
+Favorite Drinks
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="dashboardOrders">
+
+0
+
+</h3>
+
+<p>
+
+Orders
+
+</p>
+
+</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<button
+
+class="order-btn"
+
+onclick="location.href='rewards.html'">
+
+🏀 View Rewards
+
+</button>
+
+<button
+
+class="reward-btn"
+
+onclick="location.href='favorites.html'">
+
+❤️ Favorites
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACCOUNT ACTIVITY
+======================================-->
+
+<section class="profile-section">
+
+<div class="profile-card">
+
+<h2>
+
+📊 Account Activity
+
+</h2>
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<h3 id="totalSpent">
+
+$0.00
+
+</h3>
+
+<p>
+
+Total Spent
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="lastVisit">
+
+Never
+
+</h3>
+
+<p>
+
+Last Visit
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="memberSince">
+
+2026
+
+</h3>
+
+<p>
+
+Member Since
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3 id="birthdayDisplay">
+
+Not Set
+
+</h3>
+
+<p>
+
+Birthday
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACHIEVEMENTS
+======================================-->
+
+<section class="profile-section">
+
+<div class="profile-card">
+
+<h2>
+
+🏆 Achievements
+
+</h2>
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<h3>
+
+☕
+
+</h3>
+
+<p>
+
+First Coffee
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3>
+
+🥤
+
+</h3>
+
+<p>
+
+Try New Drink
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3>
+
+🏀
+
+</h3>
+
+<p>
+
+All-Star
+
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h3>
+
+🔥
+
+</h3>
+
+<p>
+
+Legend
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section> 
   <!--=====================================
 ROAD TO THE NEXT SHOT
 ======================================-->
