@@ -659,7 +659,9 @@ text-align:center;
 
 box-shadow:
 
-0 10px 20px rgba(0,0,0,.40);
+0 0 18px #72DCE8,
+
+0 0 35px rgba(114,220,232,.45);
 
 }
 
@@ -671,11 +673,14 @@ border-color:#72DCE8;
 
 box-shadow:
 
-0 0 15px #72DCE8,
+0 0 22px #72DCE8,
 
-0 0 35px rgba(114,220,232,.55);
+0 0 45px rgba(114,220,232,.75),
+
+0 0 70px rgba(114,220,232,.35);
 
 }
+
 
 .home-card img{
 
@@ -941,17 +946,25 @@ margin-bottom:20px;
 
 .featured-price{
 
+display:block;
+
+width:100%;
+
+text-align:center;
+
 font-size:1.6rem;
 
 font-weight:700;
 
 color:#72DCE8;
 
-margin:15px 0;
+margin:20px auto;
 
 text-shadow:
 
-0 0 10px #72DCE8;
+0 0 10px #72DCE8,
+
+0 0 25px rgba(114,220,232,.70);
 
 }
 
