@@ -2025,11 +2025,31 @@ width:220px;
 
 margin:0 auto 20px;
 
+border-radius:18px;
+
 filter:
 
-drop-shadow(0 0 12px #72DCE8)
+drop-shadow(0 0 18px #72DCE8)
 
-drop-shadow(0 0 30px rgba(114,220,232,.60));
+drop-shadow(0 0 35px #72DCE8)
+
+drop-shadow(0 0 65px rgba(114,220,232,.90));
+
+transition:.35s;
+
+}
+
+.footer-logo:hover{
+
+transform:scale(1.05);
+
+filter:
+
+drop-shadow(0 0 22px #72DCE8)
+
+drop-shadow(0 0 45px #72DCE8)
+
+drop-shadow(0 0 80px rgba(114,220,232,1));
 
 }
 
