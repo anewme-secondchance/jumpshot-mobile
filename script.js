@@ -429,26 +429,106 @@ loadProfile();
 }
 
 /*=========================================
-REWARDS
+REWARDS DASHBOARD
 =========================================*/
 
 function updateRewardDisplay(){
 
-const shotCounter=
+const currentShots=
 
-document.getElementById("shotCount");
+document.getElementById(
+
+"currentShots"
+
+);
+
+const lifetimeShots=
+
+document.getElementById(
+
+"lifetimeShots"
+
+);
+
+const meterValue=
+
+document.getElementById(
+
+"meterValue"
+
+);
 
 const progress=
 
-document.getElementById("progressFill");
+document.getElementById(
+
+"rewardProgress"
+
+);
 
 const progressText=
 
-document.getElementById("progressText");
+document.getElementById(
 
-if(shotCounter){
+"progressText"
 
-shotCounter.textContent=shots;
+);
+
+const nextReward=
+
+document.getElementById(
+
+"nextReward"
+
+);
+
+if(currentShots){
+
+currentShots.textContent=shots;
+
+}
+
+if(lifetimeShots){
+
+lifetimeShots.textContent=shots;
+
+}
+
+if(meterValue){
+
+meterValue.textContent=shots;
+
+}
+
+/*=========================================
+LEVELS
+=========================================*/
+
+let goal=200;
+
+let level="Rookie";
+
+if(shots>=1000){
+
+goal=1500;
+
+level="Legend";
+
+}
+
+else if(shots>=500){
+
+goal=1000;
+
+level="MVP";
+
+}
+
+else if(shots>=200){
+
+goal=500;
+
+level="All-Star";
 
 }
 
@@ -456,7 +536,7 @@ const percent=
 
 Math.min(
 
-(shots/5000)*100,
+(shots/goal)*100,
 
 100
 
@@ -474,90 +554,62 @@ if(progressText){
 
 progressText.textContent=
 
-`${shots} / 5000 Shots`;
+shots+
+
+" / "+
+
+goal;
+
+}
+
+if(nextReward){
+
+if(level==="Rookie"){
+
+nextReward.textContent=
+
+(goal-shots)+
+
+" SHOTS TO ALL-STAR";
+
+}
+
+else if(level==="All-Star"){
+
+nextReward.textContent=
+
+(goal-shots)+
+
+" SHOTS TO MVP";
+
+}
+
+else if(level==="MVP"){
+
+nextReward.textContent=
+
+(goal-shots)+
+
+" SHOTS TO LEGEND";
+
+}
+
+else{
+
+nextReward.textContent=
+
+"LEGEND UNLOCKED";
+
+}
 
 }
 
 updateProfileLevel();
 
-moveBasketball();
-
 }
 
 /*=========================================
-CLAIM REWARD
-=========================================*/
-
-function claimReward(){
-
-if(shots<500){
-
-showToast(
-
-"Keep earning Shots!"
-
-);
-
-return;
-
-}
-
-launchConfetti();
-
-showRewardPopup();
-
-playSwish();
-
-showToast(
-
-"Reward Unlocked!"
-
-);
-
-}
-
-/*=========================================
-REWARD POPUP
-=========================================*/
-
-function showRewardPopup(){
-
-const popup=
-
-document.getElementById(
-
-"rewardPopup"
-
-);
-
-if(popup){
-
-popup.style.display="flex";
-
-}
-
-}
-
-function closeRewardPopup(){
-
-const popup=
-
-document.getElementById(
-
-"rewardPopup"
-
-);
-
-if(popup){
-
-popup.style.display="none";
-
-}
-
-}
-
-/*=========================================
-BASKETBALL
+BASKETBALL ANIMATION
 =========================================*/
 
 function moveBasketball(){
@@ -566,28 +618,519 @@ const ball=
 
 document.getElementById(
 
-"basketball"
+"gameBall"
 
 );
 
 if(!ball) return;
 
-const percent=
+ball.classList.remove(
 
-Math.min(
+"shoot"
 
-(shots/5000)*100,
+);
+
+void ball.offsetWidth;
+
+ball.classList.add(
+
+"shoot"
+
+);
+
+setTimeout(()=>{
+
+ball.classList.remove(
+
+"shoot"
+
+);
+
+},1200);
+
+}
+
+/*=========================================
+REWARD POPUP
+=========================================*/
+
+function openRewards(){
+
+const popup=
+
+document.getElementById(
+
+"rewardsPopup"
+
+);
+
+if(popup){
+
+popup.style.display=
+
+"flex";
+
+}
+
+}
+
+function closeRewards(){
+
+const popup=
+
+document.getElementById(
+
+"rewardsPopup"
+
+);
+
+if(popup){
+
+popup.style.display=
+
+"none";
+
+}
+
+}
+
+/*=========================================
+HISTORY POPUP
+=========================================*/
+
+function openHistory(){
+
+const popup=
+
+document.getElementById(
+
+"historyPopup"
+
+);
+
+if(popup){
+
+popup.style.display=
+
+"flex";
+
+}
+
+}
+
+function closeHistory(){
+
+const popup=
+
+document.getElementById(
+
+"historyPopup"
+
+);
+
+if(popup){
+
+popup.style.display=
+
+"none";
+
+}
+
+}
+
+/*=========================================
+SHOT NOTIFICATION
+=========================================*/
+
+function showShotNotification(amount){
+
+const notice=
+
+document.getElementById(
+
+"shotNotification"
+
+);
+
+if(!notice) return;
+
+notice.innerHTML=
+
+"+"+
+
+amount+
+
+" SHOTS";
+
+notice.style.display=
+
+"block";
+
+setTimeout(()=>{
+
+notice.style.display=
+
+"none";
+
+},1800);
+
+}
+
+/*=========================================
+EARN SHOTS
+=========================================*/
+
+function addShots(amount){
+
+shots += amount;
+
+saveShots();
+
+updateRewardDisplay();
+
+moveBasketball();
+
+showShotNotification(amount);
+
+checkLevelUnlock();
+
+}
+
+/*=========================================
+COFFEE
+=========================================*/
+
+function earnCoffeeShots(){
+
+addShots(10);
+
+addHistory(
+
+"☕ Purchased Coffee",
+
+10
+
+);
+
+}
+
+/*=========================================
+NEW DRINK
+=========================================*/
+
+function earnDrinkShots(){
+
+addShots(25);
+
+addHistory(
+
+"🥤 Tried A New Drink",
+
+25
+
+);
+
+}
+
+/*=========================================
+DAILY CHECK IN
+=========================================*/
+
+function dailyCheckIn(){
+
+addShots(10);
+
+addHistory(
+
+"📅 Daily Check-In",
+
+10
+
+);
+
+}
+
+/*=========================================
+REFER FRIEND
+=========================================*/
+
+function referFriend(){
+
+addShots(50);
+
+addHistory(
+
+"👥 Referred A Friend",
+
+50
+
+);
+
+}
+
+/*=========================================
+BIRTHDAY BONUS
+=========================================*/
+
+function birthdayReward(){
+
+addShots(100);
+
+addHistory(
+
+"🎂 Birthday Reward",
 
 100
 
 );
 
-ball.style.left=
+}
 
-percent+"%";
+/*=========================================
+HISTORY
+=========================================*/
+
+let rewardHistory=[];
+
+function addHistory(title,earned){
+
+rewardHistory.unshift({
+
+title,
+
+earned,
+
+date:new Date().toLocaleString()
+
+});
+
+const list=
+
+document.getElementById(
+
+"historyList"
+
+);
+
+if(!list) return;
+
+list.innerHTML="";
+
+rewardHistory.forEach(item=>{
+
+list.innerHTML+=`
+
+<div class="history-item">
+
+<h3>${item.title}</h3>
+
+<p>+${item.earned} Shots</p>
+
+<small>${item.date}</small>
+
+</div>
+
+`;
+
+});
 
 }
 
+/*=========================================
+LEVELS
+=========================================*/
+
+function checkLevelUnlock(){
+
+const rookie=
+
+document.getElementById(
+
+"rookieLevel"
+
+);
+
+const allStar=
+
+document.getElementById(
+
+"allStarLevel"
+
+);
+
+const mvp=
+
+document.getElementById(
+
+"mvpLevel"
+
+);
+
+const legend=
+
+document.getElementById(
+
+"legendLevel"
+
+);
+
+[rookie,allStar,mvp,legend].forEach(level=>{
+
+if(level){
+
+level.classList.remove("active");
+
+}
+
+});
+
+let message="🏀 Rookie";
+
+if(shots>=1000){
+
+if(legend){
+
+legend.classList.add("active");
+
+}
+
+message="🔥 Legend";
+
+}
+
+else if(shots>=500){
+
+if(mvp){
+
+mvp.classList.add("active");
+
+}
+
+message="🏆 MVP";
+
+}
+
+else if(shots>=200){
+
+if(allStar){
+
+allStar.classList.add("active");
+
+}
+
+message="⭐ All-Star";
+
+}
+
+else{
+
+if(rookie){
+
+rookie.classList.add("active");
+
+}
+
+}
+
+const unlock=
+
+document.getElementById(
+
+"levelUnlocked"
+
+);
+
+const text=
+
+document.getElementById(
+
+"levelText"
+
+);
+
+if(unlock && text){
+
+text.textContent=
+
+message;
+
+unlock.style.display="block";
+
+setTimeout(()=>{
+
+unlock.style.display="none";
+
+},2500);
+
+}
+
+launchConfetti();
+
+}
+
+/*=========================================
+PAGE START
+=========================================*/
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+updateRewardDisplay();
+
+checkLevelUnlock();
+
+});
+
+/*=========================================
+BUTTONS
+=========================================*/
+
+document.addEventListener(
+
+"click",
+
+(event)=>{
+
+if(event.target.id==="rewardsPopup"){
+
+closeRewards();
+
+}
+
+if(event.target.id==="historyPopup"){
+
+closeHistory();
+
+}
+
+});
+
+/*=========================================
+KEYBOARD
+=========================================*/
+
+document.addEventListener(
+
+"keydown",
+
+(event)=>{
+
+if(event.key==="Escape"){
+
+closeRewards();
+
+closeHistory();
+
+}
+
+});
+
+/*=========================================
+END REWARDS
+=========================================*/
 /*=========================================
 RENDER CART
 =========================================*/
