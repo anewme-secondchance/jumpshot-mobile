@@ -1450,11 +1450,13 @@ max-width:900px;
 
 height:400px;
 
-background:#0b0b0b;
+background:#000 url("images/IMG_courts.png") center bottom no-repeat;
 
-border-radius:30px;
+background-size:cover;
 
 border:2px solid rgba(114,220,232,.25);
+
+border-radius:30px;
 
 box-shadow:var(--glow);
 
