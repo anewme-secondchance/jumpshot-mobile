@@ -2742,25 +2742,23 @@ END OF STYLE.CSS
 DESKTOP INSTALL POPUP
 =========================================*/
 
-@media (min-width: 769px){
+@media (min-width:769px){
 
 .install-popup{
 
-display:flex;
+max-width:450px;
 
-justify-content:center;
+left:50%;
 
-align-items:center;
+top:50%;
 
-flex-direction:column;
+right:auto;
 
-}
+bottom:auto;
 
-.install-logo{
+transform:translate(-50%,-50%);
 
-width:140px;
-
-margin:0 auto 20px;
+border-radius:25px;
 
 }
 
