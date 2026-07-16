@@ -1,0 +1,765 @@
+<!--=====================================
+HOT TEA OPTIONS
+PART 1
+======================================-->
+
+<main class="order-page">
+
+<section class="order-header">
+
+<img
+id="drinkImage"
+src="images/IMG_hottea.png"
+class="order-photo"
+alt="Hot Tea">
+
+<h1 id="drinkName">
+
+Hot Tea
+
+</h1>
+
+<p id="drinkDescription">
+
+Fresh brewed premium hot tea made to order. Customize it just the way you like.
+
+</p>
+
+<h2 id="drinkPrice">
+
+Starting at $3.95
+
+</h2>
+
+</section>
+
+<!--=====================================
+QUANTITY
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Quantity
+
+</h2>
+
+<div class="quantity-box">
+
+<button
+type="button"
+onclick="decreaseQty()">
+
+−
+
+</button>
+
+<input
+type="number"
+id="quantity"
+value="1"
+min="1">
+
+<button
+type="button"
+onclick="increaseQty()">
+
++
+
+</button>
+
+</div>
+
+</section>
+
+<!--=====================================
+SIZE
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Size
+
+</h2>
+
+<p class="required-text">
+
+Choose One
+
+</p>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="size"
+value="0"
+checked>
+
+<span>
+
+Small
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="size"
+value="1.00">
+
+<span>
+
+Medium
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="size"
+value="1.80">
+
+<span>
+
+Large
+
+</span>
+
+<span class="price-add">
+
++$1.80
+
+</span>
+
+</label>
+
+</section>
+
+<!--=====================================
+MILK CHOICE
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Add Milk
+
+</h2>
+
+<p class="required-text">
+
+Choose One (Optional)
+
+</p>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="0"
+checked>
+
+<span>
+
+None
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="1.00">
+
+<span>
+
+Almond Milk
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="1.00">
+
+<span>
+
+Oat Milk
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="1.00">
+
+<span>
+
+Coconut Milk
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="1.00">
+
+<span>
+
+Half N Half
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+<label class="option-row">
+
+<input
+type="radio"
+name="milk"
+value="1.00">
+
+<span>
+
+Heavy Cream
+
+</span>
+
+<span class="price-add">
+
++$1.00
+
+</span>
+
+</label>
+
+</section>
+
+  <!--=====================================
+ADD SYRUPS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Add Syrups
+
+</h2>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Vanilla Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>White Chocolate Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Toasted Hazelnut Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Butter Rum Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Cinnamon Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Irish Cream Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Caramel Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Brown Sugar Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="syrup" value="0.75">
+<span>Lavender Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+</section>
+
+<!--=====================================
+ADD SF SYRUPS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Add SF Syrups
+
+</h2>
+
+<label class="option-row">
+<input type="checkbox" name="sf" value="0.75">
+<span>SF Vanilla</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="sf" value="0.75">
+<span>SF White Chocolate</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="sf" value="0.75">
+<span>SF Toasted Hazelnut</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="sf" value="0.75">
+<span>SF Cinnamon</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="sf" value="0.75">
+<span>SF Caramel</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+</section>
+
+<!--=====================================
+SEASONAL SYRUPS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Add Seasonal Syrups
+
+</h2>
+
+<label class="option-row">
+<input type="checkbox" name="seasonal" value="0.75">
+<span>Pumpkin Spice Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="seasonal" value="0.75">
+<span>SF Pumpkin Spice</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="seasonal" value="0.75">
+<span>Gingerbread Syrup</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+<label class="option-row">
+<input type="checkbox" name="seasonal" value="0.75">
+<span>Peppermint</span>
+<span class="price-add">+$0.75</span>
+</label>
+
+</section>
+
+<!--=====================================
+FRUIT SYRUPS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Add Fruit Syrups
+
+</h2>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Rose</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Lavender</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Mango</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Pineapple</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Blue Raspberry</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Coconut</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Peach</span><span class="price-add">+$0.75</span></label>
+
+<label class="option-row"><input type="checkbox" name="fruit" value="0.75"><span>Strawberry</span><span class="price-add">+$0.75</span></label>
+
+</section>
+
+  <!--=====================================
+SPECIAL INSTRUCTIONS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Special Instructions
+
+</h2>
+
+<p>
+
+Food allergy? Need something put to the side? Let us know. Additional charges may apply and not all changes are possible.
+
+</p>
+
+<textarea
+
+id="specialInstructions"
+
+class="special-textarea"
+
+placeholder="Enter any special instructions here...">
+
+</textarea>
+
+</section>
+
+<!--=====================================
+ORDER SUMMARY
+======================================-->
+
+<section class="order-summary">
+
+<h2>
+
+Order Summary
+
+</h2>
+
+<div class="summary-row">
+
+<span>
+
+Drink
+
+</span>
+
+<span id="summaryDrink">
+
+Hot Tea
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Quantity
+
+</span>
+
+<span id="summaryQuantity">
+
+1
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+JumpShots Earned
+
+</span>
+
+<span id="summaryShots">
+
+100
+
+</span>
+
+</div>
+
+<div class="summary-row total">
+
+<strong>
+
+Total
+
+</strong>
+
+<strong id="orderTotal">
+
+$3.95
+
+</strong>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACTION BUTTONS
+======================================-->
+
+<section class="checkout-buttons">
+
+<button
+
+class="order-btn"
+
+onclick="addCustomizedDrink()">
+
+🛒 Add To Cart
+
+</button>
+
+<a href="hot-tea.html">
+
+<button
+
+class="reward-btn">
+
+← Back To Hot Teas
+
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
+<nav class="bottom-nav">
+
+<a
+
+href="index.html"
+
+class="nav-item">
+
+🏠
+
+<span>
+
+Home
+
+</span>
+
+</a>
+
+<a
+
+href="traditional.html"
+
+class="nav-item active">
+
+☕
+
+<span>
+
+Menu
+
+</span>
+
+</a>
+
+<a
+
+href="rewards.html"
+
+class="nav-item">
+
+🏀
+
+<span>
+
+Rewards
+
+</span>
+
+</a>
+
+<a
+
+href="cart.html"
+
+class="nav-item">
+
+🛒
+
+<span>
+
+Cart
+
+</span>
+
+</a>
+
+<a
+
+href="profile.html"
+
+class="nav-item">
+
+👤
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</nav>
+
+<!--=====================================
+BACK TO TOP
+======================================-->
+
+<button
+
+id="backToTop"
+
+class="back-to-top"
+
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+<!--=====================================
+LOADING SCREEN
+======================================-->
+
+<div
+
+id="loadingScreen"
+
+class="loading-screen">
+
+<img
+
+src="images/IMG_23_header_logo.png"
+
+class="loading-logo"
+
+alt="JumpShot Coffee">
+
+<h2>
+
+Preparing Your Hot Tea...
+
+</h2>
+
+</div>
+
+<!--=====================================
+CONFETTI
+======================================-->
+
+<canvas
+
+id="confettiCanvas"
+
+class="confetti-canvas">
+
+</canvas>
+
+<!--=====================================
+JAVASCRIPT
+======================================-->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
