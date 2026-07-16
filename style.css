@@ -1471,26 +1471,53 @@ PART 2
 
 position:absolute;
 
-bottom:35px;
+left:45px;
 
-left:80px;
+bottom:25px;
 
-width:130px;
+width:85px;
 
 height:auto;
 
-filter:
+filter:drop-shadow(0 0 18px #72DCE8);
 
-drop-shadow(0 0 18px #72DCE8)
+transition:1s ease;
 
-drop-shadow(0 0 35px rgba(114,220,232,.90));
+z-index:10;
 
-transition:all 1s ease;
+}
+
+  /*=========================================
+REWARD HOOP
+=========================================*/
+
+.reward-hoop{
+
+position:absolute;
+
+top:20px;
+
+right:25px;
+
+width:110px;
+
+height:auto;
+
+background:none;
+
+border:none;
+
+border-radius:0;
+
+box-shadow:none;
+
+filter:drop-shadow(0 0 18px #72DCE8);
+
+pointer-events:none;
 
 z-index:5;
 
 }
-
 /*=========================================
 BALL ANIMATION
 =========================================*/
@@ -1558,36 +1585,6 @@ transform:scale(.45) rotate(540deg);
 /*=========================================
 TEMPORARY HOOP
 =========================================*/
-
-.reward-hoop{
-
-position:absolute;
-
-top:40px;
-
-right:40px;
-
-width:150px;
-
-height:150px;
-
-border:8px solid #72DCE8;
-
-border-radius:50%;
-
-box-shadow:
-
-0 0 15px #72DCE8,
-
-0 0 35px rgba(114,220,232,.70),
-
-inset 0 0 15px #72DCE8;
-
-background:transparent;
-
-z-index:2;
-
-}
 
 .reward-hoop::after{
 
@@ -2115,11 +2112,13 @@ width:100px;
 
 .reward-hoop{
 
-width:120px;
+width:90px;
 
-height:120px;
+height:auto;
 
-}
+right:15px;
+
+top:15px;
 
 }
 
