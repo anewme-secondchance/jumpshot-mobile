@@ -881,7 +881,7 @@ width:100%;
 
 max-width:1300px;
 
-margin:55px auto;
+margin:35px auto;
 
 padding:0 20px;
 
@@ -2393,6 +2393,47 @@ text-shadow:
 
 }
 
+  /*=========================================
+SOCIAL BUTTONS
+=========================================*/
+
+.facebook-btn,
+.instagram-btn,
+.tiktok-btn{
+
+width:240px;
+
+padding:15px 25px;
+
+background:#111111;
+
+border:2px solid #72DCE8;
+
+border-radius:50px;
+
+color:#ffffff;
+
+font-size:1rem;
+
+font-weight:700;
+
+box-shadow:var(--glow);
+
+transition:.35s;
+
+}
+
+.facebook-btn:hover,
+.instagram-btn:hover,
+.tiktok-btn:hover{
+
+background:#72DCE8;
+
+color:#050505;
+
+transform:translateY(-5px);
+
+}
 /*=========================================
 FOOTER
 =========================================*/
@@ -2654,4 +2695,4 @@ END OF STYLE.CSS
 
 }
 
-}
+
