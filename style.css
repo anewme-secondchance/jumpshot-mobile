@@ -1463,31 +1463,6 @@ overflow:hidden;
 }
 
 /*=========================================
-REWARD BALL
-PART 2
-=========================================*/
-
-.reward-ball{
-
-position:absolute;
-
-left:45px;
-
-bottom:25px;
-
-width:85px;
-
-height:auto;
-
-filter:drop-shadow(0 0 18px #72DCE8);
-
-transition:1s ease;
-
-z-index:10;
-
-}
-
-  /*=========================================
 REWARD HOOP
 =========================================*/
 
@@ -1495,11 +1470,11 @@ REWARD HOOP
 
 position:absolute;
 
-top:20px;
+top:30px;
 
-right:25px;
+right:35px;
 
-width:110px;
+width:140px;
 
 height:auto;
 
@@ -1518,6 +1493,39 @@ pointer-events:none;
 z-index:5;
 
 }
+
+/*=========================================
+REWARD BALL
+=========================================*/
+
+.reward-ball{
+
+position:absolute;
+
+left:45px;
+
+bottom:25px;
+
+width:65px;
+
+height:auto;
+
+background:none;
+
+border:none;
+
+border-radius:0;
+
+box-shadow:none;
+
+filter:drop-shadow(0 0 18px #72DCE8);
+
+transition:all 1.2s ease;
+
+z-index:10;
+
+}
+
 /*=========================================
 BALL ANIMATION
 =========================================*/
@@ -1532,21 +1540,21 @@ animation:shootBall 1.2s ease forwards;
 
 0%{
 
-left:80px;
+left:45px;
 
-bottom:35px;
+bottom:25px;
 
-transform:scale(1) rotate(0deg);
+transform:rotate(0deg) scale(1);
 
 }
 
 25%{
 
-left:220px;
+left:210px;
 
 bottom:170px;
 
-transform:scale(.90) rotate(120deg);
+transform:rotate(180deg) scale(.9);
 
 }
 
@@ -1554,61 +1562,31 @@ transform:scale(.90) rotate(120deg);
 
 left:420px;
 
-bottom:250px;
+bottom:255px;
 
-transform:scale(.75) rotate(240deg);
+transform:rotate(360deg) scale(.8);
 
 }
 
 75%{
 
-left:600px;
+left:610px;
 
-bottom:170px;
+bottom:205px;
 
-transform:scale(.60) rotate(360deg);
+transform:rotate(540deg) scale(.7);
 
 }
 
 100%{
 
-left:730px;
+left:705px;
 
-bottom:275px;
+bottom:250px;
 
-transform:scale(.45) rotate(540deg);
-
-}
+transform:rotate(720deg) scale(.55);
 
 }
-
-/*=========================================
-TEMPORARY HOOP
-=========================================*/
-
-.reward-hoop::after{
-
-content:"";
-
-position:absolute;
-
-left:18px;
-
-top:55px;
-
-width:100px;
-
-height:55px;
-
-border-left:3px solid #ffffff;
-
-border-right:3px solid #ffffff;
-
-border-bottom:3px solid #ffffff;
-
-border-radius:0 0 30px 30px;
-
-opacity:.8;
 
 }
 
@@ -1643,6 +1621,70 @@ transparent
 );
 
 opacity:.9;
+
+}
+
+/*=========================================
+REWARDS RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+.basketball-area{
+
+height:320px;
+
+}
+
+.reward-hoop{
+
+width:110px;
+
+right:20px;
+
+top:20px;
+
+}
+
+.reward-ball{
+
+width:55px;
+
+left:35px;
+
+bottom:20px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.basketball-area{
+
+height:250px;
+
+}
+
+.reward-hoop{
+
+width:85px;
+
+right:12px;
+
+top:12px;
+
+}
+
+.reward-ball{
+
+width:45px;
+
+left:18px;
+
+bottom:15px;
+
+}
 
 }
 
