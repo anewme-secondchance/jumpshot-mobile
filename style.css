@@ -2738,4 +2738,30 @@ END OF STYLE.CSS
 
 }
 
+/*=========================================
+DESKTOP INSTALL POPUP
+=========================================*/
 
+@media (min-width: 769px){
+
+.install-popup{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+.install-logo{
+
+width:140px;
+
+margin:0 auto 20px;
+
+}
+
+}
