@@ -653,49 +653,6 @@ ball.classList.remove(
 
 }
 
-/*=========================================
-REWARD POPUP
-=========================================*/
-
-function openRewards(){
-
-const popup=
-
-document.getElementById(
-
-"rewardsPopup"
-
-);
-
-if(popup){
-
-popup.style.display=
-
-"flex";
-
-}
-
-}
-
-function closeRewards(){
-
-const popup=
-
-document.getElementById(
-
-"rewardsPopup"
-
-);
-
-if(popup){
-
-popup.style.display=
-
-"none";
-
-}
-
-}
 
 /*=========================================
 HISTORY POPUP
@@ -1099,12 +1056,6 @@ document.addEventListener(
 
 (event)=>{
 
-if(event.target.id==="rewardsPopup"){
-
-closeRewards();
-
-}
-
 if(event.target.id==="historyPopup"){
 
 closeHistory();
@@ -1125,7 +1076,6 @@ document.addEventListener(
 
 if(event.key==="Escape"){
 
-closeRewards();
 
 closeHistory();
 
@@ -2447,14 +2397,11 @@ document.addEventListener(
 
 if(event.key==="Escape"){
 
-closeRewards();
-
 closeHistory();
 
 closeProfileEditor();
 
 }
-
 });
 
 /*=========================================
