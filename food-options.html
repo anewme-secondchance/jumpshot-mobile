@@ -1,0 +1,416 @@
+<!--=====================================
+FOOD OPTIONS
+PART 1
+======================================-->
+
+<main class="order-page">
+
+<section class="order-header">
+
+<img
+
+id="foodImage"
+
+src="images/IMG_food.png"
+
+class="order-photo"
+
+alt="Food Item">
+
+<h1 id="foodName">
+
+Food Item
+
+</h1>
+
+<p id="foodDescription">
+
+Freshly prepared food made to order.
+
+</p>
+
+<h2 id="foodPrice">
+
+Starting at $0.00
+
+</h2>
+
+</section>
+
+<!--=====================================
+QUANTITY
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Quantity
+
+</h2>
+
+<div class="quantity-box">
+
+<button
+
+type="button"
+
+onclick="decreaseQty()">
+
+−
+
+</button>
+
+<input
+
+type="number"
+
+id="quantity"
+
+value="1"
+
+min="1">
+
+<button
+
+type="button"
+
+onclick="increaseQty()">
+
++
+
+</button>
+
+</div>
+
+</section>
+
+<!--=====================================
+OPTIONS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Options
+
+</h2>
+
+<label class="option-row">
+
+<input
+
+type="checkbox"
+
+name="extraAvocado"
+
+value="1.25">
+
+<span>
+
+Extra Avocado
+
+</span>
+
+<span class="price-add">
+
++$1.25
+
+</span>
+
+</label>
+
+</section>
+
+<!--=====================================
+SPECIAL INSTRUCTIONS
+======================================-->
+
+<section class="option-card">
+
+<h2>
+
+Special Instructions
+
+</h2>
+
+<p>
+
+Food allergy? Need something put to the side? Let us know. Additional charges may apply and not all changes are possible.
+
+</p>
+
+<textarea
+
+id="specialInstructions"
+
+class="special-textarea"
+
+placeholder="Enter any special instructions here...">
+
+</textarea>
+
+</section>
+
+<!--=====================================
+ORDER SUMMARY
+======================================-->
+
+<section class="order-summary">
+
+<h2>
+
+Order Summary
+
+</h2>
+
+<div class="summary-row">
+
+<span>
+
+Item
+
+</span>
+
+<span id="summaryDrink">
+
+Food Item
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Quantity
+
+</span>
+
+<span id="summaryQuantity">
+
+1
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+JumpShots Earned
+
+</span>
+
+<span id="summaryShots">
+
+100
+
+</span>
+
+</div>
+
+<div class="summary-row total">
+
+<strong>
+
+Total
+
+</strong>
+
+<strong id="orderTotal">
+
+$0.00
+
+</strong>
+
+</div>
+
+</section>
+
+<!--=====================================
+ACTION BUTTONS
+======================================-->
+
+<section class="checkout-buttons">
+
+<button
+
+class="order-btn"
+
+onclick="addCustomizedDrink()">
+
+🛒 Add To Cart
+
+</button>
+
+<a href="food.html">
+
+<button
+
+class="reward-btn">
+
+← Back To Food
+
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<!--=====================================
+BOTTOM NAVIGATION
+======================================-->
+
+<nav class="bottom-nav">
+
+<a
+
+href="index.html"
+
+class="nav-item">
+
+🏠
+
+<span>
+
+Home
+
+</span>
+
+</a>
+
+<a
+
+href="traditional.html"
+
+class="nav-item active">
+
+☕
+
+<span>
+
+Menu
+
+</span>
+
+</a>
+
+<a
+
+href="rewards.html"
+
+class="nav-item">
+
+🏀
+
+<span>
+
+Rewards
+
+</span>
+
+</a>
+
+<a
+
+href="cart.html"
+
+class="nav-item">
+
+🛒
+
+<span>
+
+Cart
+
+</span>
+
+</a>
+
+<a
+
+href="profile.html"
+
+class="nav-item">
+
+👤
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</nav>
+
+<!--=====================================
+BACK TO TOP
+======================================-->
+
+<button
+
+id="backToTop"
+
+class="back-to-top"
+
+onclick="scrollToTop()">
+
+⬆
+
+</button>
+
+<!--=====================================
+LOADING SCREEN
+======================================-->
+
+<div
+
+id="loadingScreen"
+
+class="loading-screen">
+
+<img
+
+src="images/IMG_23_header_logo.png"
+
+class="loading-logo"
+
+alt="JumpShot Coffee">
+
+<h2>
+
+Preparing Your Order...
+
+</h2>
+
+</div>
+
+<!--=====================================
+CONFETTI
+======================================-->
+
+<canvas
+
+id="confettiCanvas"
+
+class="confetti-canvas">
+
+</canvas>
+
+<!--=====================================
+JAVASCRIPT
+======================================-->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
