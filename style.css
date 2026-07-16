@@ -2733,6 +2733,1071 @@ font-size:2.2rem;
 }
 
 /*=========================================
+ORDER OPTIONS PAGES
+=========================================*/
+
+.order-page{
+max-width:900px;
+margin:auto;
+padding:30px 20px 120px;
+animation:fadeIn .5s ease;
+}
+
+.option-card{
+background:#111111;
+border:2px solid rgba(114,220,232,.20);
+border-radius:24px;
+padding:25px;
+margin-bottom:25px;
+box-shadow:
+0 0 15px rgba(114,220,232,.25);
+transition:.35s;
+}
+
+.option-card:hover{
+border-color:#72DCE8;
+transform:translateY(-5px);
+box-shadow:
+0 0 20px #72DCE8,
+0 0 40px rgba(114,220,232,.45);
+}
+
+.option-card h2{
+color:#72DCE8;
+text-shadow:0 0 10px #72DCE8;
+margin-bottom:20px;
+}
+
+.required-text{
+color:#72DCE8;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.option-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+font-size:1rem;
+}
+
+.option-row:last-child{
+border-bottom:none;
+}
+
+.option-row input{
+accent-color:#72DCE8;
+transform:scale(1.2);
+cursor:pointer;
+}
+
+.price-add{
+color:#72DCE8;
+font-weight:700;
+}
+
+.quantity-box{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.quantity-box button{
+width:55px;
+height:55px;
+border-radius:50%;
+background:#72DCE8;
+color:#050505;
+font-size:1.6rem;
+font-weight:700;
+box-shadow:var(--glow);
+}
+
+.quantity-box input{
+width:80px;
+height:55px;
+text-align:center;
+font-size:1.2rem;
+background:#181818;
+border:2px solid #72DCE8;
+border-radius:16px;
+color:#fff;
+}
+
+.special-textarea{
+width:100%;
+min-height:130px;
+background:#181818;
+border:2px solid rgba(114,220,232,.25);
+border-radius:18px;
+padding:18px;
+color:#fff;
+font-size:1rem;
+resize:vertical;
+transition:.35s;
+}
+
+.special-textarea:focus{
+outline:none;
+border-color:#72DCE8;
+box-shadow:0 0 15px rgba(114,220,232,.55);
+}
+
+.order-summary{
+background:#111111;
+border:2px solid #72DCE8;
+border-radius:24px;
+padding:30px;
+margin:30px 0;
+box-shadow:var(--glow);
+}
+
+.order-summary h2{
+color:#72DCE8;
+text-shadow:0 0 10px #72DCE8;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.summary-row.total{
+font-size:1.3rem;
+font-weight:700;
+color:#72DCE8;
+border-bottom:none;
+padding-top:20px;
+}
+
+.checkout-buttons{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:30px;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/*=========================================
+ORDER PAGE HEADER
+=========================================*/
+
+.order-header{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+.order-header h1{
+
+font-size:3rem;
+
+color:#72DCE8;
+
+text-shadow:
+0 0 10px #72DCE8,
+0 0 20px rgba(114,220,232,.60);
+
+margin-bottom:15px;
+
+}
+
+.order-header p{
+
+max-width:700px;
+
+margin:0 auto 20px;
+
+color:#d4d4d4;
+
+}
+
+.order-header h2{
+
+color:#72DCE8;
+
+font-size:2rem;
+
+font-weight:700;
+
+text-shadow:
+0 0 10px #72DCE8;
+
+}
+
+/*=========================================
+RADIO & CHECKBOX STYLING
+=========================================*/
+
+.option-row{
+
+cursor:pointer;
+
+transition:.30s;
+
+}
+
+.option-row:hover{
+
+color:#72DCE8;
+
+padding-left:10px;
+
+}
+
+.option-row input[type="radio"],
+
+.option-row input[type="checkbox"]{
+
+width:22px;
+
+height:22px;
+
+margin-right:15px;
+
+accent-color:#72DCE8;
+
+}
+
+/*=========================================
+SUMMARY TOTAL
+=========================================*/
+
+#orderTotal{
+
+color:#72DCE8;
+
+font-size:1.5rem;
+
+font-weight:800;
+
+text-shadow:
+0 0 10px #72DCE8,
+0 0 20px rgba(114,220,232,.70);
+
+}
+
+#summaryShots{
+
+color:#72DCE8;
+
+font-weight:700;
+
+}
+
+#summaryQuantity{
+
+font-weight:700;
+
+}
+
+/*=========================================
+OPTION DIVIDERS
+=========================================*/
+
+.option-card hr{
+
+border:none;
+
+height:1px;
+
+background:rgba(114,220,232,.20);
+
+margin:20px 0;
+
+}  
+
+/*=========================================
+BUTTONS & QUANTITY
+=========================================*/
+
+.order-btn,
+.reward-btn{
+
+transition:all .35s ease;
+
+}
+
+.order-btn:hover{
+
+transform:translateY(-3px) scale(1.02);
+
+box-shadow:
+0 0 15px #72DCE8,
+0 0 30px rgba(114,220,232,.60);
+
+}
+
+.reward-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 12px rgba(114,220,232,.45);
+
+}
+
+.quantity-box{
+
+margin-top:15px;
+
+}
+
+.quantity-box button{
+
+cursor:pointer;
+
+transition:all .30s ease;
+
+}
+
+.quantity-box button:hover{
+
+transform:scale(1.10);
+
+background:#8EEAF4;
+
+box-shadow:
+0 0 15px #72DCE8,
+0 0 30px rgba(114,220,232,.60);
+
+}
+
+.quantity-box button:active{
+
+transform:scale(.95);
+
+}
+
+.quantity-box input:focus{
+
+outline:none;
+
+box-shadow:
+0 0 12px rgba(114,220,232,.60);
+
+}
+
+/*=========================================
+TEXTAREA
+=========================================*/
+
+.special-textarea::placeholder{
+
+color:#a8a8a8;
+
+}
+
+.special-textarea:hover{
+
+border-color:#72DCE8;
+
+}
+
+/*=========================================
+SMOOTH SCROLL
+=========================================*/
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+/*=========================================
+OPTION ROWS
+=========================================*/
+
+.option-row{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:15px;
+
+padding:16px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+font-size:1rem;
+
+}
+
+.option-row:last-child{
+
+border-bottom:none;
+
+}
+
+.option-row span:first-of-type{
+
+flex:1;
+
+}
+
+.option-row input{
+
+accent-color:#72DCE8;
+
+cursor:pointer;
+
+width:18px;
+
+height:18px;
+
+}
+
+.price-add{
+
+color:#72DCE8;
+
+font-weight:700;
+
+margin-left:10px;
+
+}  
+
+  /*=========================================
+ORDER SUMMARY
+=========================================*/
+
+.order-summary{
+
+background:#111111;
+
+border:2px solid #72DCE8;
+
+border-radius:20px;
+
+padding:25px;
+
+margin:30px 0;
+
+box-shadow:0 0 12px rgba(114,220,232,.25);
+
+}
+
+.order-summary h2{
+
+color:#72DCE8;
+
+font-size:1.6rem;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+text-align:center;
+
+}
+
+.summary-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.summary-row:last-child{
+
+border-bottom:none;
+
+}
+
+.summary-row span,
+
+.summary-row strong{
+
+color:#ffffff;
+
+}
+
+.summary-row.total strong{
+
+color:#72DCE8;
+
+font-size:1.35rem;
+
+font-weight:700;
+
+}
+
+  /*=========================================
+QUANTITY
+=========================================*/
+
+.quantity-box{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:15px;
+
+}
+
+.quantity-box button{
+
+width:50px;
+
+height:50px;
+
+border:none;
+
+border-radius:12px;
+
+background:#72DCE8;
+
+color:#111111;
+
+font-size:1.5rem;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+.quantity-box button:hover{
+
+background:#8EEAF4;
+
+}
+
+.quantity-box input{
+
+width:70px;
+
+height:50px;
+
+text-align:center;
+
+font-size:1.2rem;
+
+font-weight:700;
+
+background:#1b1b1b;
+
+color:#ffffff;
+
+border:2px solid #72DCE8;
+
+border-radius:12px;
+
+}
+
+.quantity-box input:focus{
+
+outline:none;
+
+border-color:#72DCE8;
+
+}
+
+  /*=========================================
+SPECIAL INSTRUCTIONS
+=========================================*/
+
+.special-textarea{
+
+width:100%;
+
+min-height:130px;
+
+padding:15px;
+
+background:#1b1b1b;
+
+color:#ffffff;
+
+font-size:1rem;
+
+font-family:'Poppins',sans-serif;
+
+border:2px solid #72DCE8;
+
+border-radius:15px;
+
+resize:vertical;
+
+box-sizing:border-box;
+
+}
+
+.special-textarea:focus{
+
+outline:none;
+
+border-color:#72DCE8;
+
+}
+
+.option-card p{
+
+line-height:1.6;
+
+color:#d6d6d6;
+
+margin-bottom:15px;
+
+}
+
+/*=========================================
+CHECKOUT BUTTONS
+=========================================*/
+
+.checkout-buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+margin:35px 0;
+
+}
+
+.checkout-buttons .order-btn,
+
+.checkout-buttons .reward-btn{
+
+width:100%;
+
+max-width:500px;
+
+margin:0 auto;
+
+display:block;
+
+}
+
+.checkout-buttons .order-btn{
+
+font-size:1.1rem;
+
+font-weight:700;
+
+padding:16px;
+
+}
+
+.checkout-buttons .reward-btn{
+
+font-size:1rem;
+
+font-weight:600;
+
+padding:14px;
+
+}
+
+/*=========================================
+OPTION SECTION HEADINGS
+=========================================*/
+
+.option-card h2{
+
+color:#72DCE8;
+
+font-size:1.35rem;
+
+font-weight:700;
+
+margin-bottom:8px;
+
+}
+
+.required-text{
+
+color:#72DCE8;
+
+font-size:.9rem;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+text-transform:uppercase;
+
+letter-spacing:.5px;
+
+}
+
+.option-card{
+
+overflow:hidden;
+
+}
+
+.option-card h2::after{
+
+content:"";
+
+display:block;
+
+width:50px;
+
+height:3px;
+
+margin-top:8px;
+
+background:#72DCE8;
+
+border-radius:10px;
+
+}  
+
+  /*=========================================
+LOADING SCREEN
+=========================================*/
+
+.loading-screen{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:#0f0f0f;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+text-align:center;
+
+}
+
+.loading-logo{
+
+width:120px;
+
+max-width:40%;
+
+margin-bottom:20px;
+
+}
+
+.loading-screen h2,
+
+.loading-screen p{
+
+color:#72DCE8;
+
+font-size:1.2rem;
+
+font-weight:600;
+
+margin:0;
+
+}
+
+ /*=========================================
+MOBILE RESPONSIVE
+=========================================*/
+
+@media (max-width:768px){
+
+.order-page{
+
+padding:20px 15px 120px;
+
+}
+
+.option-card{
+
+padding:20px;
+
+margin-bottom:20px;
+
+}
+
+.option-card h2{
+
+font-size:1.2rem;
+
+}
+
+.option-row{
+
+font-size:.95rem;
+
+gap:10px;
+
+}
+
+.quantity-box{
+
+gap:12px;
+
+}
+
+.quantity-box button{
+
+width:45px;
+
+height:45px;
+
+font-size:1.3rem;
+
+}
+
+.quantity-box input{
+
+width:65px;
+
+height:45px;
+
+font-size:1rem;
+
+}
+
+.order-summary{
+
+padding:20px;
+
+}
+
+.checkout-buttons .order-btn,
+
+.checkout-buttons .reward-btn{
+
+width:100%;
+
+}
+
+.special-textarea{
+
+min-height:120px;
+
+}
+
+} 
+
+ /*=========================================
+FORM CONTROLS
+=========================================*/
+
+input[type="radio"],
+
+input[type="checkbox"]{
+
+cursor:pointer;
+
+accent-color:#72DCE8;
+
+}
+
+input[type="number"]{
+
+appearance:textfield;
+
+-moz-appearance:textfield;
+
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+
+input[type="number"]::-webkit-inner-spin-button{
+
+-webkit-appearance:none;
+
+margin:0;
+
+}
+
+textarea{
+
+font-family:'Poppins',sans-serif;
+
+font-size:1rem;
+
+color:#ffffff;
+
+}
+
+textarea::placeholder{
+
+color:#999999;
+
+} 
+
+ /*=========================================
+SPACING & LAYOUT
+=========================================*/
+
+.option-card + .option-card{
+
+margin-top:25px;
+
+}
+
+.option-card h2{
+
+margin-top:0;
+
+}
+
+.option-card p{
+
+margin:12px 0;
+
+}
+
+.order-summary{
+
+margin-top:35px;
+
+}
+
+.checkout-buttons{
+
+margin-top:35px;
+
+margin-bottom:30px;
+
+}
+
+.checkout-buttons .order-btn{
+
+margin-bottom:10px;
+
+}
+
+.back-to-top{
+
+bottom:95px;
+
+right:20px;
+
+}
+
+ /*=========================================
+FINAL OPTIONS PAGE POLISH
+=========================================*/
+
+.option-card{
+
+box-sizing:border-box;
+
+}
+
+.option-row{
+
+min-height:48px;
+
+}
+
+.option-row span{
+
+word-break:break-word;
+
+}
+
+.price-add{
+
+white-space:nowrap;
+
+font-weight:700;
+
+}
+
+.order-summary strong{
+
+font-weight:700;
+
+}
+
+.order-summary .summary-row:last-child{
+
+border-bottom:none;
+
+}
+
+.checkout-buttons button{
+
+cursor:pointer;
+
+}
+
+.checkout-buttons button:disabled{
+
+opacity:.6;
+
+cursor:not-allowed;
+
+}
+
+.special-textarea{
+
+transition:border-color .2s ease;
+
+}
+
+.quantity-box input{
+
+font-weight:700;
+
+}
+
+.quantity-box button{
+
+font-family:'Poppins',sans-serif;
+
+}
+
+.option-card label{
+
+cursor:pointer;
+
+} 
+/*=========================================
 END OF STYLE.CSS
 =========================================*/
 
