@@ -3136,3 +3136,12 @@ function getPickupTime(){
 END PART 11
 ====================================================*/
 
+/*=========================================
+CONTACT PAGE
+=========================================*/
+
+function sendMessage(){
+
+    showToast("Thank you! Your message has been received.");
+
+}
