@@ -2554,3 +2554,369 @@ function resetDrinkBuilder() {
 END PART 1
 ====================================================*/
 
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 2
+PRICE CALCULATOR
+====================================================*/
+
+function getSelectedValue(name){
+
+    const option = document.querySelector(
+        'input[name="'+name+'"]:checked'
+    );
+
+    if(!option) return 0;
+
+    const value = Number(option.value);
+
+    if(isNaN(value)) return 0;
+
+    return value;
+
+}
+
+function getCheckboxTotal(name){
+
+    let total = 0;
+
+    document
+    .querySelectorAll(
+        'input[name="'+name+'"]:checked'
+    )
+    .forEach(item=>{
+
+        const value = Number(item.value);
+
+        if(!isNaN(value)){
+
+            total += value;
+
+        }
+
+    });
+
+    return total;
+
+}
+
+function calculateCurrentPrice(){
+
+    if(!currentDrink) return;
+
+    let total = currentDrink.basePrice;
+
+    total += getSelectedValue("size");
+
+    total += getSelectedValue("espresso");
+
+    total += getSelectedValue("milk");
+
+    total += getSelectedValue("agara");
+
+    total += getSelectedValue("extraShot");
+
+    total += getCheckboxTotal("syrup");
+
+    total += getCheckboxTotal("sf");
+
+    total += getCheckboxTotal("sfSyrup");
+
+    total += getCheckboxTotal("sauce");
+
+    total += getCheckboxTotal("fruit");
+
+    total += getCheckboxTotal("fruitSyrup");
+
+    total += getCheckboxTotal("seasonal");
+
+    total += getCheckboxTotal("lotusShot");
+
+    total += getCheckboxTotal("whip");
+
+    total += getCheckboxTotal("extraAvocado");
+
+    currentPrice = total;
+
+    updateDisplayedPrice();
+
+}
+
+/*====================================================
+LISTEN FOR OPTION CHANGES
+====================================================*/
+
+document.addEventListener("change",()=>{
+
+    calculateCurrentPrice();
+
+});
+
+/*====================================================
+END PART 2
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 3
+ORDER SUMMARY + QUANTITY
+====================================================*/
+
+function updateOrderSummary(){
+
+    const qtyBox = $("quantity");
+
+    if(qtyBox){
+
+        currentQuantity = Number(qtyBox.value);
+
+        if(currentQuantity < 1){
+
+            currentQuantity = 1;
+
+            qtyBox.value = 1;
+
+        }
+
+    }
+
+    const summaryQty = $("summaryQuantity");
+
+    if(summaryQty){
+
+        summaryQty.textContent = currentQuantity;
+
+    }
+
+    const summaryDrink = $("summaryDrink");
+
+    if(summaryDrink && currentDrink){
+
+        summaryDrink.textContent = currentDrink.name;
+
+    }
+
+    const summaryShots = $("summaryShots");
+
+    if(summaryShots){
+
+        summaryShots.textContent = currentQuantity * 100;
+
+    }
+
+    const total = currentPrice * currentQuantity;
+
+    const totalBox = $("orderTotal");
+
+    if(totalBox){
+
+        totalBox.textContent = money(total);
+
+    }
+
+}
+
+/*====================================================
+PAGE QUANTITY
+====================================================*/
+
+function increaseDrinkQuantity(){
+
+    const qty = $("quantity");
+
+    if(!qty) return;
+
+    qty.value = Number(qty.value) + 1;
+
+    updateOrderSummary();
+
+}
+
+function decreaseDrinkQuantity(){
+
+    const qty = $("quantity");
+
+    if(!qty) return;
+
+    let value = Number(qty.value);
+
+    if(value > 1){
+
+        qty.value = value - 1;
+
+    }
+
+    updateOrderSummary();
+
+}
+
+/*====================================================
+WATCH QUANTITY
+====================================================*/
+
+document.addEventListener("input",(event)=>{
+
+    if(event.target.id==="quantity"){
+
+        updateOrderSummary();
+
+    }
+
+});
+
+/*====================================================
+KEEP SUMMARY UPDATED
+====================================================*/
+
+document.addEventListener("change",()=>{
+
+    calculateCurrentPrice();
+
+    updateOrderSummary();
+
+});
+
+/*====================================================
+END PART 3
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 4
+ADD CUSTOMIZED DRINK TO CART
+====================================================*/
+
+function addCustomizedDrink(){
+
+    if(!currentDrink){
+
+        showToast("No drink selected.");
+
+        return;
+
+    }
+
+    const quantity =
+        Number($("quantity")?.value || 1);
+
+    const specialInstructions =
+        $("specialInstructions")?.value.trim() || "";
+
+    const totalPrice =
+        Number((currentPrice * quantity).toFixed(2));
+
+    const rewardShots =
+        quantity * 100;
+
+    cart.push({
+
+        name: currentDrink.name,
+
+        price: currentPrice,
+
+        qty: quantity,
+
+        rewardShots: rewardShots,
+
+        category: currentCategory,
+
+        instructions: specialInstructions
+
+    });
+
+    shots += rewardShots;
+
+    saveCart();
+
+    saveShots();
+
+    updateCartBadge();
+
+    updateRewardDisplay();
+
+    showToast(
+
+        currentDrink.name +
+        " added to cart!"
+
+    );
+
+    if(typeof renderCart==="function"){
+
+        renderCart();
+
+    }
+
+}
+
+/*====================================================
+END PART 4
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 5
+AUTO PAGE SETUP
+====================================================*/
+
+function initializeDrinkPage(){
+
+    const drinkName =
+        $("summaryDrink");
+
+    const orderTotal =
+        $("orderTotal");
+
+    if(!drinkName || !orderTotal){
+
+        return;
+
+    }
+
+    let basePrice = parseFloat(
+
+        orderTotal.textContent
+            .replace("$","")
+
+    );
+
+    if(isNaN(basePrice)){
+
+        basePrice = 0;
+
+    }
+
+    setCurrentDrink(
+
+        drinkName.textContent.trim(),
+
+        basePrice,
+
+        document.title
+
+    );
+
+    calculateCurrentPrice();
+
+    updateOrderSummary();
+
+}
+
+/*====================================================
+START ORDER PAGE
+====================================================*/
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        initializeDrinkPage();
+
+    }
+
+);
+
+/*====================================================
+END PART 5
+====================================================*/
+
+
+
