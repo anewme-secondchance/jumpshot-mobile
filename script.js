@@ -1136,7 +1136,40 @@ card.innerHTML = `
 
 <h3>${item.name}</h3>
 
-<p>$${item.price.toFixed(2)}</p>
+<p><strong>$${item.price.toFixed(2)}</strong></p>
+
+${
+item.options && item.options.length
+?
+
+`<div class="cart-options">
+
+${item.options.map(option=>`
+
+<div>• ${option}</div>
+
+`).join("")}
+
+</div>`
+
+:
+
+""
+
+}
+
+${
+item.instructions
+
+?
+
+`<p><strong>Special Instructions:</strong><br>${item.instructions}</p>`
+
+:
+
+""
+
+}
 
 <div class="qty-controls">
 
@@ -1242,14 +1275,22 @@ localStorage.getItem("orderHistory")
 
 history.push({
 
-date:new Date().toLocaleString(),
+    id: "JS-" + Date.now(),
 
-items:cart,
+    date: new Date().toLocaleString(),
 
-total:getCartTotal()
+    items: JSON.parse(JSON.stringify(cart)),
+
+    total: getCartTotal(),
+
+    totalItems: cart.reduce((sum,item)=>sum + item.qty,0),
+
+    rewardShots: cart.reduce((sum,item)=>sum + item.rewardShots,0),
+
+    pickupTime: getPickupTime()
 
 });
-
+    
 localStorage.setItem(
 
 "orderHistory",
@@ -1258,11 +1299,15 @@ JSON.stringify(history)
 
 );
 
-cart=[];
+const receipt = history[history.length - 1];
+
+cart = [];
 
 saveCart();
 
 renderCart();
+
+showReceipt(receipt);
 
 updateCartBadge();
 
@@ -2805,21 +2850,23 @@ function addCustomizedDrink(){
     const rewardShots =
         quantity * 100;
 
-    cart.push({
+  cart.push({
 
-        name: currentDrink.name,
+    name: currentDrink.name,
 
-        price: currentPrice,
+    price: currentPrice,
 
-        qty: quantity,
+    qty: quantity,
 
-        rewardShots: rewardShots,
+    rewardShots: rewardShots,
 
-        category: currentCategory,
+    category: currentCategory,
 
-        instructions: specialInstructions
+    options: getSelectedOptions(),
 
-    });
+    instructions: specialInstructions
+
+}); 
 
     shots += rewardShots;
 
@@ -2918,5 +2965,174 @@ document.addEventListener(
 END PART 5
 ====================================================*/
 
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 6
+COLLECT SELECTED OPTIONS
+====================================================*/
 
+function getSelectedOptions(){
+
+    const selections = [];
+
+    document.querySelectorAll(
+        ".option-card input:checked"
+    ).forEach(input=>{
+
+        const row = input.closest(".option-row");
+
+        if(!row) return;
+
+        const text = row.querySelector("span");
+
+        if(text){
+
+            selections.push(text.textContent.trim());
+
+        }
+
+    });
+
+    return selections;
+
+}
+
+/*====================================================
+END PART 6
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 7
+RECEIPT
+====================================================*/
+
+function showReceipt(order){
+
+    let message = "";
+
+    message += "☕ JumpShot Coffee\n\n";
+
+    message += "Order ID:\n";
+    message += order.id + "\n\n";
+
+    message += "Date:\n";
+    message += order.date + "\n\n";
+
+    message += "Items:\n";
+
+    order.items.forEach(item=>{
+
+        message += `${item.qty} × ${item.name}\n`;
+
+        if(item.options){
+
+            item.options.forEach(option=>{
+
+                message += `   • ${option}\n`;
+
+            });
+
+        }
+
+        if(item.instructions){
+
+            message += `   Notes: ${item.instructions}\n`;
+
+        }
+
+        message += "\n";
+
+    });
+
+    message += `Total Items: ${order.totalItems}\n`;
+
+    message += `Reward Shots: ${order.rewardShots}\n`;
+
+    message += `Total: $${order.total.toFixed(2)}\n\n`;
+
+    message += "Thank you for choosing JumpShot Coffee!";
+
+    alert(message);
+
+}
+
+/*====================================================
+END PART 7
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 8
+REORDER PREVIOUS ORDER
+====================================================*/
+
+function reorderOrder(index){
+
+    if(!history[index]) return;
+
+    cart = JSON.parse(JSON.stringify(history[index].items));
+
+    saveCart();
+
+    renderCart();
+
+    alert("Previous order has been added to your cart!");
+
+}
+
+/*====================================================
+END PART 8
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 9
+PICKUP TIME
+====================================================*/
+
+function getPickupTime(){
+
+    const pickup = new Date();
+
+    pickup.setMinutes(
+        pickup.getMinutes() + 10
+    );
+
+    return pickup.toLocaleTimeString([],{
+
+        hour:"numeric",
+
+        minute:"2-digit"
+
+    });
+
+}
+
+/*====================================================
+END PART 9
+====================================================*/
+
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 11
+PICKUP TIME
+====================================================*/
+
+function getPickupTime(){
+
+    const pickup = new Date();
+
+    pickup.setMinutes(
+        pickup.getMinutes() + 10
+    );
+
+    return pickup.toLocaleTimeString([],{
+
+        hour:"numeric",
+
+        minute:"2-digit"
+
+    });
+
+}
+
+/*====================================================
+END PART 11
+====================================================*/
 
