@@ -2418,3 +2418,139 @@ console.log(
 END OF SCRIPT.JS
 =========================================*/
 
+/*====================================================
+JUMPSHOT ORDERING ENGINE - PART 1
+DO NOT REMOVE
+====================================================*/
+
+// Current drink being customized
+let currentDrink = null;
+
+// Current page category
+let currentCategory = "";
+
+// Current calculated price
+let currentPrice = 0;
+
+// Quantity
+let currentQuantity = 1;
+
+/*====================================================
+GET ELEMENT SAFELY
+====================================================*/
+function $(id) {
+    return document.getElementById(id);
+}
+
+/*====================================================
+FORMAT MONEY
+====================================================*/
+function money(amount) {
+    return "$" + Number(amount).toFixed(2);
+}
+
+/*====================================================
+SET CURRENT DRINK
+====================================================*/
+function setCurrentDrink(name, price, category) {
+
+    currentDrink = {
+        name: name,
+        basePrice: Number(price)
+    };
+
+    currentCategory = category;
+    currentPrice = Number(price);
+    currentQuantity = 1;
+
+    updateDisplayedPrice();
+
+}
+
+/*====================================================
+UPDATE DISPLAYED PRICE
+====================================================*/
+function updateDisplayedPrice() {
+
+    const total = currentPrice * currentQuantity;
+
+    const ids = [
+
+        "drinkPrice",
+        "totalPrice",
+        "price",
+        "total"
+
+    ];
+
+    ids.forEach(id => {
+
+        const el = $(id);
+
+        if (el) {
+
+            el.textContent = money(total);
+
+        }
+
+    });
+
+}
+
+/*====================================================
+SET QUANTITY
+====================================================*/
+function setQuantity(qty) {
+
+    qty = Number(qty);
+
+    if (qty < 1) qty = 1;
+
+    currentQuantity = qty;
+
+    updateDisplayedPrice();
+
+}
+
+/*====================================================
+INCREASE QUANTITY
+====================================================*/
+function increaseDrinkQuantity() {
+
+    currentQuantity++;
+
+    updateDisplayedPrice();
+
+}
+
+/*====================================================
+DECREASE QUANTITY
+====================================================*/
+function decreaseDrinkQuantity() {
+
+    if (currentQuantity > 1) {
+
+        currentQuantity--;
+
+    }
+
+    updateDisplayedPrice();
+
+}
+
+/*====================================================
+RESET DRINK
+====================================================*/
+function resetDrinkBuilder() {
+
+    currentDrink = null;
+    currentCategory = "";
+    currentPrice = 0;
+    currentQuantity = 1;
+
+}
+
+/*====================================================
+END PART 1
+====================================================*/
+
