@@ -5,6 +5,14 @@ SCRIPT.JS
 
 "use strict";
 
+window.onerror = function(message, source, line, column, error) {
+    console.error("SCRIPT ERROR:", message);
+    console.error("FILE:", source);
+    console.error("LINE:", line);
+    console.error("COLUMN:", column);
+    return false;
+};
+
 /*=========================================
 LOCAL STORAGE KEYS
 =========================================*/
