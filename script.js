@@ -1526,11 +1526,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!loading) return;
 
     setTimeout(() => {
-        loading.style.opacity = "0";
 
-        setTimeout(() => {
-            loading.remove();
-        }, 500);
+        loading.style.display = "none";
 
     }, 1000);
 
