@@ -2870,18 +2870,20 @@ function addCustomizedDrink(){
 
     updateRewardDisplay();
 
- showToast(
-    currentDrink.name +
-    " added to cart!"
-);
+showToast(currentDrink.name + " added to cart!");
 
 launchConfetti();
 
 if(typeof renderCart==="function"){
-
     renderCart();
-
 }
+
+}  
+
+/*====================================================
+END PART 4
+====================================================*/
+    
 
 /*====================================================
 END PART 4
