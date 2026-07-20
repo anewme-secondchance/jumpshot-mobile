@@ -1519,33 +1519,20 @@ btn.style.display="none";
 LOADING SCREEN
 =========================================*/
 
-window.addEventListener(
+window.addEventListener("DOMContentLoaded", () => {
 
-"load",
+    const loading = document.getElementById("loadingScreen");
 
-()=>{
+    if (!loading) return;
 
-const loading=
+    setTimeout(() => {
+        loading.style.opacity = "0";
 
-document.getElementById(
+        setTimeout(() => {
+            loading.remove();
+        }, 500);
 
-"loadingScreen"
-
-);
-
-if(!loading) return;
-
-setTimeout(()=>{
-
-loading.style.opacity="0";
-
-setTimeout(()=>{
-
-loading.style.display="none";
-
-},500);
-
-},1000);
+    }, 1000);
 
 });
 
