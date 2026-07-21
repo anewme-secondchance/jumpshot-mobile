@@ -1433,10 +1433,14 @@ LOADING SCREEN
 
 window.addEventListener("load", () => {
 
+    alert("NEW SCRIPT IS RUNNING");
+
     const loading = document.getElementById("loadingScreen");
 
     if (loading) {
-        loading.style.display = "none";
+
+        loading.remove();
+
     }
 
 });
