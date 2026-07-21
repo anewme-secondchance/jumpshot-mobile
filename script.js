@@ -723,6 +723,7 @@ window.addEventListener("load", () => {
     if (!loading) return;
 
     setTimeout(() => {
+        loading.style.transition = "opacity 0.5s ease-out";
         loading.style.opacity = "0";
 
         setTimeout(() => {
