@@ -809,20 +809,11 @@ btn.style.display="none";
 /=========================================
 LOADING SCREEN
 =========================================/
-window.addEventListener(
-"load",
-()=>{
-const loading=
-document.getElementById(
-"loadingScreen"
-);
-if(!loading) return;
-setTimeout(()=>{
-loading.style.opacity="0";
-setTimeout(()=>{
-loading.style.display="none";
-},500);
-},1000);
+window.addEventListener("load", function () {
+    const loading = document.getElementById("loadingScreen");
+    if (!loading) return;
+
+    loading.style.display = "none";
 });
 /=========================================
 CONFETTI
