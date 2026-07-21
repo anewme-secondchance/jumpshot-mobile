@@ -18,7 +18,6 @@ LOCAL STORAGE KEYS
 =========================================*/
 
 const CART_KEY = "jumpshot_cart";
-const FAVORITES_KEY = "jumpshot_favorites";
 const SHOTS_KEY = "jumpshot_shots";
 const PROFILE_KEY = "jumpshot_profile";
 const HISTORY_KEY = "jumpshot_history";
