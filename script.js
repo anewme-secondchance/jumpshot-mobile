@@ -566,11 +566,11 @@ COFFEE
 
 function earnCoffeeShots(){
 
-    addShots(05);
+    addShots(5);
 
     addHistory(
         "☕ Purchased Coffee",
-        05
+        5
     );
 
 }
@@ -596,11 +596,11 @@ DAILY CHECK IN
 
 function dailyCheckIn(){
 
-    addShots(05);
+    addShots(5);
 
     addHistory(
         "📅 Daily Check-In",
-        05
+        5
     );
 
 }
