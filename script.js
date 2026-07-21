@@ -512,33 +512,27 @@ meterValue.textContent=shots;
 /*=========================================
 LEVELS
 =========================================*/
+let goal = 250;
+let level = "Rookie";
 
-let goal=200;
-
-let level="Rookie";
-
-if(shots>=1000){
-
-goal=1500;
-
-level="Legend";
-
+if(shots >= 5000){
+    goal = 5000;
+    level = "Champion";
 }
 
-else if(shots>=500){
-
-goal=1000;
-
-level="MVP";
-
+else if(shots >= 2000){
+    goal = 5000;
+    level = "Legend";
 }
 
-else if(shots>=200){
+else if(shots >= 750){
+    goal = 2000;
+    level = "MVP";
+}
 
-goal=500;
-
-level="All-Star";
-
+else if(shots >= 250){
+    goal = 750;
+    level = "All-Star";
 }
 
 const percent=
@@ -574,41 +568,27 @@ goal;
 if(nextReward){
 
 if(level==="Rookie"){
-
-nextReward.textContent=
-
-(goal-shots)+
-
-" SHOTS TO ALL-STAR";
-
+    nextReward.textContent =
+    (goal - shots) + " SHOTS TO ALL-STAR";
 }
 
 else if(level==="All-Star"){
-
-nextReward.textContent=
-
-(goal-shots)+
-
-" SHOTS TO MVP";
-
+    nextReward.textContent =
+    (goal - shots) + " SHOTS TO MVP";
 }
 
 else if(level==="MVP"){
+    nextReward.textContent =
+    (goal - shots) + " SHOTS TO LEGEND";
+}
 
-nextReward.textContent=
-
-(goal-shots)+
-
-" SHOTS TO LEGEND";
-
+else if(level==="Legend"){
+    nextReward.textContent =
+    (goal - shots) + " SHOTS TO CHAMPION";
 }
 
 else{
-
-nextReward.textContent=
-
-"LEGEND UNLOCKED";
-
+    nextReward.textContent = "🏆 CHAMPION UNLOCKED";
 }
 
 }
