@@ -144,49 +144,7 @@ total += item.price * item.qty;
 return total.toFixed(2);
 }
 
-/=========================================
-PROFILE
-=========================================/
-function loadProfile(){
-const name=
-document.getElementById("profileName");
-const email=
-document.getElementById("profileEmail");
-const level=
-document.getElementById("playerRank");
-if(name){
-name.textContent=profile.name;
-}
-if(email){
-email.textContent=profile.email;
-}
-if(level){
-level.textContent=profile.level;
-}
-}
-function updateProfileLevel(){
-if(shots>=5000){
-profile.level="Champion";
-}
-else if(shots>=2000){
-profile.level="MVP";
-}
-else if(shots>=1000){
-profile.level="All-Star";
-}
-else if(shots>=500){
-profile.level="Shooter";
-}
-else if(shots>=250){
-profile.level="Starter";
-}
-}
-else{
-profile.level="Rookie";
-}
-saveProfile();
-loadProfile();
-}
+
 /=========================================
 REWARDS DASHBOARD
 =========================================/
@@ -1799,26 +1757,9 @@ return pickup.toLocaleTimeString([],{
 /====================================================
 END PART 9
 ====================================================/
+
 /====================================================
-JUMPSHOT ORDERING ENGINE - PART 11
-PICKUP TIME
-====================================================/
-function getPickupTime(){
-const pickup = new Date();
-pickup.setMinutes(
-    pickup.getMinutes() + 10
-);
-
-return pickup.toLocaleTimeString([],{
-
-    hour:"numeric",
-
-    minute:"2-digit"
-
-});
-}
-/====================================================
-END PART 11
+END PART 10
 ====================================================/
 /=========================================
 CONTACT PAGE
