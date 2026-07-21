@@ -2293,6 +2293,7 @@ function searchDrinks(){
 
         card.style.display =
         matches ? "" : "none";
+        
 
     });
 
