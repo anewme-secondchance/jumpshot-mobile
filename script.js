@@ -143,56 +143,7 @@ total += item.price * item.qty;
 });
 return total.toFixed(2);
 }
-/=========================================
-FAVORITES
-=========================================/
-function addFavorite(drink){
-if(!favorites.includes(drink)){
-favorites.push(drink);
-saveFavorites();
-showToast(
-${drink} added to Favorites ❤️
-);
-}else{
-showToast(
-${drink} is already in Favorites.
-);
-}
-renderFavorites();
-}
-function removeFavorite(drink){
-favorites = favorites.filter(
-item => item !== drink
-);
-saveFavorites();
-renderFavorites();
-showToast(
-${drink} removed.
-);
-}
-function renderFavorites(){
-const list =
-document.getElementById("favoritesList");
-if(!list) return;
-list.innerHTML="";
-if(favorites.length===0){
-list.innerHTML=
-"<p>No favorite drinks yet.</p>";
-return;
-}
-favorites.forEach(drink=>{
-const card =
-document.createElement("div");
-card.className="favorite-card";
-card.innerHTML=`
-<h3>${drink}</h3>
-<button class="order-btn-small" onclick="removeFavorite('${drink}')">
-Remove
-</button>
-`;
-list.appendChild(card);
-});
-}
+
 /=========================================
 PROFILE
 =========================================/
@@ -809,11 +760,18 @@ btn.style.display="none";
 /=========================================
 LOADING SCREEN
 =========================================/
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
     const loading = document.getElementById("loadingScreen");
     if (!loading) return;
 
-    loading.style.display = "none";
+    setTimeout(() => {
+        loading.style.opacity = "0";
+
+        setTimeout(() => {
+            loading.style.display = "none";
+        }, 500);
+
+    }, 1000);
 });
 /=========================================
 CONFETTI
