@@ -2705,19 +2705,3 @@ END OF SCRIPT
 HIDE LOADING SCREEN
 =========================================*/
 
-window.addEventListener("load", () => {
- console.log("LOAD EVENT FIRED");
-    const loadingScreen =
-    document.getElementById("loadingScreen");
-
-    if (!loadingScreen) return;
-
-    loadingScreen.style.opacity = "0";
-
-    setTimeout(() => {
-
-        loadingScreen.style.display = "none";
-
-    }, 500);
-
-});
