@@ -910,129 +910,63 @@ LEVELS
 
 function checkLevelUnlock(){
 
-const rookie=
+    const rookie = document.getElementById("rookieLevel");
+    const allStar = document.getElementById("allStarLevel");
+    const mvp = document.getElementById("mvpLevel");
+    const legend = document.getElementById("legendLevel");
 
-document.getElementById(
+    [rookie, allStar, mvp, legend].forEach(level=>{
+        if(level){
+            level.classList.remove("active");
+        }
+    });
 
-"rookieLevel"
+    let levelName = "Rookie";
+    let message = "🏀 Rookie";
 
-);
+    if(shots >= 1000){
+        levelName = "Legend";
+        message = "🔥 Legend";
+        if(legend) legend.classList.add("active");
+    }
+    else if(shots >= 500){
+        levelName = "MVP";
+        message = "🏆 MVP";
+        if(mvp) mvp.classList.add("active");
+    }
+    else if(shots >= 200){
+        levelName = "All-Star";
+        message = "⭐ All-Star";
+        if(allStar) allStar.classList.add("active");
+    }
+    else{
+        if(rookie) rookie.classList.add("active");
+    }
 
-const allStar=
+    const lastLevel = localStorage.getItem("lastRewardLevel");
 
-document.getElementById(
+    if(lastLevel !== levelName){
 
-"allStarLevel"
+        localStorage.setItem("lastRewardLevel", levelName);
 
-);
+        if(levelName !== "Rookie"){
 
-const mvp=
+            const unlock = document.getElementById("levelUnlocked");
+            const text = document.getElementById("levelText");
 
-document.getElementById(
+            if(unlock && text){
+                text.textContent = message;
+                unlock.style.display = "block";
 
-"mvpLevel"
+                setTimeout(()=>{
+                    unlock.style.display = "none";
+                },2500);
+            }
 
-);
+            launchConfetti();
 
-const legend=
-
-document.getElementById(
-
-"legendLevel"
-
-);
-
-[rookie,allStar,mvp,legend].forEach(level=>{
-
-if(level){
-
-level.classList.remove("active");
-
-}
-
-});
-
-let message="🏀 Rookie";
-
-if(shots>=1000){
-
-if(legend){
-
-legend.classList.add("active");
-
-}
-
-message="🔥 Legend";
-
-}
-
-else if(shots>=500){
-
-if(mvp){
-
-mvp.classList.add("active");
-
-}
-
-message="🏆 MVP";
-
-}
-
-else if(shots>=200){
-
-if(allStar){
-
-allStar.classList.add("active");
-
-}
-
-message="⭐ All-Star";
-
-}
-
-else{
-
-if(rookie){
-
-rookie.classList.add("active");
-
-}
-
-}
-
-const unlock=
-
-document.getElementById(
-
-"levelUnlocked"
-
-);
-
-const text=
-
-document.getElementById(
-
-"levelText"
-
-);
-
-if(unlock && text){
-
-text.textContent=
-
-message;
-
-unlock.style.display="block";
-
-setTimeout(()=>{
-
-unlock.style.display="none";
-
-},2500);
-
-}
-
-launchConfetti();
+        }
+    }
 
 }
 
@@ -1314,14 +1248,12 @@ cart = [];
 saveCart();
 
 renderCart();
-
+    
 showReceipt(receipt);
 
 updateCartBadge();
 
-launchConfetti();
-
-showToast(
+showToast("Order Placed Successfully!");
 
 "Order Placed Successfully!"
 
@@ -2838,10 +2770,10 @@ function addCustomizedDrink(){
 
     const totalPrice =
         Number((currentPrice * quantity).toFixed(2));
-
-    const rewardShots =
-        quantity * 100;
-
+    
+const rewardShots =
+    Math.round(currentPrice * quantity);
+   
   cart.push({
 
     name: currentDrink.name,
@@ -2871,8 +2803,6 @@ function addCustomizedDrink(){
     updateRewardDisplay();
 
 showToast(currentDrink.name + " added to cart!");
-
-launchConfetti();
 
 if(typeof renderCart==="function"){
     renderCart();
