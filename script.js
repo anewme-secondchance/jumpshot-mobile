@@ -96,9 +96,7 @@ saveCart();
 saveShots();
 updateCartBadge();
 updateRewardDisplay();
-showToast(
-${name} added to cart!
-);
+showToast(`${name} added to cart!`);
 }
 /=========================================
 REMOVE ITEM
@@ -633,9 +631,7 @@ showToast(
 return;
 }
 console.log(orders);
-showToast(
-${orders.length} Previous Orders Found
-);
+showToast(`${orders.length} Previous Orders Found`);
 }
 /=========================================
 SETTINGS
