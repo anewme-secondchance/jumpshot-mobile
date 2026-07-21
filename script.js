@@ -2707,7 +2707,7 @@ HIDE LOADING SCREEN
 =========================================*/
 
 window.addEventListener("load", () => {
-
+ console.log("LOAD EVENT FIRED");
     const loadingScreen =
     document.getElementById("loadingScreen");
 
