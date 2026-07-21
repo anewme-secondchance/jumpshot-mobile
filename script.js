@@ -2702,7 +2702,380 @@ window.addEventListener("pageshow", () => {
 END OF SCRIPT
 ====================================================*/
 
-/*=========================================
-HIDE LOADING SCREEN
-=========================================*/
 
+// =====================================
+// PART 1 - QUANTITY BUTTONS
+// =====================================
+
+function increaseDrinkQuantity() {
+
+    const quantity =
+    document.getElementById("quantity");
+quantity.value = parseInt(quantity.value) + 1;
+
+updateOrderTotal();
+  
+}
+
+function decreaseDrinkQuantity() {
+
+    const quantity =
+    document.getElementById("quantity");
+
+    if (parseInt(quantity.value) > 1) {
+quantity.value = parseInt(quantity.value) - 1;
+     
+    }
+
+ updateOrderTotal();
+}
+
+function updateQuantitySummary() {
+
+    document.getElementById("summaryQuantity").textContent =
+    document.getElementById("quantity").value;
+}
+
+// =====================================
+// PART 2 - UPDATE ORDER TOTAL
+// =====================================
+
+const BASE_DRINK_PRICE = 3.75;
+
+function updateOrderTotal() {
+
+    let total = BASE_DRINK_PRICE;
+
+    // Quantity
+    const quantity =
+    parseInt(document.getElementById("quantity").value);
+
+    // Whip
+    document
+        .querySelectorAll("input[type='checkbox']:checked")
+        .forEach(item => {
+
+            total += parseFloat(item.value || 0);
+
+        });
+
+    // Radio Buttons
+    document
+        .querySelectorAll("input[type='radio']:checked")
+        .forEach(item => {
+
+            total += parseFloat(item.value || 0);
+
+        });
+
+    total *= quantity;
+
+    document.getElementById("orderTotal").textContent =
+        "$" + total.toFixed(2);
+
+    updateQuantitySummary();
+}
+
+// Automatically update total
+
+document.addEventListener("change", updateOrderTotal);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    updateOrderTotal();
+
+    const quantity = document.getElementById("quantity");
+
+    if (quantity) {
+
+        quantity.addEventListener("input", updateOrderTotal);
+
+    }
+
+});
+// =====================================
+// PART 3 - ADD TO CART
+// =====================================
+
+function addCustomizedDrink() {
+
+    const drink = document.getElementById("summaryDrink").textContent;
+
+    const quantity = parseInt(
+        document.getElementById("quantity").value
+    );
+
+    const total = document
+        .getElementById("orderTotal")
+        .textContent;
+
+    const instructions =
+        document.getElementById("specialInstructions").value;
+
+    const options = [];
+
+    document
+        .querySelectorAll("input:checked")
+        .forEach(item => {
+
+            if (item.type === "checkbox") {
+
+                const text =
+                    item.parentElement.innerText
+                    .replace(/\+\$[\d.]+/, "")
+                    .trim();
+
+                options.push(text);
+
+            }
+
+            if (item.type === "radio" && item.value !== "0") {
+
+                const text =
+                    item.parentElement.innerText
+                    .replace(/\+\$[\d.]+/, "")
+                    .trim();
+
+                options.push(text);
+
+            }
+
+        });
+
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+
+        drink: drink,
+        quantity: quantity,
+        total: total,
+        options: options,
+        instructions: instructions
+
+    });
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    alert("✅ Added to Cart!");
+}
+
+// =====================================
+// PART 4 - CART FUNCTIONS
+// =====================================
+
+function loadCart() {
+
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const grandTotal =
+        document.getElementById("cartGrandTotal");
+
+    if (!cartItems || !grandTotal) return;
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += parseFloat(item.total.replace("$", ""));
+
+        cartItems.innerHTML += `
+
+<div class="cart-card">
+
+<h3>${item.drink}</h3>
+
+<p><strong>Quantity:</strong> ${item.quantity}</p>
+
+<p><strong>Options:</strong>
+${item.options.join(", ") || "None"}
+</p>
+
+<p><strong>Instructions:</strong>
+${item.instructions || "None"}
+</p>
+
+<h3>${item.total}</h3>
+
+<button
+onclick="removeCartItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+    });
+
+    grandTotal.textContent =
+        "$" + total.toFixed(2);
+
+}
+
+function removeCartItem(index){
+
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index,1);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    loadCart();
+
+}
+
+// =====================================
+// PART 5 - CHECKOUT
+// =====================================
+
+function checkout() {
+
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    let orderNumber =
+        Math.floor(100000 + Math.random() * 900000);
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        total += parseFloat(
+            item.total.replace("$", "")
+        );
+
+    });
+
+    const order = {
+
+        orderNumber: orderNumber,
+
+        date: new Date().toLocaleString(),
+
+        items: cart,
+
+        total: total.toFixed(2),
+
+        status: "Preparing"
+
+    };
+
+    localStorage.setItem(
+
+        "currentOrder",
+
+        JSON.stringify(order)
+
+    );
+
+    localStorage.removeItem("cart");
+
+    alert(
+
+`🎉 Order Placed!
+
+Order #${orderNumber}
+
+Total: $${order.total}
+
+Thank you for choosing JumpShot Coffee!`
+
+    );
+
+    window.location.href = "order-status.html";
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Order Status</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="order-card">
+
+<h1>☕ JumpShot Coffee</h1>
+
+<h2>Order Status</h2>
+
+<h3 id="orderNumber"></h3>
+
+<p id="orderDate"></p>
+
+<h2 id="orderTotal"></h2>
+
+<h3 id="orderStatus"></h3>
+
+<button onclick="goHome()">
+
+Back Home
+
+</button>
+
+</div>
+
+<script>
+
+const order =
+JSON.parse(localStorage.getItem("currentOrder"));
+
+if(order){
+
+document.getElementById("orderNumber").innerHTML =
+"Order #" + order.orderNumber;
+
+document.getElementById("orderDate").innerHTML =
+order.date;
+
+document.getElementById("orderTotal").innerHTML =
+"$" + order.total;
+
+document.getElementById("orderStatus").innerHTML =
+order.status;
+
+}
+
+function goHome(){
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
