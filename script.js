@@ -461,9 +461,9 @@ HISTORY
 let rewardHistory=[];
 function addHistory(title,earned){
 rewardHistory.unshift({
-title,
-earned,
-date Date().toLocaleString()
+    title,
+    earned,
+    date: new Date().toLocaleString()
 });
 const list=
 document.getElementById(
