@@ -1267,44 +1267,33 @@ margin-top:25px;
 /*=========================================
 PROFILE RESPONSIVE
 =========================================*/
+@media (max-width:768px){
 
-@media(max-width:768px){
+    .profile-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.profile-stats{
+    .profile-avatar{
+        width:140px;
+        height:140px;
+    }
 
-grid-template-columns:repeat(2,1fr);
+}   /* <-- ADD THIS */
 
-}
+@media (max-width:600px){
 
-.profile-avatar{
+    .profile-stats{
+        grid-template-columns:1fr;
+    }
 
-width:140px;
+    .profile-avatar{
+        width:120px;
+        height:120px;
+    }
 
-height:140px;
-
-}
-
-@media(max-width:600px){
-
-.profile-stats{
-
-grid-template-columns:1fr;
-
-}
-
-.profile-avatar{
-
-width:120px;
-
-height:120px;
-
-}
-
-.profile-card{
-
-padding:25px;
-
-}
+    .profile-card{
+        padding:25px;
+    }
 
 }
 /*=========================================
