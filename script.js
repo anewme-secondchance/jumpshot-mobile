@@ -1431,17 +1431,13 @@ btn.style.display="none";
 LOADING SCREEN
 =========================================*/
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
     const loading = document.getElementById("loadingScreen");
 
-    if (!loading) return;
-
-    setTimeout(() => {
-
+    if (loading) {
         loading.style.display = "none";
-
-    }, 1000);
+    }
 
 });
 
