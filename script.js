@@ -2701,3 +2701,24 @@ window.addEventListener("pageshow", () => {
 /*====================================================
 END OF SCRIPT
 ====================================================*/
+
+/*=========================================
+HIDE LOADING SCREEN
+=========================================*/
+
+window.addEventListener("load", () => {
+
+    const loadingScreen =
+    document.getElementById("loadingScreen");
+
+    if (!loadingScreen) return;
+
+    loadingScreen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        loadingScreen.style.display = "none";
+
+    }, 500);
+
+});
