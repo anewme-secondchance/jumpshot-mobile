@@ -1,7 +1,7 @@
-/=========================================
+/*=========================================
 JUMPSHOT COFFEE
 SCRIPT.JS
-=========================================/
+=========================================*/
 "use strict";
 window.onerror = function(message, source, line, column, error) {
 console.error("SCRIPT ERROR:", message);
@@ -10,16 +10,16 @@ console.error("LINE:", line);
 console.error("COLUMN:", column);
 return false;
 };
-/=========================================
+/*=========================================
 LOCAL STORAGE KEYS
-=========================================/
+=========================================*/
 const CART_KEY = "jumpshot_cart";
 const FAVORITES_KEY = "jumpshot_favorites";
 const SHOTS_KEY = "jumpshot_shots";
 const PROFILE_KEY = "jumpshot_profile";
-/=========================================
+/*=========================================
 APP DATA
-=========================================/
+=========================================*/
 let cart =
 JSON.parse(localStorage.getItem(CART_KEY)) || [];
 let favorites =
@@ -32,9 +32,9 @@ name: "Coffee Fan",
 email: "guest@jumpshotcoffee.com",
 level: "Rookie"
 };
-/=========================================
+/*=========================================
 SAVE DATA
-=========================================/
+=========================================*/
 function saveCart(){
 localStorage.setItem(
 CART_KEY,
@@ -59,9 +59,9 @@ PROFILE_KEY,
 JSON.stringify(profile)
 );
 }
-/=========================================
+/*=========================================
 TOAST MESSAGE
-=========================================/
+=========================================*/
 function showToast(message){
 const toast = document.createElement("div");
 toast.className = "toast";
@@ -77,9 +77,9 @@ toast.remove();
 },300);
 },2500);
 }
-/=========================================
+/*=========================================
 ADD TO CART
-=========================================/
+=========================================*/
 function addToCart(
 name,
 price,
@@ -98,18 +98,18 @@ updateCartBadge();
 updateRewardDisplay();
 showToast(`${name} added to cart!`);
 }
-/=========================================
+/*=========================================
 REMOVE ITEM
-=========================================/
+=========================================*/
 function removeItem(index){
 cart.splice(index,1);
 saveCart();
 renderCart();
 updateCartBadge();
 }
-/=========================================
+/*=========================================
 CLEAR CART
-=========================================/
+=========================================*/
 function clearCart(){
 cart=[];
 saveCart();
@@ -119,9 +119,9 @@ showToast(
 "Cart Cleared"
 );
 }
-/=========================================
+/*=========================================
 CART BADGE
-=========================================/
+=========================================*/
 function updateCartBadge(){
 const badges =
 document.querySelectorAll(
@@ -131,9 +131,9 @@ badges.forEach(badge=>{
 badge.textContent = cart.length;
 });
 }
-/=========================================
+/*=========================================
 TOTAL
-=========================================/
+=========================================*/
 function getCartTotal(){
 let total = 0;
 cart.forEach(item=>{
@@ -143,9 +143,9 @@ return total.toFixed(2);
 }
 
 
-/=========================================
+/*=========================================
 REWARDS DASHBOARD
-=========================================/
+=========================================*/
 function updateRewardDisplay(){
 const currentShots=
 document.getElementById(
@@ -180,9 +180,9 @@ lifetimeShots.textContent=shots;
 if(meterValue){
 meterValue.textContent=shots;
 }
-/=========================================
+/*=========================================
 LEVELS
-=========================================/
+=========================================*/
 let goal=200;
 let level="Rookie";
 if(shots>=1000){
@@ -236,9 +236,9 @@ nextReward.textContent=
 updateProfileLevel();
 moveBasketball();
 }
-/=========================================
+/*=========================================
 BASKETBALL ANIMATION
-=========================================/
+=========================================*/
 function moveBasketball(){
 const ball=
 document.getElementById(
@@ -258,9 +258,9 @@ ball.classList.remove(
 );
 },1200);
 }
-/=========================================
+/*=========================================
 HISTORY POPUP
-=========================================/
+=========================================*/
 function openHistory(){
 const popup=
 document.getElementById(
@@ -281,9 +281,9 @@ popup.style.display=
 "none";
 }
 }
-/=========================================
+/*=========================================
 SHOT NOTIFICATION
-=========================================/
+=========================================*/
 function showShotNotification(amount){
 const notice=
 document.getElementById(
@@ -301,9 +301,9 @@ notice.style.display=
 "none";
 },1800);
 }
-/=========================================
+/*=========================================
 EARN SHOTS
-=========================================/
+=========================================*/
 function addShots(amount){
 shots += amount;
 saveShots();
@@ -312,9 +312,9 @@ moveBasketball();
 showShotNotification(amount);
 checkLevelUnlock();
 }
-/=========================================
+/*=========================================
 COFFEE
-=========================================/
+=========================================*/
 function earnCoffeeShots(){
 addShots(10);
 addHistory(
@@ -322,9 +322,9 @@ addHistory(
 10
 );
 }
-/=========================================
+/*=========================================
 NEW DRINK
-=========================================/
+=========================================*/
 function earnDrinkShots(){
 addShots(25);
 addHistory(
@@ -332,9 +332,9 @@ addHistory(
 25
 );
 }
-/=========================================
+/*=========================================
 DAILY CHECK IN
-=========================================/
+=========================================*/
 function dailyCheckIn(){
 addShots(10);
 addHistory(
@@ -365,7 +365,7 @@ addHistory(
 /=========================================
 HISTORY
 =========================================/
-let rewardHistory=[];
+
 function addHistory(title,earned){
 rewardHistory.unshift({
     title,
@@ -527,10 +527,11 @@ ${item.options.map(option=>`
 :
 ""
 }
+
 ${
 item.instructions
 ?
-<p><strong>Special Instructions:</strong><br>${item.instructions}</p>
+`<p><strong>Special Instructions:</strong><br>${item.instructions}</p>`
 :
 ""
 }
@@ -547,7 +548,6 @@ item.instructions
 Remove
 </button>
 `;
-cartItems.appendChild(card);
 cartItems.appendChild(card);
 });
 if(cartTotal){
