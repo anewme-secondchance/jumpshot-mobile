@@ -2928,52 +2928,38 @@ if(totalBox){
 /==================================================== 
 PAGE QUANTITY 
 ====================================================/ 
+function increaseDrinkQuantity(){
 
-function increaseDrinkQuantity(){ 
+    const qty = $("quantity");
 
-const qty = $("quantity"); 
+    if(!qty) return;
 
- 
+    qty.value = Number(qty.value) + 1;
 
-if(!qty) return; 
+    calculateCurrentPrice();
+    updateOrderSummary();
 
-qty.value = Number(qty.value) + 1; 
+}
 
- 
+function decreaseDrinkQuantity(){
 
-updateOrderSummary(); 
+    const qty = $("quantity");
 
-} 
+    if(!qty) return;
 
-function decreaseDrinkQuantity(){ 
+    let value = Number(qty.value);
 
-const qty = $("quantity"); 
+    if(value > 1){
 
- 
+        qty.value = value - 1;
 
-if(!qty) return; 
+    }
 
- 
+    calculateCurrentPrice();
+    updateOrderSummary();
 
-let value = Number(qty.value); 
+}
 
- 
-
-if(value > 1){ 
-
- 
-
-    qty.value = value - 1; 
-
- 
-
-} 
-
- 
-
-updateOrderSummary(); 
-
-} 
 
 /==================================================== 
 WATCH QUANTITY 
