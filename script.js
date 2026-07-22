@@ -1222,17 +1222,20 @@ cartTotal.textContent = "$" + getCartTotal();
 QUANTITY 
 =========================================/ 
 
-function increaseQty(index){ 
+function increaseDrinkQuantity(){
 
-cart[index].qty++; 
+    alert("PLUS BUTTON WORKS");
 
-saveCart(); 
+    const qty = $("quantity");
 
-renderCart(); 
+    if(!qty) return;
 
-updateCartBadge(); 
+    qty.value = Number(qty.value) + 1;
 
-} 
+    calculateCurrentPrice();
+    updateOrderSummary();
+
+}
 
 function decreaseQty(index){ 
 
