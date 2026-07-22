@@ -1,3081 +1,3517 @@
-/*=========================================
-JUMPSHOT COFFEE
-SCRIPT.JS
-=========================================*/
-
-"use strict";
-
-window.onerror = function(message, source, line, column, error) {
-    console.error("SCRIPT ERROR:", message);
-    console.error("FILE:", source);
-    console.error("LINE:", line);
-    console.error("COLUMN:", column);
-    return false;
-};
-
-/*=========================================
-LOCAL STORAGE KEYS
-=========================================*/
-
-const CART_KEY = "jumpshot_cart";
-const SHOTS_KEY = "jumpshot_shots";
-const PROFILE_KEY = "jumpshot_profile";
-const HISTORY_KEY = "jumpshot_history";
-
-/*=========================================
-APP DATA
-=========================================*/
-
-let cart =
-JSON.parse(localStorage.getItem(CART_KEY)) || [];
-
-let favorites =
-JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
-
-let shots =
-Number(localStorage.getItem(SHOTS_KEY)) || 0;
-
-let profile =
-JSON.parse(localStorage.getItem(PROFILE_KEY)) || {
-    name: "Coffee Fan",
-    email: "guest@jumpshotcoffee.com",
-    level: "Rookie"
-};
-
-let rewardHistory =
-JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
-
-/*=========================================
-SAVE DATA
-=========================================*/
+/========================================= 
+JUMPSHOT COFFEE 
+SCRIPT.JS 
+=========================================/ 
 
-function saveCart(){
-    localStorage.setItem(
-        CART_KEY,
-        JSON.stringify(cart)
-    );
-}
+"use strict"; 
 
-function saveFavorites(){
-    localStorage.setItem(
-        FAVORITES_KEY,
-        JSON.stringify(favorites)
-    );
-}
+window.onerror = function(message, source, line, column, error) { 
+console.error("SCRIPT ERROR:", message); 
+console.error("FILE:", source); 
+console.error("LINE:", line); 
+console.error("COLUMN:", column); 
+return false; 
+}; 
 
-function saveShots(){
-    localStorage.setItem(
-        SHOTS_KEY,
-        shots
-    );
-}
+/========================================= 
+LOCAL STORAGE KEYS 
+=========================================/ 
 
-function saveProfile(){
-    localStorage.setItem(
-        PROFILE_KEY,
-        JSON.stringify(profile)
-    );
-}
+const CART_KEY = "jumpshot_cart"; 
+const FAVORITES_KEY = "jumpshot_favorites"; 
+const SHOTS_KEY = "jumpshot_shots"; 
+const PROFILE_KEY = "jumpshot_profile"; 
 
-function saveRewardHistory(){
-    localStorage.setItem(
-        HISTORY_KEY,
-        JSON.stringify(rewardHistory)
-    );
-}
+/========================================= 
+APP DATA 
+=========================================/ 
 
-/*=========================================
-TOAST MESSAGE
-=========================================*/
+let cart = 
+JSON.parse(localStorage.getItem(CART_KEY)) || []; 
 
-function showToast(message){
+let favorites = 
+JSON.parse(localStorage.getItem(FAVORITES_KEY)) || []; 
 
-    const toast = document.createElement("div");
+let shots = 
+Number(localStorage.getItem(SHOTS_KEY)) || 0; 
 
-    toast.className = "toast";
+let profile = 
+JSON.parse(localStorage.getItem(PROFILE_KEY)) || { 
 
-    toast.textContent = message;
+name: "Coffee Fan", 
 
-    document.body.appendChild(toast);
+email: "guest@jumpshotcoffee.com", 
 
-    setTimeout(()=>{
-        toast.classList.add("show");
-    },100);
+level: "Rookie" 
 
-    setTimeout(()=>{
-        toast.classList.remove("show");
+}; 
 
-        setTimeout(()=>{
-            toast.remove();
-        },300);
+/========================================= 
+SAVE DATA 
+=========================================/ 
 
-    },2500);
+function saveCart(){ 
 
-}
+localStorage.setItem( 
 
-/*=========================================
-ADD TO CART
-=========================================*/
+CART_KEY, 
 
-function addToCart(
-    name,
-    price,
-    rewardShots
-){
+JSON.stringify(cart) 
 
-    cart.push({
-        name,
-        price,
-        rewardShots,
-        qty:1
-    });
+); 
 
-    shots += rewardShots;
+} 
 
-    saveCart();
-    saveShots();
+function saveFavorites(){ 
 
-    updateCartBadge();
-    updateRewardDisplay();
+localStorage.setItem( 
 
-    showToast(`${name} added to cart!`);
+FAVORITES_KEY, 
 
-}
+JSON.stringify(favorites) 
 
-/*=========================================
-REMOVE ITEM
-=========================================*/
+); 
 
-function removeItem(index){
+} 
 
-    cart.splice(index,1);
+function saveShots(){ 
 
-    saveCart();
+localStorage.setItem( 
 
-    renderCart();
+SHOTS_KEY, 
 
-    updateCartBadge();
+shots 
 
-}
+); 
 
-/*=========================================
-CLEAR CART
-=========================================*/
+} 
 
-function clearCart(){
+function saveProfile(){ 
 
-    cart = [];
+localStorage.setItem( 
 
-    saveCart();
+PROFILE_KEY, 
 
-    renderCart();
+JSON.stringify(profile) 
 
-    updateCartBadge();
+); 
 
-    showToast("Cart Cleared");
+} 
 
-}
+/========================================= 
+TOAST MESSAGE 
+=========================================/ 
 
-/*=========================================
-CART BADGE
-=========================================*/
+function showToast(message){ 
 
-function updateCartBadge(){
+const toast = document.createElement("div"); 
 
-    const badges =
-    document.querySelectorAll(".cart-count");
+toast.className = "toast"; 
 
-    badges.forEach(badge=>{
+toast.textContent = message; 
 
-        badge.textContent = cart.length;
+document.body.appendChild(toast); 
 
-    });
+setTimeout(()=>{ 
 
-}
+toast.classList.add("show"); 
 
-/*=========================================
-TOTAL
-=========================================*/
+},100); 
 
-function getCartTotal(){
+setTimeout(()=>{ 
 
-    let total = 0;
+toast.classList.remove("show"); 
 
-    cart.forEach(item=>{
+setTimeout(()=>{ 
 
-        total += item.price * item.qty;
+toast.remove(); 
 
-    });
+},300); 
 
-    return total.toFixed(2);
+},2500); 
 
-}
+} 
 
-/*=========================================
-RENDER CART
-=========================================*/
+/========================================= 
+ADD TO CART 
+=========================================/ 
 
-function renderCart(){
+function addToCart( 
 
-    const cartItems =
-    document.getElementById("cartItems");
+name, 
 
-    const cartTotal =
-    document.getElementById("cartTotal");
+price, 
 
-    if(!cartItems) return;
+rewardShots 
 
-    cartItems.innerHTML = "";
+){ 
 
-    if(cart.length === 0){
+cart.push({ 
 
-        cartItems.innerHTML = `
-        <div class="empty-cart">
-            <h2>🛒 Your Cart Is Empty</h2>
-            <p>Add your favorite drinks to get started.</p>
-        </div>
-        `;
+name, 
 
-        if(cartTotal){
+price, 
 
-            cartTotal.textContent = "$0.00";
+rewardShots, 
 
-        }
+qty:1 
 
-        return;
+}); 
 
-    }
+shots += rewardShots; 
 
-    cart.forEach((item,index)=>{
+saveCart(); 
 
-        const card = document.createElement("div");
+saveShots(); 
 
-        card.className = "cart-card";
+updateCartBadge(); 
 
-        card.innerHTML = `
+updateRewardDisplay(); 
 
-        <h3>${item.name}</h3>
+showToast( 
 
-        <p><strong>$${item.price.toFixed(2)}</strong></p>
+${name} added to cart! 
 
-        ${
-        item.options && item.options.length
-        ?
-        `<div class="cart-options">
-            ${item.options.map(option=>`
-                <div>• ${option}</div>
-            `).join("")}
-        </div>`
-        :
-        ""
-        }
+); 
 
-        ${
-        item.instructions
-        ?
-        `<p><strong>Special Instructions:</strong><br>${item.instructions}</p>`
-        :
-        ""
-        }
+} 
 
-        <div class="qty-controls">
+/========================================= 
+REMOVE ITEM 
+=========================================/ 
 
-            <button onclick="decreaseQty(${index})">
-                ➖
-            </button>
+function removeItem(index){ 
 
-            <span>${item.qty}</span>
+cart.splice(index,1); 
 
-            <button onclick="increaseQty(${index})">
-                ➕
-            </button>
+saveCart(); 
 
-        </div>
+renderCart(); 
 
-        <button
-            class="favorite-btn"
-            onclick="removeItem(${index})">
+updateCartBadge(); 
 
-            Remove
+} 
 
-        </button>
+/========================================= 
+CLEAR CART 
+=========================================/ 
 
-        `;
+function clearCart(){ 
 
-        cartItems.appendChild(card);
+cart=[]; 
 
-    });
+saveCart(); 
 
-    if(cartTotal){
+renderCart(); 
 
-        cartTotal.textContent =
-        "$" + getCartTotal();
+updateCartBadge(); 
 
-    }
+showToast( 
 
-}
+"Cart Cleared" 
 
-/*=========================================
-QUANTITY
-=========================================*/
+); 
 
-function increaseQty(index){
+} 
 
-    cart[index].qty++;
+/========================================= 
+CART BADGE 
+=========================================/ 
 
-    saveCart();
+function updateCartBadge(){ 
 
-    renderCart();
+const badges = 
 
-    updateCartBadge();
+document.querySelectorAll( 
 
-}
+".cart-count" 
 
-function decreaseQty(index){
+); 
 
-    if(cart[index].qty > 1){
+badges.forEach(badge=>{ 
 
-        cart[index].qty--;
+badge.textContent = cart.length; 
 
-    }else{
+}); 
 
-        cart.splice(index,1);
+} 
 
-    }
+/========================================= 
+TOTAL 
 
-    saveCart();
+=========================================/ 
 
-    renderCart();
+function getCartTotal(){ 
 
-    updateCartBadge();
+let total = 0; 
 
-}
+cart.forEach(item=>{ 
 
-/*=========================================
-REWARDS DASHBOARD
-=========================================*/
+total += item.price * item.qty; 
 
-function updateRewardDisplay(){
+}); 
 
-    const currentShots =
-    document.getElementById("currentShots");
+return total.toFixed(2); 
 
-    const lifetimeShots =
-    document.getElementById("lifetimeShots");
+} 
 
-    const meterValue =
-    document.getElementById("meterValue");
+/========================================= 
+FAVORITES 
+=========================================/ 
 
-    const progress =
-    document.getElementById("rewardProgress");
+function addFavorite(drink){ 
 
-    const progressText =
-    document.getElementById("progressText");
+if(!favorites.includes(drink)){ 
 
-    const nextReward =
-    document.getElementById("nextReward");
+favorites.push(drink); 
 
-    if(currentShots){
-        currentShots.textContent = shots;
-    }
+saveFavorites(); 
 
-    if(lifetimeShots){
-        lifetimeShots.textContent = shots;
-    }
+showToast( 
 
-    if(meterValue){
-        meterValue.textContent = shots;
-    }
+${drink} added to Favorites ❤️ 
 
-    /*=========================================
-    LEVELS
-    =========================================*/
+); 
 
-    let goal = 200;
-    let level = "Rookie";
+}else{ 
 
-    if(shots >= 1000){
+showToast( 
 
-        goal = 1500;
-        level = "Legend";
+${drink} is already in Favorites. 
 
-    }
-    else if(shots >= 500){
+); 
 
-        goal = 1000;
-        level = "MVP";
+} 
 
-    }
-    else if(shots >= 200){
+renderFavorites(); 
 
-        goal = 500;
-        level = "All-Star";
+} 
 
-    }
+function removeFavorite(drink){ 
 
-    const percent = Math.min(
-        (shots / goal) * 100,
-        100
-    );
+favorites = favorites.filter( 
 
-    if(progress){
-        progress.style.width = percent + "%";
-    }
+item => item !== drink 
 
-    if(progressText){
-        progressText.textContent =
-        shots + " / " + goal;
-    }
+); 
 
-    if(nextReward){
+saveFavorites(); 
 
-        if(level === "Rookie"){
+renderFavorites(); 
 
-            nextReward.textContent =
-            (goal - shots) +
-            " SHOTS TO ALL-STAR";
+showToast( 
 
-        }
-        else if(level === "All-Star"){
+${drink} removed. 
 
-            nextReward.textContent =
-            (goal - shots) +
-            " SHOTS TO MVP";
+); 
 
-        }
-        else if(level === "MVP"){
+} 
 
-            nextReward.textContent =
-            (goal - shots) +
-            " SHOTS TO LEGEND";
+function renderFavorites(){ 
 
-        }
-        else{
+const list = 
 
-            nextReward.textContent =
-            "LEGEND UNLOCKED";
+document.getElementById("favoritesList"); 
 
-        }
+if(!list) return; 
 
-    }
+list.innerHTML=""; 
 
-    updateProfileLevel();
-    moveBasketball();
+if(favorites.length===0){ 
 
-}
+list.innerHTML= 
 
-/*=========================================
-BASKETBALL ANIMATION
-=========================================*/
+"<p>No favorite drinks yet.</p>"; 
 
-function moveBasketball(){
+return; 
 
-    const ball =
-    document.getElementById("gameBall");
+} 
 
-    if(!ball) return;
+favorites.forEach(drink=>{ 
 
-    ball.classList.remove("shoot");
+const card = 
 
-    void ball.offsetWidth;
+document.createElement("div"); 
 
-    ball.classList.add("shoot");
+card.className="favorite-card"; 
 
-    setTimeout(()=>{
+card.innerHTML=` 
 
-        ball.classList.remove("shoot");
+<h3>${drink}</h3> 
 
-    },1200);
+<button class="order-btn-small" onclick="removeFavorite('${drink}')"> 
 
-}
+Remove 
 
-/*=========================================
-HISTORY POPUP
-=========================================*/
+</button> 
 
-function openHistory(){
+`; 
 
-    const popup =
-    document.getElementById("historyPopup");
+list.appendChild(card); 
 
-    if(popup){
-        popup.style.display = "flex";
-    }
+}); 
 
-}
+} 
 
-function closeHistory(){
+/========================================= 
+PROFILE 
+=========================================/ 
 
-    const popup =
-    document.getElementById("historyPopup");
+function loadProfile(){ 
 
-    if(popup){
-        popup.style.display = "none";
-    }
+const name= 
 
-}
+document.getElementById("profileName"); 
 
-/*=========================================
-SHOT NOTIFICATION
-=========================================*/
+const email= 
 
-function showShotNotification(amount){
+document.getElementById("profileEmail"); 
 
-    const notice =
-    document.getElementById("shotNotification");
+const level= 
 
-    if(!notice) return;
+document.getElementById("playerRank"); 
 
-    notice.innerHTML =
-    "+" + amount + " SHOTS";
+if(name){ 
 
-    notice.style.display = "block";
+name.textContent=profile.name; 
 
-    setTimeout(()=>{
+} 
 
-        notice.style.display = "none";
+if(email){ 
 
-    },1800);
+email.textContent=profile.email; 
 
-}
+} 
 
-/*=========================================
-EARN SHOTS
-=========================================*/
+if(level){ 
 
-function addShots(amount){
+level.textContent=profile.level; 
 
-    shots += amount;
+} 
 
-    saveShots();
+} 
 
-    updateRewardDisplay();
+function updateProfileLevel(){ 
 
-    moveBasketball();
+if(shots>=5000){ 
 
-    showShotNotification(amount);
+profile.level="Champion"; 
 
-    checkLevelUnlock();
+} 
 
-}
+else if(shots>=2000){ 
 
-/*=========================================
-COFFEE
-=========================================*/
+profile.level="MVP"; 
 
-function earnCoffeeShots(){
+} 
 
-    addShots(5);
+else if(shots>=1000){ 
 
-    addHistory(
-        "☕ Purchased Coffee",
-        5
-    );
+profile.level="All-Star"; 
 
-}
+} 
 
-/*=========================================
-NEW DRINK
-=========================================*/
+else if(shots>=500){ 
 
-function earnDrinkShots(){
+profile.level="Shooter"; 
 
-    addShots(15);
+} 
 
-    addHistory(
-        "🥤 Tried A New Drink",
-        15
-    );
+else if(shots>=250){ 
 
-}
+profile.level="Starter"; 
 
-/*=========================================
-DAILY CHECK IN
-=========================================*/
+} 
 
-function dailyCheckIn(){
+} 
 
-    addShots(5);
+else{ 
 
-    addHistory(
-        "📅 Daily Check-In",
-        5
-    );
+profile.level="Rookie"; 
 
-}
+} 
 
-/*=========================================
-REFER FRIEND
-=========================================*/
+saveProfile(); 
 
-function referFriend(){
+loadProfile(); 
 
-    addShots(20);
+} 
 
-    addHistory(
-        "👥 Referred A Friend",
-        20
-    );
+/========================================= 
+REWARDS DASHBOARD 
+=========================================/ 
 
-}
+function updateRewardDisplay(){ 
 
-/*=========================================
-BIRTHDAY BONUS
-=========================================*/
+const currentShots= 
 
-function birthdayReward(){
+document.getElementById( 
 
-    addShots(50);
+"currentShots" 
 
-    addHistory(
-        "🎂 Birthday Reward",
-        50
-    );
+); 
 
-}
+const lifetimeShots= 
 
-/*=========================================
-HISTORY
-=========================================*/
+document.getElementById( 
 
-function addHistory(title, earned){
+"lifetimeShots" 
 
-    rewardHistory.unshift({
+); 
 
-        title,
-        earned,
-        date: new Date().toLocaleString()
+const meterValue= 
 
-    });
+document.getElementById( 
 
-    saveRewardHistory();
+"meterValue" 
 
-    const list =
-    document.getElementById("historyList");
+); 
 
-    if(!list) return;
+const progress= 
 
-    list.innerHTML = "";
+document.getElementById( 
 
-    rewardHistory.forEach(item=>{
+"rewardProgress" 
 
-        list.innerHTML += `
+); 
 
-        <div class="history-item">
+const progressText= 
 
-            <h3>${item.title}</h3>
+document.getElementById( 
 
-            <p>+${item.earned} Shots</p>
+"progressText" 
 
-            <small>${item.date}</small>
+); 
 
-        </div>
+const nextReward= 
 
-        `;
+document.getElementById( 
 
-    });
+"nextReward" 
 
-}
+); 
 
-/*=========================================
-LEVELS
-=========================================*/
+if(currentShots){ 
 
-function checkLevelUnlock(){
+currentShots.textContent=shots; 
 
-    const rookie =
-    document.getElementById("rookieLevel");
+} 
 
-    const allStar =
-    document.getElementById("allStarLevel");
+if(lifetimeShots){ 
 
-    const mvp =
-    document.getElementById("mvpLevel");
+lifetimeShots.textContent=shots; 
 
-    const legend =
-    document.getElementById("legendLevel");
+} 
 
-    [rookie, allStar, mvp, legend].forEach(level=>{
+if(meterValue){ 
 
-        if(level){
+meterValue.textContent=shots; 
 
-            level.classList.remove("active");
+} 
 
-        }
+/========================================= 
+LEVELS 
+=========================================/ 
 
-    });
+let goal=200; 
 
-    let message = "🏀 Rookie";
+let level="Rookie"; 
 
-    if(shots >= 1000){
+if(shots>=1000){ 
 
-        if(legend){
+goal=1500; 
 
-            legend.classList.add("active");
+level="Legend"; 
 
-        }
+} 
 
-        message = "🔥 Legend";
+else if(shots>=500){ 
 
-    }
-    else if(shots >= 500){
+goal=1000; 
 
-        if(mvp){
+level="MVP"; 
 
-            mvp.classList.add("active");
+} 
 
-        }
+else if(shots>=200){ 
 
-        message = "🏆 MVP";
+goal=500; 
 
-    }
-    else if(shots >= 200){
+level="All-Star"; 
 
-        if(allStar){
+} 
 
-            allStar.classList.add("active");
+const percent= 
 
-        }
+Math.min( 
 
-        message = "⭐ All-Star";
+(shots/goal)*100, 
 
-    }
-    else{
+100 
 
-        if(rookie){
+); 
 
-            rookie.classList.add("active");
+if(progress){ 
 
-        }
+progress.style.width= 
 
-    }
+percent+"%"; 
 
-    const unlock =
-    document.getElementById("levelUnlocked");
+} 
 
-    const text =
-    document.getElementById("levelText");
+if(progressText){ 
 
-    if(unlock && text){
+progressText.textContent= 
 
-        text.textContent = message;
+shots+ 
 
-        unlock.style.display = "block";
+" / "+ 
 
-        setTimeout(()=>{
+goal; 
 
-            unlock.style.display = "none";
+} 
 
-        },2500);
+if(nextReward){ 
 
-    }
+if(level==="Rookie"){ 
 
-    launchConfetti();
+nextReward.textContent= 
 
-}
+(goal-shots)+ 
 
-/*=========================================
-REWARDS STARTUP
-=========================================*/
+" SHOTS TO ALL-STAR"; 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
+} 
 
-        updateRewardDisplay();
+else if(level==="All-Star"){ 
 
-        checkLevelUnlock();
+nextReward.textContent= 
 
-        moveBasketball();
+(goal-shots)+ 
 
-    }
-);
+" SHOTS TO MVP"; 
 
-/*=========================================
-HISTORY POPUP
-=========================================*/
+} 
 
-document.addEventListener(
-    "click",
-    (event)=>{
+else if(level==="MVP"){ 
 
-        if(event.target.id === "historyPopup"){
+nextReward.textContent= 
 
-            closeHistory();
+(goal-shots)+ 
 
-        }
+" SHOTS TO LEGEND"; 
 
-    }
-);
+} 
 
-/*=========================================
-KEYBOARD
-=========================================*/
+else{ 
 
-document.addEventListener(
-    "keydown",
-    (event)=>{
+nextReward.textContent= 
 
-        if(event.key === "Escape"){
+"LEGEND UNLOCKED"; 
 
-            closeHistory();
+} 
 
-        }
+} 
 
-    }
-);
+updateProfileLevel(); 
 
-/*=========================================
-END REWARDS
-=========================================*/
+moveBasketball(); 
 
-/*=========================================
-PROFILE EDITOR
-=========================================*/
+} 
 
-function openProfileEditor(){
+/========================================= 
+BASKETBALL ANIMATION 
+=========================================/ 
 
-    const editor =
-    document.getElementById("profileEditor");
+function moveBasketball(){ 
 
-    if(editor){
+const ball= 
 
-        editor.style.display = "flex";
+document.getElementById( 
 
-        loadProfileForm();
+"gameBall" 
 
-    }
+); 
 
-}
+if(!ball) return; 
 
-function closeProfileEditor(){
+ball.classList.remove( 
 
-    const editor =
-    document.getElementById("profileEditor");
+"shoot" 
 
-    if(editor){
+); 
 
-        editor.style.display = "none";
+void ball.offsetWidth; 
 
-    }
+ball.classList.add( 
 
-}
+"shoot" 
 
-/*=========================================
-LOAD PROFILE FORM
-=========================================*/
+); 
 
-function loadProfileForm(){
+setTimeout(()=>{ 
 
-    const first =
-    document.getElementById("editFirstName");
+ball.classList.remove( 
 
-    const last =
-    document.getElementById("editLastName");
+"shoot" 
 
-    const email =
-    document.getElementById("editEmail");
+); 
 
-    const phone =
-    document.getElementById("editPhone");
+},1200); 
 
-    const birthday =
-    document.getElementById("editBirthday");
+} 
 
-    if(first){
-        first.value = profile.firstName || "";
-    }
+/========================================= 
+HISTORY POPUP 
+=========================================/ 
 
-    if(last){
-        last.value = profile.lastName || "";
-    }
+function openHistory(){ 
 
-    if(email){
-        email.value = profile.email || "";
-    }
+const popup= 
 
-    if(phone){
-        phone.value = profile.phone || "";
-    }
+document.getElementById( 
 
-    if(birthday){
-        birthday.value = profile.birthday || "";
-    }
+"historyPopup" 
 
-}
+); 
 
-/*=========================================
-SAVE PROFILE
-=========================================*/
+if(popup){ 
 
-function saveProfileInfo(){
+popup.style.display= 
 
-    profile.firstName =
-    document.getElementById("editFirstName").value;
+"flex"; 
 
-    profile.lastName =
-    document.getElementById("editLastName").value;
+} 
 
-    profile.email =
-    document.getElementById("editEmail").value;
+} 
 
-    profile.phone =
-    document.getElementById("editPhone").value;
+function closeHistory(){ 
 
-    profile.birthday =
-    document.getElementById("editBirthday").value;
+const popup= 
 
-    profile.name =
-    (profile.firstName + " " + profile.lastName).trim();
+document.getElementById( 
 
-    saveProfile();
+"historyPopup" 
 
-    loadProfile();
+); 
 
-    closeProfileEditor();
+if(popup){ 
 
-    showToast("Profile Saved ✅");
+popup.style.display= 
 
-}
+"none"; 
 
-/*=========================================
-PROFILE PICTURE
-=========================================*/
+} 
 
-const profileUpload =
-document.getElementById("profileUpload");
+} 
 
-if(profileUpload){
+/========================================= 
+SHOT NOTIFICATION 
+=========================================/ 
 
-    profileUpload.addEventListener(
-        "change",
-        function(event){
+function showShotNotification(amount){ 
 
-            const file = event.target.files[0];
+const notice= 
 
-            if(!file) return;
+document.getElementById( 
 
-            const reader = new FileReader();
+"shotNotification" 
 
-            reader.onload = function(e){
+); 
 
-                profile.photo = e.target.result;
+if(!notice) return; 
 
-                saveProfile();
+notice.innerHTML= 
 
-                loadProfile();
+"+"+ 
 
-                showToast(
-                    "Profile Picture Updated 📷"
-                );
+amount+ 
 
-            };
+" SHOTS"; 
 
-            reader.readAsDataURL(file);
+notice.style.display= 
 
-        }
-    );
+"block"; 
 
-}
+setTimeout(()=>{ 
 
-/*=========================================
-LOAD PROFILE IMAGE
-=========================================*/
+notice.style.display= 
 
-function loadProfile(){
+"none"; 
 
-    const avatar =
-    document.getElementById("profileAvatar");
+},1800); 
 
-    const name =
-    document.getElementById("profileName");
+} 
 
-    const email =
-    document.getElementById("profileEmail");
+/========================================= 
+EARN SHOTS 
+=========================================/ 
 
-    const level =
-    document.getElementById("playerRank");
+function addShots(amount){ 
 
-    if(avatar){
+shots += amount; 
 
-        avatar.src =
-        profile.photo ||
-        "images/IMG_23_header_logo.png";
+saveShots(); 
 
-    }
+updateRewardDisplay(); 
 
-    if(name){
+moveBasketball(); 
 
-        name.textContent =
-        profile.name ||
-        "Coffee Fan";
+showShotNotification(amount); 
 
-    }
+checkLevelUnlock(); 
 
-    if(email){
+} 
 
-        email.textContent =
-        profile.email ||
-        "guest@jumpshotcoffee.com";
+/========================================= 
+COFFEE 
+=========================================/ 
 
-    }
+function earnCoffeeShots(){ 
 
-    if(level){
+addShots(10); 
 
-        level.textContent =
-        profile.level ||
-        "Rookie";
+addHistory( 
 
-    }
+"☕ Purchased Coffee", 
 
-}
+10 
 
-/*=========================================
-PROFILE DASHBOARD
-=========================================*/
+); 
 
-function updateProfileDashboard(){
+} 
 
-    const shotsCard =
-    document.getElementById("profileShots");
+/========================================= 
+NEW DRINK 
+=========================================/ 
 
-    const dashShots =
-    document.getElementById("dashboardShots");
+function earnDrinkShots(){ 
 
-    const dashLevel =
-    document.getElementById("dashboardLevel");
+addShots(25); 
 
-    const favoriteCount =
-    document.getElementById("favoriteCount");
+addHistory( 
 
-    const dashboardFavorites =
-    document.getElementById("dashboardFavorites");
+"🥤 Tried A New Drink", 
 
-    const orderCount =
-    document.getElementById("orderCount");
+25 
 
-    const dashboardOrders =
-    document.getElementById("dashboardOrders");
+); 
 
-    const totalSpent =
-    document.getElementById("totalSpent");
+} 
 
-    const birthday =
-    document.getElementById("birthdayDisplay");
+/========================================= 
+DAILY CHECK IN 
+=========================================/ 
 
-    const memberSince =
-    document.getElementById("memberSince");
+function dailyCheckIn(){ 
 
-    const lastVisit =
-    document.getElementById("lastVisit");
+addShots(10); 
 
-    /*=========================================
-    SHOTS
-    =========================================*/
+addHistory( 
 
-    if(shotsCard){
-        shotsCard.textContent = shots;
-    }
+"📅 Daily Check-In", 
 
-    if(dashShots){
-        dashShots.textContent = shots;
-    }
+10 
 
-    /*=========================================
-    LEVEL
-    =========================================*/
+); 
 
-    if(dashLevel){
-        dashLevel.textContent = profile.level;
-    }
+} 
 
-    /*=========================================
-    FAVORITES
-    =========================================*/
+/========================================= 
+REFER FRIEND 
+=========================================/ 
 
-    if(favoriteCount){
-        favoriteCount.textContent = favorites.length;
-    }
+function referFriend(){ 
 
-    if(dashboardFavorites){
-        dashboardFavorites.textContent = favorites.length;
-    }
+addShots(50); 
 
-    /*=========================================
-    ORDERS
-    =========================================*/
+addHistory( 
 
-    const orders =
-    JSON.parse(
-        localStorage.getItem("orderHistory")
-    ) || [];
+" Referred A Friend", 
 
-    if(orderCount){
-        orderCount.textContent = orders.length;
-    }
+50 
 
-    if(dashboardOrders){
-        dashboardOrders.textContent = orders.length;
-    }
+); 
 
-    /*=========================================
-    TOTAL SPENT
-    =========================================*/
+} 
 
-    let total = 0;
+/========================================= 
+BIRTHDAY BONUS 
+=========================================/ 
 
-    orders.forEach(order=>{
+function birthdayReward(){ 
 
-        total += Number(order.total);
+addShots(100); 
 
-    });
+addHistory( 
 
-    if(totalSpent){
+"🎂 Birthday Reward", 
 
-        totalSpent.textContent =
-        "$" + total.toFixed(2);
+100 
 
-    }
+); 
 
-    /*=========================================
-    LAST VISIT
-    =========================================*/
+} 
 
-    if(lastVisit){
+/========================================= 
+HISTORY 
+=========================================/ 
 
-        if(orders.length){
+let rewardHistory=[]; 
 
-            lastVisit.textContent =
-            orders[orders.length-1].date;
+function addHistory(title,earned){ 
 
-        }else{
+rewardHistory.unshift({ 
 
-            lastVisit.textContent = "Never";
+title, 
 
-        }
+earned, 
 
-    }
+date Date().toLocaleString() 
 
-    /*=========================================
-    BIRTHDAY
-    =========================================*/
+}); 
 
-    if(birthday){
+const list= 
 
-        birthday.textContent =
-        profile.birthday || "Not Set";
+document.getElementById( 
 
-    }
+"historyList" 
 
-    /*=========================================
-    MEMBER SINCE
-    =========================================*/
+); 
 
-    if(memberSince){
+if(!list) return; 
 
-        memberSince.textContent = "2026";
+list.innerHTML=""; 
 
-    }
+rewardHistory.forEach(item=>{ 
 
-}
+list.innerHTML+=` 
 
-/*=========================================
-PROFILE STARTUP
-=========================================*/
+<div class="history-item"> 
 
-function initializeProfile(){
+<h3>${item.title}</h3> 
 
-    loadProfile();
+<p>+${item.earned} Shots</p> 
 
-    updateProfileDashboard();
+<small>${item.date}</small> 
 
-    updateProfileLevel();
+</div> 
 
-}
+`; 
 
-/*=========================================
-PROFILE REFRESH
-=========================================*/
+}); 
 
-function refreshProfile(){
+} 
 
-    loadProfile();
+/========================================= 
+LEVELS 
+=========================================/ 
 
-    updateProfileDashboard();
+function checkLevelUnlock(){ 
 
-}
+const rookie= 
 
-/*=========================================
-SAVE EVERYTHING
-=========================================*/
+document.getElementById( 
 
-function saveEverything(){
+"rookieLevel" 
 
-    saveProfile();
+); 
 
-    saveShots();
+const allStar= 
 
-    saveCart();
+document.getElementById( 
 
-    saveFavorites();
+"allStarLevel" 
 
-    refreshProfile();
+); 
 
-}
+const mvp= 
 
-/*=========================================
-PROFILE POPUP
-=========================================*/
+document.getElementById( 
 
-document.addEventListener(
-    "click",
-    (event)=>{
+"mvpLevel" 
 
-        const editor =
-        document.getElementById("profileEditor");
+); 
 
-        if(
-            editor &&
-            event.target === editor
-        ){
+const legend= 
 
-            closeProfileEditor();
+document.getElementById( 
 
-        }
+"legendLevel" 
 
-    }
-);
+); 
 
-/*=========================================
-PROFILE SHORTCUTS
-=========================================*/
+[rookie,allStar,mvp,legend].forEach(level=>{ 
 
-document.addEventListener(
-    "keydown",
-    (event)=>{
+if(level){ 
 
-        if(event.key === "Escape"){
+level.classList.remove("active"); 
 
-            closeProfileEditor();
+} 
 
-        }
+}); 
 
-    }
-);
+let message="🏀 Rookie"; 
 
-/*=========================================
-PROFILE INITIALIZATION
-=========================================*/
+if(shots>=1000){ 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
+if(legend){ 
 
-        initializeProfile();
+legend.classList.add("active"); 
 
-    }
-);
+} 
 
-/*=========================================
-PAGE INITIALIZATION
-=========================================*/
+message="🔥 Legend"; 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
+} 
 
-        updateCartBadge();
+else if(shots>=500){ 
 
-        updateRewardDisplay();
+if(mvp){ 
 
-        renderCart();
+mvp.classList.add("active"); 
 
-        loadProfile();
+} 
 
-    }
-);
+message="🏆 MVP"; 
 
-/*=========================================
-SERVICE WORKER
-=========================================*/
+} 
 
-if("serviceWorker" in navigator){
+else if(shots>=200){ 
 
-    window.addEventListener(
-        "load",
-        ()=>{
+if(allStar){ 
 
-            navigator.serviceWorker
-            .register("service-worker.js")
+allStar.classList.add("active"); 
 
-            .then(()=>{
+} 
 
-                console.log(
-                    "Service Worker Registered"
-                );
+message="⭐ All-Star"; 
 
-            })
+} 
 
-            .catch(error=>{
+else{ 
 
-                console.log(error);
+if(rookie){ 
 
-            });
+rookie.classList.add("active"); 
 
-        }
-    );
+} 
 
-}
+} 
 
-/*=========================================
-ONLINE / OFFLINE STATUS
-=========================================*/
+const unlock= 
 
-window.addEventListener(
-    "offline",
-    ()=>{
+document.getElementById( 
 
-        showToast(
-            "You are offline."
-        );
+"levelUnlocked" 
 
-    }
-);
+); 
 
-window.addEventListener(
-    "online",
-    ()=>{
+const text= 
 
-        showToast(
-            "Back online!"
-        );
+document.getElementById( 
 
-    }
-);
+"levelText" 
 
-/*=========================================
-KEYBOARD SHORTCUTS
-=========================================*/
+); 
 
-document.addEventListener(
-    "keydown",
-    (event)=>{
+if(unlock && text){ 
 
-        if(event.key==="Escape"){
+text.textContent= 
 
-            closeHistory();
+message; 
 
-            closeProfileEditor();
+unlock.style.display="block"; 
 
-        }
+setTimeout(()=>{ 
 
-    }
-);
+unlock.style.display="none"; 
 
-/*=========================================
-COPYRIGHT
-=========================================*/
+},2500); 
 
-console.log(
-    "JumpShot Coffee App Loaded Successfully"
-);
+} 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 1
-DO NOT REMOVE
-====================================================*/
+launchConfetti(); 
 
-// Current drink being customized
+} 
 
-let currentDrink = null;
+/========================================= 
+PAGE START 
+=========================================/ 
 
-// Current page category
+document.addEventListener( 
 
-let currentCategory = "";
+"DOMContentLoaded", 
 
-// Current calculated price
+()=>{ 
 
-let currentPrice = 0;
+updateRewardDisplay(); 
 
-// Quantity
+checkLevelUnlock(); 
 
-let currentQuantity = 1;
+moveBasketball(); 
 
-/*====================================================
-GET ELEMENT SAFELY
-====================================================*/
+}); 
 
-function $(id){
+/========================================= 
+BUTTONS 
+=========================================/ 
 
-    return document.getElementById(id);
+document.addEventListener( 
 
-}
+"click", 
 
-/*====================================================
-FORMAT MONEY
-====================================================*/
+(event)=>{ 
 
-function money(amount){
+if(event.target.id==="historyPopup"){ 
 
-    return "$" + Number(amount).toFixed(2);
+closeHistory(); 
 
-}
+} 
 
-/*====================================================
-SET CURRENT DRINK
-====================================================*/
+}); 
 
-function setCurrentDrink(name, price, category){
+/========================================= 
+KEYBOARD 
+=========================================/ 
 
-    currentDrink = {
+document.addEventListener( 
 
-        name: name,
+"keydown", 
 
-        basePrice: Number(price)
+(event)=>{ 
 
-    };
+if(event.key==="Escape"){ 
 
-    currentCategory = category;
+closeHistory(); 
 
-    currentPrice = Number(price);
+} 
 
-    currentQuantity = 1;
+}); 
 
-    updateDisplayedPrice();
+/========================================= 
+END REWARDS 
+=========================================/ 
+/========================================= 
+RENDER CART 
+=========================================/ 
 
-}
+function renderCart(){ 
 
-/*====================================================
-UPDATE DISPLAYED PRICE
-====================================================*/
+const cartItems = 
+document.getElementById("cartItems"); 
 
-function updateDisplayedPrice(){
+const cartTotal = 
 
-    const total =
-    currentPrice * currentQuantity;
+document.getElementById("cartTotal"); 
 
-    const ids = [
+if(!cartItems) return; 
 
-        "drinkPrice",
-        "totalPrice",
-        "price",
-        "total"
+cartItems.innerHTML = ""; 
 
-    ];
+if(cart.length === 0){ 
 
-    ids.forEach(id=>{
+cartItems.innerHTML = ` 
 
-        const el = $(id);
+<div class="empty-cart"> 
 
-        if(el){
+<h2>🛒 Your Cart Is Empty</h2> 
 
-            el.textContent = money(total);
+<p>Add your favorite drinks to get started.</p> 
 
-        }
+</div> 
 
-    });
+`; 
 
-}
+if(cartTotal){ 
 
-/*====================================================
-SET QUANTITY
-====================================================*/
+cartTotal.textContent = "$0.00"; 
 
-function setQuantity(qty){
+} 
 
-    qty = Number(qty);
+return; 
 
-    if(qty < 1){
+} 
 
-        qty = 1;
+cart.forEach((item,index)=>{ 
 
-    }
+const card = document.createElement("div"); 
 
-    currentQuantity = qty;
+card.className = "cart-card"; 
 
-    updateDisplayedPrice();
+card.innerHTML = ` 
 
-}
+<h3>${item.name}</h3> 
 
-/*====================================================
-INCREASE QUANTITY
-====================================================*/
+<p><strong>$${item.price.toFixed(2)}</strong></p> 
 
-function increaseDrinkQuantity(){
+${ 
+item.options && item.options.length 
+? 
 
-    currentQuantity++;
+`<div class="cart-options"> 
 
-    updateDisplayedPrice();
+${item.options.map(option=>` 
 
-}
+<div>• ${option}</div> 
 
-/*====================================================
-DECREASE QUANTITY
-====================================================*/
+`).join("")} 
 
-function decreaseDrinkQuantity(){
+</div>` 
 
-    if(currentQuantity > 1){
+: 
 
-        currentQuantity--;
+"" 
 
-    }
+} 
 
-    updateDisplayedPrice();
+${ 
+item.instructions 
 
-}
+? 
 
-/*====================================================
-RESET DRINK
-====================================================*/
+<p><strong>Special Instructions:</strong><br>${item.instructions}</p> 
 
-function resetDrinkBuilder(){
+: 
 
-    currentDrink = null;
+"" 
 
-    currentCategory = "";
+} 
 
-    currentPrice = 0;
+<div class="qty-controls"> 
 
-    currentQuantity = 1;
+<button onclick="decreaseQty(${index})"> 
 
-}
+➖ 
 
-/*====================================================
-END PART 1
-====================================================*/
+</button> 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 2
-PRICE CALCULATOR
-====================================================*/
+<span>${item.qty}</span> 
 
-function getSelectedValue(name){
+<button onclick="increaseQty(${index})"> 
 
-    const option = document.querySelector(
-        'input[name="' + name + '"]:checked'
-    );
+➕ 
 
-    if(!option){
+</button> 
 
-        return 0;
+</div> 
 
-    }
+<button class="favorite-btn" onclick="removeItem(${index})"> 
 
-    const value = Number(option.value);
+Remove 
 
-    if(isNaN(value)){
+</button> 
 
-        return 0;
+`; 
 
-    }
+cartItems.appendChild(card); 
 
-    return value;
+cartItems.appendChild(card); 
 
-}
+}); 
 
-function getCheckboxTotal(name){
+if(cartTotal){ 
 
-    let total = 0;
+cartTotal.textContent = "$" + getCartTotal(); 
 
-    document
-    .querySelectorAll(
-        'input[name="' + name + '"]:checked'
-    )
-    .forEach(item=>{
+} 
 
-        const value = Number(item.value);
+} 
 
-        if(!isNaN(value)){
+/========================================= 
+QUANTITY 
+=========================================/ 
 
-            total += value;
+function increaseQty(index){ 
 
-        }
+cart[index].qty++; 
 
-    });
+saveCart(); 
 
-    return total;
+renderCart(); 
 
-}
+updateCartBadge(); 
 
-function calculateCurrentPrice(){
+} 
 
-    if(!currentDrink){
+function decreaseQty(index){ 
 
-        return;
+if(cart[index].qty > 1){ 
 
-    }
+cart[index].qty--; 
 
-    let total = currentDrink.basePrice;
+}else{ 
 
-    total += getSelectedValue("size");
+cart.splice(index,1); 
 
-    total += getSelectedValue("espresso");
+} 
 
-    total += getSelectedValue("milk");
+saveCart(); 
 
-    total += getSelectedValue("agara");
+renderCart(); 
 
-    total += getSelectedValue("extraShot");
+updateCartBadge(); 
 
-    total += getCheckboxTotal("syrup");
+} 
 
-    total += getCheckboxTotal("sf");
+/========================================= 
+CHECKOUT 
+=========================================/ 
 
-    total += getCheckboxTotal("sfSyrup");
+function checkout(){ 
 
-    total += getCheckboxTotal("sauce");
+if(cart.length === 0){ 
 
-    total += getCheckboxTotal("fruit");
+showToast( 
 
-    total += getCheckboxTotal("fruitSyrup");
+"Your cart is empty." 
 
-    total += getCheckboxTotal("seasonal");
+); 
 
-    total += getCheckboxTotal("lotusShot");
+return; 
 
-    total += getCheckboxTotal("whip");
+} 
 
-    total += getCheckboxTotal("extraAvocado");
+const history = 
 
-    currentPrice = total;
+JSON.parse( 
 
-    updateDisplayedPrice();
+localStorage.getItem("orderHistory") 
 
-}
+) || []; 
 
-/*====================================================
-LISTEN FOR OPTION CHANGES
-====================================================*/
+history.push({ 
 
-document.addEventListener(
-    "change",
-    ()=>{
+id: "JS-" + Date.now(), 
 
-        calculateCurrentPrice();
+ 
 
-    }
-);
+date: new Date().toLocaleString(), 
 
-/*====================================================
-END PART 2
-====================================================*/
+items: JSON.parse(JSON.stringify(cart)), 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 3
-ORDER SUMMARY + QUANTITY
-====================================================*/
+ 
 
-function updateOrderSummary(){
+total: getCartTotal(), 
 
-    const qtyBox = $("quantity");
+ 
 
-    if(qtyBox){
+totalItems: cart.reduce((sum,item)=>sum + item.qty,0), 
 
-        currentQuantity = Number(qtyBox.value);
+ 
 
-        if(currentQuantity < 1){
+rewardShots: cart.reduce((sum,item)=>sum + item.rewardShots,0), 
 
-            currentQuantity = 1;
+ 
 
-            qtyBox.value = 1;
+pickupTime: getPickupTime() 
 
-        }
+}); 
 
-    }
+localStorage.setItem( 
 
-    const summaryQty = $("summaryQuantity");
+"orderHistory", 
 
-    if(summaryQty){
+JSON.stringify(history) 
 
-        summaryQty.textContent = currentQuantity;
+); 
 
-    }
+const receipt = history[history.length - 1]; 
 
-    const summaryDrink = $("summaryDrink");
+cart = []; 
 
-    if(summaryDrink && currentDrink){
+saveCart(); 
 
-        summaryDrink.textContent = currentDrink.name;
+renderCart(); 
 
-    }
+showReceipt(receipt); 
 
-    const summaryShots = $("summaryShots");
+updateCartBadge(); 
 
-    if(summaryShots){
+launchConfetti(); 
 
-        summaryShots.textContent = currentQuantity * 100;
+showToast( 
 
-    }
+"Order Placed Successfully!" 
 
-    const total = currentPrice * currentQuantity;
+); 
 
-    const totalBox = $("orderTotal");
+} 
 
-    if(totalBox){
+/========================================= 
+ORDER HISTORY 
+=========================================/ 
 
-        totalBox.textContent = money(total);
+function viewOrders(){ 
 
-    }
+const orders = 
 
-}
+JSON.parse( 
 
-/*====================================================
-PAGE QUANTITY
-====================================================*/
+localStorage.getItem("orderHistory") 
 
-function increaseDrinkQuantity(){
+) || []; 
 
-    const qty = $("quantity");
+if(orders.length===0){ 
 
-    if(!qty) return;
+showToast( 
 
-    qty.value = Number(qty.value) + 1;
+"No Previous Orders" 
 
-    updateOrderSummary();
+); 
 
-}
+return; 
 
-function decreaseDrinkQuantity(){
+} 
 
-    const qty = $("quantity");
+console.log(orders); 
 
-    if(!qty) return;
+showToast( 
 
-    let value = Number(qty.value);
+${orders.length} Previous Orders Found 
 
-    if(value > 1){
+); 
 
-        qty.value = value - 1;
+} 
 
-    }
+/========================================= 
+SETTINGS 
+=========================================/ 
 
-    updateOrderSummary();
+function openSettings(){ 
 
-}
+showToast( 
 
-/*====================================================
-WATCH QUANTITY
-====================================================*/
+"Settings Coming Soon" 
 
-document.addEventListener(
-    "input",
-    (event)=>{
+); 
 
-        if(event.target.id === "quantity"){
+} 
 
-            updateOrderSummary();
+/========================================= 
+INSTALL PWA 
+=========================================/ 
 
-        }
+let deferredPrompt; 
 
-    }
-);
+window.addEventListener( 
 
-/*====================================================
-KEEP SUMMARY UPDATED
-====================================================*/
+"beforeinstallprompt", 
 
-document.addEventListener(
-    "change",
-    ()=>{
+(e)=>{ 
 
-        calculateCurrentPrice();
+e.preventDefault(); 
 
-        updateOrderSummary();
+deferredPrompt=e; 
 
-    }
-);
+const install= 
 
-/*====================================================
-END PART 3
-====================================================*/
+document.getElementById( 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 4
-ADD CUSTOMIZED DRINK TO CART
-====================================================*/
+"installPrompt" 
 
-function addCustomizedDrink(){
+); 
 
-    if(!currentDrink){
+if(install){ 
 
-        showToast("No drink selected.");
+install.style.display="flex"; 
 
-        return;
+} 
 
-    }
+}); 
 
-    const quantity =
-    Number($("quantity")?.value || 1);
+const installBtn= 
 
-    const specialInstructions =
-    $("specialInstructions")?.value.trim() || "";
+document.getElementById( 
 
-    const totalPrice =
-    Number((currentPrice * quantity).toFixed(2));
+"installBtn" 
 
-    const rewardShots =
-    quantity * 100;
+); 
 
-    cart.push({
+if(installBtn){ 
 
-        name: currentDrink.name,
+installBtn.addEventListener( 
 
-        price: currentPrice,
+"click", 
 
-        qty: quantity,
+async()=>{ 
 
-        rewardShots: rewardShots,
+if(!deferredPrompt) return; 
 
-        category: currentCategory,
+deferredPrompt.prompt(); 
 
-        options: getSelectedOptions(),
+await deferredPrompt.userChoice; 
 
-        instructions: specialInstructions
+deferredPrompt=null; 
 
-    });
+document.getElementById( 
 
-    shots += rewardShots;
+"installPrompt" 
 
-    saveCart();
+).style.display="none"; 
 
-    saveShots();
+}); 
 
-    updateCartBadge();
+} 
 
-    updateRewardDisplay();
+const closeInstall= 
 
-    showToast(
-        currentDrink.name +
-        " added to cart!"
-    );
+document.getElementById( 
 
-    if(typeof renderCart === "function"){
+"closeInstall" 
 
-        renderCart();
+); 
 
-    }
+if(closeInstall){ 
 
-}
+closeInstall.addEventListener( 
 
-/*====================================================
-END PART 4
-====================================================*/
+"click", 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 5
-AUTO PAGE SETUP
-====================================================*/
+()=>{ 
 
-function initializeDrinkPage(){
+document.getElementById( 
 
-    const drinkName =
-    $("summaryDrink");
+"installPrompt" 
 
-    const orderTotal =
-    $("orderTotal");
+).style.display="none"; 
 
-    if(!drinkName || !orderTotal){
+}); 
 
-        return;
+} 
 
-    }
+/========================================= 
+BACK TO TOP 
+=========================================/ 
 
-    let basePrice = parseFloat(
+function scrollToTop(){ 
 
-        orderTotal.textContent
-        .replace("$","")
+window.scrollTo({ 
 
-    );
+top:0, 
 
-    if(isNaN(basePrice)){
+behavior:"smooth" 
 
-        basePrice = 0;
+}); 
 
-    }
+} 
 
-    setCurrentDrink(
+window.addEventListener( 
 
-        drinkName.textContent.trim(),
+"scroll", 
 
-        basePrice,
+()=>{ 
 
-        document.title
+const btn= 
 
-    );
+document.getElementById( 
 
-    calculateCurrentPrice();
+"backToTop" 
 
-    updateOrderSummary();
+); 
 
-}
+if(!btn) return; 
 
-/*====================================================
-START ORDER PAGE
-====================================================*/
+if(window.scrollY>400){ 
 
-document.addEventListener(
+btn.style.display="flex"; 
 
-    "DOMContentLoaded",
+}else{ 
 
-    ()=>{
+btn.style.display="none"; 
 
-        initializeDrinkPage();
+} 
 
-    }
+}); 
 
-);
+/========================================= 
+LOADING SCREEN 
+=========================================/ 
 
-/*====================================================
-END PART 5
-====================================================*/
+window.addEventListener( 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 6
-COLLECT SELECTED OPTIONS
-====================================================*/
+"load", 
 
-function getSelectedOptions(){
+()=>{ 
 
-    const selections = [];
+const loading= 
 
-    document.querySelectorAll(
-        ".option-card input:checked"
-    ).forEach(input=>{
+document.getElementById( 
 
-        const row =
-        input.closest(".option-row");
+"loadingScreen" 
 
-        if(!row) return;
+); 
 
-        const text =
-        row.querySelector("span");
+if(!loading) return; 
 
-        if(text){
+setTimeout(()=>{ 
 
-            selections.push(
-                text.textContent.trim()
-            );
+loading.style.opacity="0"; 
 
-        }
+setTimeout(()=>{ 
 
-    });
+loading.style.display="none"; 
 
-    return selections;
+},500); 
 
-}
+},1000); 
 
-/*====================================================
-END PART 6
-====================================================*/
+}); 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 7
-RECEIPT
-====================================================*/
+/========================================= 
+CONFETTI 
+=========================================/ 
 
-function buildReceipt(){
+function launchConfetti(){ 
 
-    let html = "";
+if(typeof confetti === "function"){ 
 
-    cart.forEach(item=>{
+confetti({ 
 
-        html += `
-        <div class="receipt-item">
+particleCount:175, 
 
-            <div class="receipt-name">
-                ${item.name}
-            </div>
+spread:90, 
 
-            <div class="receipt-options">
-                ${
-                    item.options &&
-                    item.options.length
-                    ? item.options.join(", ")
-                    : "No customizations"
-                }
-            </div>
+origin:{y:0.6} 
 
-            ${
-                item.instructions
-                ? `
-                <div class="receipt-note">
-                    Note: ${item.instructions}
-                </div>
-                `
-                : ""
-            }
+}); 
 
-            <div class="receipt-bottom">
+} 
 
-                <span>
-                    Qty: ${item.qty}
-                </span>
+} 
 
-                <span>
-                    ${money(item.price * item.qty)}
-                </span>
+/========================================= 
+SOUNDS 
+=========================================/ 
 
-            </div>
+function playSwish(){ 
 
-        </div>
-        `;
+const swish = 
 
-    });
+document.getElementById( 
 
-    return html;
+"swishSound" 
 
-}
+); 
 
-function openReceipt(){
+if(swish){ 
 
-    const container =
-    $("receiptItems");
+swish.currentTime = 0; 
 
-    if(container){
+swish.play().catch(()=>{}); 
 
-        container.innerHTML =
-        buildReceipt();
+} 
 
-    }
+} 
 
-    const total =
-    $("receiptTotal");
+function playCheer(){ 
 
-    if(total){
+const cheer = 
 
-        total.textContent =
-        money(getCartTotal());
+document.getElementById( 
 
-    }
+"cheerSound" 
 
-    const modal =
-    $("receiptModal");
+); 
 
-    if(modal){
+if(cheer){ 
 
-        modal.style.display = "flex";
+cheer.currentTime = 0; 
 
-    }
+cheer.play().catch(()=>{}); 
 
-}
+} 
 
-function closeReceipt(){
+} 
 
-    const modal =
-    $("receiptModal");
+/========================================= 
+SEARCH 
+=========================================/ 
 
-    if(modal){
+function searchMenu(){ 
 
-        modal.style.display = "none";
+const input = 
 
-    }
+document.getElementById( 
 
-}
+"searchInput" 
 
-/*====================================================
-END PART 7
-====================================================*/
+); 
 
-/*====================================================
-JUMPSHOT ORDERING ENGINE - PART 8
-CHECKOUT / COMPLETE ORDER
-====================================================*/
+if(!input) return; 
 
-function checkout(){
+const filter = 
 
-    if(cart.length === 0){
+input.value.toLowerCase(); 
 
-        showToast("Your cart is empty.");
+const cards = 
 
-        return;
+document.querySelectorAll( 
 
-    }
+".drink-card" 
 
-    earnCoffeeShots();
+); 
 
-    saveCart();
+cards.forEach(card=>{ 
 
-    openReceipt();
+const text = 
 
-    showToast("Order placed successfully!");
+card.textContent.toLowerCase(); 
 
-}
+if(text.includes(filter)){ 
 
-function completeOrder(){
+card.style.display="flex"; 
 
-    cart = [];
+}else{ 
 
-    saveCart();
+card.style.display="none"; 
 
-    updateCartBadge();
+} 
 
-    if(typeof renderCart === "function"){
+}); 
 
-        renderCart();
+} 
 
-    }
+/========================================= 
+PROFILE EDITOR 
+=========================================/ 
 
-    closeReceipt();
+function openProfileEditor(){ 
 
-    showToast("Thank you for your order!");
+const editor= 
 
-}
+document.getElementById( 
 
-/*====================================================
-RECEIPT BUTTONS
-====================================================*/
+"profileEditor" 
 
-document.addEventListener("DOMContentLoaded",()=>{
+); 
 
-    const closeBtn = $("closeReceipt");
+if(editor){ 
 
-    if(closeBtn){
+editor.style.display="flex"; 
 
-        closeBtn.addEventListener(
-            "click",
-            closeReceipt
-        );
+loadProfileForm(); 
 
-    }
+} 
 
-    const completeBtn = $("completeOrder");
+} 
 
-    if(completeBtn){
+function closeProfileEditor(){ 
 
-        completeBtn.addEventListener(
-            "click",
-            completeOrder
-        );
+const editor= 
 
-    }
+document.getElementById( 
 
-});
+"profileEditor" 
 
-/*====================================================
-END PART 8
-====================================================*/
+); 
 
-/*====================================================
-JUMPSHOT FAVORITES SYSTEM
-PART 16
-====================================================*/
+if(editor){ 
 
-const FAVORITES_KEY = "jumpshot_favorites";
+editor.style.display="none"; 
 
-let favorites =
-JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+} 
 
-function saveFavorites(){
+} 
 
-    localStorage.setItem(
+/========================================= 
+LOAD PROFILE FORM 
+=========================================/ 
 
-        FAVORITES_KEY,
+function loadProfileForm(){ 
 
-        JSON.stringify(favorites)
+const first= 
 
-    );
+document.getElementById( 
 
-}
+"editFirstName" 
 
-function isFavorite(name){
+); 
 
-    return favorites.includes(name);
+const last= 
 
-}
+document.getElementById( 
 
-function toggleFavorite(name){
+"editLastName" 
 
-    if(isFavorite(name)){
+); 
 
-        favorites = favorites.filter(
+const email= 
 
-            item => item !== name
+document.getElementById( 
 
-        );
+"editEmail" 
 
-        showToast(
+); 
 
-            name + " removed from favorites."
+const phone= 
 
-        );
+document.getElementById( 
 
-    }else{
+"editPhone" 
 
-        favorites.push(name);
+); 
 
-        showToast(
+const birthday= 
 
-            name + " added to favorites."
+document.getElementById( 
 
-        );
+"editBirthday" 
 
-    }
+); 
 
-    saveFavorites();
+if(first){ 
 
-    renderFavorites();
+first.value= 
 
-}
+profile.firstName || ""; 
 
-function renderFavorites(){
+} 
 
-    document
-    .querySelectorAll("[data-favorite]")
-    .forEach(button=>{
+if(last){ 
 
-        const name =
-        button.dataset.favorite;
+last.value= 
 
-        if(isFavorite(name)){
+profile.lastName || ""; 
 
-            button.classList.add("favorite-active");
+} 
 
-        }else{
+if(email){ 
 
-            button.classList.remove("favorite-active");
+email.value= 
 
-        }
+profile.email || ""; 
 
-    });
+} 
 
-}
+if(phone){ 
 
-document.addEventListener(
+phone.value= 
 
-    "DOMContentLoaded",
+profile.phone || ""; 
 
-    ()=>{
+} 
 
-        renderFavorites();
+if(birthday){ 
 
-    }
+birthday.value= 
 
-);
+profile.birthday || ""; 
 
-/*====================================================
-END PART 16
-====================================================*/
+} 
 
-/*====================================================
-JUMPSHOT SEARCH / FILTER DRINKS
-PART 17
-====================================================*/
+} 
 
-function searchDrinks(){
+/========================================= 
+SAVE PROFILE 
+=========================================/ 
 
-    const searchBox = document.getElementById("drinkSearch");
+function saveProfileInfo(){ 
 
-    if(!searchBox){
+profile.firstName= 
 
-        return;
+document.getElementById( 
 
-    }
+"editFirstName" 
 
-    const searchText =
-    searchBox.value.toLowerCase().trim();
+).value; 
 
-    document
-    .querySelectorAll(".drink-card")
-    .forEach(card=>{
+profile.lastName= 
 
-        const name =
-        card.dataset.name || "";
+document.getElementById( 
 
-        const category =
-        card.dataset.category || "";
+"editLastName" 
 
-        const matches =
+).value; 
 
-            name.toLowerCase().includes(searchText) ||
+profile.email= 
 
-            category.toLowerCase().includes(searchText);
+document.getElementById( 
 
-        card.style.display =
-        matches ? "" : "none";
-        
+"editEmail" 
 
-    });
+).value; 
 
-}
+profile.phone= 
 
-document.addEventListener(
+document.getElementById( 
 
-    "DOMContentLoaded",
+"editPhone" 
 
-    ()=>{
+).value; 
 
-        const searchBox =
-        document.getElementById("drinkSearch");
+profile.birthday= 
 
-        if(searchBox){
+document.getElementById( 
 
-            searchBox.addEventListener(
+"editBirthday" 
 
-                "input",
+).value; 
 
-                searchDrinks
+profile.name= 
 
-            );
+(profile.firstName+" "+profile.lastName).trim(); 
 
-        }
+saveProfile(); 
 
-    }
+loadProfile(); 
 
-);
+closeProfileEditor(); 
 
-/*====================================================
-END PART 17
-====================================================*/
+showToast( 
 
-/*====================================================
-JUMPSHOT PAGE NAVIGATION / UTILITIES
-PART 18
-====================================================*/
+"Profile Saved ✅" 
 
-function goHome(){
+); 
 
-    window.location.href = "index.html";
+} 
 
-}
+/========================================= 
+PROFILE PICTURE 
+=========================================/ 
 
-function goBack(){
+const profileUpload= 
 
-    window.history.back();
+document.getElementById( 
 
-}
+"profileUpload" 
 
-function goToCart(){
+); 
 
-    window.location.href = "cart.html";
+if(profileUpload){ 
 
-}
+profileUpload.addEventListener( 
 
-function goToRewards(){
+"change", 
 
-    window.location.href = "rewards.html";
+function(event){ 
 
-}
+const file= 
 
-function goToProfile(){
+event.target.files[0]; 
 
-    window.location.href = "profile.html";
+if(!file) return; 
 
-}
+const reader= 
 
-function goToMenu(){
+new FileReader(); 
 
-    window.location.href = "menu.html";
+reader.onload= 
 
-}
+function(e){ 
 
-function refreshPage(){
+profile.photo= 
 
-    window.location.reload();
+e.target.result; 
 
-}
+saveProfile(); 
 
-function shareWebsite(){
+loadProfile(); 
 
-    const url = window.location.href;
+showToast( 
 
-    if(navigator.share){
+"Profile Picture Updated 📷" 
 
-        navigator.share({
+); 
 
-            title: document.title,
+}; 
 
-            text: "Check out JumpShot Coffee!",
+reader.readAsDataURL(file); 
 
-            url: url
+}); 
 
-        }).catch(()=>{});
+} 
 
-    }else{
+/========================================= 
+LOAD PROFILE IMAGE 
+=========================================/ 
 
-        navigator.clipboard.writeText(url);
+function loadProfile(){ 
 
-        showToast("Link copied!");
+const avatar= 
 
-    }
+document.getElementById( 
 
-}
+"profileAvatar" 
 
-/*====================================================
-END PART 18
-====================================================*/
+); 
 
-/*====================================================
-JUMPSHOT PWA / INSTALL FUNCTIONS
-PART 19
-====================================================*/
+const name= 
 
-let deferredPrompt = null;
+document.getElementById( 
 
-window.addEventListener(
+"profileName" 
 
-    "beforeinstallprompt",
+); 
 
-    (event)=>{
+const email= 
 
-        event.preventDefault();
+document.getElementById( 
 
-        deferredPrompt = event;
+"profileEmail" 
 
-        const installButton =
-        document.getElementById("installButton");
+); 
 
-        if(installButton){
+const level= 
 
-            installButton.style.display =
-            "inline-flex";
+document.getElementById( 
 
-        }
+"playerRank" 
 
-    }
+); 
 
-);
+if(avatar){ 
 
-async function installApp(){
+avatar.src= 
 
-    if(!deferredPrompt){
+profile.photo || 
 
-        showToast(
+"images/IMG_23_header_logo.png"; 
 
-            "Install is not available yet."
+} 
 
-        );
+if(name){ 
 
-        return;
+name.textContent= 
 
-    }
+profile.name || 
 
-    deferredPrompt.prompt();
+"Coffee Fan"; 
 
-    await deferredPrompt.userChoice;
+} 
 
-    deferredPrompt = null;
+if(email){ 
 
-    const installButton =
-    document.getElementById("installButton");
+email.textContent= 
 
-    if(installButton){
+profile.email || 
 
-        installButton.style.display =
-        "none";
+"guest@jumpshotcoffee.com"; 
 
-    }
+} 
 
-}
+if(level){ 
 
-window.addEventListener(
+level.textContent= 
 
-    "appinstalled",
+profile.level || 
 
-    ()=>{
+"Rookie"; 
 
-        deferredPrompt = null;
+} 
 
-        showToast(
+} 
 
-            "JumpShot Coffee installed!"
+/========================================= 
+PROFILE DASHBOARD 
+=========================================/ 
 
-        );
+function updateProfileDashboard(){ 
 
-    }
+const shotsCard= 
 
-);
+document.getElementById( 
 
-/*====================================================
-END PART 19
-====================================================*/
+"profileShots" 
 
-/*====================================================
-JUMPSHOT HELPER FUNCTIONS
-PART 20
-====================================================*/
+); 
 
-function scrollToTop(){
+const dashShots= 
 
-    window.scrollTo({
+document.getElementById( 
 
-        top: 0,
+"dashboardShots" 
 
-        behavior: "smooth"
+); 
 
-    });
+const dashLevel= 
 
-}
+document.getElementById( 
 
-function scrollToBottom(){
+"dashboardLevel" 
 
-    window.scrollTo({
+); 
 
-        top: document.body.scrollHeight,
+const favoriteCount= 
 
-        behavior: "smooth"
+document.getElementById( 
 
-    });
+"favoriteCount" 
 
-}
+); 
 
-function copyText(text){
+const dashboardFavorites= 
 
-    navigator.clipboard.writeText(text)
+document.getElementById( 
 
-    .then(()=>{
+"dashboardFavorites" 
 
-        showToast("Copied!");
+); 
 
-    })
+const orderCount= 
 
-    .catch(()=>{
+document.getElementById( 
 
-        showToast("Unable to copy.");
+"orderCount" 
 
-    });
+); 
 
-}
+const dashboardOrders= 
 
-function formatDate(date = new Date()){
+document.getElementById( 
 
-    return date.toLocaleDateString(
+"dashboardOrders" 
 
-        "en-US",
+); 
 
-        {
+const totalSpent= 
 
-            month: "long",
+document.getElementById( 
 
-            day: "numeric",
+"totalSpent" 
 
-            year: "numeric"
+); 
 
-        }
+const birthday= 
 
-    );
+document.getElementById( 
 
-}
+"birthdayDisplay" 
 
-function formatTime(date = new Date()){
+); 
 
-    return date.toLocaleTimeString(
+const memberSince= 
 
-        "en-US",
+document.getElementById( 
 
-        {
+"memberSince" 
 
-            hour: "numeric",
+); 
 
-            minute: "2-digit"
+const lastVisit= 
 
-        }
+document.getElementById( 
 
-    );
+"lastVisit" 
 
-}
+); 
 
-function updateCurrentDate(){
+/========================================= 
+SHOTS 
+=========================================/ 
 
-    const dateElement = document.getElementById("currentDate");
+if(shotsCard){ 
 
-    if(dateElement){
+shotsCard.textContent=shots; 
 
-        dateElement.textContent = formatDate();
+} 
 
-    }
+if(dashShots){ 
 
-}
+dashShots.textContent=shots; 
 
-function updateCurrentTime(){
+} 
 
-    const timeElement = document.getElementById("currentTime");
+/========================================= 
+LEVEL 
+=========================================/ 
 
-    if(timeElement){
+if(dashLevel){ 
 
-        timeElement.textContent = formatTime();
+dashLevel.textContent= 
 
-    }
+profile.level; 
 
-}
+} 
 
-document.addEventListener(
+/========================================= 
+FAVORITES 
+=========================================/ 
 
-    "DOMContentLoaded",
+if(favoriteCount){ 
 
-    ()=>{
+favoriteCount.textContent= 
 
-        updateCurrentDate();
+favorites.length; 
 
-        updateCurrentTime();
+} 
 
-    }
+if(dashboardFavorites){ 
 
-);
+dashboardFavorites.textContent= 
 
-/*====================================================
-END PART 20
-====================================================*/
+favorites.length; 
 
-/*====================================================
-JUMPSHOT FINAL STARTUP
-PART 21
-====================================================*/
+} 
 
-document.addEventListener("DOMContentLoaded", () => {
+/========================================= 
+ORDERS 
+=========================================/ 
 
-    try{
+const orders= 
 
-        loadProfile();
+JSON.parse( 
 
-    }catch(e){}
+localStorage.getItem( 
 
-    try{
+"orderHistory" 
 
-        updateRewardDisplay();
+) 
 
-    }catch(e){}
+)||[]; 
 
-    try{
+if(orderCount){ 
 
-        updateCartBadge();
+orderCount.textContent= 
 
-    }catch(e){}
+orders.length; 
 
-    try{
+} 
 
-        renderCart();
+if(dashboardOrders){ 
 
-    }catch(e){}
+dashboardOrders.textContent= 
 
-    try{
+orders.length; 
 
-        renderFavorites();
+} 
 
-    }catch(e){}
+/========================================= 
+TOTAL SPENT 
+=========================================/ 
 
-    try{
+let total=0; 
 
-        initializeProfile();
+orders.forEach(order=>{ 
 
-    }catch(e){}
+total+= 
 
-    try{
+Number(order.total); 
 
-        initializeDrinkPage();
+}); 
 
-    }catch(e){}
+if(totalSpent){ 
 
-    try{
+totalSpent.textContent= 
 
-        updateOrderSummary();
+"$"+ 
 
-    }catch(e){}
+total.toFixed(2); 
 
-    try{
+} 
 
-        calculateCurrentPrice();
+/========================================= 
 
-    }catch(e){}
+LAST VISIT 
+=========================================/ 
 
-    console.log("JumpShot Coffee initialized.");
+if(lastVisit){ 
 
-});
+if(orders.length){ 
 
-window.addEventListener("pageshow", () => {
+lastVisit.textContent= 
 
-    try{
+orders[orders.length-1].date; 
 
-        updateCartBadge();
+}else{ 
 
-    }catch(e){}
+lastVisit.textContent= 
 
-    try{
+"Never"; 
 
-        updateRewardDisplay();
+} 
 
-    }catch(e){}
+} 
 
-});
+/========================================= 
+BIRTHDAY 
+=========================================/ 
 
-/*====================================================
-END OF SCRIPT
-====================================================*/
+if(birthday){ 
 
+birthday.textContent= 
 
-// =====================================
-// PART 1 - QUANTITY BUTTONS
-// =====================================
+profile.birthday || 
 
-function increaseDrinkQuantity() {
+"Not Set"; 
 
-    const quantity =
-    document.getElementById("quantity");
-quantity.value = parseInt(quantity.value) + 1;
+} 
 
-updateOrderTotal();
-  
-}
+/========================================= 
+MEMBER SINCE 
+=========================================/ 
 
-function decreaseDrinkQuantity() {
+if(memberSince){ 
 
-    const quantity =
-    document.getElementById("quantity");
+memberSince.textContent= 
 
-    if (parseInt(quantity.value) > 1) {
-quantity.value = parseInt(quantity.value) - 1;
-     
-    }
+"2026"; 
 
- updateOrderTotal();
-}
+} 
 
-function updateQuantitySummary() {
+} 
 
-    document.getElementById("summaryQuantity").textContent =
-    document.getElementById("quantity").value;
-}
+/========================================= 
+PROFILE STARTUP 
+=========================================/ 
 
-// =====================================
-// PART 2 - UPDATE ORDER TOTAL
-// =====================================
+function initializeProfile(){ 
 
-const BASE_DRINK_PRICE = 3.75;
+loadProfile(); 
 
-function updateOrderTotal() {
+updateProfileDashboard(); 
 
-    let total = BASE_DRINK_PRICE;
+updateProfileLevel(); 
 
-    // Quantity
-    const quantity =
-    parseInt(document.getElementById("quantity").value);
+} 
 
-    // Whip
-    document
-        .querySelectorAll("input[type='checkbox']:checked")
-        .forEach(item => {
+/========================================= 
+PROFILE REFRESH 
+=========================================/ 
 
-            total += parseFloat(item.value || 0);
+function refreshProfile(){ 
 
-        });
+loadProfile(); 
 
-    // Radio Buttons
-    document
-        .querySelectorAll("input[type='radio']:checked")
-        .forEach(item => {
+updateProfileDashboard(); 
 
-            total += parseFloat(item.value || 0);
+} 
 
-        });
+/========================================= 
+SAVE EVERYTHING 
+=========================================/ 
 
-    total *= quantity;
+function saveEverything(){ 
 
-    document.getElementById("orderTotal").textContent =
-        "$" + total.toFixed(2);
+saveProfile(); 
 
-    updateQuantitySummary();
-}
+saveShots(); 
 
-// Automatically update total
+saveCart(); 
 
-document.addEventListener("change", updateOrderTotal);
+saveFavorites(); 
 
-document.addEventListener("DOMContentLoaded", () => {
+refreshProfile(); 
 
-    updateOrderTotal();
+} 
 
-    const quantity = document.getElementById("quantity");
+/========================================= 
+PROFILE POPUP 
+=========================================/ 
 
-    if (quantity) {
+document.addEventListener( 
 
-        quantity.addEventListener("input", updateOrderTotal);
+"click", 
 
-    }
+(event)=>{ 
 
-});
-// =====================================
-// PART 3 - ADD TO CART
-// =====================================
+const editor= 
 
-function addCustomizedDrink() {
+document.getElementById( 
 
-    const drink = document.getElementById("summaryDrink").textContent;
+"profileEditor" 
 
-    const quantity = parseInt(
-        document.getElementById("quantity").value
-    );
+); 
 
-    const total = document
-        .getElementById("orderTotal")
-        .textContent;
+if( 
 
-    const instructions =
-        document.getElementById("specialInstructions").value;
+editor && 
 
-    const options = [];
+event.target===editor 
 
-    document
-        .querySelectorAll("input:checked")
-        .forEach(item => {
+){ 
 
-            if (item.type === "checkbox") {
+closeProfileEditor(); 
 
-                const text =
-                    item.parentElement.innerText
-                    .replace(/\+\$[\d.]+/, "")
-                    .trim();
+} 
 
-                options.push(text);
+}); 
 
-            }
+/========================================= 
+PROFILE SHORTCUTS 
+=========================================/ 
 
-            if (item.type === "radio" && item.value !== "0") {
+document.addEventListener( 
 
-                const text =
-                    item.parentElement.innerText
-                    .replace(/\+\$[\d.]+/, "")
-                    .trim();
+"keydown", 
 
-                options.push(text);
+(event)=>{ 
 
-            }
+if(event.key==="Escape"){ 
 
-        });
+closeProfileEditor(); 
 
-    const cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+} 
 
-    cart.push({
+}); 
 
-        drink: drink,
-        quantity: quantity,
-        total: total,
-        options: options,
-        instructions: instructions
+/========================================= 
+PROFILE INITIALIZATION 
+=========================================/ 
 
-    });
+document.addEventListener( 
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+"DOMContentLoaded", 
 
-    alert("✅ Added to Cart!");
-}
+()=>{ 
 
-// =====================================
-// PART 4 - CART FUNCTIONS
-// =====================================
+initializeProfile(); 
 
-function loadCart() {
+}); 
+/========================================= 
+PAGE INITIALIZATION 
+=========================================/ 
 
-    const cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+document.addEventListener( 
 
-    const cartItems =
-        document.getElementById("cartItems");
+"DOMContentLoaded", 
 
-    const grandTotal =
-        document.getElementById("cartGrandTotal");
+()=>{ 
 
-    if (!cartItems || !grandTotal) return;
+updateCartBadge(); 
 
-    cartItems.innerHTML = "";
+updateRewardDisplay(); 
 
-    let total = 0;
+renderCart(); 
 
-    cart.forEach((item, index) => {
+renderFavorites(); 
 
-        total += parseFloat(item.total.replace("$", ""));
+loadProfile(); 
 
-        cartItems.innerHTML += `
+}); 
 
-<div class="cart-card">
+/========================================= 
+SERVICE WORKER 
+=========================================/ 
 
-<h3>${item.drink}</h3>
+if("serviceWorker" in navigator){ 
 
-<p><strong>Quantity:</strong> ${item.quantity}</p>
+window.addEventListener( 
 
-<p><strong>Options:</strong>
-${item.options.join(", ") || "None"}
-</p>
+"load", 
 
-<p><strong>Instructions:</strong>
-${item.instructions || "None"}
-</p>
+()=>{ 
 
-<h3>${item.total}</h3>
+navigator.serviceWorker 
 
-<button
-onclick="removeCartItem(${index})">
+.register("service-worker.js") 
 
-Remove
+.then(()=>{ 
 
-</button>
+console.log( 
 
-</div>
+"Service Worker Registered" 
 
-`;
+); 
 
-    });
+}) 
 
-    grandTotal.textContent =
-        "$" + total.toFixed(2);
+.catch(error=>{ 
 
-}
+console.log(error); 
 
-function removeCartItem(index){
+}); 
 
-    const cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+}); 
 
-    cart.splice(index,1);
+} 
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+/========================================= 
+ONLINE / OFFLINE STATUS 
+=========================================/ 
 
-    loadCart();
+window.addEventListener( 
 
-}
+"offline", 
 
-// =====================================
-// PART 5 - CHECKOUT
-// =====================================
+()=>{ 
 
-function checkout() {
+showToast( 
 
-    const cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+"You are offline." 
 
-    if (cart.length === 0) {
+); 
 
-        alert("Your cart is empty.");
+}); 
 
-        return;
+window.addEventListener( 
 
-    }
+"online", 
 
-    let orderNumber =
-        Math.floor(100000 + Math.random() * 900000);
+()=>{ 
 
-    let total = 0;
+showToast( 
 
-    cart.forEach(item => {
+"Back online!" 
 
-        total += parseFloat(
-            item.total.replace("$", "")
-        );
+); 
 
-    });
+}); 
 
-    const order = {
+/========================================= 
+KEYBOARD SHORTCUTS 
+=========================================/ 
 
-        orderNumber: orderNumber,
+document.addEventListener( 
 
-        date: new Date().toLocaleString(),
+"keydown", 
 
-        items: cart,
+(event)=>{ 
 
-        total: total.toFixed(2),
+if(event.key==="Escape"){ 
 
-        status: "Preparing"
+closeHistory(); 
 
-    };
+closeProfileEditor(); 
 
-    localStorage.setItem(
+} 
+}); 
 
-        "currentOrder",
+/========================================= 
+COPYRIGHT 
+=========================================/ 
 
-        JSON.stringify(order)
+console.log( 
 
-    );
+"JumpShot Coffee App Loaded Successfully" 
 
-    localStorage.removeItem("cart");
+); 
 
-    alert(
+/========================================= 
+END OF SCRIPT.JS 
+=========================================/ 
 
-`🎉 Order Placed!
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 1 
+DO NOT REMOVE 
+====================================================/ 
 
-Order #${orderNumber}
+// Current drink being customized 
+let currentDrink = null; 
 
-Total: $${order.total}
+// Current page category 
+let currentCategory = ""; 
 
-Thank you for choosing JumpShot Coffee!`
+// Current calculated price 
 
-    );
+let currentPrice = 0; 
 
-    window.location.href = "order-status.html";
+// Quantity 
+let currentQuantity = 1; 
 
-}
+/==================================================== 
+GET ELEMENT SAFELY 
+====================================================/ 
+function $(id) { 
+return document.getElementById(id); 
+} 
 
-<!DOCTYPE html>
-<html>
+/==================================================== 
+FORMAT MONEY 
+====================================================/ 
+function money(amount) { 
 
-<head>
+return "$" + Number(amount).toFixed(2); 
+} 
 
-<meta charset="UTF-8">
+/==================================================== 
+SET CURRENT DRINK 
+====================================================/ 
+function setCurrentDrink(name, price, category) { 
 
-<title>Order Status</title>
+currentDrink = { 
 
-<link rel="stylesheet" href="style.css">
+    name: name, 
 
-</head>
+    basePrice: Number(price) 
 
-<body>
+}; 
 
-<div class="order-card">
+ 
 
-<h1>☕ JumpShot Coffee</h1>
+currentCategory = category; 
 
-<h2>Order Status</h2>
+currentPrice = Number(price); 
 
-<h3 id="orderNumber"></h3>
+currentQuantity = 1; 
 
-<p id="orderDate"></p>
+ 
 
-<h2 id="orderTotal"></h2>
+updateDisplayedPrice(); 
 
-<h3 id="orderStatus"></h3>
+} 
 
-<button onclick="goHome()">
+/==================================================== 
+UPDATE DISPLAYED PRICE 
+====================================================/ 
+function updateDisplayedPrice() { 
 
-Back Home
+const total = currentPrice * currentQuantity; 
 
-</button>
+ 
 
-</div>
+const ids = [ 
 
-<script>
+ 
 
-const order =
-JSON.parse(localStorage.getItem("currentOrder"));
+    "drinkPrice", 
 
-if(order){
+    "totalPrice", 
 
-document.getElementById("orderNumber").innerHTML =
-"Order #" + order.orderNumber;
+    "price", 
 
-document.getElementById("orderDate").innerHTML =
-order.date;
+    "total" 
 
-document.getElementById("orderTotal").innerHTML =
-"$" + order.total;
+ 
 
-document.getElementById("orderStatus").innerHTML =
-order.status;
+]; 
 
-}
+ 
 
-function goHome(){
+ids.forEach(id => { 
 
-window.location.href="index.html";
+ 
 
-}
+    const el = $(id); 
 
-</script>
+ 
 
-</body>
+    if (el) { 
 
-</html>
+        el.textContent = money(total); 
+
+ 
+
+    } 
+
+ 
+
+}); 
+
+} 
+
+/==================================================== 
+SET QUANTITY 
+====================================================/ 
+function setQuantity(qty) { 
+
+qty = Number(qty); 
+
+ 
+
+if (qty < 1) qty = 1; 
+
+ 
+
+currentQuantity = qty; 
+
+ 
+
+updateDisplayedPrice(); 
+
+} 
+
+/==================================================== 
+INCREASE QUANTITY 
+====================================================/ 
+function increaseDrinkQuantity() { 
+
+currentQuantity++; 
+
+ 
+
+updateDisplayedPrice(); 
+
+} 
+
+/==================================================== 
+DECREASE QUANTITY 
+====================================================/ 
+function decreaseDrinkQuantity() { 
+
+if (currentQuantity > 1) { 
+
+ 
+
+    currentQuantity--; 
+
+ 
+
+} 
+
+ 
+
+updateDisplayedPrice(); 
+
+} 
+
+/==================================================== 
+RESET DRINK 
+====================================================/ 
+function resetDrinkBuilder() { 
+
+currentDrink = null; 
+
+currentCategory = ""; 
+
+currentPrice = 0; 
+
+currentQuantity = 1; 
+
+} 
+
+/==================================================== 
+END PART 1 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 2 
+PRICE CALCULATOR 
+====================================================/ 
+
+function getSelectedValue(name){ 
+
+const option = document.querySelector( 
+
+    'input[name="'+name+'"]:checked' 
+
+); 
+
+ 
+
+if(!option) return 0; 
+
+const value = Number(option.value); 
+
+ 
+
+if(isNaN(value)) return 0; 
+
+ 
+
+return value; 
+
+} 
+
+function getCheckboxTotal(name){ 
+
+let total = 0; 
+
+ 
+
+document 
+
+.querySelectorAll( 
+
+    'input[name="'+name+'"]:checked' 
+
+) 
+
+.forEach(item=>{ 
+
+ 
+
+    const value = Number(item.value); 
+
+ 
+
+    if(!isNaN(value)){ 
+
+    total += value; 
+
+ 
+
+    } 
+
+ 
+
+}); 
+
+ 
+
+return total; 
+
+} 
+
+function calculateCurrentPrice(){ 
+
+if(!currentDrink) return; 
+
+ 
+
+let total = currentDrink.basePrice; 
+
+ 
+
+total += getSelectedValue("size"); 
+
+ 
+
+total += getSelectedValue("espresso"); 
+
+ 
+
+total += getSelectedValue("milk"); 
+
+total += getSelectedValue("agara"); 
+
+ 
+
+total += getSelectedValue("extraShot"); 
+
+ 
+
+total += getCheckboxTotal("syrup"); 
+
+ 
+
+total += getCheckboxTotal("sf"); 
+
+ 
+
+total += getCheckboxTotal("sfSyrup"); 
+
+ 
+
+total += getCheckboxTotal("sauce"); 
+
+ 
+
+total += getCheckboxTotal("fruit"); 
+
+ 
+
+total += getCheckboxTotal("fruitSyrup"); 
+
+ 
+
+total += getCheckboxTotal("seasonal"); 
+
+ 
+
+total += getCheckboxTotal("lotusShot"); 
+
+total += getCheckboxTotal("whip"); 
+
+ 
+
+total += getCheckboxTotal("extraAvocado"); 
+
+ 
+
+currentPrice = total; 
+
+ 
+
+updateDisplayedPrice(); 
+
+} 
+
+/==================================================== 
+LISTEN FOR OPTION CHANGES 
+====================================================/ 
+
+document.addEventListener("change",()=>{ 
+
+calculateCurrentPrice(); 
+
+}); 
+
+/==================================================== 
+END PART 2 
+
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 3 
+ORDER SUMMARY + QUANTITY 
+====================================================/ 
+
+function updateOrderSummary(){ 
+
+const qtyBox = $("quantity"); 
+
+ 
+
+if(qtyBox){ 
+
+ 
+
+    currentQuantity = Number(qtyBox.value); 
+
+ 
+
+    if(currentQuantity < 1){ 
+
+ 
+
+        currentQuantity = 1; 
+
+ 
+
+        qtyBox.value = 1; 
+
+   } 
+
+ 
+
+} 
+
+ 
+
+const summaryQty = $("summaryQuantity"); 
+
+ 
+
+if(summaryQty){ 
+
+ 
+
+    summaryQty.textContent = currentQuantity; 
+
+ 
+
+} 
+
+ 
+
+const summaryDrink = $("summaryDrink"); 
+
+ 
+
+if(summaryDrink && currentDrink){ 
+
+ 
+
+    summaryDrink.textContent = currentDrink.name; 
+
+} 
+
+ 
+
+const summaryShots = $("summaryShots"); 
+
+ 
+
+if(summaryShots){ 
+
+ 
+
+    summaryShots.textContent = currentQuantity * 100; 
+
+ 
+
+} 
+
+ 
+
+const total = currentPrice * currentQuantity; 
+
+ 
+
+const totalBox = $("orderTotal"); 
+
+ 
+
+if(totalBox){ 
+
+ 
+
+    totalBox.textContent = money(total); 
+
+ 
+
+} 
+
+} 
+
+/==================================================== 
+PAGE QUANTITY 
+====================================================/ 
+
+function increaseDrinkQuantity(){ 
+
+const qty = $("quantity"); 
+
+ 
+
+if(!qty) return; 
+
+qty.value = Number(qty.value) + 1; 
+
+ 
+
+updateOrderSummary(); 
+
+} 
+
+function decreaseDrinkQuantity(){ 
+
+const qty = $("quantity"); 
+
+ 
+
+if(!qty) return; 
+
+ 
+
+let value = Number(qty.value); 
+
+ 
+
+if(value > 1){ 
+
+ 
+
+    qty.value = value - 1; 
+
+ 
+
+} 
+
+ 
+
+updateOrderSummary(); 
+
+} 
+
+/==================================================== 
+WATCH QUANTITY 
+====================================================/ 
+
+document.addEventListener("input",(event)=>{ 
+
+if(event.target.id==="quantity"){ 
+
+ 
+
+    updateOrderSummary(); 
+
+ 
+
+} 
+
+}); 
+
+/==================================================== 
+KEEP SUMMARY UPDATED 
+====================================================/ 
+
+document.addEventListener("change",()=>{ 
+
+calculateCurrentPrice(); 
+
+ 
+
+updateOrderSummary(); 
+
+}); 
+
+/==================================================== 
+END PART 3 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 4 
+ADD CUSTOMIZED DRINK TO CART 
+====================================================/ 
+
+function addCustomizedDrink(){ 
+
+if(!currentDrink){ 
+
+ 
+
+    showToast("No drink selected."); 
+
+ 
+
+    return; 
+
+ 
+
+} 
+
+ 
+
+const quantity = 
+
+    Number($("quantity")?.value || 1); 
+
+ 
+
+const specialInstructions = 
+
+   $("specialInstructions")?.value.trim() || ""; 
+
+ 
+
+const totalPrice = 
+
+    Number((currentPrice * quantity).toFixed(2)); 
+
+ 
+
+const rewardShots = 
+
+    quantity * 100; 
+
+cart.push({ 
+
+name: currentDrink.name, 
+
+ 
+
+price: currentPrice, 
+
+ 
+
+qty: quantity, 
+
+ 
+
+rewardShots: rewardShots, 
+
+ 
+
+category: currentCategory, 
+
+ 
+
+options: getSelectedOptions(), 
+
+ 
+
+instructions: specialInstructions 
+
+}); 
+
+shots += rewardShots; 
+
+ 
+
+saveCart(); 
+
+ 
+
+saveShots(); 
+
+ 
+
+updateCartBadge(); 
+
+ 
+
+updateRewardDisplay(); 
+
+ 
+
+showToast( 
+
+ 
+
+    currentDrink.name + 
+
+    " added to cart!" 
+
+ 
+
+); 
+
+ 
+
+if(typeof renderCart==="function"){ 
+
+ 
+
+    renderCart(); 
+
+ 
+
+} 
+
+} 
+
+/==================================================== 
+END PART 4 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 5 
+AUTO PAGE SETUP 
+====================================================/ 
+
+function initializeDrinkPage(){ 
+
+const drinkName = 
+
+    $("summaryDrink"); 
+
+ 
+
+const orderTotal = 
+
+    $("orderTotal"); 
+
+ 
+
+if(!drinkName || !orderTotal){ 
+
+ 
+
+    return; 
+
+ 
+
+} 
+
+ 
+
+let basePrice = parseFloat( 
+
+ 
+
+    orderTotal.textContent 
+
+        .replace("$","") 
+
+ 
+
+); 
+
+ 
+
+if(isNaN(basePrice)){ 
+
+ 
+
+    basePrice = 0; 
+
+ 
+
+} 
+
+ 
+
+setCurrentDrink( 
+
+ 
+
+    drinkName.textContent.trim(), 
+
+ 
+
+    basePrice, 
+
+ 
+
+    document.title 
+
+ 
+
+); 
+
+ 
+
+calculateCurrentPrice(); 
+
+ 
+
+updateOrderSummary(); 
+
+} 
+
+/==================================================== 
+START ORDER PAGE 
+====================================================/ 
+
+document.addEventListener( 
+
+"DOMContentLoaded", 
+
+ 
+
+()=>{ 
+
+ 
+
+    initializeDrinkPage(); 
+
+ 
+
+} 
+
+); 
+
+/==================================================== 
+END PART 5 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 6 
+COLLECT SELECTED OPTIONS 
+====================================================/ 
+
+function getSelectedOptions(){ 
+
+const selections = []; 
+
+ 
+
+document.querySelectorAll( 
+
+    ".option-card input:checked" 
+
+).forEach(input=>{ 
+
+ 
+
+    const row = input.closest(".option-row"); 
+
+ 
+
+    if(!row) return; 
+
+ 
+
+    const text = row.querySelector("span"); 
+
+ 
+
+    if(text){ 
+
+ 
+
+        selections.push(text.textContent.trim()); 
+
+    } 
+
+ 
+
+}); 
+
+ 
+
+return selections; 
+
+} 
+
+/==================================================== 
+END PART 6 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 7 
+RECEIPT 
+====================================================/ 
+
+function showReceipt(order){ 
+
+let message = ""; 
+
+ 
+
+message += "☕ JumpShot Coffee\n\n"; 
+
+message += "Order ID:\n"; 
+
+message += order.id + "\n\n"; 
+
+ 
+
+message += "Date:\n"; 
+
+message += order.date + "\n\n"; 
+
+ 
+
+message += "Items:\n"; 
+
+ 
+
+order.items.forEach(item=>{ 
+
+ 
+
+    message += `${item.qty} × ${item.name}\n`; 
+
+ 
+
+    if(item.options){ 
+
+ 
+
+        item.options.forEach(option=>{ 
+
+ 
+
+            message += `   • ${option}\n`; 
+
+ 
+
+        }); 
+
+    } 
+
+ 
+
+    if(item.instructions){ 
+
+ 
+
+        message += `   Notes: ${item.instructions}\n`; 
+
+ 
+
+    } 
+
+ 
+
+    message += "\n"; 
+
+ 
+
+}); 
+
+ 
+
+message += `Total Items: ${order.totalItems}\n`; 
+
+ 
+
+message += `Reward Shots: ${order.rewardShots}\n`; 
+
+ 
+
+message += `Total: $${order.total.toFixed(2)}\n\n`; 
+
+ 
+
+message += "Thank you for choosing JumpShot Coffee!"; 
+
+ 
+
+alert(message); 
+
+} 
+
+/==================================================== 
+END PART 7 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 8 
+REORDER PREVIOUS ORDER 
+====================================================/ 
+
+function reorderOrder(index){ 
+
+if(!history[index]) return; 
+
+ 
+
+cart = JSON.parse(JSON.stringify(history[index].items)); 
+
+ 
+
+saveCart(); 
+
+ 
+
+renderCart(); 
+
+ 
+
+alert("Previous order has been added to your cart!"); 
+
+} 
+
+/==================================================== 
+END PART 8 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 9 
+PICKUP TIME 
+====================================================/ 
+
+function getPickupTime(){ 
+
+const pickup = new Date(); 
+
+ 
+
+pickup.setMinutes( 
+
+    pickup.getMinutes() + 10 
+
+); 
+
+ 
+
+return pickup.toLocaleTimeString([],{ 
+
+ 
+
+    hour:"numeric", 
+
+ 
+
+    minute:"2-digit" 
+
+}); 
+
+} 
+
+/==================================================== 
+END PART 9 
+====================================================/ 
+
+/==================================================== 
+JUMPSHOT ORDERING ENGINE - PART 11 
+PICKUP TIME 
+====================================================/ 
+
+function getPickupTime(){ 
+
+const pickup = new Date(); 
+
+pickup.setMinutes( 
+
+    pickup.getMinutes() + 10 
+
+); 
+
+ 
+
+return pickup.toLocaleTimeString([],{ 
+
+ 
+
+    hour:"numeric", 
+
+ 
+
+    minute:"2-digit" 
+
+ 
+
+}); 
+
+} 
+
+/==================================================== 
+END PART 11 
+====================================================/ 
+
+/========================================= 
+CONTACT PAGE 
+=========================================/ 
+
+function sendMessage(){ 
+
+showToast("Thank you! Your message has been received."); 
+
+} 
+
+ 
