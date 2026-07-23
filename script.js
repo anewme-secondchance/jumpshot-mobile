@@ -289,51 +289,30 @@ level.textContent=profile.level;
 
 } 
 
-function updateProfileLevel(){ 
+function updateProfileLevel(){
 
-if(shots>=5000){ 
+    if(shots>=5000){
+        profile.level="Champion";
+    }
+    else if(shots>=2000){
+        profile.level="MVP";
+    }
+    else if(shots>=1000){
+        profile.level="All-Star";
+    }
+    else if(shots>=500){
+        profile.level="Shooter";
+    }
+    else if(shots>=250){
+        profile.level="Starter";
+    }
+    else{
+        profile.level="Rookie";
+    }
 
-profile.level="Champion"; 
-
-} 
-
-else if(shots>=2000){ 
-
-profile.level="MVP"; 
-
-} 
-
-else if(shots>=1000){ 
-
-profile.level="All-Star"; 
-
-} 
-
-else if(shots>=500){ 
-
-profile.level="Shooter"; 
-
-} 
-
-else if(shots>=250){ 
-
-profile.level="Starter"; 
-
-} 
-
-} 
-
-else{ 
-
-profile.level="Rookie"; 
-
-} 
-
-saveProfile(); 
-
-loadProfile(); 
-
-} 
+    saveProfile();
+    loadProfile();
+}
 
 /*========================================= 
 REWARDS DASHBOARD 
