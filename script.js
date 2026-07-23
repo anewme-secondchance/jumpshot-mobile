@@ -168,11 +168,7 @@ updateCartBadge();
 
 updateRewardDisplay(); 
 
-showToast( 
-
-${name} added to cart! 
-
-); 
+showToast(`${name} added to cart!`);
 
 } 
 
@@ -252,104 +248,6 @@ total += item.price * item.qty;
 }); 
 
 return total.toFixed(2); 
-
-} 
-
-/*========================================= 
-FAVORITES 
-=========================================*/ 
-
-function addFavorite(drink){ 
-
-if(!favorites.includes(drink)){ 
-
-favorites.push(drink); 
-
-saveFavorites(); 
-
-showToast( 
-
-${drink} added to Favorites ❤️ 
-
-); 
-
-}else{ 
-
-showToast( 
-
-${drink} is already in Favorites. 
-
-); 
-
-} 
-
-renderFavorites(); 
-
-} 
-
-function removeFavorite(drink){ 
-
-favorites = favorites.filter( 
-
-item => item !== drink 
-
-); 
-
-saveFavorites(); 
-
-renderFavorites(); 
-
-showToast( 
-
-${drink} removed. 
-
-); 
-
-} 
-
-function renderFavorites(){ 
-
-const list = 
-
-document.getElementById("favoritesList"); 
-
-if(!list) return; 
-
-list.innerHTML=""; 
-
-if(favorites.length===0){ 
-
-list.innerHTML= 
-
-"<p>No favorite drinks yet.</p>"; 
-
-return; 
-
-} 
-
-favorites.forEach(drink=>{ 
-
-const card = 
-
-document.createElement("div"); 
-
-card.className="favorite-card"; 
-
-card.innerHTML=` 
-
-<h3>${drink}</h3> 
-
-<button class="order-btn-small" onclick="removeFavorite('${drink}')"> 
-
-Remove 
-
-</button> 
-
-`; 
-
-list.appendChild(card); 
-
-}); 
 
 } 
 
@@ -867,7 +765,7 @@ title,
 
 earned, 
 
-date Date().toLocaleString() 
+date: new Date().toLocaleString()
 
 }); 
 
@@ -1357,11 +1255,7 @@ localStorage.getItem("orderHistory")
 
 if(orders.length===0){ 
 
-showToast( 
-
-"No Previous Orders" 
-
-); 
+showToast( "No Previous Orders" ); 
 
 return; 
 
@@ -1369,11 +1263,7 @@ return;
 
 console.log(orders); 
 
-showToast( 
-
-${orders.length} Previous Orders Found 
-
-); 
+showToast(`${orders.length} Previous Orders Found`);
 
 } 
 
