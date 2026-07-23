@@ -1155,6 +1155,20 @@ updateCartBadge();
 
 } 
 
+function decreaseDrinkQuantity(){
+
+    const qty = $("quantity");
+
+    if(!qty) return;
+
+    if(Number(qty.value) > 1){
+        qty.value = Number(qty.value) - 1;
+    }
+
+    calculateCurrentPrice();
+    updateOrderSummary();
+
+}
 /*========================================= 
 CHECKOUT 
 =========================================*/ 
