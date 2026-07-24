@@ -1062,7 +1062,6 @@ QUANTITY
 
 function increaseDrinkQuantity(){
 
-    alert("PLUS BUTTON WORKS");
 
     const qty = $("quantity");
 
