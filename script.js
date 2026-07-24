@@ -21,7 +21,7 @@ const CART_KEY = "jumpshot_cart";
 const FAVORITES_KEY = "jumpshot_favorites"; 
 const SHOTS_KEY = "jumpshot_shots"; 
 const PROFILE_KEY = "jumpshot_profile"; 
-const LEVEL_KEY = "jumpshot_level";
+
 /*========================================= 
 APP DATA 
 =========================================*/ 
@@ -45,8 +45,7 @@ email: "guest@jumpshotcoffee.com",
 level: "Rookie" 
 
 }; 
-let unlockedLevel =
-Number(localStorage.getItem(LEVEL_KEY)) || 0;
+
 /*========================================= 
 SAVE DATA 
 =========================================*/ 
@@ -300,12 +299,7 @@ else if (shots >= 10000) {
 }
 else if (shots >= 5000) {
     profile.level = "All-Star";
-}
-else if (shots >= 1500) {
-    profile.level = "Shooter";
-}
-else if (shots >= 500) {
-    profile.level = "Starter";
+
 }
 else {
     profile.level = "Rookie";
@@ -908,17 +902,7 @@ unlock.style.display="none";
 },2500); 
 
 } 
-if (currentLevel > unlockedLevel) {
 
-    unlockedLevel = currentLevel;
-
-    localStorage.setItem(LEVEL_KEY, unlockedLevel);
-
-    launchConfetti();
-
-    playCheer();
-
-}
 } 
 
 /*========================================= 
