@@ -291,23 +291,22 @@ level.textContent=profile.level;
 
 function updateProfileLevel(){
 
-  if (shots >= 25000) {
-    profile.level = "Champion";
-}
-else if (shots >= 10000) {
-    profile.level = "MVP";
-}
-else if (shots >= 5000) {
-    profile.level = "All-Star";
+    if(shots>=1000){
+        profile.level="Legend";
+    }
+    else if(shots>=500){
+        profile.level="MVP";
+    }
+    else if(shots>=200){
+        profile.level="All-Star";
+    }
+    else{
+        profile.level="Rookie";
+    }
 
-}
-else {
-    profile.level = "Rookie";
-}
     saveProfile();
     loadProfile();
 }
-
 /*========================================= 
 REWARDS DASHBOARD 
 =========================================*/ 
@@ -383,41 +382,21 @@ meterValue.textContent=shots;
 /*========================================= 
 LEVELS 
 =========================================*/ 
-let goal = 500;
-
+let goal = 200;
 let level = "Rookie";
 
-if (shots >= 25000) {
-
-    goal = 25000;
-    level = "Champion";
-
+if(shots>=1000){
+    goal=1500;
+    level="Legend";
 }
-else if (shots >= 10000) {
-
-    goal = 25000;
-    level = "MVP";
-
+else if(shots>=500){
+    goal=1000;
+    level="MVP";
 }
-else if (shots >= 5000) {
-
-    goal = 10000;
-    level = "All-Star";
-
+else if(shots>=200){
+    goal=500;
+    level="All-Star";
 }
-else if (shots >= 1500) {
-
-    goal = 5000;
-    level = "Shooter";
-
-}
-else if (shots >= 500) {
-
-    goal = 1500;
-    level = "Starter";
-
-}
-
 const percent= 
 
 Math.min( 
@@ -450,40 +429,31 @@ goal;
 
 if(nextReward){ 
 
-if (level === "Rookie") {
+if(level==="Rookie"){
 
-    nextReward.textContent =
-        (goal - shots) + " SHOTS TO STARTER";
-
-}
-else if (level === "Starter") {
-
-    nextReward.textContent =
-        (goal - shots) + " SHOTS TO SHOOTER";
+    nextReward.textContent=
+    (goal-shots)+
+    " SHOTS TO ALL-STAR";
 
 }
-else if (level === "Shooter") {
+else if(level==="All-Star"){
 
-    nextReward.textContent =
-        (goal - shots) + " SHOTS TO ALL-STAR";
-
-}
-else if (level === "All-Star") {
-
-    nextReward.textContent =
-        (goal - shots) + " SHOTS TO MVP";
+    nextReward.textContent=
+    (goal-shots)+
+    " SHOTS TO MVP";
 
 }
-else if (level === "MVP") {
+else if(level==="MVP"){
 
-    nextReward.textContent =
-        (goal - shots) + " SHOTS TO CHAMPION";
+    nextReward.textContent=
+    (goal-shots)+
+    " SHOTS TO LEGEND";
 
 }
-else {
+else{
 
-    nextReward.textContent =
-        "🏆 CHAMPION UNLOCKED";
+    nextReward.textContent=
+    "LEGEND UNLOCKED";
 
 }
 
@@ -827,50 +797,43 @@ level.classList.remove("active");
 
 }); 
 
-let message = "🏀 Rookie";
-let currentLevel = 0;
+let message="🏀 Rookie";
 
-if (shots >= 25000) {
+if(shots>=1000){
 
-    if (legend) {
+    if(legend){
         legend.classList.add("active");
     }
 
-    message = "🔥 Legend";
-    currentLevel = 3;
+    message="🔥 Legend";
 
 }
-else if (shots >= 10000) {
+else if(shots>=500){
 
-    if (mvp) {
+    if(mvp){
         mvp.classList.add("active");
     }
 
-    message = "🏆 MVP";
-    currentLevel = 2;
+    message="🏆 MVP";
 
 }
-else if (shots >= 5000) {
+else if(shots>=200){
 
-    if (allStar) {
+    if(allStar){
         allStar.classList.add("active");
     }
 
-    message = "⭐ All-Star";
-    currentLevel = 1;
+    message="⭐ All-Star";
 
 }
-else {
+else{
 
-    if (rookie) {
+    if(rookie){
         rookie.classList.add("active");
     }
 
-    currentLevel = 0;
-
 }
 
-}
 const unlock= 
 
 document.getElementById( 
@@ -1258,19 +1221,6 @@ showToast(`${orders.length} Previous Orders Found`);
 
 } 
 
-/*========================================= 
-SETTINGS 
-=========================================*/ 
-
-function openSettings(){ 
-
-showToast( 
-
-"Settings Coming Soon" 
-
-); 
-
-} 
 
 /*========================================= 
 INSTALL PWA 
