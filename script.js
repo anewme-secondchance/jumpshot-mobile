@@ -978,10 +978,9 @@ function renderCart(){
 const cartItems = 
 document.getElementById("cartItems"); 
 
-const cartTotal = 
-
-document.getElementById("cartTotal"); 
-
+const subtotalBox = document.getElementById("subtotal");
+const taxBox = document.getElementById("tax");
+const totalBox = document.getElementById("total");
 if(!cartItems) return; 
 
 cartItems.innerHTML = ""; 
@@ -1000,11 +999,9 @@ cartItems.innerHTML = `
 
 `; 
 
-if(cartTotal){ 
-
-cartTotal.textContent = "$0.00"; 
-
-} 
+if(subtotalBox) subtotalBox.textContent = "$0.00";
+if(taxBox) taxBox.textContent = "$0.00";
+if(totalBox) totalBox.textContent = "$0.00";
 
 return; 
 
@@ -1081,17 +1078,25 @@ Remove
 
 `; 
 
-cartItems.appendChild(card); 
-
-cartItems.appendChild(card); 
+cartItems.appendChild(card);
 
 }); 
 
-if(cartTotal){ 
+const subtotal = Number(getCartTotal());
+const tax = subtotal * 0.0825;
+const total = subtotal + tax;
 
-cartTotal.textContent = "$" + getCartTotal(); 
+if (subtotalBox) {
+    subtotalBox.textContent = "$" + subtotal.toFixed(2);
+}
 
-} 
+if (taxBox) {
+    taxBox.textContent = "$" + tax.toFixed(2);
+}
+
+if (totalBox) {
+    totalBox.textContent = "$" + total.toFixed(2);
+}
 
 } 
 
