@@ -21,7 +21,7 @@ const CART_KEY = "jumpshot_cart";
 const FAVORITES_KEY = "jumpshot_favorites"; 
 const SHOTS_KEY = "jumpshot_shots"; 
 const PROFILE_KEY = "jumpshot_profile"; 
-
+const LEVEL_KEY = "jumpshot_level";
 /*========================================= 
 APP DATA 
 =========================================*/ 
@@ -45,7 +45,8 @@ email: "guest@jumpshotcoffee.com",
 level: "Rookie" 
 
 }; 
-
+let unlockedLevel =
+Number(localStorage.getItem(LEVEL_KEY)) || 0;
 /*========================================= 
 SAVE DATA 
 =========================================*/ 
@@ -291,25 +292,24 @@ level.textContent=profile.level;
 
 function updateProfileLevel(){
 
-    if(shots>=5000){
-        profile.level="Champion";
-    }
-    else if(shots>=2000){
-        profile.level="MVP";
-    }
-    else if(shots>=1000){
-        profile.level="All-Star";
-    }
-    else if(shots>=500){
-        profile.level="Shooter";
-    }
-    else if(shots>=250){
-        profile.level="Starter";
-    }
-    else{
-        profile.level="Rookie";
-    }
-
+  if (shots >= 25000) {
+    profile.level = "Champion";
+}
+else if (shots >= 10000) {
+    profile.level = "MVP";
+}
+else if (shots >= 5000) {
+    profile.level = "All-Star";
+}
+else if (shots >= 1500) {
+    profile.level = "Shooter";
+}
+else if (shots >= 500) {
+    profile.level = "Starter";
+}
+else {
+    profile.level = "Rookie";
+}
     saveProfile();
     loadProfile();
 }
@@ -389,34 +389,40 @@ meterValue.textContent=shots;
 /*========================================= 
 LEVELS 
 =========================================*/ 
+let goal = 500;
 
-let goal=200; 
+let level = "Rookie";
 
-let level="Rookie"; 
+if (shots >= 25000) {
 
-if(shots>=1000){ 
+    goal = 25000;
+    level = "Champion";
 
-goal=1500; 
+}
+else if (shots >= 10000) {
 
-level="Legend"; 
+    goal = 25000;
+    level = "MVP";
 
-} 
+}
+else if (shots >= 5000) {
 
-else if(shots>=500){ 
+    goal = 10000;
+    level = "All-Star";
 
-goal=1000; 
+}
+else if (shots >= 1500) {
 
-level="MVP"; 
+    goal = 5000;
+    level = "Shooter";
 
-} 
+}
+else if (shots >= 500) {
 
-else if(shots>=200){ 
+    goal = 1500;
+    level = "Starter";
 
-goal=500; 
-
-level="All-Star"; 
-
-} 
+}
 
 const percent= 
 
@@ -450,43 +456,42 @@ goal;
 
 if(nextReward){ 
 
-if(level==="Rookie"){ 
+if (level === "Rookie") {
 
-nextReward.textContent= 
+    nextReward.textContent =
+        (goal - shots) + " SHOTS TO STARTER";
 
-(goal-shots)+ 
+}
+else if (level === "Starter") {
 
-" SHOTS TO ALL-STAR"; 
+    nextReward.textContent =
+        (goal - shots) + " SHOTS TO SHOOTER";
 
-} 
+}
+else if (level === "Shooter") {
 
-else if(level==="All-Star"){ 
+    nextReward.textContent =
+        (goal - shots) + " SHOTS TO ALL-STAR";
 
-nextReward.textContent= 
+}
+else if (level === "All-Star") {
 
-(goal-shots)+ 
+    nextReward.textContent =
+        (goal - shots) + " SHOTS TO MVP";
 
-" SHOTS TO MVP"; 
+}
+else if (level === "MVP") {
 
-} 
+    nextReward.textContent =
+        (goal - shots) + " SHOTS TO CHAMPION";
 
-else if(level==="MVP"){ 
+}
+else {
 
-nextReward.textContent= 
+    nextReward.textContent =
+        "🏆 CHAMPION UNLOCKED";
 
-(goal-shots)+ 
-
-" SHOTS TO LEGEND"; 
-
-} 
-
-else{ 
-
-nextReward.textContent= 
-
-"LEGEND UNLOCKED"; 
-
-} 
+}
 
 } 
 
@@ -828,54 +833,50 @@ level.classList.remove("active");
 
 }); 
 
-let message="🏀 Rookie"; 
+let message = "🏀 Rookie";
+let currentLevel = 0;
 
-if(shots>=1000){ 
+if (shots >= 25000) {
 
-if(legend){ 
+    if (legend) {
+        legend.classList.add("active");
+    }
 
-legend.classList.add("active"); 
+    message = "🔥 Legend";
+    currentLevel = 3;
 
-} 
+}
+else if (shots >= 10000) {
 
-message="🔥 Legend"; 
+    if (mvp) {
+        mvp.classList.add("active");
+    }
 
-} 
+    message = "🏆 MVP";
+    currentLevel = 2;
 
-else if(shots>=500){ 
+}
+else if (shots >= 5000) {
 
-if(mvp){ 
+    if (allStar) {
+        allStar.classList.add("active");
+    }
 
-mvp.classList.add("active"); 
+    message = "⭐ All-Star";
+    currentLevel = 1;
 
-} 
+}
+else {
 
-message="🏆 MVP"; 
+    if (rookie) {
+        rookie.classList.add("active");
+    }
 
-} 
+    currentLevel = 0;
 
-else if(shots>=200){ 
+}
 
-if(allStar){ 
-
-allStar.classList.add("active"); 
-
-} 
-
-message="⭐ All-Star"; 
-
-} 
-
-else{ 
-
-if(rookie){ 
-
-rookie.classList.add("active"); 
-
-} 
-
-} 
-
+}
 const unlock= 
 
 document.getElementById( 
@@ -907,9 +908,17 @@ unlock.style.display="none";
 },2500); 
 
 } 
+if (currentLevel > unlockedLevel) {
 
-launchConfetti(); 
+    unlockedLevel = currentLevel;
 
+    localStorage.setItem(LEVEL_KEY, unlockedLevel);
+
+    launchConfetti();
+
+    playCheer();
+
+}
 } 
 
 /*========================================= 
