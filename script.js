@@ -291,17 +291,17 @@ level.textContent=profile.level;
 
 function updateProfileLevel(){
 
-    if(shots>=1000){
-        profile.level="Legend";
+    if(shots >= 15000){
+        profile.level = "Legend";
     }
-    else if(shots>=500){
-        profile.level="MVP";
+    else if(shots >= 7500){
+        profile.level = "MVP";
     }
-    else if(shots>=200){
-        profile.level="All-Star";
+    else if(shots >= 2500){
+        profile.level = "All-Star";
     }
     else{
-        profile.level="Rookie";
+        profile.level = "Rookie";
     }
 
     saveProfile();
@@ -382,39 +382,30 @@ meterValue.textContent=shots;
 /*========================================= 
 LEVELS 
 =========================================*/ 
-let goal = 200;
+let goal = 2500;
 let level = "Rookie";
 
-if(shots>=1000){
-    goal=1500;
-    level="Legend";
+if (shots >= 15000) {
+    goal = 15000;
+    level = "Legend";
 }
-else if(shots>=500){
-    goal=1000;
-    level="MVP";
+else if (shots >= 7500) {
+    goal = 15000;
+    level = "MVP";
 }
-else if(shots>=200){
-    goal=500;
-    level="All-Star";
+else if (shots >= 2500) {
+    goal = 7500;
+    level = "All-Star";
 }
-const percent= 
 
-Math.min( 
+const percent = Math.min(
+    (shots / goal) * 100,
+    100
+);
 
-(shots/goal)*100, 
-
-100 
-
-); 
-
-if(progress){ 
-
-progress.style.width= 
-
-percent+"%"; 
-
-} 
-
+if (progress) {
+    progress.style.width = percent + "%";
+}
 if(progressText){ 
 
 progressText.textContent= 
@@ -427,43 +418,43 @@ goal;
 
 } 
 
-if(nextReward){ 
+if (nextReward) {
 
-if(level==="Rookie"){
+    if (level === "Rookie") {
 
-    nextReward.textContent=
-    (goal-shots)+
-    " SHOTS TO ALL-STAR";
+        nextReward.textContent =
+            (2500 - shots) +
+            " JUMPSHOTS TO ALL-STAR";
+
+    }
+    else if (level === "All-Star") {
+
+        nextReward.textContent =
+            (7500 - shots) +
+            " JUMPSHOTS TO MVP";
+
+    }
+    else if (level === "MVP") {
+
+        nextReward.textContent =
+            (15000 - shots) +
+            " JUMPSHOTS TO LEGEND";
+
+    }
+    else {
+
+        nextReward.textContent =
+            "🏆 LEGEND UNLOCKED";
+
+    }
 
 }
-else if(level==="All-Star"){
 
-    nextReward.textContent=
-    (goal-shots)+
-    " SHOTS TO MVP";
+updateProfileLevel();
 
-}
-else if(level==="MVP"){
-
-    nextReward.textContent=
-    (goal-shots)+
-    " SHOTS TO LEGEND";
+moveBasketball();
 
 }
-else{
-
-    nextReward.textContent=
-    "LEGEND UNLOCKED";
-
-}
-
-} 
-
-updateProfileLevel(); 
-
-moveBasketball(); 
-
-} 
 
 /*========================================= 
 BASKETBALL ANIMATION 
@@ -633,13 +624,13 @@ NEW DRINK
 
 function earnDrinkShots(){ 
 
-addShots(25); 
+addShots(100); 
 
 addHistory( 
 
 "🥤 Tried A New Drink", 
 
-25 
+100 
 
 ); 
 
@@ -651,13 +642,13 @@ DAILY CHECK IN
 
 function dailyCheckIn(){ 
 
-addShots(10); 
+addShots(2); 
 
 addHistory( 
 
 "📅 Daily Check-In", 
 
-10 
+2
 
 ); 
 
@@ -799,7 +790,7 @@ level.classList.remove("active");
 
 let message="🏀 Rookie";
 
-if(shots>=1000){
+if(shots>=15000){
 
     if(legend){
         legend.classList.add("active");
@@ -808,7 +799,7 @@ if(shots>=1000){
     message="🔥 Legend";
 
 }
-else if(shots>=500){
+else if(shots>=7500){
 
     if(mvp){
         mvp.classList.add("active");
@@ -817,7 +808,7 @@ else if(shots>=500){
     message="🏆 MVP";
 
 }
-else if(shots>=200){
+else if(shots>=2500){
 
     if(allStar){
         allStar.classList.add("active");
