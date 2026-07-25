@@ -3814,3 +3814,14 @@ textarea{
     color:#777777;
 
 }
+
+input[type="text"],
+input[type="email"],
+textarea{
+
+    background:#ffffff !important;
+    color:#000000 !important;
+    -webkit-text-fill-color:#000000 !important;
+    caret-color:#000000 !important;
+
+}
