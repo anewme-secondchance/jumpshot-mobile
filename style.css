@@ -3793,3 +3793,24 @@ ORDER HISTORY POPUP
     margin:5px 0;
 
 }
+
+/* Contact Form Fix */
+
+.contact-form input,
+.contact-form textarea,
+input[type="text"],
+input[type="email"],
+textarea{
+
+    color:#000000 !important;
+    caret-color:#000000;
+    background:#ffffff;
+
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+    color:#777777;
+
+}
