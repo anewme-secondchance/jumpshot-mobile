@@ -452,7 +452,7 @@ if (nextReward) {
 
 updateProfileLevel();
 
-moveBasketball();
+
 
 }
 
