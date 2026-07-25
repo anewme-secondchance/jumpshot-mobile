@@ -3183,14 +3183,14 @@ order.items.forEach(item=>{
 }); 
 
  
-
 message += `Total Items: ${order.totalItems}\n`;
 
-message += `Reward Shots: ${order.rewardShots}\n`;
+message += `Order Total: $${Number(order.total).toFixed(2)}\n`;
 
-message += `Total: $${Number(order.total).toFixed(2)}\n\n`;
+message += `🏀 JumpShots Earned: ${order.rewardShots}\n\n`;
 
 message += "Thank you for choosing JumpShot Coffee!";
+
  
 
 alert(message); 
