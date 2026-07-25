@@ -2186,23 +2186,21 @@ initializeProfile();
 PAGE INITIALIZATION 
 =========================================*/ 
 
-document.addEventListener( 
+document.addEventListener("DOMContentLoaded", ()=>{
 
-"DOMContentLoaded", 
+    updateCartBadge();
 
-()=>{ 
+    updateRewardDisplay();
 
-updateCartBadge(); 
+    renderCart();
 
-updateRewardDisplay(); 
+    if (typeof renderFavorites === "function") {
+        renderFavorites();
+    }
 
-renderCart(); 
+    loadProfile();
 
-renderFavorites(); 
-
-loadProfile(); 
-
-}); 
+});
 
 /*========================================= 
 SERVICE WORKER 
