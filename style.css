@@ -3750,3 +3750,46 @@ border-radius:25px;
 
 }
 
+/*=====================================
+ORDER HISTORY POPUP
+======================================*/
+
+.popup-box{
+
+    background:#111111;
+    border:2px solid #72DCE8;
+    border-radius:25px;
+    padding:30px;
+    width:90%;
+    max-width:600px;
+    max-height:80vh;
+    overflow-y:auto;
+    box-shadow:0 0 20px rgba(114,220,232,.50);
+
+}
+
+.history-item{
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+    padding:15px 0;
+
+}
+
+.history-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.history-item h3{
+
+    color:#72DCE8;
+    margin-bottom:10px;
+
+}
+
+.history-item p{
+
+    margin:5px 0;
+
+}
