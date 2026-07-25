@@ -1461,10 +1461,11 @@ REWARD HOOP
 
 position:absolute;
 
-top:30px;
+top:25px;
 
-right:35px;
-
+left:50%;
+transform:translateX(-50%);
+    
 width:140px;
 
 height:auto;
