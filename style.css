@@ -1528,40 +1528,45 @@ animation:shootBall 1.2s ease forwards;
 
 }
 
-@keyframes shootBall{
+@keyframes shootBall {
 
 0%{
-left:45px;
-bottom:25px;
-transform:rotate(0deg) scale(1);
+    left:45px;
+    bottom:25px;
+    transform:rotate(0deg) scale(1);
 }
 
-25%{
-left:180px;
-bottom:170px;
-transform:rotate(180deg) scale(.9);
+20%{
+    left:120px;
+    bottom:120px;
+    transform:rotate(180deg) scale(.95);
 }
 
-50%{
-left:340px;
-bottom:255px;
-transform:rotate(360deg) scale(.8);
+40%{
+    left:220px;
+    bottom:200px;
+    transform:rotate(360deg) scale(.85);
 }
 
-75%{
-left:460px;
-bottom:215px;
-transform:rotate(540deg) scale(.7);
+60%{
+    left:310px;
+    bottom:255px;
+    transform:rotate(540deg) scale(.75);
+}
+
+80%{
+    left:365px;
+    bottom:285px;
+    transform:rotate(630deg) scale(.65);
 }
 
 100%{
-left:520px;
-bottom:245px;
-transform:rotate(720deg) scale(.55);
+    left:395px;
+    bottom:290px;
+    transform:rotate(720deg) scale(.55);
 }
 
 }
-
 /*=========================================
 COURT FLOOR
 =========================================*/
