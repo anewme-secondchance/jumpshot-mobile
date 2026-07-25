@@ -1531,53 +1531,33 @@ animation:shootBall 1.2s ease forwards;
 @keyframes shootBall{
 
 0%{
-
 left:45px;
-
 bottom:25px;
-
 transform:rotate(0deg) scale(1);
-
 }
 
 25%{
-
-left:210px;
-
+left:180px;
 bottom:170px;
-
 transform:rotate(180deg) scale(.9);
-
 }
 
 50%{
-
-left:420px;
-
+left:340px;
 bottom:255px;
-
 transform:rotate(360deg) scale(.8);
-
 }
 
 75%{
-
-left:610px;
-
-bottom:205px;
-
+left:460px;
+bottom:215px;
 transform:rotate(540deg) scale(.7);
-
 }
 
 100%{
-
-left:705px;
-
-bottom:250px;
-
+left:520px;
+bottom:245px;
 transform:rotate(720deg) scale(.55);
-
 }
 
 }
