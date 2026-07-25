@@ -1187,31 +1187,63 @@ showToast(
 ORDER HISTORY 
 =========================================*/ 
 
-function viewOrders(){ 
+function viewOrders(){
 
-const orders = 
+    const orders =
+    JSON.parse(localStorage.getItem("orderHistory")) || [];
 
-JSON.parse( 
+    if(orders.length === 0){
+        showToast("No Previous Orders");
+        return;
+    }
 
-localStorage.getItem("orderHistory") 
+    const popup = document.getElementById("orderHistoryPopup");
+    const list = document.getElementById("orderHistoryList");
 
-) || []; 
+    list.innerHTML = "";
 
-if(orders.length===0){ 
+    orders.slice().reverse().forEach(order=>{
 
-showToast( "No Previous Orders" ); 
+        list.innerHTML += `
 
-return; 
+        <div class="history-item">
 
-} 
+            <h3>☕ Order ${order.id}</h3>
 
-console.log(orders); 
+            <p>📅 ${order.date}</p>
 
-showToast(`${orders.length} Previous Orders Found`);
+            <p>🕒 Pickup: ${order.pickupTime}</p>
 
-} 
+            ${order.items.map(item=>`
+                <p>${item.qty} × ${item.name}</p>
+            `).join("")}
 
+            <p><strong>Total:</strong> $${Number(order.total).toFixed(2)}</p>
 
+            <p><strong>🏀 JumpShots:</strong> ${order.rewardShots}</p>
+
+            <hr>
+
+        </div>
+
+        `;
+
+    });
+
+    popup.style.display = "flex";
+
+}
+
+function closeOrderHistory(){
+
+    const popup =
+    document.getElementById("orderHistoryPopup");
+
+    if(popup){
+        popup.style.display = "none";
+    }
+
+}
 /*========================================= 
 INSTALL PWA 
 =========================================*/ 
