@@ -3193,8 +3193,7 @@ order.items.forEach(item=>{
 }); 
 
  
-
-message += `Total Items: ${order.totalItems}\n`; 
+message += `Total: $${Number(order.total).toFixed(2)}\n\n`;
 
  
 
