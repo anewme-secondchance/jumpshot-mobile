@@ -2861,10 +2861,9 @@ const totalPrice =
     Number((currentPrice * quantity).toFixed(2)); 
 
  
+const rewardShots =
+    quantity * 100;
 
-const rewardShots = 
-
-    quantity * 100; 
 
 cart.push({ 
 
